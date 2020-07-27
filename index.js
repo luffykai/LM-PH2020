@@ -5,13 +5,20 @@ const sync_request = require("sync-request");
 
 const FIELD_MAP = {};
 
-const loadMap = function() {
-  fs.createReadStream("data/field_map.csv")
-    .pipe(csv())
-    .on("data", (row) => (FIELD_MAP[row.ronny_field] = row.ocds_path))
-    .on("end", () => {
-      console.log(FIELD_MAP);
-    });
+const loadMap = async function() {
+  data = fs.readFileSync("data/field_map.csv");
+  console.log(data);
+  data = csv(data);
+  console.log(data);
+  for (var row of data) {
+    FIELD_MAP[row.ronny_field] = row.ocds_path;
+  }
+  //fs.createReadStream("data/field_map.csv")
+  //  .pipe(csv())
+  //  .on("data", (row) => (FIELD_MAP[row.ronny_field] = row.ocds_path))
+  //  .on("end", () => {
+  //    console.log(FIELD_MAP);
+  //  });
 }
 
 const getContract = function(org_id, contract_id) {
@@ -21,14 +28,16 @@ const getContract = function(org_id, contract_id) {
 
 main = function() {
   loadMap();
-  var contract = getContract2("3.80.11", "1090212-B2");
+  return;
+  var contract = getContract("3.80.11", "1090212-B2");
   console.log(contract);
   for (var release of contract.records) {
     console.log(release.brief);
     for (var key in release.detail) {
       console.log(key);
+      console.log("yo");
+      console.log(FIELD_MAP[key]);
     }
-    break;
   }
   console.log("1");
 }
