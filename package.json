@@ -1,6 +1,7 @@
 {
     "name": "LM social housing map",
     "dependencies": {
-        "request": "^2.88.2"
+        "request": "^2.88.2",
+        "sync-request": "^6.1.0"
     }
 }
