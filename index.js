@@ -1,4 +1,3 @@
-const csv = require("csv-parser");
 const fs = require("fs");
 const request = require("request");
 const sync_request = require("sync-request");
