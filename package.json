@@ -1,0 +1,6 @@
+{
+    "name": "LM social housing map",
+    "dependencies": {
+        "request": "^2.88.2"
+    }
+}
