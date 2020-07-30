@@ -4,6 +4,10 @@ const sync_request = require("sync-request");
 
 const put = require("./put.js");
 const parse = require("csv-parse/lib/sync");
+const { getReleaseTagFromZhString, getTimestampWithDateString } = require("./LMUtils");
+const fieldHandlers = require("./fieldHandlers");
+
+const LM_OCDS_PREFIX = "ocds-kj3ygj";
 
 /*
  * Load the csv file and turn it into a Map Object
@@ -24,13 +28,10 @@ const loadMap = function () {
   return map;
 };
 
-const getContract = function (org_id, contract_id) {
+const getContract = function (orgID, contractID) {
   res = sync_request(
     "GET",
-    "https://pcc.g0v.ronny.tw/api/tender?unit_id=" +
-      org_id +
-      "&job_number=" +
-      contract_id
+    `https://pcc.g0v.ronny.tw/api/tender?unit_id=${orgID}&job_number=${contractID}`
   );
   return JSON.parse(res.getBody());
 };
@@ -38,30 +39,50 @@ const getContract = function (org_id, contract_id) {
 main = function () {
   const FIELD_MAP = loadMap();
   const contract = getContract("3.80.11", "1090212-B2");
+  console.log("Contract");
   console.log(contract);
 
-  const ocdsRecord = {};
-
   for (let release of contract.records) {
+    console.log("BRIEF");
     console.log(release.brief);
+
+    const ocdsRelease = {};
+
+    const releaseDate = getTimestampWithDateString(
+      release.date != null ? String(release.date) : null
+    );
+    // Set general information from brief
+    releaseDate && put(ocdsRelease, "date", releaseDate);
+    put(ocdsRelease, "id", release.filename);
+    put(ocdsRelease, "ocid", `${LM_OCDS_PREFIX}-${release.filename}`);
+    put(ocdsRelease, "tag", getReleaseTagFromZhString(release.brief.type));
+    // HardCode Data for each releases
+    put(ocdsRelease, 'language', 'zh');
+    put(ocdsRelease, 'initiationType', 'tender'); // Only tender is supported from this code list
+
     for (let key in release.detail) {
       // For each field in the Ronny API, we find our mapping to
       // the OCDS Fields path. If the path is found, we set it
       // into an object.
       let path = FIELD_MAP.get(key);
-      // Replace All the backslash to a dot
+      const fieldHandler = fieldHandlers[key];
 
+      // Replace All the backslash to a dot
       path = path != null ? path.replace(/\//g, ".") : null;
       if (path) {
-        put(ocdsRecord, path, release.detail[key]);
+        const ocdsValue =
+          fieldHandler != null
+            ? fieldHandler(release.detail[key])
+            : release.detail[key];
+        put(ocdsRelease, path, ocdsValue);
       } else {
         console.error("no path for", key);
       }
     }
-  }
 
-  console.log('OCDS Result');
-  console.log(ocdsRecord);
+    console.log("===== OCDS Release =====");
+    console.log(ocdsRelease);
+  }
 };
 
 main();
