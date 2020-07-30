@@ -49,7 +49,9 @@ main = function () {
       // the OCDS Fields path. If the path is found, we set it
       // into an object.
       let path = FIELD_MAP.get(key);
-      path = path != null ? path.replace("/", ".") : null;
+      // Replace All the backslash to a dot
+
+      path = path != null ? path.replace(/\//g, ".") : null;
       if (path) {
         put(ocdsRecord, path, release.detail[key]);
       } else {
