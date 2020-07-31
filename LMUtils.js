@@ -26,7 +26,7 @@ function getTimestampWithDateString(dateString) {
 function getReleaseTagFromZhString(typeString) {
   switch (typeString) {
     case "招標文件公開閱覽公告資料公告":
-        return 'planning';
+      return "planning";
     case "公開取得報價單或企劃書公告":
     case "公開招標公告":
     case "限制性招標(經公開評選或公開徵求)公告":
@@ -45,7 +45,38 @@ function getReleaseTagFromZhString(typeString) {
   }
 }
 
+/*
+ *
+ * Given a Zh string of category (財物類381-傢具), we return a procurement category from
+ * the procurementCategory codelist.
+ * https://standard.open-contracting.org/latest/en/schema/codelists/#procurement-category
+ *
+ * According to the law listed here
+ * https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030057
+ * Seems like there's only three options in Taiwan
+ * 工程
+ * 財物
+ * 勞務
+ *
+ */
+function getProcurementCategory(categoryString) {
+  if (categoryString.indexOf("工程") >= 0) {
+    return "works";
+  }
+  if (categoryString.indexOf("財物") >= 0) {
+    return "goods";
+  }
+  if (categoryString.indexOf("勞務") >= 0) {
+    return "services";
+  }
+
+  console.error(
+    `procurement category: ${categoryString} is not given a category code.`
+  );
+}
+
 module.exports = {
+  getProcurementCategory,
   getReleaseTagFromZhString,
-  getTimestampWithDateString
+  getTimestampWithDateString,
 };
