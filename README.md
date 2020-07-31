@@ -17,10 +17,17 @@ You should be able to see results like the following
   ocid: 'ocds-kj3ygj-TIQ-1-52845290',
   tag: 'tender',
   language: 'zh',
+  initiationType: 'tender',
   buyer: { id: '3.80.11', name: '桃園市政府工務局' },
   parties: {
     additionalIdentifiers: { legalName: '桃園市政府住宅發展處住宅開發科' },
-    address: { streetAddress: '330桃園市桃園區力行路300號' },
+    address: {
+      locality: '桃園市',
+      region: '桃園區',
+      postalCode: '330',
+      countryName: '臺灣',
+      streetAddress: '330桃園市桃園區力行路300號'
+    },
     contactPoint: {
       name: '梁如中先生',
       telephone: '(03)3324700分機2216',
@@ -31,11 +38,13 @@ You should be able to see results like the following
   tender: {
     id: '1090212-B2',
     title: '桃園市社會住宅(略)家具租賃服務案(詳附加說明)',
-    mainProcurementCategory: '財物類381-傢具',
-    minValue: { amount: '274,736,297元' },
+    mainProcurementCategory: 'goods',
+    minValue: { currency: 'TWD', amount: '274,736,297元' },
     procurementMethod: 'open',
     awardCriteria: '最有利標',
-    tenderPeriod: { startDate: '109/07/22' },
+    tenderPeriod: { startDate: '109/07/22', endDate: '109/07/30 09:00' },
+    submissionMethod: 'written',
+    submissionMethodDetails: '親送或寄達桃園市政府7樓工務局採購管理科收',
     eligibilityCriteria: '(一)廠商基本資格:\n' +
       '1.投標廠商應符合下列其中1項基本資格：\n' +
       '(1)家具及裝設品製造業(CN01010)\n' +
