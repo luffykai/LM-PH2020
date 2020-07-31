@@ -2,13 +2,13 @@ const fs = require("fs");
 const request = require("request");
 const sync_request = require("sync-request");
 const yargs = require("yargs");
+const jsesc = require('jsesc');
 
 const put = require("./put.js");
 const csvparse = require("csv-parse/lib/sync");
 const {
   getReleaseTagFromZhString,
-  getTimestampWithDateString,
-  escapeUnicode
+  getTimestampWithDateString
 } = require("./LMUtils");
 const fieldHandlers = require("./fieldHandlers");
 
@@ -124,6 +124,7 @@ const filterTitleWithRegex = function(records, regex) {
 
 // Example: 3.80.11, 1090212-B2
 const convertToOCDS = function(orgID, contractID) {
+
   const FIELD_MAP = loadMap();
   const contract = getContract(orgID, contractID);
   console.log("org: " + orgID + " contract: " + contractID);
@@ -175,11 +176,11 @@ const convertToOCDS = function(orgID, contractID) {
 main = function() {
   const inputArg = process.argv.slice(2);
   if (argv._.includes("search_with_unit")) {
-    const title = escapeUnicode(argv.title);
+    const title = jsesc(argv.title);
     let mergedRecords = mergeRecords(
         searchByTitleAndUnitIds(title, argv.unit_ids));
     if (argv.regex) {
-      const regex = escapeUnicode(argv.regex);
+      const regex = jsesc(argv.regex);
       mergedRecords = filterTitleWithRegex(mergedRecords, regex);
     }
     console.log("======== Procurements ========");
