@@ -88,6 +88,8 @@ const mergeRecords = function (records) {
     mergedRecords[recordJobNum] = {};
     mergedRecords[recordJobNum]["tender_api_url"] = record["tender_api_url"];
     mergedRecords[recordJobNum]["title"] = record["brief"]["title"];
+    mergedRecords[recordJobNum]['date'] = record['date'];
+
   }
   return mergedRecords;
 };
