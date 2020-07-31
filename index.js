@@ -1,11 +1,30 @@
 const fs = require("fs");
 const request = require("request");
 const sync_request = require("sync-request");
+const yargs = require("yargs");
 
 const put = require("./put.js");
 const parse = require("csv-parse/lib/sync");
 const { getReleaseTagFromZhString, getTimestampWithDateString } = require("./LMUtils");
 const fieldHandlers = require("./fieldHandlers");
+
+const argv = yargs
+  .command("search_with_unit", "Search title with associated unit IDs.", {
+    title: {
+      description: "The title to search for",
+      alias: "t",
+      demandOption: true
+    },
+    unit_ids: {
+      description: "The unit ID to filter with",
+      alias: "uid",
+      type: "array",
+      demandOption: true
+    }
+  })
+  .string(["title", "unit_ids"]) // Ensure "3.79" is parsed as string not number.
+  .help()
+  .alias("help", "h").argv;
 
 const LM_OCDS_PREFIX = "ocds-kj3ygj";
 
@@ -36,7 +55,53 @@ const getContract = function (orgID, contractID) {
   return JSON.parse(res.getBody());
 };
 
-main = function () {
+const getFilteredRecord = function(records, unit_ids) {
+  return records.filter(function(record) {
+    return unit_ids.includes(record["unit_id"]);
+  });
+};
+
+const mergeRecords = function(records) {
+  const mergedRecords = {};
+  for (let record of records) {
+    if (record["job_number"] in mergedRecords) {
+      continue;
+    }
+    const recordJobNum = record["job_number"];
+    mergedRecords[recordJobNum] = {};
+    mergedRecords[recordJobNum]["tender_api_url"] = record["tender_api_url"];
+    mergedRecords[recordJobNum]["title"] = record["brief"]["title"];
+  }
+  return mergedRecords;
+};
+
+const searchContractByTitleAndUnitIds = function(query, unit_ids) {
+  let filteredRecords = [];
+  let currPage = 0;
+  let total_pages = 1;
+  do {
+    res = sync_request(
+      "GET",
+      `https://pcc.g0v.ronny.tw/api/searchbytitle?query=${query}&page=${currPage +
+        1}`
+    );
+    res_json = JSON.parse(res.getBody());
+    filteredRecords = filteredRecords.concat(
+      getFilteredRecord(res_json["records"], unit_ids)
+    );
+    currPage = res_json["page"];
+    total_pages = res_json["total_pages"];
+  } while (currPage < total_pages);
+  console.log("===== Found Procurements =====");
+  console.log(mergeRecords(filteredRecords));
+};
+
+main = function() {
+  const inputArg = process.argv.slice(2);
+  if (argv._.includes("search_with_unit")) {
+    searchContractByTitleAndUnitIds(argv.title, argv.unit_ids);
+    return;
+  }
   const FIELD_MAP = loadMap();
   const contract = getContract("3.80.11", "1090212-B2");
   console.log("Contract");
