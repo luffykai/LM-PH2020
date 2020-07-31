@@ -47,6 +47,5 @@ function getReleaseTagFromZhString(typeString) {
 
 module.exports = {
   getReleaseTagFromZhString,
-  getTimestampWithDateString,
-  escapeUnicode
+  getTimestampWithDateString
 };
