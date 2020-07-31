@@ -1,13 +1,13 @@
 const fs = require("fs");
 const sync_request = require("sync-request");
 const yargs = require("yargs");
-const jsesc = require('jsesc');
+const jsesc = require("jsesc");
 
 const put = require("./put.js");
 const csvparse = require("csv-parse/lib/sync");
 const {
   getReleaseTagFromZhString,
-  getTimestampWithDateString
+  getTimestampWithDateString,
 } = require("./LMUtils");
 const fieldHandlers = require("./fieldHandlers");
 
@@ -16,18 +16,18 @@ const argv = yargs
     title: {
       description: "The title to search for",
       alias: "t",
-      demandOption: true
+      demandOption: true,
     },
     unit_ids: {
       description: "The unit ID to filter with",
       alias: "uid",
       type: "array",
-      demandOption: true
+      demandOption: true,
     },
     regex: {
       description: "Additional regex to filter the title",
       alias: "r",
-    }
+    },
   })
   .command("convert_to_ocds", "Convert the given contract to OCDS format", {
     org_id: {
@@ -36,8 +36,8 @@ const argv = yargs
     },
     contract_id: {
       description: "The ID of the contract",
-      alias: "c"
-    }
+      alias: "c",
+    },
   })
   .string(["title", "unit_ids", "regex", "org_id", "contract_id"]) // Ensure "3.79" is parsed as string not number.
   .help()
@@ -72,13 +72,13 @@ const getContract = function (orgID, contractID) {
   return JSON.parse(res.getBody());
 };
 
-const getFilteredRecord = function(records, unit_ids) {
-  return records.filter(function(record) {
+const getFilteredRecord = function (records, unit_ids) {
+  return records.filter(function (record) {
     return unit_ids.includes(record["unit_id"]);
   });
 };
 
-const mergeRecords = function(records) {
+const mergeRecords = function (records) {
   const mergedRecords = {};
   for (let record of records) {
     if (record["job_number"] in mergedRecords) {
@@ -92,15 +92,16 @@ const mergeRecords = function(records) {
   return mergedRecords;
 };
 
-const searchByTitleAndUnitIds = function(query, unit_ids) {
+const searchByTitleAndUnitIds = function (query, unit_ids) {
   let filteredRecords = [];
   let currPage = 0;
   let total_pages = 1;
   do {
     res = sync_request(
       "GET",
-      `https://pcc.g0v.ronny.tw/api/searchbytitle?query=${query}&page=${currPage +
-        1}`
+      `https://pcc.g0v.ronny.tw/api/searchbytitle?query=${query}&page=${
+        currPage + 1
+      }`
     );
     res_json = JSON.parse(res.getBody());
     filteredRecords = filteredRecords.concat(
@@ -112,18 +113,17 @@ const searchByTitleAndUnitIds = function(query, unit_ids) {
   return filteredRecords;
 };
 
-const filterTitleWithRegex = function(records, regex) {
+const filterTitleWithRegex = function (records, regex) {
   for (let key in records) {
     if (records[key]["title"].search(regex) < 0) {
       delete records[key];
     }
   }
   return records;
-}
+};
 
 // Example: 3.80.11, 1090212-B2
-const convertToOCDS = function(orgID, contractID) {
-
+const convertToOCDS = function (orgID, contractID) {
   const FIELD_MAP = loadMap();
   const contract = getContract(orgID, contractID);
   console.log("org: " + orgID + " contract: " + contractID);
@@ -145,8 +145,8 @@ const convertToOCDS = function(orgID, contractID) {
     put(ocdsRelease, "ocid", `${LM_OCDS_PREFIX}-${release.filename}`);
     put(ocdsRelease, "tag", getReleaseTagFromZhString(release.brief.type));
     // HardCode Data for each releases
-    put(ocdsRelease, 'language', 'zh');
-    put(ocdsRelease, 'initiationType', 'tender'); // Only tender is supported from this code list
+    put(ocdsRelease, "language", "zh");
+    put(ocdsRelease, "initiationType", "tender"); // Only tender is supported from this code list
 
     for (let key in release.detail) {
       // For each field in the Ronny API, we find our mapping to
@@ -162,7 +162,11 @@ const convertToOCDS = function(orgID, contractID) {
           fieldHandler != null
             ? fieldHandler(release.detail[key], ocdsRelease)
             : release.detail[key];
-        put(ocdsRelease, path, ocdsValue);
+
+        if (ocdsValue != null) {
+          // ocds does not accept field with empty value (null and undefined)
+          put(ocdsRelease, path, ocdsValue);
+        }
       } else {
         console.error("no path for", key);
       }
@@ -171,13 +175,14 @@ const convertToOCDS = function(orgID, contractID) {
     console.log("===== OCDS Release =====");
     console.log(ocdsRelease);
   }
-}
-main = function() {
+};
+main = function () {
   const inputArg = process.argv.slice(2);
   if (argv._.includes("search_with_unit")) {
     const title = jsesc(argv.title);
     let mergedRecords = mergeRecords(
-        searchByTitleAndUnitIds(title, argv.unit_ids));
+      searchByTitleAndUnitIds(title, argv.unit_ids)
+    );
     if (argv.regex) {
       const regex = jsesc(argv.regex);
       mergedRecords = filterTitleWithRegex(mergedRecords, regex);
