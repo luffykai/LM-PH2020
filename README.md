@@ -2,15 +2,15 @@
 
 ## How to Use?
 
-1. Covert to OCDS
+### 1. Covert to OCDS
 
-```
+```shell
 node index.js
 ```
 
 You should be able to see results like the following
 
-```
+```shell
 {
   date: '1595376000000',
   id: 'TIQ-1-52845290',
@@ -49,18 +49,15 @@ You should be able to see results like the following
 }
 ```
 
-2. Search for titles and filtered by unit IDs
+### 2. Search for titles and filtered by unit IDs
 
-```
-# --title, -t        The title to search for                          [required]
+```shell
+# --title, -t        The title to search for                 [string] [required]
 # --unit_ids, --uid  The unit ID to filter with               [array] [required]
+# --t: 舊宗
 node index.js search_with_unit --t '\u820a\u5b97' --uid '3.79.56' '3.79'
-```
 
-You'll get
-
-```
-===== Found Procurements =====
+======== Procurements ========
 { '1070807C0140':
    { tender_api_url:
       'http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070807C0140',
@@ -81,6 +78,19 @@ You'll get
    { tender_api_url:
       'http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10603241TIA',
      title: '106年公共住宅(培英、錦州街、舊宗段、河濱等四筆基地)交通影響分析專業服務案' } }
+Total: 5 matches.
+
+# --title, -t        The title to search for                 [string] [required]
+# --unit_ids, --uid  The unit ID to filter with               [array] [required]
+# --regex, -r        Additional regex to filter the title               [string]
+# --t: 舊宗; --r: 監督
+node index.js search_with_unit --t '\u820a\u5b97' --uid '3.79.56' '3.79' --r '\u76e3\u7763'
+======== Procurements ========
+{ '1080531SC012':
+   { tender_api_url:
+      'http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080531SC012',
+     title: '臺北市中山區錦州及內湖區舊宗公共住宅新建工程委託耐震特別監督技術服務案' } }
+Total: 1 matches.
 ```
 
 ## Yo

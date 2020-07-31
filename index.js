@@ -20,9 +20,13 @@ const argv = yargs
       alias: "uid",
       type: "array",
       demandOption: true
+    },
+    regex: {
+      description: "Additional regex to filter the title",
+      alias: "r",
     }
   })
-  .string(["title", "unit_ids"]) // Ensure "3.79" is parsed as string not number.
+  .string(["title", "unit_ids", "regex"]) // Ensure "3.79" is parsed as string not number.
   .help()
   .alias("help", "h").argv;
 
@@ -75,7 +79,7 @@ const mergeRecords = function(records) {
   return mergedRecords;
 };
 
-const searchContractByTitleAndUnitIds = function(query, unit_ids) {
+const searchByTitleAndUnitIds = function(query, unit_ids) {
   let filteredRecords = [];
   let currPage = 0;
   let total_pages = 1;
@@ -92,14 +96,29 @@ const searchContractByTitleAndUnitIds = function(query, unit_ids) {
     currPage = res_json["page"];
     total_pages = res_json["total_pages"];
   } while (currPage < total_pages);
-  console.log("===== Found Procurements =====");
-  console.log(mergeRecords(filteredRecords));
+  return filteredRecords;
 };
+
+const filterTitleWithRegex = function(records, regex) {
+  for (let key in records) {
+    if (records[key]["title"].search(regex) < 0) {
+      delete records[key];
+    }
+  }
+  return records;
+}
 
 main = function() {
   const inputArg = process.argv.slice(2);
   if (argv._.includes("search_with_unit")) {
-    searchContractByTitleAndUnitIds(argv.title, argv.unit_ids);
+    let mergedRecords = mergeRecords(
+        searchByTitleAndUnitIds(argv.title, argv.unit_ids));
+    if (argv.regex) {
+      mergedRecords = filterTitleWithRegex(mergedRecords, argv.regex);
+    }
+    console.log("======== Procurements ========");
+    console.log(mergedRecords);
+    console.log(`Total: ${Object.keys(mergedRecords).length} matches.`);
     return;
   }
   const FIELD_MAP = loadMap();
