@@ -1,5 +1,4 @@
 const fs = require("fs");
-const request = require("request");
 const sync_request = require("sync-request");
 const yargs = require("yargs");
 const jsesc = require('jsesc');
@@ -161,7 +160,7 @@ const convertToOCDS = function(orgID, contractID) {
       if (path) {
         const ocdsValue =
           fieldHandler != null
-            ? fieldHandler(release.detail[key])
+            ? fieldHandler(release.detail[key], ocdsRelease)
             : release.detail[key];
         put(ocdsRelease, path, ocdsValue);
       } else {
