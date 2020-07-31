@@ -5,7 +5,7 @@
 ### 1. Covert to OCDS
 
 ```shell
-node index.js
+node index.js convert_to_ocds --org 3.80.11 --c 1090212-B2
 ```
 
 You should be able to see results like the following
