@@ -1,4 +1,13 @@
 /*
+ * Input: 舊宗
+ * Output: \u820A\u5B97
+ * Escaping unicode for chinese characters.
+ */
+function escapeUnicode(str) {
+  return escape(str).replace(/\%u/g, '\\u');
+}
+
+/*
  * Input: 20200708
  * Output: 1594080000000
  * This is a Utils to set timestamp for each releases
@@ -45,4 +54,8 @@ function getReleaseTagFromZhString(typeString) {
   }
 }
 
-module.exports = { getReleaseTagFromZhString, getTimestampWithDateString };
+module.exports = {
+  getReleaseTagFromZhString,
+  getTimestampWithDateString,
+  escapeUnicode
+};

@@ -5,7 +5,11 @@ const yargs = require("yargs");
 
 const put = require("./put.js");
 const parse = require("csv-parse/lib/sync");
-const { getReleaseTagFromZhString, getTimestampWithDateString } = require("./LMUtils");
+const {
+  getReleaseTagFromZhString,
+  getTimestampWithDateString,
+  escapeUnicode
+} = require("./LMUtils");
 const fieldHandlers = require("./fieldHandlers");
 
 const argv = yargs
@@ -111,10 +115,12 @@ const filterTitleWithRegex = function(records, regex) {
 main = function() {
   const inputArg = process.argv.slice(2);
   if (argv._.includes("search_with_unit")) {
+    const title = escapeUnicode(argv.title);
     let mergedRecords = mergeRecords(
-        searchByTitleAndUnitIds(argv.title, argv.unit_ids));
+        searchByTitleAndUnitIds(title, argv.unit_ids));
     if (argv.regex) {
-      mergedRecords = filterTitleWithRegex(mergedRecords, argv.regex);
+      const regex = escapeUnicode(argv.regex);
+      mergedRecords = filterTitleWithRegex(mergedRecords, regex);
     }
     console.log("======== Procurements ========");
     console.log(mergedRecords);

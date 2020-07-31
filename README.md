@@ -54,8 +54,7 @@ You should be able to see results like the following
 ```shell
 # --title, -t        The title to search for                 [string] [required]
 # --unit_ids, --uid  The unit ID to filter with               [array] [required]
-# --t: 舊宗
-node index.js search_with_unit --t '\u820a\u5b97' --uid '3.79.56' '3.79'
+node index.js search_with_unit --t '舊宗' --uid '3.79.56' '3.79'
 
 ======== Procurements ========
 { '1070807C0140':
@@ -83,8 +82,7 @@ Total: 5 matches.
 # --title, -t        The title to search for                 [string] [required]
 # --unit_ids, --uid  The unit ID to filter with               [array] [required]
 # --regex, -r        Additional regex to filter the title               [string]
-# --t: 舊宗; --r: 監督
-node index.js search_with_unit --t '\u820a\u5b97' --uid '3.79.56' '3.79' --r '\u76e3\u7763'
+node index.js search_with_unit --t '舊宗' --uid '3.79.56' '3.79' --r '監督'
 ======== Procurements ========
 { '1080531SC012':
    { tender_api_url:
