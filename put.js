@@ -16,26 +16,7 @@ const put = function (obj, path, val) {
 
 		// If the path isn't a string, return it
 		if (typeof path !== 'string') return path;
-
-		// Create new array
-		var output = [];
-
-		// Split to an array with dot notation
-		path.split('.').forEach(function (item, index) {
-
-			// Split to an array with bracket notation
-			item.split(/\[([^}]+)\]/g).forEach(function (key) {
-
-				// Push to the new array
-				if (key.length > 0) {
-					output.push(key);
-				}
-
-			});
-
-		});
-
-		return output;
+		return path.split('.');
 
 	};
 
@@ -49,11 +30,17 @@ const put = function (obj, path, val) {
 	// Loop through the path
 	path.forEach(function (key, index) {
 
-		// Check if the assigned key shoul be an array
-		var isArray = key.slice(-2) === '[]';
+		// Check if the assigned key should be an array
+		// var isArray = key.slice(-2) === '[]';
+		let isArray = false;
+		const isArrayMatch = /\[(0|[1-9][0-9]*)?\]/.exec(key);
+		if(isArrayMatch != null) {
+			isArray = true;
+		}
 
 		// If so, get the true key name by removing the trailing []
-		key = isArray ? key.slice(0, -2) : key;
+		// of the trailing [{SOME_RANDOM_INDEX}]
+		key = isArray ? key.substring(0, isArrayMatch.index) : key;
 
 		// If the key should be an array and isn't, create an array
 		if (isArray && Object.prototype.toString.call(current[key]) !== '[object Array]') {
@@ -66,8 +53,18 @@ const put = function (obj, path, val) {
 			// If it's an array, push the value
 			// Otherwise, assign it
 			if (isArray) {
-				current[key].push(val);
+				// depending on whether the index is specified
+				if (isArrayMatch != null && isArrayMatch[1] != null) {
+					current[key][Number(isArrayMatch[1])] = val;
+				} else {
+					current[key].push(val);
+				}
+
 			} else {
+				if( current == null) {
+					current = {};
+					current
+				}
 				current[key] = val;
 			}
 		}
@@ -82,6 +79,12 @@ const put = function (obj, path, val) {
 
 			// Update the current place in the object
 			current = current[key];
+			if (isArray && isArrayMatch[1] != null) {
+				if(current[Number(isArrayMatch[1])] == null) {
+					current[Number(isArrayMatch[1])] = {};
+				}
+				current = current[Number(isArrayMatch[1])];
+			}
 
 		}
 
