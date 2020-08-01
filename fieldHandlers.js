@@ -14,6 +14,7 @@ const fieldHandlers = {
   "招標資料:招標方式": (value, _ocdsRelease) => {
     switch (value) {
       case "公開招標":
+      case "公開取得報價單或企劃書":
         return "open";
       case "選擇性招標(建立合格廠商名單)":
         return "selective";

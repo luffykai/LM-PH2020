@@ -165,9 +165,11 @@ const convertToOCDS = function (orgID, contractID) {
             ? fieldHandler(release.detail[key], ocdsRelease)
             : release.detail[key];
 
+        console.log('ocdsValue', ocdsValue);
+
         if (ocdsValue != null) {
           // ocds does not accept field with empty value (null and undefined)
-          put(ocdsRelease, path, ocdsValue);
+          put(ocdsRelease, path, String(ocdsValue) );
         }
       } else {
         console.error("no path for", key);
@@ -175,6 +177,7 @@ const convertToOCDS = function (orgID, contractID) {
     }
 
     console.log("===== OCDS Release =====");
+    console.log(JSON.stringify(ocdsRelease));
     console.log(ocdsRelease);
   }
 };
