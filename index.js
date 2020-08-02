@@ -90,7 +90,6 @@ const convertToOCDS = function (orgID, contractID) {
   }
 };
 main = function () {
-  const inputArg = process.argv.slice(2);
   if (argv._.includes("search_with_unit")) {
     searchWithUnit(argv.title, argv.unit_ids, argv.regex);
   } else if (argv._.includes("convert_to_ocds")) {
