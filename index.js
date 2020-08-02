@@ -88,8 +88,7 @@ const mergeRecords = function (records) {
     mergedRecords[recordJobNum] = {};
     mergedRecords[recordJobNum]["tender_api_url"] = record["tender_api_url"];
     mergedRecords[recordJobNum]["title"] = record["brief"]["title"];
-    mergedRecords[recordJobNum]['date'] = record['date'];
-
+    mergedRecords[recordJobNum]["date"] = record["date"];
   }
   return mergedRecords;
 };
@@ -165,11 +164,11 @@ const convertToOCDS = function (orgID, contractID) {
             ? fieldHandler(release.detail[key], ocdsRelease)
             : release.detail[key];
 
-        console.log('ocdsValue', ocdsValue);
+        console.log("ocdsValue", ocdsValue);
 
         if (ocdsValue != null) {
           // ocds does not accept field with empty value (null and undefined)
-          put(ocdsRelease, path, String(ocdsValue) );
+          put(ocdsRelease, path, String(ocdsValue));
         }
       } else {
         console.error("no path for", key);
@@ -177,8 +176,7 @@ const convertToOCDS = function (orgID, contractID) {
     }
 
     console.log("===== OCDS Release =====");
-    console.log(JSON.stringify(ocdsRelease));
-    console.log(ocdsRelease);
+    console.dir(ocdsRelease, { colors: true, depth: null });
   }
 };
 main = function () {

@@ -27,20 +27,19 @@ test("put value into array with index", () => {
   expect(obj.a.b[1]).toBe("value");
 });
 
-
 test("put value into object in an array", () => {
-    const obj = {};
-    const path = "a.b[1].c";
+  const obj = {};
+  const path = "a.b[1].c";
 
-    put(obj, path, 'value');
-    expect(obj.a.b[1].c).toBe("value");
+  put(obj, path, "value");
+  expect(obj.a.b[1].c).toBe("value");
 });
 
-test('put value into object in an array, merging would work instead of creating new obj', ()=>{
-    const obj = {};
-    put(obj, 'a.b[1].c', 'value');
-    put(obj, 'a.b[1].d', 'value2');
+test("put value into object in an array, merging would work instead of creating new obj", () => {
+  const obj = {};
+  put(obj, "a.b[1].c", "value");
+  put(obj, "a.b[1].d", "value2");
 
-    expect(obj.a.b[1].c).toBe('value');
-    expect(obj.a.b[1].d).toBe('value2');
+  expect(obj.a.b[1].c).toBe("value");
+  expect(obj.a.b[1].d).toBe("value2");
 });
