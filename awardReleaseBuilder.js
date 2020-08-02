@@ -8,6 +8,8 @@ function getNextUnusedIndex(array) {
 
 function initiateAwardForSupplier(supplierName, releaseDetail, ocdsRelease) {
   let supplierIdx = getNextUnusedIndex(ocdsRelease.awards);
+  // We don't really have an id for suppliers, falling back to
+  // its name string.
   put(ocdsRelease, `awards[${supplierIdx}].suppliers[0].id`, supplierName);
   put(
     ocdsRelease,
