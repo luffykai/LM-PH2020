@@ -100,6 +100,30 @@ node index.js search_with_unit --t '舊宗' --uid '3.79.56' '3.79' --r '監督'
 Total: 1 matches.
 ```
 
+## Jest Test 
+Please make sure to install with npm first and run
+```
+npm run test 
+```
+
+you'll see results like the following 
+```
+ PASS  tests/put.test.js
+  ✓ put value into simple path (1 ms)
+  ✓ put value into array
+  ✓ put value into array with index
+  ✓ put value into object in an array (1 ms)
+  ✓ put value into object in an array, merging would work instead of creating new obj
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        1.181 s
+```
+
+
+
+
 ## Yo
 
 To add new dependency X: `npm install --save X`. And it will update `package.json`.
