@@ -4,28 +4,23 @@
 // ocds fields.
 
 const put = require("./put.js");
-const { getProcurementCategory } = require("./LMUtils");
+const {
+  getAwardStatusFromFailedTenderStatus,
+  getProcurementCategory,
+  getProcurementMethod,
+} = require("./LMUtils");
 
 const fieldHandlers = {
-  /*
-   * Given Zh String, return a method codeList
-   * https://standard.open-contracting.org/latest/en/schema/codelists/#method
-   */
   "招標資料:招標方式": (value, _ocdsRelease) => {
-    switch (value) {
-      case "公開招標":
-      case "公開取得報價單或企劃書":
-        return "open";
-      case "選擇性招標(建立合格廠商名單)":
-        return "selective";
-      case "限制性招標(經公開評選或公開徵求)":
-        return "limited";
-      // TODO: Fill in these data
-      case "!":
-        return "direct";
-      default:
-        throw `${value} does not have a mapping method code.`;
-    }
+    return getProcurementMethod(value);
+  },
+  "無法決標公告:招標方式": (value, _ocdsRelease) => {
+    return getProcurementMethod(value);
+  },
+  "無法決標公告:無法決標的理由": (value, ocdsRelease) => {
+    const awardStatus = getAwardStatusFromFailedTenderStatus(value);
+    put(ocdsRelease, "awards[0].status", awardStatus);
+    return null;
   },
   // Extract detail address information fields
   "機關資料:機關地址": (addressString, ocdsRelease) => {
@@ -126,8 +121,7 @@ const fieldHandlers = {
   "決標品項:第5品項:得標廠商1:得標廠商": (value, ocdsRelease) => {
     put(ocdsRelease, "awards[4].suppliers[0].id", value);
     return value;
-  }
-
+  },
 };
 
 module.exports = fieldHandlers;

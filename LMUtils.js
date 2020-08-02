@@ -75,6 +75,40 @@ function getProcurementCategory(categoryString) {
   );
 }
 
+/*
+ * Given Zh String, return a method codeList
+ * https://standard.open-contracting.org/latest/en/schema/codelists/#method
+ */
+function getProcurementMethod(methodString) {
+  switch (methodString) {
+    case "公開招標":
+    case "公開取得報價單或企劃書":
+      return "open";
+    case "選擇性招標(建立合格廠商名單)":
+      return "selective";
+    case "限制性招標(經公開評選或公開徵求)":
+    case "限制性招標(未經公開評選或公開徵求)":
+      return "limited";
+    // TODO: Fill in these data
+    case "!":
+      return "direct";
+    default:
+      throw `${methodString} does not have a mapping method code.`;
+  }
+}
+
+// https://standard.open-contracting.org/latest/en/schema/codelists/#award-status
+function getAwardStatusFromFailedTenderStatus(failedTenderstatus) {
+  if (failedTenderstatus === "廢標") {
+    return "cancelled";
+  }
+  if (failedTenderstatus.indexOf("流標") >= 0) {
+    return "unsuccessful";
+  }
+
+  throw `failed tender status: ${failedTenderStatus} is not covered`;
+}
+
 function postProcessing(ocdsRelease) {
   // Due to the constraint where we only set the awards.id, awards.title and awards.date into
   // the first element while parsing the query results, we need to
@@ -91,7 +125,9 @@ function postProcessing(ocdsRelease) {
 }
 
 module.exports = {
+  getAwardStatusFromFailedTenderStatus,
   getProcurementCategory,
+  getProcurementMethod,
   getReleaseTagFromZhString,
   getTimestampWithDateString,
   postProcessing,
