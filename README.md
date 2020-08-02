@@ -122,14 +122,17 @@ node index.js search_with_unit --t '舊宗' --uid '3.79.56' '3.79' --r '監督'
 Total: 1 matches.
 ```
 
-### Jest Test 
+### Jest Test
+
 Please make sure to install with npm first and run
-```
-npm run test 
+
+```shell
+npm run test
 ```
 
-you'll see results like the following 
-```
+you'll see results like the following:  
+
+```shell
  PASS  tests/put.test.js
   ✓ put value into simple path (1 ms)
   ✓ put value into array
@@ -142,9 +145,6 @@ Tests:       5 passed, 5 total
 Snapshots:   0 total
 Time:        1.181 s
 ```
-
-
-
 
 ## Yo
 
