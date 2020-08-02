@@ -6,44 +6,37 @@ function getNextUnusedIndex(array) {
   return array != null ? array.length : 0;
 }
 
+// Path in this mapping is relative to "awards".
+const initializingFields = {
+  date: "決標資料:決標日期",
+  id: "已公告資料:標案案號",
+  title: "已公告資料:標案名稱"
+};
+
 function initiateAwardForSupplier(supplierName, releaseDetail, ocdsRelease) {
   let supplierIdx = getNextUnusedIndex(ocdsRelease.awards);
-  // We don't really have an id for suppliers, falling back to
-  // its name string.
+  // awards might be just initiated, so awards[0] will created an array.
   put(ocdsRelease, `awards[${supplierIdx}].suppliers[0].id`, supplierName);
-  put(
-    ocdsRelease,
-    `awards[${supplierIdx}].id`,
-    releaseDetail["已公告資料:標案案號"]
-  );
-  put(
-    ocdsRelease,
-    `awards[${supplierIdx}].title`,
-    releaseDetail["已公告資料:標案名稱"]
-  );
-  put(
-    ocdsRelease,
-    `awards[${supplierIdx}].date`,
-    releaseDetail["已公告資料:開標時間"]
-  );
+  for (let key in initializingFields) {
+    put(
+      ocdsRelease.awards[supplierIdx],
+      key,
+      releaseDetail[initializingFields[key]]
+    );
+  }
   return supplierIdx;
 }
 
-function populateItemInSupplierAward(
-  match,
-  supplierIdx,
-  releaseDetail,
-  ocdsRelease
-) {
-  const itemIdx = getNextUnusedIndex(ocdsRelease.awards[supplierIdx].items);
+function populateItemInSupplierAward(match, releaseDetail, award) {
+  const itemIdx = getNextUnusedIndex(award.items);
   put(
-    ocdsRelease,
-    `awards[${supplierIdx}].items[${itemIdx}].id`,
+    award,
+    `items[${itemIdx}].id`,
     releaseDetail[`決標品項:第${match[1]}品項:品項名稱`]
   );
   put(
-    ocdsRelease,
-    `awards[${supplierIdx}].items[${itemIdx}].quantity`,
+    award,
+    `items[${itemIdx}].quantity`,
     releaseDetail[`決標品項:第${match[1]}品項:得標廠商${match[2]}:預估需求數量`]
   );
 }
@@ -68,9 +61,8 @@ const awardReleaseBuilder = {
       }
       populateItemInSupplierAward(
         match,
-        supplierIdx,
         releaseDetail,
-        ocdsRelease
+        ocdsRelease.awards[supplierIdx]
       );
     }
   }
