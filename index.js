@@ -8,6 +8,7 @@ const csvparse = require("csv-parse/lib/sync");
 const {
   getReleaseTagFromZhString,
   getTimestampWithDateString,
+  postProcessing,
 } = require("./LMUtils");
 const fieldHandlers = require("./fieldHandlers");
 
@@ -175,8 +176,11 @@ const convertToOCDS = function (orgID, contractID) {
       }
     }
 
+    // Post-processing for ocds release
+    const processedOCDSRelease = postProcessing(ocdsRelease);
+
     console.log("===== OCDS Release =====");
-    console.dir(ocdsRelease, { colors: true, depth: null });
+    console.dir(processedOCDSRelease, { colors: true, depth: null });
   }
 };
 main = function () {
