@@ -1,16 +1,16 @@
-const fs = require("fs");
 const sync_request = require("sync-request");
 const yargs = require("yargs");
 const jsesc = require("jsesc");
 
 const put = require("./put.js");
-const csvparse = require("csv-parse/lib/sync");
+
 const {
   getReleaseTagFromZhString,
   getTimestampWithDateString,
   postProcessing,
 } = require("./LMUtils");
-const fieldHandlers = require("./fieldHandlers");
+
+const getReleaseBuilder = require("./releaseBuilders.js");
 
 const argv = yargs
   .command("search_with_unit", "Search title with associated unit IDs.", {
@@ -45,25 +45,6 @@ const argv = yargs
   .alias("help", "h").argv;
 
 const LM_OCDS_PREFIX = "ocds-kj3ygj";
-
-/*
- * Load the csv file and turn it into a Map Object
- * synchronously
- */
-const loadMap = function () {
-  const map = new Map();
-  data = fs.readFileSync("data/field_map.csv");
-  const records = csvparse(data, {
-    columns: true,
-    skip_empty_lines: true,
-  });
-
-  for (record of records) {
-    map.set(record.ronny_field, record.ocds_path);
-  }
-
-  return map;
-};
 
 const getContract = function (orgID, contractID) {
   res = sync_request(
@@ -126,7 +107,6 @@ const filterTitleWithRegex = function (records, regex) {
 
 // Example: 3.80.11, 1090212-B2
 const convertToOCDS = function (orgID, contractID) {
-  const FIELD_MAP = loadMap();
   const contract = getContract(orgID, contractID);
   console.log("org: " + orgID + " contract: " + contractID);
   console.log("Contract");
@@ -141,40 +121,17 @@ const convertToOCDS = function (orgID, contractID) {
     const releaseDate = getTimestampWithDateString(
       release.date != null ? String(release.date) : null
     );
+    const releaseTag = getReleaseTagFromZhString(release.brief.type);
     // Set general information from brief
     releaseDate && put(ocdsRelease, "date", releaseDate);
     put(ocdsRelease, "id", release.filename);
     put(ocdsRelease, "ocid", `${LM_OCDS_PREFIX}-${release.filename}`);
-    put(ocdsRelease, "tag", getReleaseTagFromZhString(release.brief.type));
+    put(ocdsRelease, "tag", releaseTag);
     // HardCode Data for each releases
     put(ocdsRelease, "language", "zh");
     put(ocdsRelease, "initiationType", "tender"); // Only tender is supported from this code list
 
-    for (let key in release.detail) {
-      // For each field in the Ronny API, we find our mapping to
-      // the OCDS Fields path. If the path is found, we set it
-      // into an object.
-      let path = FIELD_MAP.get(key);
-      const fieldHandler = fieldHandlers[key];
-
-      // Replace All the backslash to a dot
-      path = path != null ? path.replace(/\//g, ".") : null;
-      if (path) {
-        const ocdsValue =
-          fieldHandler != null
-            ? fieldHandler(release.detail[key], ocdsRelease)
-            : release.detail[key];
-
-        console.log("ocdsValue", ocdsValue);
-
-        if (ocdsValue != null) {
-          // ocds does not accept field with empty value (null and undefined)
-          put(ocdsRelease, path, String(ocdsValue));
-        }
-      } else {
-        console.error("no path for", key);
-      }
-    }
+    getReleaseBuilder(releaseTag).build(release.detail, ocdsRelease);
 
     // Post-processing for ocds release
     const processedOCDSRelease = postProcessing(ocdsRelease);
