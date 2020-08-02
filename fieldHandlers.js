@@ -105,6 +105,12 @@ const fieldHandlers = {
     put(ocdsRelease, "tender.minValue.currency", "TWD");
     return value;
   },
+  "決標品項:第1品項:得標廠商1:得標廠商": (value, ocdsRelease) => {
+    // We don't really have an id for suppliers, falling back to
+    // its name string.
+    put(ocdsRelease, "awards.suppliers[0].id", value);
+    return value;
+  }
 };
 
 module.exports = fieldHandlers;
