@@ -1,3 +1,4 @@
+const fs = require("fs");
 const sync_request = require("sync-request");
 const yargs = require("yargs");
 
@@ -6,6 +7,8 @@ const put = require("./put.js");
 const {
   getReleaseTagFromZhString,
   getTimestampWithDateString,
+  initPackage,
+  outputPackage,
   postProcessing,
 } = require("./LMUtils");
 
@@ -40,6 +43,12 @@ const argv = yargs
       alias: "c",
     },
   })
+  .command("convet_to_oc4ids", "Convert data into OC4IDS format", {
+    input: {
+      description: "The input file to read from",
+      alias: "in",
+    }
+  })
   .string(["title", "unit_ids", "regex", "org_id", "contract_id"]) // Ensure "3.79" is parsed as string not number.
   .help()
   .alias("help", "h").argv;
@@ -57,13 +66,11 @@ const getContract = function (orgID, contractID) {
 // Example: 3.80.11, 1090212-B2
 const convertToOCDS = function (orgID, contractID) {
   const contract = getContract(orgID, contractID);
-  console.log("org: " + orgID + " contract: " + contractID);
-  console.log("Contract");
-  console.log(contract);
+  releasePackage = initPackage(contractID);
 
   for (let release of contract.records) {
-    console.log("BRIEF");
-    console.log(release.brief);
+    //console.log("BRIEF");
+    //console.log(release.brief);
 
     const ocdsRelease = {};
 
@@ -73,7 +80,7 @@ const convertToOCDS = function (orgID, contractID) {
     const releaseTag = getReleaseTagFromZhString(release.brief.type);
     // Set general information from brief
     releaseDate && put(ocdsRelease, "date", releaseDate);
-    put(ocdsRelease, "id", release.filename);
+    put(ocdsRelease, "id", release.filename + "-" + releaseDate);
     put(ocdsRelease, "ocid", `${LM_OCDS_PREFIX}-${release.filename}`);
     put(ocdsRelease, "tag", releaseTag);
     // HardCode Data for each releases
@@ -84,16 +91,44 @@ const convertToOCDS = function (orgID, contractID) {
 
     // Post-processing for ocds release
     const processedOCDSRelease = postProcessing(ocdsRelease);
-
-    console.log("===== OCDS Release =====");
-    console.dir(processedOCDSRelease, { colors: true, depth: null });
+    releasePackage.releases.push(processedOCDSRelease);
   }
+  return releasePackage;
 };
+
+const convertToOC4IDS = function(input_file) {
+  const input = JSON.parse(fs.readFileSync(input_file));
+  let oc4ids = {};
+  oc4ids.id = input.project_id;
+  oc4ids.title = input.project_name;
+  oc4ids.contractingProcesses = [];
+  for (let contract of input.contracts) {
+    releasePackage = convertToOCDS(contract.org_id, contract.contract_id);
+    contractProcess = {};
+    contractProcess.id = releasePackage.uri;
+    contractProcess.releases = [];
+    for (let release of releasePackage.releases) {
+      contractProcess.releases.push(release);
+    }
+    oc4ids.contractingProcesses.push(contractProcess);
+  }
+  return oc4ids;
+}
+
 main = function () {
   if (argv._.includes("search_with_unit")) {
     searchWithUnit(argv.title, argv.unit_ids, argv.regex);
   } else if (argv._.includes("convert_to_ocds")) {
-    convertToOCDS(argv.org_id, argv.contract_id);
+    releasePackage = convertToOCDS(argv.org_id, argv.contract_id);
+    outputPackage(releasePackage);
+  } else if (argv._.includes("convert_to_oc4ids")) {
+    const data = convertToOC4IDS(argv.input);
+    fs.writeFile("output/example_oc4ids", JSON.stringify(data, null, 4), (err) => {
+      if (err) {
+          throw err;
+      }
+      console.log("JSON data is saved.");
+    });
   } else {
     console.log("sup bro!");
   }

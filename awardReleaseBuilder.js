@@ -59,6 +59,23 @@ function populateItemInSupplierAward(match, releaseDetail, award) {
   );
 }
 
+function populatePartiesInSupplierAward(releaseDetail, ocdsRelease) {
+  const committeeField = releaseDetail["最有利標:評選委員"];
+  if (!Array.isArray(committeeField) || committeeField.length == 0) {
+    return;
+  }
+  for (let committeeMember of committeeField[0]) {
+    put(ocdsRelease, "parties[]", {
+      name: committeeMember["姓名"],
+      roles: ["reviewBody"],
+      details: {
+        occupation: committeeMember["職業"],
+        hasAttendedMeeting: committeeMember["出席會議"] === "是" ? true : false
+      }
+    });
+  }
+}
+
 const awardReleaseBuilder = {
   build: (releaseDetail, ocdsRelease) => {
     const supplierMap = new Map();
@@ -82,6 +99,7 @@ const awardReleaseBuilder = {
         releaseDetail,
         ocdsRelease.awards[supplierIdx]
       );
+      populatePartiesInSupplierAward(releaseDetail, ocdsRelease);
     }
   }
 };

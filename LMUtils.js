@@ -1,3 +1,4 @@
+const fs = require("fs");
 /*
  * Input: 20200708
  * Output: 1594080000000
@@ -124,15 +125,40 @@ function postProcessing(ocdsRelease) {
   // Due to the constraint where we only set the awards.id, awards.title and awards.date into
   // the first element while parsing the query results, we need to
   // copy all the mentioned awards data in first object to the other awards in the array
-  const { awards } = ocdsRelease;
-  if (awards != null && awards.length > 1) {
-    const { items: _items, suppliers: _suppliers, ...otherFields } = awards[0];
-    for (let i = 1; i < awards.length; i++) {
-      ocdsRelease.awards[i] = { ...ocdsRelease.awards[i], ...otherFields };
-    }
-  }
+  // const { awards } = ocdsRelease;
+  // if (awards != null && awards.length > 1) {
+  //   const { items: _items, suppliers: _suppliers, ...otherFields } = awards[0];
+  //   for (let i = 1; i < awards.length; i++) {
+  //     ocdsRelease.awards[i] = { ...ocdsRelease.awards[i], ...otherFields };
+  //   }
+  // }
 
   return ocdsRelease;
+}
+
+const initPackage = function(contractID) {
+  releasePackage = {};
+  releasePackage.uri = "ocds://contract/" + contractID;
+  releasePackage.publishedDate = Date.now();
+  releasePackage.publisher = "LM";
+  releasePackage.version = "1.1";
+  releasePackage.extensions = [
+    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_participationFee_extension/v1.1.4/extension.json",
+    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_location_extension/v1.1.4/extension.json",
+  ];
+  releasePackage.releases = [];
+  return releasePackage;
+}
+
+const outputPackage = function(releasePackage) {
+  const data = JSON.stringify(releasePackage, null, 4);
+  uri = new URL(releasePackage.uri);
+  fs.writeFile("output/" + uri.pathname, data, (err) => {
+    if (err) {
+        throw err;
+    }
+    console.log("JSON data is saved.");
+  });
 }
 
 module.exports = {
@@ -143,4 +169,6 @@ module.exports = {
   getTimestampWithDateString,
   parseAmountToInt,
   postProcessing,
+  initPackage,
+  outputPackage,
 };

@@ -42,7 +42,7 @@ const genericReleaseBuilder = {
             ? fieldHandler(releaseDetail[key], ocdsRelease)
             : releaseDetail[key];
 
-        console.log("ocdsValue", ocdsValue);
+        //console.log("ocdsValue", ocdsValue);
 
         if (ocdsValue != null) {
           // ocds does not accept field with empty value (null and undefined)
