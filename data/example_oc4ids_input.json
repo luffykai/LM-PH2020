@@ -1,0 +1,14 @@
+{
+  "project_id": "abc",
+  "project_name": "舊宗社會住宅",
+  "contracts": [
+    {
+      "contract_id": "1070807C0140",
+      "org_id": "3.79"
+    },
+    {
+      "contract_id": "1060420SC003",
+      "org_id": "3.79"
+    }
+  ]
+}

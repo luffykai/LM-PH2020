@@ -136,9 +136,9 @@ function postProcessing(ocdsRelease) {
   return ocdsRelease;
 }
 
-const initPackage = function() {
+const initPackage = function(contractID) {
   releasePackage = {};
-  releasePackage.uri = "TBD";
+  releasePackage.uri = "ocds://contract/" + contractID;
   releasePackage.publishedDate = Date.now();
   releasePackage.publisher = "LM";
   releasePackage.version = "1.1";
@@ -150,9 +150,10 @@ const initPackage = function() {
   return releasePackage;
 }
 
-const outputPackage = function(releasePackage, contractID) {
+const outputPackage = function(releasePackage) {
   const data = JSON.stringify(releasePackage, null, 4);
-  fs.writeFile('output/contract-' + contractID, data, (err) => {
+  uri = new URL(releasePackage.uri);
+  fs.writeFile("output/" + uri.pathname, data, (err) => {
     if (err) {
         throw err;
     }

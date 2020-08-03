@@ -122,6 +122,12 @@ node index.js search_with_unit --t '舊宗' --uid '3.79.56' '3.79' --r '監督'
 Total: 1 matches.
 ```
 
+### 3. Covert to OC4IDS
+```
+node index.js convert_to_oc4ids --input data/example_oc4ids_input.json
+```
+This will write output `output/example_oc4ids`
+
 ### Jest Test
 
 Please make sure to install with npm first and run
