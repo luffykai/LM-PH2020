@@ -6,6 +6,8 @@ const put = require("./put.js");
 const {
   getReleaseTagFromZhString,
   getTimestampWithDateString,
+  initPackage,
+  outputPackage,
   postProcessing,
 } = require("./LMUtils");
 
@@ -57,13 +59,11 @@ const getContract = function (orgID, contractID) {
 // Example: 3.80.11, 1090212-B2
 const convertToOCDS = function (orgID, contractID) {
   const contract = getContract(orgID, contractID);
-  console.log("org: " + orgID + " contract: " + contractID);
-  console.log("Contract");
-  console.log(contract);
+  releasePackage = initPackage();
 
   for (let release of contract.records) {
-    console.log("BRIEF");
-    console.log(release.brief);
+    //console.log("BRIEF");
+    //console.log(release.brief);
 
     const ocdsRelease = {};
 
@@ -84,10 +84,9 @@ const convertToOCDS = function (orgID, contractID) {
 
     // Post-processing for ocds release
     const processedOCDSRelease = postProcessing(ocdsRelease);
-
-    console.log("===== OCDS Release =====");
-    console.dir(processedOCDSRelease, { colors: true, depth: null });
+    releasePackage.releases.push(processedOCDSRelease);
   }
+  outputPackage(releasePackage, contractID);
 };
 main = function () {
   if (argv._.includes("search_with_unit")) {
