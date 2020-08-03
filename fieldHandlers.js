@@ -40,7 +40,7 @@ const fieldHandlers = {
   // https://standard.open-contracting.org/latest/en/schema/codelists/#submission-method
   "領投開標:是否提供電子投標": (value, ocdsRelease) => {
     if (value === "是") {
-      put(ocdsRelease, "tender.submissionMethod", "electronicSubmission");
+      put(ocdsRelease, "tender.submissionMethod[]", "electronicSubmission");
     }
 
     return null;
@@ -49,15 +49,19 @@ const fieldHandlers = {
   // https://standard.open-contracting.org/latest/en/schema/codelists/#submission-method
   "領投開標:收受投標文件地點": (value, ocdsRelease) => {
     if (value.indexOf("親送或") >= 0) {
-      put(ocdsRelease, "tender.submissionMethod", "written");
+      put(ocdsRelease, "tender.submissionMethod[]", "written");
     } else if (value.indexOf("親送") >= 0) {
-      put(ocdsRelease, "tender.submissionMethod", "inPerson");
+      put(ocdsRelease, "tender.submissionMethod[]", "inPerson");
     }
 
     return value;
   },
   "採購資料:預算金額": (value, ocdsRelease) => {
     put(ocdsRelease, "tender.minValue.currency", "TWD");
+
+    if(value == null) {
+      return null;
+    }
     return parseAmountToInt(value);
   },
   "領投開標:是否提供電子領標:總計": (value, ocdsRelease) => {

@@ -69,6 +69,7 @@ function populateCommitteesInParties(releaseDetail, ocdsRelease) {
   if (!Array.isArray(committeeField) || committeeField.length == 0) {
     return;
   }
+
   for (let committeeMember of committeeField[0]) {
     put(ocdsRelease, "parties[]", {
       name: committeeMember["姓名"],
@@ -111,6 +112,7 @@ const awardReleaseBuilder = {
     const supplierNameToIdMap = new Map();
     for (let key in releaseDetail) {
       const value = releaseDetail[key];
+      let match;
       if ((match = key.match(regexSupplierName))) {
         let supplierIdx = supplierToIdxMap.get(value);
         if (supplierIdx == null) {

@@ -27,7 +27,7 @@ ronny_field,ocds_path
 "招標資料:決標方式","tender/awardCriteria"
 ,
 "領投開標:截止投標","tender/tenderPeriod/endDate"
-"領投開標:是否提供電子投標","tender/submissionMethod"
+"領投開標:是否提供電子投標","tender/submissionMethod[]"
 "領投開標:收受投標文件地點","tender/submissionMethodDetails"
 "領投開標:是否提供電子領標:總計","tender/participationFees"
 ,

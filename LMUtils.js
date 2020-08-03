@@ -1,4 +1,5 @@
 const fs = require("fs");
+
 /*
  * Input: 20200708
  * Output: 1594080000000
@@ -190,7 +191,9 @@ const initPackage = function(contractID) {
   releasePackage = {};
   releasePackage.uri = "ocds://contract/" + contractID;
   releasePackage.publishedDate = Date.now();
-  releasePackage.publisher = "LM";
+  releasePackage.publisher = {
+    name: "Learning Man",
+  };
   releasePackage.version = "1.1";
   releasePackage.extensions = [
     "https://raw.githubusercontent.com/open-contracting-extensions/ocds_participationFee_extension/v1.1.4/extension.json",

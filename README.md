@@ -128,7 +128,7 @@ node index.js convert_to_oc4ids --input data/example_oc4ids_input.json
 ```
 This will write output `output/example_oc4ids`
 
-### Jest Test
+### 4. Jest Test
 
 Please make sure to install with npm first and run
 
@@ -151,6 +151,27 @@ Tests:       5 passed, 5 total
 Snapshots:   0 total
 Time:        1.181 s
 ```
+
+### 5. Run Web App
+One of the final result of this Hackathon project is a web app that demonstrates the ocds data of social housing projects. 
+
+- Go to the app dir
+```
+cd app
+```
+- start the express.js server
+```
+DEBUG=app:* npm start
+```
+- Visit LocalHost `http://localhost:3000/` and check that you see `LMAppRoot`.
+
+While developing, we use babel to transform JSX React components to regular js files with the following command 
+```
+npx babel --watch src --out-dir . --presets public/javascripts
+```
+More information can be found here: https://reactjs.org/docs/add-react-to-a-website.html#quickly-try-jsx
+
+
 
 ## Yo
 
