@@ -64,11 +64,11 @@ const fieldHandlers = {
     }
     return parseAmountToInt(value);
   },
-  "領投開標:是否提供電子領標:總計": (value, ocdsRelease) => {
+  "領投開標:是否提供電子領標:總計": (value, _ocdsRelease) => {
     let participationFees = {
       value: { currency: "TWD", amount: parseAmountToInt(value) }
     };
-    return [participationFees];
+    return participationFees;
   }
 };
 
