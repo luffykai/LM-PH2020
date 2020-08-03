@@ -138,7 +138,7 @@ function postProcessing(ocdsRelease) {
 
 const initPackage = function() {
   releasePackage = {};
-  releasePackage.publishData = Date.now();
+  releasePackage.publishDate = Date.now();
   releasePackage.publisher = "LM";
   releasePackage.releases = [];
   return releasePackage;
