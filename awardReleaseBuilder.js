@@ -9,7 +9,7 @@ function getNextUnusedIndex(array) {
 
 // Returns the unit price rounded to an int.
 function getUnitValueAmount(totalAmount, unit) {
-  return (parseAmountToInt(totalAmount) / parseFloat(unit)).toFixed(0);
+  return parseInt((parseAmountToInt(totalAmount) / parseFloat(unit)));
 }
 
 // Path in this mapping is relative to "awards".
@@ -64,6 +64,7 @@ function populatePartiesInSupplierAward(releaseDetail, ocdsRelease) {
   if (!Array.isArray(committeeField) || committeeField.length == 0) {
     return;
   }
+
   for (let committeeMember of committeeField[0]) {
     put(ocdsRelease, "parties[]", {
       name: committeeMember["姓名"],
@@ -81,7 +82,7 @@ const awardReleaseBuilder = {
     const supplierMap = new Map();
     for (let key in releaseDetail) {
       const value = releaseDetail[key];
-      let match = key.match(regexSupplierName);
+      const match = key.match(regexSupplierName);
       if (match == null) {
         continue;
       }
@@ -99,8 +100,9 @@ const awardReleaseBuilder = {
         releaseDetail,
         ocdsRelease.awards[supplierIdx]
       );
-      populatePartiesInSupplierAward(releaseDetail, ocdsRelease);
     }
+
+    populatePartiesInSupplierAward(releaseDetail, ocdsRelease);
   }
 };
 

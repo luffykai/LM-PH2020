@@ -98,7 +98,10 @@ const fieldHandlers = {
   },
   "採購資料:預算金額": (value, ocdsRelease) => {
     put(ocdsRelease, "tender.minValue.currency", "TWD");
-    return value;
+    if(value == null ) {
+      return null;
+    }
+    return parseInt(value.replace("元", "").replace(/,/g, ""));
   },
 };
 

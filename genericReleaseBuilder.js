@@ -46,7 +46,7 @@ const genericReleaseBuilder = {
 
         if (ocdsValue != null) {
           // ocds does not accept field with empty value (null and undefined)
-          put(ocdsRelease, path, String(ocdsValue));
+          put(ocdsRelease, path, ocdsValue);
         }
       } else {
         console.error("no path for", key);
