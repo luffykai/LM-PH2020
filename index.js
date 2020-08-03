@@ -73,7 +73,7 @@ const convertToOCDS = function (orgID, contractID) {
     const releaseTag = getReleaseTagFromZhString(release.brief.type);
     // Set general information from brief
     releaseDate && put(ocdsRelease, "date", releaseDate);
-    put(ocdsRelease, "id", release.filename);
+    put(ocdsRelease, "id", release.filename + "-" + releaseDate);
     put(ocdsRelease, "ocid", `${LM_OCDS_PREFIX}-${release.filename}`);
     put(ocdsRelease, "tag", releaseTag);
     // HardCode Data for each releases
