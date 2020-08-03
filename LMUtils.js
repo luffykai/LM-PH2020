@@ -1,5 +1,7 @@
 const fs = require("fs");
 
+const TAIWANESE_YEAR_OFFSET = 1911;
+
 /*
  * Input: 20200708
  * Output: 1594080000000
@@ -16,6 +18,28 @@ function getTimestampWithDateString(dateString) {
   const releaseDate = Date.parse(`${year}-${month}-${day}`);
 
   return releaseDate.toString();
+}
+
+// Apply Taiwanese year offset and make sure the timezone is correct (+08:00)
+function parseTaiwaneseDateStringToIsoString(dateString) {
+  if (dateString == null || dateString === "") {
+    return null;
+  }
+  const match = dateString.match(/([0-9]{1,3})/g);
+  if (match.length < 3) {
+    return null;
+  }
+  let formattedDateString = `${parseInt(match[0]) + TAIWANESE_YEAR_OFFSET}-${
+    match[1]
+  }-${match[2]}`;
+  if (match.length == 5) {
+    formattedDateString = `${formattedDateString} ${match[3]}:${
+      match[4]
+    }:00+08:00`;
+  } else {
+    formattedDateString = `${formattedDateString} 00:00:00+08:00`;
+  }
+  return new Date(Date.parse(formattedDateString)).toISOString();
 }
 
 /**
@@ -192,7 +216,7 @@ const initPackage = function(contractID) {
   releasePackage.uri = "ocds://contract/" + contractID;
   releasePackage.publishedDate = new Date().toISOString();
   releasePackage.publisher = {
-    name: "Learning Man",
+    name: "Learning Man"
   };
   releasePackage.version = "1.1";
   releasePackage.extensions = [
@@ -219,6 +243,7 @@ module.exports = {
   getProcurementCategory,
   getProcurementMethod,
   getReleaseTagFromZhString,
+  parseTaiwaneseDateStringToIsoString,
   getTimestampWithDateString,
   parseAddressToOcdsAddress,
   parseAmountToInt,

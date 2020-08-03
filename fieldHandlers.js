@@ -7,6 +7,7 @@ const put = require("./put.js");
 const {
   parseAddressToOcdsAddress,
   parseAmountToInt,
+  parseTaiwaneseDateStringToIsoString,
   getAwardStatusFromFailedTenderStatus,
   getProcurementCategory,
   getProcurementMethod
@@ -72,6 +73,18 @@ const fieldHandlers = {
     return {
       value: { currency: "TWD", amount: parseAmountToInt(value) }
     };
+  },
+  "其他:履約地點": (value, ocdsRelease) => {
+    return {
+      id: ocdsRelease.tender.title,
+      deliveryAddress: { streetAddress: value }
+    };
+  },
+  "招標資料:公告日": (value, _ocdsRelease) => {
+    return parseTaiwaneseDateStringToIsoString(value);
+  },
+  "領投開標:截止投標": (value, _ocdsRelease) => {
+    return parseTaiwaneseDateStringToIsoString(value);
   }
 };
 

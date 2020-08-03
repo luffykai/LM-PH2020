@@ -1,4 +1,8 @@
-const { parseAddressToOcdsAddress, parseAmountToInt } = require("./LMUtils");
+const {
+  parseAddressToOcdsAddress,
+  parseTaiwaneseDateStringToIsoString,
+  parseAmountToInt
+} = require("./LMUtils");
 const put = require("./put.js");
 
 const regexSupplierName = /^決標品項:第(\d)品項:得標廠商(\d):得標廠商$/;
@@ -29,9 +33,13 @@ function initiateAwardForSupplier(supplierName, releaseDetail, ocdsRelease) {
   put(award, "suppliers[0].name", supplierName);
   put(award, "id", `${ocdsRelease["id"]}-awards-${supplierIdx}`);
   put(award, "status", "active");
-  for (let key in initializingFields) {
-    put(award, key, releaseDetail[initializingFields[key]]);
-  }
+  parseTaiwaneseDateStringToIsoString;
+  put(
+    award,
+    "date",
+    parseTaiwaneseDateStringToIsoString(releaseDetail["決標資料:決標日期"])
+  );
+  put(award, "title", releaseDetail["已公告資料:標案名稱"]);
   return supplierIdx;
 }
 

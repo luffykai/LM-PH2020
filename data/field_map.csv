@@ -3,8 +3,8 @@ ronny_field,ocds_path
 "無法決標公告:機關代碼","buyer/id"
 "機關資料:機關名稱","buyer/name"
 "無法決標公告:機關名稱","buyer/name"
-"機關資料:單位名稱","parties[0]/additionalIdentifiers/legalName"
-"無法決標公告:單位名稱","parties[0]/additionalIdentifiers/legalName"
+"機關資料:單位名稱","parties[0]/additionalIdentifiers[0]/legalName"
+"無法決標公告:單位名稱","parties[0]/additionalIdentifiers[0]/legalName"
 "機關資料:機關地址","parties[0]/address/streetAddress"
 "無法決標公告:機關地址","parties[0]/address/streetAddress"
 "機關資料:聯絡人","parties[0]/contactPoint/name"
@@ -32,7 +32,7 @@ ronny_field,ocds_path
 "領投開標:是否提供電子領標:總計","tender/participationFees[]"
 ,
 "其他:廠商資格摘要","tender/eligibilityCriteria"
-"其他:履約地點","tender/items[0]/deliveryAddress/streetAddress"
+"其他:履約地點","tender/items[]"
 ,
 "無法決標公告:標案案號","tender/id"
 "無法決標公告:標案名稱","tender/title"
