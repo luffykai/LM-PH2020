@@ -82,7 +82,7 @@ const convertToOCDS = function (orgID, contractID) {
     releaseDate && put(ocdsRelease, "date", releaseDate);
     put(ocdsRelease, "id", release.filename + "-" + releaseDate);
     put(ocdsRelease, "ocid", `${LM_OCDS_PREFIX}-${release.filename}`);
-    put(ocdsRelease, "tag", releaseTag);
+    put(ocdsRelease, "tag[]", releaseTag);
     // HardCode Data for each releases
     put(ocdsRelease, "language", "zh");
     put(ocdsRelease, "initiationType", "tender"); // Only tender is supported from this code list
