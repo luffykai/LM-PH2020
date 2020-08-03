@@ -1,9 +1,15 @@
+const { parseAmountToInt } = require("./LMUtils");
 const put = require("./put.js");
 
 const regexSupplierName = /^決標品項:第(\d)品項:得標廠商(\d):得標廠商$/;
 
 function getNextUnusedIndex(array) {
   return array != null ? array.length : 0;
+}
+
+// Returns the unit price rounded to an int.
+function getUnitValueAmount(totalAmount, unit) {
+  return (parseAmountToInt(totalAmount) / parseFloat(unit)).toFixed(0);
 }
 
 // Path in this mapping is relative to "awards".
@@ -15,8 +21,9 @@ const initializingFields = {
 
 function initiateAwardForSupplier(supplierName, releaseDetail, ocdsRelease) {
   let supplierIdx = getNextUnusedIndex(ocdsRelease.awards);
-  // awards might be just initiated, so awards[0] will created an array.
+  // The award might be just initiated, so awards[0] will created an array here.
   put(ocdsRelease, `awards[${supplierIdx}].suppliers[0].id`, supplierName);
+  put(ocdsRelease.awards[supplierIdx], "status", "active");
   for (let key in initializingFields) {
     put(
       ocdsRelease.awards[supplierIdx],
@@ -38,6 +45,17 @@ function populateItemInSupplierAward(match, releaseDetail, award) {
     award,
     `items[${itemIdx}].quantity`,
     releaseDetail[`決標品項:第${match[1]}品項:得標廠商${match[2]}:預估需求數量`]
+  );
+  put(award, `items[${itemIdx}].unit.value.currency`, "TWD");
+  put(
+    award,
+    `items[${itemIdx}].unit.value.amount`,
+    getUnitValueAmount(
+      releaseDetail[`決標品項:第${match[1]}品項:得標廠商${match[2]}:決標金額`],
+      releaseDetail[
+        `決標品項:第${match[1]}品項:得標廠商${match[2]}:預估需求數量`
+      ]
+    )
   );
 }
 

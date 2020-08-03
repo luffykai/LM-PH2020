@@ -1,6 +1,6 @@
 # Social housing map
 
-## How to Use?
+## How to Use
 
 ### 1. Covert to OCDS
 

@@ -16,6 +16,17 @@ function getTimestampWithDateString(dateString) {
   return releaseDate.toString();
 }
 
+/**
+ * Parse amount from string to int
+ * 
+ * Input: "3,000,000元"
+ * Output: 3000000
+ */
+function parseAmountToInt(amount) {
+  // remove "," and "\u5143"("元")
+  return parseInt(amount.replace(/[,\u5143]/g, ""));
+}
+
 /*
  *
  * Given a Zh string of file type (決標公告), we return a tag from
@@ -130,5 +141,6 @@ module.exports = {
   getProcurementMethod,
   getReleaseTagFromZhString,
   getTimestampWithDateString,
+  parseAmountToInt,
   postProcessing,
 };
