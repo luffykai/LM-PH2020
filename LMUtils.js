@@ -125,13 +125,13 @@ function postProcessing(ocdsRelease) {
   // Due to the constraint where we only set the awards.id, awards.title and awards.date into
   // the first element while parsing the query results, we need to
   // copy all the mentioned awards data in first object to the other awards in the array
-  const { awards } = ocdsRelease;
-  if (awards != null && awards.length > 1) {
-    const { items: _items, suppliers: _suppliers, ...otherFields } = awards[0];
-    for (let i = 1; i < awards.length; i++) {
-      ocdsRelease.awards[i] = { ...ocdsRelease.awards[i], ...otherFields };
-    }
-  }
+  // const { awards } = ocdsRelease;
+  // if (awards != null && awards.length > 1) {
+  //   const { items: _items, suppliers: _suppliers, ...otherFields } = awards[0];
+  //   for (let i = 1; i < awards.length; i++) {
+  //     ocdsRelease.awards[i] = { ...ocdsRelease.awards[i], ...otherFields };
+  //   }
+  // }
 
   return ocdsRelease;
 }
