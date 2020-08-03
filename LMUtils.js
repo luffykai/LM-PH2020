@@ -138,8 +138,13 @@ function postProcessing(ocdsRelease) {
 
 const initPackage = function() {
   releasePackage = {};
-  releasePackage.publishDate = Date.now();
+  releasePackage.uri = "TBD";
+  releasePackage.publishedDate = Date.now();
   releasePackage.publisher = "LM";
+  releasePackage.version = "1.1";
+  releasePackage.extensions = [
+    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_participationFee_extension/v1.1.4/extension.json",
+  ];
   releasePackage.releases = [];
   return releasePackage;
 }
