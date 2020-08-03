@@ -19,13 +19,63 @@ function getTimestampWithDateString(dateString) {
 
 /**
  * Parse amount from string to int
- * 
+ *
  * Input: "3,000,000元"
  * Output: 3000000
  */
 function parseAmountToInt(amount) {
   // remove "," and "\u5143"("元")
   return parseInt(amount.replace(/[,\u5143]/g, ""));
+}
+
+/**
+ * Input: address string
+ * Output: OCDS address object
+ */
+function parseAddressToOcdsAddress(addressString) {
+  let ocdsAddress = {
+    countryName: "臺灣",
+    streetAddress: addressString
+  };
+  // get county name
+  const countyLastCharIndex =
+    addressString.indexOf("市") || addressString.indexOf("縣");
+  if (countyLastCharIndex >= 0) {
+    ocdsAddress["locality"] = addressString.substring(
+      countyLastCharIndex - 2,
+      countyLastCharIndex + 1
+    );
+  } else {
+    console.error(
+      `county name is not found in address string ${addressString}`
+    );
+  }
+
+  // get district name (I think this part would be kind of flaky)
+  const districtLastCharIndex = addressString.indexOf("區");
+  if (districtLastCharIndex >= 0) {
+    ocdsAddress["region"] = addressString.substring(
+      districtLastCharIndex - 2,
+      districtLastCharIndex + 1
+    );
+  } else {
+    console.error(
+      `district name is not found in address string ${addressString}`
+    );
+  }
+
+  // get postal code from the front by checking for the first non numerical
+  // number (has not been thoroughly tested yet)
+  const match = /[^0-9]/.exec(addressString);
+  if (
+    match != null &&
+    match.index < 5 /* The most detailed postal code in TW is len of 5 */
+  ) {
+    ocdsAddress["postalCode"] = addressString.substring(0, match.index);
+  } else {
+    console.error(`postalCode is not found in address string ${addressString}`);
+  }
+  return ocdsAddress;
 }
 
 /*
@@ -144,22 +194,22 @@ const initPackage = function(contractID) {
   releasePackage.version = "1.1";
   releasePackage.extensions = [
     "https://raw.githubusercontent.com/open-contracting-extensions/ocds_participationFee_extension/v1.1.4/extension.json",
-    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_location_extension/v1.1.4/extension.json",
+    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_location_extension/v1.1.4/extension.json"
   ];
   releasePackage.releases = [];
   return releasePackage;
-}
+};
 
 const outputPackage = function(releasePackage) {
   const data = JSON.stringify(releasePackage, null, 4);
   uri = new URL(releasePackage.uri);
-  fs.writeFile("output/" + uri.pathname, data, (err) => {
+  fs.writeFile("output/" + uri.pathname, data, err => {
     if (err) {
-        throw err;
+      throw err;
     }
     console.log("JSON data is saved.");
   });
-}
+};
 
 module.exports = {
   getAwardStatusFromFailedTenderStatus,
@@ -167,8 +217,9 @@ module.exports = {
   getProcurementMethod,
   getReleaseTagFromZhString,
   getTimestampWithDateString,
+  parseAddressToOcdsAddress,
   parseAmountToInt,
   postProcessing,
   initPackage,
-  outputPackage,
+  outputPackage
 };

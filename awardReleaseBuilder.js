@@ -1,7 +1,9 @@
-const { parseAmountToInt } = require("./LMUtils");
+const { parseAddressToOcdsAddress, parseAmountToInt } = require("./LMUtils");
 const put = require("./put.js");
 
 const regexSupplierName = /^決標品項:第(\d)品項:得標廠商(\d):得標廠商$/;
+const regexTendererName = /^投標廠商:投標廠商(\d):廠商名稱$/;
+const regexCoTendererName = /^投標廠商:投標廠商(\d)\(共同投標廠商\)(\d):廠商名稱$/;
 
 function getNextUnusedIndex(array) {
   return array != null ? array.length : 0;
@@ -9,27 +11,26 @@ function getNextUnusedIndex(array) {
 
 // Returns the unit price rounded to an int.
 function getUnitValueAmount(totalAmount, unit) {
-  return (parseAmountToInt(totalAmount) / parseFloat(unit)).toFixed(0);
+  return Math.round(parseAmountToInt(totalAmount) / parseFloat(unit));
 }
 
 // Path in this mapping is relative to "awards".
 const initializingFields = {
   date: "決標資料:決標日期",
-  id: "已公告資料:標案案號",
   title: "已公告資料:標案名稱"
 };
 
 function initiateAwardForSupplier(supplierName, releaseDetail, ocdsRelease) {
   let supplierIdx = getNextUnusedIndex(ocdsRelease.awards);
-  // The award might be just initiated, so awards[0] will created an array here.
+  // The award might be just initiated and awards[0] will created an array here
+  // so we cannot use ocdsRelease.awards[supplierIdx] as below directly.
   put(ocdsRelease, `awards[${supplierIdx}].suppliers[0].id`, supplierName);
-  put(ocdsRelease.awards[supplierIdx], "status", "active");
+  let award = ocdsRelease.awards[supplierIdx];
+  put(award, "suppliers[0].name", supplierName);
+  put(award, "id", `${ocdsRelease["id"]}-awards-${supplierIdx}`);
+  put(award, "status", "active");
   for (let key in initializingFields) {
-    put(
-      ocdsRelease.awards[supplierIdx],
-      key,
-      releaseDetail[initializingFields[key]]
-    );
+    put(award, key, releaseDetail[initializingFields[key]]);
   }
   return supplierIdx;
 }
@@ -44,7 +45,11 @@ function populateItemInSupplierAward(match, releaseDetail, award) {
   put(
     award,
     `items[${itemIdx}].quantity`,
-    releaseDetail[`決標品項:第${match[1]}品項:得標廠商${match[2]}:預估需求數量`]
+    parseFloat(
+      releaseDetail[
+        `決標品項:第${match[1]}品項:得標廠商${match[2]}:預估需求數量`
+      ]
+    )
   );
   put(award, `items[${itemIdx}].unit.value.currency`, "TWD");
   put(
@@ -59,7 +64,7 @@ function populateItemInSupplierAward(match, releaseDetail, award) {
   );
 }
 
-function populatePartiesInSupplierAward(releaseDetail, ocdsRelease) {
+function populateCommitteesInParties(releaseDetail, ocdsRelease) {
   const committeeField = releaseDetail["最有利標:評選委員"];
   if (!Array.isArray(committeeField) || committeeField.length == 0) {
     return;
@@ -76,31 +81,77 @@ function populatePartiesInSupplierAward(releaseDetail, ocdsRelease) {
   }
 }
 
+function populateTendererOrgObj(prefix, releaseDetail, ocdsRelease) {
+  let supplierOrgInfo = {
+    name: releaseDetail[`${prefix}:廠商名稱`],
+    id: releaseDetail[`${prefix}:廠商代碼`],
+    address: parseAddressToOcdsAddress(releaseDetail[`${prefix}:廠商地址`]),
+    contactPoint: {
+      telephone: releaseDetail[`${prefix}:廠商電話`]
+    },
+    roles: ["tenderer"]
+  };
+  if (releaseDetail[`${prefix}:是否得標`] === "是") {
+    supplierOrgInfo.roles.push("supplier");
+  }
+  put(ocdsRelease, "parties[]", supplierOrgInfo);
+}
+
+function updateSupplierIdInAward(supplierNameToIdMap, ocdsRelease) {
+  for (let award of ocdsRelease.awards) {
+    for (let supplier of award.suppliers) {
+      supplier.id = supplierNameToIdMap.get(supplier.name);
+    }
+  }
+}
+
 const awardReleaseBuilder = {
   build: (releaseDetail, ocdsRelease) => {
-    const supplierMap = new Map();
+    const supplierToIdxMap = new Map();
+    const supplierNameToIdMap = new Map();
     for (let key in releaseDetail) {
       const value = releaseDetail[key];
-      let match = key.match(regexSupplierName);
-      if (match == null) {
-        continue;
-      }
-      let supplierIdx = supplierMap.get(value);
-      if (supplierIdx == null) {
-        supplierIdx = initiateAwardForSupplier(
-          value,
+      if ((match = key.match(regexSupplierName))) {
+        let supplierIdx = supplierToIdxMap.get(value);
+        if (supplierIdx == null) {
+          supplierIdx = initiateAwardForSupplier(
+            value,
+            releaseDetail,
+            ocdsRelease
+          );
+          supplierToIdxMap.set(value, supplierIdx);
+        }
+        populateItemInSupplierAward(
+          match,
+          releaseDetail,
+          ocdsRelease.awards[supplierIdx]
+        );
+      } else if ((match = key.match(regexTendererName))) {
+        populateTendererOrgObj(
+          `投標廠商:投標廠商${match[1]}`,
           releaseDetail,
           ocdsRelease
         );
-        supplierMap.set(value, supplierIdx);
+        supplierNameToIdMap.set(
+          releaseDetail[key],
+          releaseDetail[`投標廠商:投標廠商${match[1]}:廠商代碼`]
+        );
+      } else if ((match = key.match(regexCoTendererName))) {
+        populateTendererOrgObj(
+          `投標廠商:投標廠商${match[1]}(共同投標廠商)${match[2]}`,
+          releaseDetail,
+          ocdsRelease
+        );
+        supplierNameToIdMap.set(
+          releaseDetail[key],
+          releaseDetail[
+            `投標廠商:投標廠商${match[1]}(共同投標廠商)${match[2]}:廠商代碼`
+          ]
+        );
       }
-      populateItemInSupplierAward(
-        match,
-        releaseDetail,
-        ocdsRelease.awards[supplierIdx]
-      );
-      populatePartiesInSupplierAward(releaseDetail, ocdsRelease);
     }
+    populateCommitteesInParties(releaseDetail, ocdsRelease);
+    updateSupplierIdInAward(supplierNameToIdMap, ocdsRelease);
   }
 };
 

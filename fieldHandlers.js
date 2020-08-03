@@ -5,9 +5,11 @@
 
 const put = require("./put.js");
 const {
+  parseAddressToOcdsAddress,
+  parseAmountToInt,
   getAwardStatusFromFailedTenderStatus,
   getProcurementCategory,
-  getProcurementMethod,
+  getProcurementMethod
 } = require("./LMUtils");
 
 const fieldHandlers = {
@@ -24,53 +26,11 @@ const fieldHandlers = {
   },
   // Extract detail address information fields
   "機關資料:機關地址": (addressString, ocdsRelease) => {
-    // get county name
-    const countyLastCharIndex =
-      addressString.indexOf("市") || addressString.indexOf("縣");
-    if (countyLastCharIndex >= 0) {
-      const countyName = addressString.substring(
-        countyLastCharIndex - 2,
-        countyLastCharIndex + 1
-      );
-      put(ocdsRelease, "parties.address.locality", countyName);
-    } else {
-      console.error(
-        `county name is not found in address string ${addressString}`
-      );
-    }
-
-    // get district name (I think this part would be kind of flaky)
-    const districtLastCharIndex = addressString.indexOf("區");
-    if (districtLastCharIndex >= 0) {
-      const districtName = addressString.substring(
-        districtLastCharIndex - 2,
-        districtLastCharIndex + 1
-      );
-      put(ocdsRelease, "parties.address.region", districtName);
-    } else {
-      console.error(
-        `district name is not found in address string ${addressString}`
-      );
-    }
-
-    // get postal code from the front by checking for the first non numerica number
-    // (has not been thoroughly tested yet)
-    const match = /[^0-9]/.exec(addressString);
-    if (
-      match != null &&
-      match.index < 5 /* The most detailed postal code in TW is len of 5 */
-    ) {
-      const postalCode = addressString.substring(0, match.index);
-      put(ocdsRelease, "parties.address.postalCode", postalCode);
-    } else {
-      console.error(
-        `postalCode is not found in address string ${addressString}`
-      );
-    }
-
-    // Hardcode country name
-    put(ocdsRelease, "parties.address.countryName", "臺灣");
-
+    put(
+      ocdsRelease,
+      "parties[].address",
+      parseAddressToOcdsAddress(addressString)
+    );
     return addressString;
   },
   "採購資料:標的分類": (value, _ocdsRelease) => {
@@ -98,8 +58,14 @@ const fieldHandlers = {
   },
   "採購資料:預算金額": (value, ocdsRelease) => {
     put(ocdsRelease, "tender.minValue.currency", "TWD");
-    return value;
+    return parseAmountToInt(value);
   },
+  "領投開標:是否提供電子領標:總計": (value, ocdsRelease) => {
+    let participationFees = {
+      value: { currency: "TWD", amount: parseAmountToInt(value) }
+    };
+    return [participationFees];
+  }
 };
 
 module.exports = fieldHandlers;
