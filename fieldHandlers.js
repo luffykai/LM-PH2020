@@ -21,7 +21,10 @@ const fieldHandlers = {
   },
   "無法決標公告:無法決標的理由": (value, ocdsRelease) => {
     const awardStatus = getAwardStatusFromFailedTenderStatus(value);
-    put(ocdsRelease, "awards[0].status", awardStatus);
+    put(ocdsRelease, "awards[0]", {
+      id: `${ocdsRelease["id"]}-awards-0`,
+      status: awardStatus
+    });
     return null;
   },
   // Extract detail address information fields
@@ -56,19 +59,19 @@ const fieldHandlers = {
 
     return value;
   },
-  "採購資料:預算金額": (value, ocdsRelease) => {
-    put(ocdsRelease, "tender.minValue.currency", "TWD");
-
-    if(value == null) {
+  "採購資料:預算金額": (value, _ocdsRelease) => {
+    if (value == null) {
       return null;
     }
-    return parseAmountToInt(value);
+    return { currency: "TWD", amount: parseAmountToInt(value) };
   },
   "領投開標:是否提供電子領標:總計": (value, _ocdsRelease) => {
-    let participationFees = {
+    if (value == null) {
+      return null;
+    }
+    return {
       value: { currency: "TWD", amount: parseAmountToInt(value) }
     };
-    return participationFees;
   }
 };
 

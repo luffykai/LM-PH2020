@@ -190,7 +190,7 @@ function postProcessing(ocdsRelease) {
 const initPackage = function(contractID) {
   releasePackage = {};
   releasePackage.uri = "ocds://contract/" + contractID;
-  releasePackage.publishedDate = Date.now();
+  releasePackage.publishedDate = new Date().toISOString();
   releasePackage.publisher = {
     name: "Learning Man",
   };

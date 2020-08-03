@@ -18,7 +18,7 @@ ronny_field,ocds_path
 "採購資料:標的分類","tender/mainProcurementCategory"
 "採購資料:標案案號","tender/id"
 "採購資料:標案名稱","tender/title"
-"採購資料:預算金額","tender/minValue/amount"
+"採購資料:預算金額","tender/minValue"
 ,
 "招標資料:招標方式","tender/procurementMethod"
 "無法決標公告:招標方式","tender/procurementMethod"
@@ -32,7 +32,7 @@ ronny_field,ocds_path
 "領投開標:是否提供電子領標:總計","tender/participationFees[]"
 ,
 "其他:廠商資格摘要","tender/eligibilityCriteria"
-"其他:履約地點","tender/items/deliveryAddress/streetAddress"
+"其他:履約地點","tender/items[0]/deliveryAddress/streetAddress"
 ,
 "無法決標公告:標案案號","tender/id"
 "無法決標公告:標案名稱","tender/title"
