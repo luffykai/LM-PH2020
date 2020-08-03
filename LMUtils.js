@@ -3,11 +3,11 @@ const fs = require("fs");
 const TAIWANESE_YEAR_OFFSET = 1911;
 
 /*
- * Input: 20200708
- * Output: 1594080000000
- * This is a Utils to set timestamp for each releases
+ * Input: "20200708"
+ * Output: "2020-07-07T16:00:00.000Z"
+ * This is a Utils to get ISO DateTime string in +08:00 timezone for each releases
  */
-function getTimestampWithDateString(dateString) {
+function parseReleaesDateStringToIsoString(dateString) {
   if (dateString == null || dateString === "") {
     return null;
   }
@@ -15,9 +15,9 @@ function getTimestampWithDateString(dateString) {
   const year = dateString.substring(0, 4);
   const month = dateString.substring(4, 6);
   const day = dateString.substring(6);
-  const releaseDate = Date.parse(`${year}-${month}-${day}`);
-
-  return releaseDate.toString();
+  return new Date(
+    Date.parse(`${year}-${month}-${day} 00:00:00+08:00`)
+  ).toISOString();
 }
 
 // Apply Taiwanese year offset and make sure the timezone is correct (+08:00)
@@ -244,7 +244,7 @@ module.exports = {
   getProcurementMethod,
   getReleaseTagFromZhString,
   parseTaiwaneseDateStringToIsoString,
-  getTimestampWithDateString,
+  parseReleaesDateStringToIsoString,
   parseAddressToOcdsAddress,
   parseAmountToInt,
   postProcessing,

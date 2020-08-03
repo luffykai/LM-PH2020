@@ -6,7 +6,7 @@ const put = require("./put.js");
 
 const {
   getReleaseTagFromZhString,
-  getTimestampWithDateString,
+  parseReleaesDateStringToIsoString,
   initPackage,
   outputPackage,
   postProcessing,
@@ -74,7 +74,7 @@ const convertToOCDS = function (orgID, contractID) {
 
     const ocdsRelease = {};
 
-    const releaseDate = getTimestampWithDateString(
+    const releaseDate = parseReleaesDateStringToIsoString(
       release.date != null ? String(release.date) : null
     );
     const releaseTag = getReleaseTagFromZhString(release.brief.type);
