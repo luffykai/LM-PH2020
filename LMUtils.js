@@ -1,3 +1,4 @@
+const fs = require("fs");
 /*
  * Input: 20200708
  * Output: 1594080000000
@@ -135,6 +136,24 @@ function postProcessing(ocdsRelease) {
   return ocdsRelease;
 }
 
+const initPackage = function() {
+  releasePackage = {};
+  releasePackage.publishDate = Date.now();
+  releasePackage.publisher = "LM";
+  releasePackage.releases = [];
+  return releasePackage;
+}
+
+const outputPackage = function(releasePackage, contractID) {
+  const data = JSON.stringify(releasePackage, null, 4);
+  fs.writeFile('output/contract-' + contractID, data, (err) => {
+    if (err) {
+        throw err;
+    }
+    console.log("JSON data is saved.");
+  });
+}
+
 module.exports = {
   getAwardStatusFromFailedTenderStatus,
   getProcurementCategory,
@@ -143,4 +162,6 @@ module.exports = {
   getTimestampWithDateString,
   parseAmountToInt,
   postProcessing,
+  initPackage,
+  outputPackage,
 };
