@@ -81,7 +81,7 @@ const convertToOCDS = function (orgID, contractID) {
     // Set general information from brief
     releaseDate && put(ocdsRelease, "date", releaseDate);
 
-    put(ocdsRelease, "id", `${release.filename}-${releaseDate}`);
+    put(ocdsRelease, "id", `${release.filename}-${Date.parse(releaseDate)}`);
     put(ocdsRelease, "ocid", `${LM_OCDS_PREFIX}-${ocdsRelease.id}`);
     put(ocdsRelease, "tag[]", releaseTag);
 
