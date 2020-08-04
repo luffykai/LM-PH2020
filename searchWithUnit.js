@@ -1,13 +1,13 @@
 const jsesc = require("jsesc");
 const sync_request = require("sync-request");
 
-const getFilteredRecord = function (records, unitIds) {
-  return records.filter(function (record) {
+const getFilteredRecord = function(records, unitIds) {
+  return records.filter(function(record) {
     return unitIds.includes(record["unit_id"]);
   });
 };
 
-const mergeRecords = function (records) {
+const mergeRecords = function(records) {
   const mergedRecords = {};
   for (let record of records) {
     if (record["job_number"] in mergedRecords) {
@@ -18,20 +18,20 @@ const mergeRecords = function (records) {
     mergedRecords[recordJobNum]["tender_api_url"] = record["tender_api_url"];
     mergedRecords[recordJobNum]["title"] = record["brief"]["title"];
     mergedRecords[recordJobNum]["date"] = record["date"];
+    mergedRecords[recordJobNum]["unit_id"] = record["unit_id"];
   }
   return mergedRecords;
 };
 
-const searchByTitleAndUnitIds = function (query, unitIds) {
+const searchByTitleAndUnitIds = function(query, unitIds) {
   let filteredRecords = [];
   let currPage = 0;
   let total_pages = 1;
   do {
     res = sync_request(
       "GET",
-      `https://pcc.g0v.ronny.tw/api/searchbytitle?query=${query}&page=${
-        currPage + 1
-      }`
+      `https://pcc.g0v.ronny.tw/api/searchbytitle?query=${query}&page=${currPage +
+        1}`
     );
     res_json = JSON.parse(res.getBody());
     filteredRecords = filteredRecords.concat(
@@ -43,7 +43,7 @@ const searchByTitleAndUnitIds = function (query, unitIds) {
   return filteredRecords;
 };
 
-const filterTitleWithRegex = function (records, regex) {
+const filterTitleWithRegex = function(records, regex) {
   for (let key in records) {
     if (records[key]["title"].search(regex) < 0) {
       delete records[key];
@@ -52,12 +52,9 @@ const filterTitleWithRegex = function (records, regex) {
   return records;
 };
 
-
 function searchWithUnit(rawTitle, unitIds, rawRegex) {
   const title = jsesc(rawTitle);
-  let mergedRecords = mergeRecords(
-    searchByTitleAndUnitIds(title, unitIds)
-  );
+  let mergedRecords = mergeRecords(searchByTitleAndUnitIds(title, unitIds));
   if (rawRegex != null) {
     const regex = jsesc(rawRegex);
     mergedRecords = filterTitleWithRegex(mergedRecords, regex);
@@ -65,6 +62,19 @@ function searchWithUnit(rawTitle, unitIds, rawRegex) {
   console.log("======== Procurements ========");
   console.log(mergedRecords);
   console.log(`Total: ${Object.keys(mergedRecords).length} matches.`);
+  return mergedRecords;
 }
 
-module.exports = searchWithUnit;
+function convertToOc4idsInput(records) {
+  let input = {
+    project_id: "test",
+    project_name: "test",
+    contracts: []
+  };
+  for (let key in records) {
+    input.contracts.push({ contract_id: key, org_id: records[key]["unit_id"] });
+  }
+  return input;
+}
+
+module.exports = {convertToOc4idsInput, searchWithUnit};
