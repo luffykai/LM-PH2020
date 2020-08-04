@@ -2,14 +2,14 @@ const fs = require("fs");
 const sync_request = require("sync-request");
 
 const argv = require("./commandsUtil.js");
-  const {
-    getReleaseTagFromZhString,
-    parseReleaesDateStringToIsoString,
-    initPackage,
-    outputPackage,
-    postProcessing,
-    writeJsonFile
-  } = require("./LMUtils");
+const {
+  getReleaseTagFromZhString,
+  parseReleaesDateStringToIsoString,
+  initPackage,
+  outputPackage,
+  postProcessing,
+  writeJsonFile
+} = require("./LMUtils");
 const put = require("./put.js");
 const getReleaseBuilder = require("./releaseBuilders.js");
 const { convertToOc4idsInput, searchWithUnit } = require("./searchWithUnit.js");
@@ -75,7 +75,16 @@ const convertToOC4IDS = function(input) {
     }
     oc4ids.contractingProcesses.push(contractProcess);
   }
-  return oc4ids;
+  let oc4idsPackage = {
+    uri: `ocds://contract/${input.project_id}`,
+    publishedDate: new Date().toISOString(),
+    publisher: {
+      name: "Learning Man"
+    },
+    version: "0.9",
+    projects: [oc4ids]
+  };
+  return oc4idsPackage;
 };
 
 main = function() {
