@@ -80,6 +80,7 @@ function populateCommitteesInParties(releaseDetail, ocdsRelease) {
 
   for (let committeeMember of committeeField[0]) {
     put(ocdsRelease, "parties[]", {
+      id: committeeMember["姓名"],
       name: committeeMember["姓名"],
       roles: ["reviewBody"],
       details: {

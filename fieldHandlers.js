@@ -28,6 +28,14 @@ const fieldHandlers = {
     });
     return null;
   },
+  "機關資料:機關代碼": (value, ocdsRelease) => {
+    put(ocdsRelease, "parties[0].id", value);
+    return value;
+  },
+  "無法決標公告:機關代碼": (value, ocdsRelease) => {
+    put(ocdsRelease, "parties[0].id", value);
+    return value;
+  },
   // Extract detail address information fields
   "機關資料:機關地址": (addressString, ocdsRelease) => {
     put(
