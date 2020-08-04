@@ -65,8 +65,9 @@ const getContract = function (orgID, contractID) {
 
 // Example: 3.80.11, 1090212-B2
 const convertToOCDS = function (orgID, contractID) {
+  const ocid = `${LM_OCDS_PREFIX}-${orgID}-${contractID}`;
   const contract = getContract(orgID, contractID);
-  releasePackage = initPackage(contractID);
+  releasePackage = initPackage(ocid);
 
   for (let release of contract.records) {
     // console.log("BRIEF");
@@ -81,7 +82,7 @@ const convertToOCDS = function (orgID, contractID) {
     // Set general information from brief
     releaseDate && put(ocdsRelease, "date", releaseDate);
 
-    put(ocdsRelease, "ocid", `${LM_OCDS_PREFIX}-${orgID}-${contractID}`);
+    put(ocdsRelease, "ocid", ocid);
     put(ocdsRelease, "id", `${release.filename}-${Date.parse(releaseDate)}`);
     put(ocdsRelease, "tag[]", releaseTag);
 

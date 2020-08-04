@@ -58,6 +58,9 @@ function parseAmountToInt(amount) {
  * Output: OCDS address object
  */
 function parseAddressToOcdsAddress(addressString) {
+  if (addressString == null) {
+    return null;
+  }
   let ocdsAddress = {
     countryName: "臺灣",
     streetAddress: addressString
@@ -211,9 +214,9 @@ function postProcessing(ocdsRelease) {
   return ocdsRelease;
 }
 
-const initPackage = function(contractID) {
+const initPackage = function(ocid) {
   releasePackage = {};
-  releasePackage.uri = "ocds://contract/" + contractID;
+  releasePackage.uri = `ocds://contract/${ocid}`;
   releasePackage.publishedDate = new Date().toISOString();
   releasePackage.publisher = {
     name: "Learning Man"
