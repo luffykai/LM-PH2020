@@ -69,8 +69,8 @@ const convertToOCDS = function (orgID, contractID) {
   releasePackage = initPackage(contractID);
 
   for (let release of contract.records) {
-    //console.log("BRIEF");
-    //console.log(release.brief);
+    // console.log("BRIEF");
+    // console.log(release.brief);
 
     const ocdsRelease = {};
 
@@ -81,8 +81,8 @@ const convertToOCDS = function (orgID, contractID) {
     // Set general information from brief
     releaseDate && put(ocdsRelease, "date", releaseDate);
 
+    put(ocdsRelease, "ocid", `${LM_OCDS_PREFIX}-${orgID}-${contractID}`);
     put(ocdsRelease, "id", `${release.filename}-${Date.parse(releaseDate)}`);
-    put(ocdsRelease, "ocid", `${LM_OCDS_PREFIX}-${ocdsRelease.id}`);
     put(ocdsRelease, "tag[]", releaseTag);
 
     // HardCode Data for each releases

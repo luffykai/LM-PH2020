@@ -123,9 +123,11 @@ Total: 1 matches.
 ```
 
 ### 3. Covert to OC4IDS
-```
+
+```shell
 node index.js convert_to_oc4ids --input data/example_oc4ids_input.json
 ```
+
 This will write output `output/example_oc4ids`
 
 ### 4. Jest Test
@@ -153,25 +155,33 @@ Time:        1.181 s
 ```
 
 ### 5. Run Web App
-One of the final result of this Hackathon project is a web app that demonstrates the ocds data of social housing projects. 
 
-- Go to the app dir
-```
+One of the final result of this Hackathon project is a web app that demonstrates
+the ocds data of social housing projects.
+
+#### 1. Go to the app dir
+
+```shell
 cd app
 ```
-- start the express.js server
-```
+
+#### 2. Start the express.js server
+
+```shell
 DEBUG=app:* npm start
 ```
-- Visit LocalHost `http://localhost:3000/` and check that you see `LMAppRoot`.
 
-While developing, we use babel to transform JSX React components to regular js files with the following command 
-```
+#### 3. Visit LocalHost `http://localhost:3000/` and check that you see `LMAppRoot`
+
+While developing, we use babel to transform JSX React components to regular js
+files with the following command
+
+```shell
 npx babel --watch src --out-dir . --presets public/javascripts
 ```
-More information can be found here: https://reactjs.org/docs/add-react-to-a-website.html#quickly-try-jsx
 
-
+More information can be found
+[here](https://reactjs.org/docs/add-react-to-a-website.html#quickly-try-jsx)
 
 ## Yo
 
