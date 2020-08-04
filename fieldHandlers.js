@@ -30,10 +30,19 @@ const fieldHandlers = {
   },
   "機關資料:機關代碼": (value, ocdsRelease) => {
     put(ocdsRelease, "parties[0].id", value);
+    put(ocdsRelease, "parties[0].roles[]", "buyer");
     return value;
   },
   "無法決標公告:機關代碼": (value, ocdsRelease) => {
     put(ocdsRelease, "parties[0].id", value);
+    return value;
+  },
+  "機關資料:機關名稱": (value, ocdsRelease) => {
+    put(ocdsRelease, "parties[0].name", value);
+    return value;
+  },
+  "無法決標公告:機關名稱": (value, ocdsRelease) => {
+    put(ocdsRelease, "parties[0].name", value);
     return value;
   },
   // Extract detail address information fields
