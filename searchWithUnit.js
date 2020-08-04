@@ -65,10 +65,10 @@ function searchWithUnit(rawTitle, unitIds, rawRegex) {
   return mergedRecords;
 }
 
-function convertToOc4idsInput(records) {
+function convertToOc4idsInput(project_id, records) {
   let input = {
-    project_id: "test",
-    project_name: "test",
+    project_id: project_id,
+    project_name: project_id,
     contracts: []
   };
   for (let key in records) {

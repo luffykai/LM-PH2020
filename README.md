@@ -80,46 +80,14 @@ node index.js convert_to_ocds --org_id="3.79" --contract_id="1070807C0140"
 node index.js convert_to_ocds --org_id="3.79.56" --contract_id="1070717C0129-01"
 ```
 
-### 2. Search for titles and filtered by unit IDs
+### 2. Search for titles, filtered by unit IDs, and build a OC4IDS package.
 
 ```shell
-# --title, -t        The title to search for                 [string] [required]
-# --unit_ids, --uid  The unit ID to filter with               [array] [required]
-node index.js search_with_unit --t '舊宗' --uid '3.79.56' '3.79'
+# Example:
+node index.js search_with_unit --pid '舊宗公共住宅案' --t '舊宗' --uid '3.79.56' '3.79'
 
-======== Procurements ========
-{ '1070807C0140':
-   { tender_api_url:
-      'http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070807C0140',
-     title: '臺北市內湖區舊宗公共住宅新建工程' },
-  '1080531SC012':
-   { tender_api_url:
-      'http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080531SC012',
-     title: '臺北市中山區錦州及內湖區舊宗公共住宅新建工程委託耐震特別監督技術服務案' },
-  '1070711PH':
-   { tender_api_url:
-      'http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070711PH',
-     title: '臺北市內湖區舊宗公共住宅新建工程' },
-  '1060420SC003':
-   { tender_api_url:
-      'http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060420SC003',
-     title: '臺北市內湖區舊宗段公共住宅新建工程委託規劃設計暨監造技術服務案' },
-  '10603241TIA':
-   { tender_api_url:
-      'http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10603241TIA',
-     title: '106年公共住宅(培英、錦州街、舊宗段、河濱等四筆基地)交通影響分析專業服務案' } }
-Total: 5 matches.
-
-# --title, -t        The title to search for                 [string] [required]
-# --unit_ids, --uid  The unit ID to filter with               [array] [required]
-# --regex, -r        Additional regex to filter the title               [string]
-node index.js search_with_unit --t '舊宗' --uid '3.79.56' '3.79' --r '監督'
-======== Procurements ========
-{ '1080531SC012':
-   { tender_api_url:
-      'http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080531SC012',
-     title: '臺北市中山區錦州及內湖區舊宗公共住宅新建工程委託耐震特別監督技術服務案' } }
-Total: 1 matches.
+# Example: use regex to filter projects
+node index.js search_with_unit --pid '萬華區莒光住宅案' --t '萬華' --uid '3.79.56' '3.79' --r '莒光.*((公共)|(住宅))'
 ```
 
 ### 3. Covert to OC4IDS
@@ -138,7 +106,7 @@ Please make sure to install with npm first and run
 npm run test
 ```
 
-you'll see results like the following:  
+you'll see results like the following:
 
 ```shell
  PASS  tests/put.test.js

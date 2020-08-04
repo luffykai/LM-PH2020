@@ -1,57 +1,18 @@
 const fs = require("fs");
 const sync_request = require("sync-request");
-const yargs = require("yargs");
 
+const argv = require("./commandsUtil.js");
+  const {
+    getReleaseTagFromZhString,
+    parseReleaesDateStringToIsoString,
+    initPackage,
+    outputPackage,
+    postProcessing,
+    writeJsonFile
+  } = require("./LMUtils");
 const put = require("./put.js");
-
-const {
-  getReleaseTagFromZhString,
-  parseReleaesDateStringToIsoString,
-  initPackage,
-  outputPackage,
-  postProcessing
-} = require("./LMUtils");
-
 const getReleaseBuilder = require("./releaseBuilders.js");
 const { convertToOc4idsInput, searchWithUnit } = require("./searchWithUnit.js");
-
-const argv = yargs
-  .command("search_with_unit", "Search title with associated unit IDs.", {
-    title: {
-      description: "The title to search for",
-      alias: "t",
-      demandOption: true
-    },
-    unit_ids: {
-      description: "The unit ID to filter with",
-      alias: "uid",
-      type: "array",
-      demandOption: true
-    },
-    regex: {
-      description: "Additional regex to filter the title",
-      alias: "r"
-    }
-  })
-  .command("convert_to_ocds", "Convert the given contract to OCDS format", {
-    org_id: {
-      description: "The id or organization",
-      alias: "org"
-    },
-    contract_id: {
-      description: "The ID of the contract",
-      alias: "c"
-    }
-  })
-  .command("convet_to_oc4ids", "Convert data into OC4IDS format", {
-    input: {
-      description: "The input file to read from",
-      alias: "in"
-    }
-  })
-  .string(["title", "unit_ids", "regex", "org_id", "contract_id"]) // Ensure "3.79" is parsed as string not number.
-  .help()
-  .alias("help", "h").argv;
 
 const LM_OCDS_PREFIX = "ocds-kj3ygj";
 
@@ -121,35 +82,18 @@ main = function() {
   if (argv._.includes("search_with_unit")) {
     const data = convertToOC4IDS(
       convertToOc4idsInput(
+        argv.project_id,
         searchWithUnit(argv.title, argv.unit_ids, argv.regex)
       )
     );
-    fs.writeFile(
-      `output/${data.id}`,
-      JSON.stringify(data, null, 4),
-      err => {
-        if (err) {
-          throw err;
-        }
-        console.log("JSON data is saved.");
-      }
-    );
+    writeJsonFile(`output/${argv.project_id}`, data);
   } else if (argv._.includes("convert_to_ocds")) {
     releasePackage = convertToOCDS(argv.org_id, argv.contract_id);
     outputPackage(releasePackage);
   } else if (argv._.includes("convert_to_oc4ids")) {
     const input = JSON.parse(fs.readFileSync(argv.input));
     const data = convertToOC4IDS(input);
-    fs.writeFile(
-      "output/example_oc4ids",
-      JSON.stringify(data, null, 4),
-      err => {
-        if (err) {
-          throw err;
-        }
-        console.log("JSON data is saved.");
-      }
-    );
+    writeJsonFile("output/example_oc4ids", data);
   } else {
     console.log("sup bro!");
   }

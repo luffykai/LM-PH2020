@@ -214,6 +214,19 @@ function postProcessing(ocdsRelease) {
   return ocdsRelease;
 }
 
+const writeJsonFile = function(path, data) {
+  fs.writeFile(
+    path,
+    JSON.stringify(data, null, 4),
+    err => {
+      if (err) {
+        throw err;
+      }
+      console.log("JSON data is saved.");
+    }
+  );
+}
+
 const initPackage = function(ocid) {
   releasePackage = {};
   releasePackage.uri = `ocds://contract/${ocid}`;
@@ -233,12 +246,7 @@ const initPackage = function(ocid) {
 const outputPackage = function(releasePackage) {
   const data = JSON.stringify(releasePackage, null, 4);
   uri = new URL(releasePackage.uri);
-  fs.writeFile("output/" + uri.pathname, data, err => {
-    if (err) {
-      throw err;
-    }
-    console.log("JSON data is saved.");
-  });
+  writeJsonFile(`output/${uri.pathname}`, data);
 };
 
 module.exports = {
@@ -252,5 +260,6 @@ module.exports = {
   parseAmountToInt,
   postProcessing,
   initPackage,
-  outputPackage
+  outputPackage,
+  writeJsonFile
 };
