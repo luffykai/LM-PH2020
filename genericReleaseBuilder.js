@@ -36,7 +36,7 @@ const genericReleaseBuilder = {
 
       // Replace All the backslash to a dot
       path = path != null ? path.replace(/\//g, ".") : null;
-      if (path) {
+      if (path || fieldHandler) {
         const ocdsValue =
           fieldHandler != null
             ? fieldHandler(releaseDetail[key], ocdsRelease, releaseDetail)
@@ -44,12 +44,12 @@ const genericReleaseBuilder = {
 
         //console.log("ocdsValue", ocdsValue);
 
-        if (ocdsValue != null) {
+        if (ocdsValue != null && path != null) {
           // ocds does not accept field with empty value (null and undefined)
           put(ocdsRelease, path, ocdsValue);
         }
       } else {
-        console.error("no path for", key);
+        console.error("no path for", key, " value = ", releaseDetail[key]);
       }
     }
   }
