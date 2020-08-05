@@ -49,4 +49,4 @@ ronny_field,ocds_path
 ,
 "無法決標公告:無法決標的理由","awards[0]/status"
 ,
-"採購資料:依據法條","tender.coveredBy[]"
+"採購資料:依據法條","tender.legalBasis.id"
