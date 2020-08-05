@@ -102,6 +102,24 @@ const fieldHandlers = {
   },
   "領投開標:截止投標": (value, _ocdsRelease) => {
     return parseTaiwaneseDateStringToIsoString(value);
+  },
+  "採購資料:是否適用條約或協定之採購:是否適用WTO政府採購協定(GPA)": (value, ocdsRelease) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "GPA")
+    }
+    return null;
+  },
+  "採購資料:是否適用條約或協定之採購:是否適用臺紐經濟合作協定(ANZTEC)": (value, ocdsRelease) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "ANZTEC")
+    }
+    return null;
+  },
+  "採購資料:是否適用條約或協定之採購:是否適用臺星經濟夥伴協定(ASTEP)": (value, ocdsRelease) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "ASTEP")
+    }
+    return null;
   }
 };
 
