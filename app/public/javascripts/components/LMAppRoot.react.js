@@ -8,5 +8,5 @@ function LMAppRoot() {
     );
 }
 
-var domContainer = document.querySelector('#lm_app_root');
+let domContainer = document.querySelector('#lm_app_root');
 ReactDOM.render(React.createElement(LMAppRoot, null), domContainer);

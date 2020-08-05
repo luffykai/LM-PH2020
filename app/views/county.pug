@@ -1,0 +1,8 @@
+doctype html
+html
+  head
+    title= title
+  body
+    div(id="county-map-data" data=`${JSON.stringify(data)}` county=`${county}`)
+    include county.html
+    block content
