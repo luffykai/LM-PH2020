@@ -2,6 +2,18 @@ const fs = require("fs");
 
 const TAIWANESE_YEAR_OFFSET = 1911;
 
+Object.defineProperty(String.prototype, 'hashCode', {
+  value: function() {
+    var hash = 0, i, chr;
+    for (i = 0; i < this.length; i++) {
+      chr   = this.charCodeAt(i);
+      hash  = ((hash << 5) - hash) + chr;
+      hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+  }
+});
+
 /*
  * Input: "20200708"
  * Output: "2020-07-07T16:00:00.000Z"
@@ -126,7 +138,7 @@ function getReleaseTagFromZhString(typeString) {
     case "招標文件公開閱覽公告資料更正公告":
       return "tenderUpdate";
     case "決標公告":
-      return "award";
+    return "award";
     case "更正決標公告":
     case "無法決標公告": // This I'm not so sure about this one.
       return "awardUpdate";
@@ -244,9 +256,8 @@ const initPackage = function(ocid) {
 };
 
 const outputPackage = function(releasePackage) {
-  const data = JSON.stringify(releasePackage, null, 4);
   uri = new URL(releasePackage.uri);
-  writeJsonFile(`output/${uri.pathname}`, data);
+  writeJsonFile(`output/${uri.pathname}`, releasePackage);
 };
 
 module.exports = {

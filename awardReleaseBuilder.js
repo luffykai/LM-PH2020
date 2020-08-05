@@ -31,7 +31,6 @@ function initiateAwardForSupplier(supplierName, releaseDetail, ocdsRelease) {
   put(ocdsRelease, `awards[${supplierIdx}].suppliers[0].id`, supplierName);
   let award = ocdsRelease.awards[supplierIdx];
   put(award, "suppliers[0].name", supplierName);
-  put(award, "id", `${ocdsRelease["id"]}-awards-${supplierIdx}`);
   put(award, "status", "active");
   parseTaiwaneseDateStringToIsoString;
   put(
@@ -48,6 +47,11 @@ function populateItemInSupplierAward(match, releaseDetail, award) {
   put(
     award,
     `items[${itemIdx}].id`,
+    releaseDetail[`決標品項:第${match[1]}品項:品項名稱`].hashCode().toString()
+  );
+  put(
+    award,
+    `items[${itemIdx}].description`,
     releaseDetail[`決標品項:第${match[1]}品項:品項名稱`]
   );
   put(
@@ -80,7 +84,7 @@ function populateCommitteesInParties(releaseDetail, ocdsRelease) {
 
   for (let committeeMember of committeeField[0]) {
     put(ocdsRelease, "parties[]", {
-      id: committeeMember["姓名"],
+      id: committeeMember["姓名"].hashCode().toString(),
       name: committeeMember["姓名"],
       roles: ["reviewBody"],
       details: {
@@ -109,9 +113,12 @@ function populateTendererOrgObj(prefix, releaseDetail, ocdsRelease) {
 
 function updateSupplierIdInAward(supplierNameToIdMap, ocdsRelease) {
   for (let award of ocdsRelease.awards) {
+    let awardId = `${ocdsRelease["ocid"]}`;
     for (let supplier of award.suppliers) {
       supplier.id = supplierNameToIdMap.get(supplier.name);
+      awardId = `${awardId}-${supplier.id}`;
     }
+    award.id = awardId;
   }
 }
 
