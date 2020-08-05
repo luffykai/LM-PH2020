@@ -39,7 +39,7 @@ const genericReleaseBuilder = {
       if (path) {
         const ocdsValue =
           fieldHandler != null
-            ? fieldHandler(releaseDetail[key], ocdsRelease)
+            ? fieldHandler(releaseDetail[key], ocdsRelease, releaseDetail)
             : releaseDetail[key];
 
         //console.log("ocdsValue", ocdsValue);

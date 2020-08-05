@@ -7,7 +7,7 @@ const put = require("./put.js");
 const {
   parseAddressToOcdsAddress,
   parseAmountToInt,
-  parseTaiwaneseDateStringToIsoString,
+  parseTaiwaneseDateStringToDate,
   getAwardStatusFromFailedTenderStatus,
   getProcurementCategory,
   getProcurementMethod
@@ -98,10 +98,35 @@ const fieldHandlers = {
     };
   },
   "招標資料:公告日": (value, _ocdsRelease) => {
-    return parseTaiwaneseDateStringToIsoString(value);
+    const date = parseTaiwaneseDateStringToDate(value);
+    return date ? date.toISOString() : null;
   },
   "領投開標:截止投標": (value, _ocdsRelease) => {
-    return parseTaiwaneseDateStringToIsoString(value);
+    const date = parseTaiwaneseDateStringToDate(value);
+    return date ? date.toISOString() : null;
+  },
+  "領投開標:開標時間": (value, _ocdsRelease) => {
+    let date = parseTaiwaneseDateStringToDate(value);
+    date.setDate(date.getDate() + 1);
+    return date ? date.toISOString() : null;
+  },
+  "其他:履約期限": (value, _ocdsRelease, releaseDetail) => {
+    const startDate = fieldHandlers["領投開標:開標時間"](
+      releaseDetail["領投開標:開標時間"],
+      _ocdsRelease
+    );
+    const parsedNumOfDays = value.match(/\d+/g);
+    if (
+      parsedNumOfDays.length == 0 ||
+      parseInt(parsedNumOfDays[0]) == null ||
+      startDate == null
+    ) {
+      return null;
+    }
+    // TODO: this assumes the first number is number of days.
+    let date = new Date(startDate);
+    date.setDate(date.getDate() + parseInt(parsedNumOfDays[0]));
+    return date.toISOString();
   }
 };
 
