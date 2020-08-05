@@ -7,7 +7,7 @@ const put = require("./put.js");
 const {
   parseAddressToOcdsAddress,
   parseAmountToInt,
-  parseTaiwaneseDateStringToIsoString,
+  parseTaiwaneseDateStringToDate,
   getAwardStatusFromFailedTenderStatus,
   getProcurementCategory,
   getProcurementMethod
@@ -98,10 +98,53 @@ const fieldHandlers = {
     };
   },
   "招標資料:公告日": (value, _ocdsRelease) => {
-    return parseTaiwaneseDateStringToIsoString(value);
+    const date = parseTaiwaneseDateStringToDate(value);
+    return date ? date.toISOString() : null;
   },
   "領投開標:截止投標": (value, _ocdsRelease) => {
-    return parseTaiwaneseDateStringToIsoString(value);
+    const date = parseTaiwaneseDateStringToDate(value);
+    return date ? date.toISOString() : null;
+  },
+  "領投開標:開標時間": (value, _ocdsRelease) => {
+    let date = parseTaiwaneseDateStringToDate(value);
+    date.setDate(date.getDate() + 1);
+    return date ? date.toISOString() : null;
+  },
+  "其他:履約期限": (value, _ocdsRelease, releaseDetail) => {
+    const startDate = fieldHandlers["領投開標:開標時間"](
+      releaseDetail["領投開標:開標時間"],
+      _ocdsRelease
+    );
+    const parsedNumOfDays = value.match(/\d+/g);
+    if (
+      parsedNumOfDays.length == 0 ||
+      parseInt(parsedNumOfDays[0]) == null ||
+      startDate == null
+    ) {
+      return null;
+    }
+    // TODO: this assumes the first number is number of days.
+    let date = new Date(startDate);
+    date.setDate(date.getDate() + parseInt(parsedNumOfDays[0]));
+    return date.toISOString();
+  },
+  "採購資料:是否適用條約或協定之採購:是否適用WTO政府採購協定(GPA)": (value, ocdsRelease) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "GPA")
+    }
+    return null;
+  },
+  "採購資料:是否適用條約或協定之採購:是否適用臺紐經濟合作協定(ANZTEC)": (value, ocdsRelease) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "ANZTEC")
+    }
+    return null;
+  },
+  "採購資料:是否適用條約或協定之採購:是否適用臺星經濟夥伴協定(ASTEP)": (value, ocdsRelease) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "ASTEP")
+    }
+    return null;
   }
 };
 

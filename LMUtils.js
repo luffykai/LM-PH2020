@@ -33,7 +33,7 @@ function parseReleaesDateStringToIsoString(dateString) {
 }
 
 // Apply Taiwanese year offset and make sure the timezone is correct (+08:00)
-function parseTaiwaneseDateStringToIsoString(dateString) {
+function parseTaiwaneseDateStringToDate(dateString) {
   if (dateString == null || dateString === "") {
     return null;
   }
@@ -51,7 +51,7 @@ function parseTaiwaneseDateStringToIsoString(dateString) {
   } else {
     formattedDateString = `${formattedDateString} 00:00:00+08:00`;
   }
-  return new Date(Date.parse(formattedDateString)).toISOString();
+  return new Date(Date.parse(formattedDateString));
 }
 
 /**
@@ -249,7 +249,9 @@ const initPackage = function(ocid) {
   releasePackage.version = "1.1";
   releasePackage.extensions = [
     "https://raw.githubusercontent.com/open-contracting-extensions/ocds_participationFee_extension/v1.1.4/extension.json",
-    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_location_extension/v1.1.4/extension.json"
+    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_location_extension/v1.1.4/extension.json",
+    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_legalBasis_extension/master/extension.json",
+    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_coveredBy_extension/master/extension.json"
   ];
   releasePackage.releases = [];
   return releasePackage;
@@ -265,7 +267,7 @@ module.exports = {
   getProcurementCategory,
   getProcurementMethod,
   getReleaseTagFromZhString,
-  parseTaiwaneseDateStringToIsoString,
+  parseTaiwaneseDateStringToDate,
   parseReleaesDateStringToIsoString,
   parseAddressToOcdsAddress,
   parseAmountToInt,

@@ -1,6 +1,6 @@
 const {
   parseAddressToOcdsAddress,
-  parseTaiwaneseDateStringToIsoString,
+  parseTaiwaneseDateStringToDate,
   parseAmountToInt
 } = require("./LMUtils");
 const put = require("./put.js");
@@ -32,11 +32,12 @@ function initiateAwardForSupplier(supplierName, releaseDetail, ocdsRelease) {
   let award = ocdsRelease.awards[supplierIdx];
   put(award, "suppliers[0].name", supplierName);
   put(award, "status", "active");
-  parseTaiwaneseDateStringToIsoString;
   put(
     award,
     "date",
-    parseTaiwaneseDateStringToIsoString(releaseDetail["決標資料:決標日期"])
+    parseTaiwaneseDateStringToDate(
+      releaseDetail["決標資料:決標日期"]
+    ).toISOString()
   );
   put(award, "title", releaseDetail["已公告資料:標案名稱"]);
   return supplierIdx;
