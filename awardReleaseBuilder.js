@@ -122,6 +122,19 @@ function updateSupplierIdInAward(supplierNameToIdMap, ocdsRelease) {
   }
 }
 
+function updateAwards(ocdsRelease) {
+  for (let award of ocdsRelease.awards) {
+    let valueOfAward = 0;
+    for (let item of award.items) {
+      valueOfAward += item.unit.value.amount * item.quantity;
+    }
+    award.value = {
+      amount: valueOfAward,
+      currency: "TWD"
+    };
+  }
+}
+
 const awardReleaseBuilder = {
   build: (releaseDetail, ocdsRelease) => {
     const supplierToIdxMap = new Map();
@@ -170,6 +183,7 @@ const awardReleaseBuilder = {
     }
     populateCommitteesInParties(releaseDetail, ocdsRelease);
     updateSupplierIdInAward(supplierNameToIdMap, ocdsRelease);
+    updateAwards(ocdsRelease);
   }
 };
 
