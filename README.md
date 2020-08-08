@@ -151,7 +151,31 @@ npx babel --watch src --out-dir ./public/javascripts/ --presets ../.././node_mod
 More information can be found
 [here](https://reactjs.org/docs/add-react-to-a-website.html#quickly-try-jsx)
 
-## Yo
+## Install
 
 To add new dependency X: `npm install --save X`. And it will update `package.json`.
-Otherwise, just `npm install`
+Otherwise, just `npm install` to install all dependecies in `package.json`.
+
+## To deploy to GCP
+
+### 1. Install `gcloud` CLI
+
+Visit [here](https://cloud.google.com/sdk/docs) and install Cloud SDK.
+
+### 2. Login to get access to projects in GCP
+
+```shell
+gcloud auth login
+```
+
+### 3. Initialize and set the project to **lm-ph2020**
+
+```shell
+gcloud init
+```
+
+### 3. Deploy app
+
+```shell
+gcloud app deploy
+```
