@@ -3,20 +3,22 @@
 function WorldMap() {
 
     const dataDiv = document.getElementById("county-map-data");
-    let worlddata = JSON.parse(dataDiv.getAttribute('data'));
-    //worlddata = worlddata.objects.countries;
-    worlddata = topojson.feature(worlddata, worlddata.objects.countries).features;
-    console.log(worlddata);
+    let worlddata = JSON.parse(dataDiv.getAttribute('mapData'));
+    //worlddata = worlddata.features;
+    worlddata = topojson.feature(worlddata, worlddata.objects.COUNTY_MOI_1090727).features;
+    let width = 800;
+    let height = 680;
 
     const myProjection = () => {
         return d3.geoMercator()
-            .scale(1000)
-            .center([125.9605, 26.6978]);
+            .scale(10000)
+            .center([121, 24.3])
+            .translate([width/2, height/2.5]);
     }
     
     return (
         <div>
-          <svg className="map-svg" width={ 800 } height={ 600 } viewBox="0 0 800 600">
+          <svg className="map-svg" width={ 800 } height={ 680 } viewBox="0 0 800 680">
           <g className="countries">
           {
           worlddata.map((d,i) => (
@@ -59,7 +61,3 @@ function LMCountyRoot() {
 
 let domContainer = document.querySelector("#lm_county_root");
 ReactDOM.render(<LMCountyRoot />, domContainer);
-
-//let domContainer2 = document.querySelector('#county_map_data');
-//ReactDOM.render(<WorldMap />, domContainer2);
-module.exports = LMCountyRoot;
