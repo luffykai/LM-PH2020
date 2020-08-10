@@ -1,6 +1,7 @@
 "use strict";
 
 import LMMap from './LMMap.react';
+import LMTestComponent from './LMTestComponent.react';
 
 function LMAppRoot() {
   return (
@@ -14,6 +15,7 @@ function LMAppRoot() {
             <a className="btn-large lm-pink-1 marginLeft-8">I'm Officials</a>
         </div>
         <LMMap />
+        <LMTestComponent />
       </div>
     </div>
   );
