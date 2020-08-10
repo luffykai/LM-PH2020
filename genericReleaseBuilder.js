@@ -4,17 +4,18 @@ const csvparse = require("csv-parse/lib/sync");
 
 const fieldHandlers = require("./fieldHandlers");
 const put = require("./put");
+const { NON_MAPPING_FIELDS } = require("./LMUtils");
 
 /*
  * Load the csv file and turn it into a Map Object
  * synchronously
  */
-const loadMap = function() {
+const loadMap = function () {
   const map = new Map();
   data = fs.readFileSync("data/field_map.csv");
   const records = csvparse(data, {
     columns: true,
-    skip_empty_lines: true
+    skip_empty_lines: true,
   });
 
   for (record of records) {
@@ -49,10 +50,12 @@ const genericReleaseBuilder = {
           put(ocdsRelease, path, ocdsValue);
         }
       } else {
-        console.error("no path for", key, " value = ", releaseDetail[key]);
+        if (!NON_MAPPING_FIELDS.has(key)) {
+          console.error("no path for", key, " value = ", releaseDetail[key]);
+        }
       }
     }
-  }
+  },
 };
 
 module.exports = genericReleaseBuilder;

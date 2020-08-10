@@ -2,6 +2,18 @@ const fs = require("fs");
 
 const TAIWANESE_YEAR_OFFSET = 1911;
 
+// Fields that shouldn't be printed while we check what fields we haven't
+// map yet. Only for debugging purpose, we could still use the fields and
+// its values.
+const NON_MAPPING_FIELDS = new Set(['type', 'type2', 'url', 'fetched_at']);
+
+// An Object listing all the fields that we don't need to map
+// and the reason, logic of not needing it is listed as the value of the object.
+// Common reasons are that some fields are actually implied from existing fields.
+const ALREADY_IMPLIED_FIELDS = {
+  // '採購資料:預算金額是否公開': ""
+}
+
 Object.defineProperty(String.prototype, 'hashCode', {
   value: function() {
     var hash = 0, i, chr;
@@ -211,6 +223,16 @@ function getAwardStatusFromFailedTenderStatus(failedTenderstatus) {
   throw `failed tender status: ${failedTenderStatus} is not covered`;
 }
 
+// Same as the previous function
+// https://standard.open-contracting.org/latest/en/schema/codelists/#award-status
+function getAwardStatusFromOngoingTenderStatus(ongoingTenderStatus) {
+  if(ongoingTenderStatus.indexOf('公開招標') >= 0) {
+    return 'active';
+  }
+
+  throw `ongoing tender status: ${ongoingTenderStatus} is not covered`;
+}
+
 function postProcessing(ocdsRelease) {
   // Due to the constraint where we only set the awards.id, awards.title and awards.date into
   // the first element while parsing the query results, we need to
@@ -263,7 +285,9 @@ const outputPackage = function(releasePackage) {
 };
 
 module.exports = {
+  NON_MAPPING_FIELDS,
   getAwardStatusFromFailedTenderStatus,
+  getAwardStatusFromOngoingTenderStatus,
   getProcurementCategory,
   getProcurementMethod,
   getReleaseTagFromZhString,

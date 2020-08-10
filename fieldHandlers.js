@@ -9,6 +9,7 @@ const {
   parseAmountToInt,
   parseTaiwaneseDateStringToDate,
   getAwardStatusFromFailedTenderStatus,
+  getAwardStatusFromOngoingTenderStatus,
   getProcurementCategory,
   getProcurementMethod
 } = require("./LMUtils");
@@ -16,6 +17,9 @@ const {
 const fieldHandlers = {
   "招標資料:招標方式": (value, _ocdsRelease) => {
     return getProcurementMethod(value);
+  },
+  "招標資料:招標狀態": (value, _ocdsRelease) => {
+    return getAwardStatusFromOngoingTenderStatus(value);
   },
   "無法決標公告:招標方式": (value, _ocdsRelease) => {
     return getProcurementMethod(value);
@@ -55,6 +59,9 @@ const fieldHandlers = {
     return addressString;
   },
   "採購資料:標的分類": (value, _ocdsRelease) => {
+    return getProcurementCategory(value);
+  },
+  "無法決標公告:標的分類": (value, _ocdsRelease) => {
     return getProcurementCategory(value);
   },
   // for fields with only derivation value, we return null.

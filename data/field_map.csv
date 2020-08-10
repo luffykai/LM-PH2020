@@ -19,13 +19,15 @@ ronny_field,ocds_path
 "標案內容:電子郵件信箱","parties[0]/contactPoint/email"
 ,
 "採購資料:標的分類","tender/mainProcurementCategory"
+"無法決標公告:標的分類","tender/mainProcurementCategory"
 "採購資料:標案案號","tender/id"
 "採購資料:標案名稱","tender/title"
 "採購資料:預算金額","tender/minValue"
 ,
 "招標資料:招標方式","tender/procurementMethod"
 "無法決標公告:招標方式","tender/procurementMethod"
-
+"招標資料:招標狀態","tender/status"
+,
 "招標資料:公告日","tender/tenderPeriod/startDate"
 "招標資料:決標方式","tender/awardCriteria"
 ,
