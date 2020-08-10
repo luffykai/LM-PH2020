@@ -15,7 +15,7 @@ function WorldMap() {
             .center([121, 24.3])
             .translate([width/2, height/2.5]);
     }
-    
+
     return (
         <div>
           <svg className="map-svg" width={ 800 } height={ 680 } viewBox="0 0 800 680">
@@ -38,7 +38,7 @@ function WorldMap() {
     )
 }
 
-function LMCountyRoot() {
+export default function LMCountyRoot() {
   const dataDiv = document.getElementById("county-map-data");
   const data = JSON.parse(dataDiv.getAttribute("data"));
   const county = dataDiv.getAttribute("county");

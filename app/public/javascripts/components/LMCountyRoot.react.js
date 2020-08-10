@@ -1,5 +1,10 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = LMCountyRoot;
+
 function WorldMap() {
   var dataDiv = document.getElementById("county-map-data");
   var worlddata = JSON.parse(dataDiv.getAttribute('mapData')); //worlddata = worlddata.features;

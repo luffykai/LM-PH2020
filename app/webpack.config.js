@@ -8,6 +8,7 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: __dirname + "/dist",
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -35,6 +36,7 @@ module.exports = {
       filename: "./index.html",
     }),
     new HtmlWebPackPlugin({
+      base: 'county',
       chunks: ['county'],
       template: "./src/html/county.html",
       filename: "./county.html",
