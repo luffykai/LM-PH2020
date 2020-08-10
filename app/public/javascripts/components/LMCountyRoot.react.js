@@ -8,19 +8,14 @@ function LMCountyRoot() {
   if (data == null) {
     throw "data is null in LWICountyRoot";
   }
+
   if (county == null) {
     throw "county is null in LWICountyRoot";
   }
 
   console.log("data", data);
-
-  return React.createElement(
-    "div",
-    null,
-    "LMCountyRoot: ",
-    county
-  );
+  return /*#__PURE__*/React.createElement("div", null, "LMCountyRoot: ", county);
 }
 
 let domContainer = document.querySelector("#lm_county_root");
-ReactDOM.render(React.createElement(LMCountyRoot, null), domContainer);
+ReactDOM.render( /*#__PURE__*/React.createElement(LMCountyRoot, null), domContainer);
