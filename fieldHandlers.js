@@ -9,7 +9,7 @@ const {
   parseAmountToInt,
   parseTaiwaneseDateStringToDate,
   getAwardStatusFromFailedTenderStatus,
-  getAwardStatusFromOngoingTenderStatus,
+  getTenderStatusFromOngoingTenderStatus,
   getProcurementCategory,
   getProcurementMethod
 } = require("./LMUtils");
@@ -19,13 +19,14 @@ const fieldHandlers = {
     return getProcurementMethod(value);
   },
   "招標資料:招標狀態": (value, _ocdsRelease) => {
-    return getAwardStatusFromOngoingTenderStatus(value);
+    return getTenderStatusFromOngoingTenderStatus(value);
   },
   "無法決標公告:招標方式": (value, _ocdsRelease) => {
     return getProcurementMethod(value);
   },
   "無法決標公告:無法決標的理由": (value, ocdsRelease) => {
     const awardStatus = getAwardStatusFromFailedTenderStatus(value);
+    put(ocdsRelease, 'tender.status', 'unsuccessful');
     put(ocdsRelease, "awards[0]", {
       id: `${ocdsRelease["id"]}-awards-0`,
       status: awardStatus

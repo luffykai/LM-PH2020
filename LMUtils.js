@@ -148,11 +148,11 @@ function getReleaseTagFromZhString(typeString) {
     case "公開招標更正公告":
     case "限制性招標(經公開評選或公開徵求)更正公告":
     case "招標文件公開閱覽公告資料更正公告":
+    case "無法決標公告":
       return "tenderUpdate";
     case "決標公告":
     return "award";
     case "更正決標公告":
-    case "無法決標公告": // This I'm not so sure about this one.
       return "awardUpdate";
     default:
       throw `type: ${typeString} does not have a mapping tag.`;
@@ -224,8 +224,8 @@ function getAwardStatusFromFailedTenderStatus(failedTenderstatus) {
 }
 
 // Same as the previous function
-// https://standard.open-contracting.org/latest/en/schema/codelists/#award-status
-function getAwardStatusFromOngoingTenderStatus(ongoingTenderStatus) {
+// https://standard.open-contracting.org/latest/en/schema/codelists/#tender-status
+function getTenderStatusFromOngoingTenderStatus(ongoingTenderStatus) {
   if(ongoingTenderStatus.indexOf('公開招標') >= 0) {
     return 'active';
   }
@@ -287,7 +287,7 @@ const outputPackage = function(releasePackage) {
 module.exports = {
   NON_MAPPING_FIELDS,
   getAwardStatusFromFailedTenderStatus,
-  getAwardStatusFromOngoingTenderStatus,
+  getTenderStatusFromOngoingTenderStatus,
   getProcurementCategory,
   getProcurementMethod,
   getReleaseTagFromZhString,

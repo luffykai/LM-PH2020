@@ -50,7 +50,7 @@ const genericReleaseBuilder = {
           put(ocdsRelease, path, ocdsValue);
         }
       } else {
-        if (!NON_MAPPING_FIELDS.has(key)) {
+        if (!NON_MAPPING_FIELDS.has(key) && releaseDetail[key] !== "") {
           console.error("no path for", key, " value = ", releaseDetail[key]);
         }
       }
