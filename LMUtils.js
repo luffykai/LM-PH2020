@@ -2,6 +2,18 @@ const fs = require("fs");
 
 const TAIWANESE_YEAR_OFFSET = 1911;
 
+// Fields that shouldn't be printed while we check what fields we haven't
+// map yet. Only for debugging purpose, we could still use the fields and
+// its values.
+const NON_MAPPING_FIELDS = new Set(['type', 'type2', 'url', 'fetched_at']);
+
+// An Object listing all the fields that we don't need to map
+// and the reason, logic of not needing it is listed as the value of the object.
+// Common reasons are that some fields are actually implied from existing fields.
+const ALREADY_IMPLIED_FIELDS = {
+  // '採購資料:預算金額是否公開': ""
+}
+
 Object.defineProperty(String.prototype, 'hashCode', {
   value: function() {
     var hash = 0, i, chr;
@@ -136,11 +148,11 @@ function getReleaseTagFromZhString(typeString) {
     case "公開招標更正公告":
     case "限制性招標(經公開評選或公開徵求)更正公告":
     case "招標文件公開閱覽公告資料更正公告":
+    case "無法決標公告":
       return "tenderUpdate";
     case "決標公告":
     return "award";
     case "更正決標公告":
-    case "無法決標公告": // This I'm not so sure about this one.
       return "awardUpdate";
     default:
       throw `type: ${typeString} does not have a mapping tag.`;
@@ -211,6 +223,16 @@ function getAwardStatusFromFailedTenderStatus(failedTenderstatus) {
   throw `failed tender status: ${failedTenderStatus} is not covered`;
 }
 
+// Same as the previous function
+// https://standard.open-contracting.org/latest/en/schema/codelists/#tender-status
+function getTenderStatusFromOngoingTenderStatus(ongoingTenderStatus) {
+  if(ongoingTenderStatus.indexOf('公開招標') >= 0) {
+    return 'active';
+  }
+
+  throw `ongoing tender status: ${ongoingTenderStatus} is not covered`;
+}
+
 function postProcessing(ocdsRelease) {
   // Due to the constraint where we only set the awards.id, awards.title and awards.date into
   // the first element while parsing the query results, we need to
@@ -263,7 +285,9 @@ const outputPackage = function(releasePackage) {
 };
 
 module.exports = {
+  NON_MAPPING_FIELDS,
   getAwardStatusFromFailedTenderStatus,
+  getTenderStatusFromOngoingTenderStatus,
   getProcurementCategory,
   getProcurementMethod,
   getReleaseTagFromZhString,

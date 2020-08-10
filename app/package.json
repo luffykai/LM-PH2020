@@ -3,12 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "build": "webpack --mode production"
   },
   "dependencies": {
-    "@babel/preset-react": "^7.10.4",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-react-app": "^3.1.2",
     "constantinople": "^4.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -31,6 +29,12 @@
     "@babel/preset-react": "^7.10.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^7.0.0-bridge.0",
-    "braces": "^3.0.0"
+    "babel-loader": "^8.1.0",
+    "braces": "^3.0.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }

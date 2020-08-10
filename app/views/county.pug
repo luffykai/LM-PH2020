@@ -3,6 +3,6 @@ html
   head
     title= title
   body
-    div(id="county-map-data" data=`${JSON.stringify(data)}` county=`${county}`)
-    include county.html
+    div(id="county-map-data" data=`${JSON.stringify(data)}` county=`${county}`, mapData=`${mapData}`)
+    include ../dist/county.html
     block content

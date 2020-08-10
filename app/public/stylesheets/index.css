@@ -1,0 +1,16 @@
+.root {
+    background-image: url('../images/landing_page_bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+
+.title {
+    font-family: myriad-pro, sans-serif;
+    font-weight: 1200;
+    font-style: normal;
+    padding-top: 40px;
+}
