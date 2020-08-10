@@ -1,0 +1,8 @@
+.root {
+    background-image: url('../images/landing_page_bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    height: 1200px;
+    width: 100%;
+}
