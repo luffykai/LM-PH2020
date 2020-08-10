@@ -9107,3 +9107,7 @@ input[type=range]::-ms-thumb {
 .marginTop-8 {
    margin-top: 8px;
 }
+
+.marginTop-20 {
+  margin-top: 20px;
+}
