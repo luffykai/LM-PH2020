@@ -42,4 +42,5 @@ module.exports = {
       filename: "./county.html",
     }),
   ],
+  watch: true
 };
