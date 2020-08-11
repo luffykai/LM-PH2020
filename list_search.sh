@@ -1,6 +1,6 @@
 #!/bin/sh
 
-INPUT='./data/test.tsv'
+INPUT='./data/name_query_list.tsv'
 GRN=$'\e[1;32m'
 GRY=$'\e[1;37m'
 NC=$'\e[0m'
