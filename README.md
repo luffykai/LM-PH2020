@@ -142,10 +142,12 @@ DEBUG=app:* npm start
 #### 3. Visit LocalHost `http://localhost:3000/` and check that you see `LMAppRoot`
 
 While developing, we use babel to transform JSX React components to regular js
-files with the following command in the `/app` directory.
+files with the following command in the `/app` directory. This command will make sure that
+our React component files are compiled and that our js files are bundled into the corresponding
+html files. 
 
 ```shell
-npx babel --watch src --out-dir ./public/javascripts/ --presets ../.././node_modules/babel-preset-react
+npm run build
 ```
 
 More information can be found
