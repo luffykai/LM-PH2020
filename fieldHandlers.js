@@ -26,7 +26,7 @@ const fieldHandlers = {
   },
   "無法決標公告:無法決標的理由": (value, ocdsRelease) => {
     const awardStatus = getAwardStatusFromFailedTenderStatus(value);
-    put(ocdsRelease, 'tender.status', 'unsuccessful');
+    put(ocdsRelease, "tender.status", "unsuccessful");
     put(ocdsRelease, "awards[0]", {
       id: `${ocdsRelease["id"]}-awards-0`,
       status: awardStatus
@@ -125,6 +125,7 @@ const fieldHandlers = {
     );
     const parsedNumOfDays = value.match(/\d+/g);
     if (
+      parsedNumOfDays == null ||
       parsedNumOfDays.length == 0 ||
       parseInt(parsedNumOfDays[0]) == null ||
       startDate == null
@@ -136,21 +137,30 @@ const fieldHandlers = {
     date.setDate(date.getDate() + parseInt(parsedNumOfDays[0]));
     return date.toISOString();
   },
-  "採購資料:是否適用條約或協定之採購:是否適用WTO政府採購協定(GPA)": (value, ocdsRelease) => {
+  "採購資料:是否適用條約或協定之採購:是否適用WTO政府採購協定(GPA)": (
+    value,
+    ocdsRelease
+  ) => {
     if (value === "是") {
-      put(ocdsRelease, "tender.coveredBy[]", "GPA")
+      put(ocdsRelease, "tender.coveredBy[]", "GPA");
     }
     return null;
   },
-  "採購資料:是否適用條約或協定之採購:是否適用臺紐經濟合作協定(ANZTEC)": (value, ocdsRelease) => {
+  "採購資料:是否適用條約或協定之採購:是否適用臺紐經濟合作協定(ANZTEC)": (
+    value,
+    ocdsRelease
+  ) => {
     if (value === "是") {
-      put(ocdsRelease, "tender.coveredBy[]", "ANZTEC")
+      put(ocdsRelease, "tender.coveredBy[]", "ANZTEC");
     }
     return null;
   },
-  "採購資料:是否適用條約或協定之採購:是否適用臺星經濟夥伴協定(ASTEP)": (value, ocdsRelease) => {
+  "採購資料:是否適用條約或協定之採購:是否適用臺星經濟夥伴協定(ASTEP)": (
+    value,
+    ocdsRelease
+  ) => {
     if (value === "是") {
-      put(ocdsRelease, "tender.coveredBy[]", "ASTEP")
+      put(ocdsRelease, "tender.coveredBy[]", "ASTEP");
     }
     return null;
   }

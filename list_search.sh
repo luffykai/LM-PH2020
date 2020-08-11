@@ -1,32 +1,31 @@
-# node index.js search_with_unit --pid "舊宗社會住宅" --t "舊宗" --uid 3.79 3.79.56 --r "((安置)|(社會)|(公共)|(住宅))"
+#!/bin/bash
 
-INPUT='./data/name_query_list.tsv'
+GRN=$'\e[1;32m'
+GRY=$'\e[1;37m'
+NC=$'\e[0m'
 OLDIFS=$IFS
 IFS=$'\t'
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
-while read name uid query latlng
+[[ -d output/all ]] || mkdir output/all
+
+while read name uid title regex latlng
 do
   IFS=','
-  index=0
   r=""
-  for i in `echo "$query"`
+  for i in `echo "$regex"`
   do
-    if [ $index == 0 ]
-    then
-      t=$i
-    else
-      r="$r$i.*"
-    fi
-    index=$index+1 
+    r="$r$i.*"
   done
   r="$r((安置)|(社會)|(公共)|(住宅))"
-  command="node index.js search_with_unit --pid \"$name\" --t \"$t\" --uid $uid --r \"$r\""
+  command="node index.js search_with_unit --pid \"$name\" --t \"$title\" --uid $uid --r \"$r\""
 
-	echo "Name : $name"
-  echo "Title : $t"
-	echo "UID : $uid"
-  echo "Regex : $r"
-  echo "Replay : $command"
+  echo ""
+	printf "$GRN[ $name ]$GRY\n"
+  echo "  * Command: $command"
+  echo "  * Title: $title"
+	echo "  * UID: $uid"
+  echo "  * Regex: $r"
+  echo "$NC"
 
   eval $command
   IFS=$'\t'

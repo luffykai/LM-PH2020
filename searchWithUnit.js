@@ -59,9 +59,11 @@ function searchWithUnit(rawTitle, unitIds, rawRegex) {
     const regex = jsesc(rawRegex);
     mergedRecords = filterTitleWithRegex(mergedRecords, regex);
   }
-  console.log("======== Procurements ========");
-  console.log(mergedRecords);
-  console.log(`Total: ${Object.keys(mergedRecords).length} matches.`);
+  console.log(`  * Total: ${Object.keys(mergedRecords).length} matches.`);
+  for (let key in mergedRecords) {
+    console.log("    - " + mergedRecords[key]["title"]);
+    console.log("      " + mergedRecords[key]["tender_api_url"]);
+  }
   return mergedRecords;
 }
 

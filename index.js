@@ -95,7 +95,7 @@ main = function() {
         searchWithUnit(argv.title, argv.unit_ids, argv.regex)
       )
     );
-    writeJsonFile(`output/${argv.project_id}`, data);
+    writeJsonFile(`output/all/${argv.project_id}`, data);
   } else if (argv._.includes("convert_to_ocds")) {
     releasePackage = convertToOCDS(argv.org_id, argv.contract_id);
     outputPackage(releasePackage);

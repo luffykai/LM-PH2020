@@ -5,21 +5,23 @@ const TAIWANESE_YEAR_OFFSET = 1911;
 // Fields that shouldn't be printed while we check what fields we haven't
 // map yet. Only for debugging purpose, we could still use the fields and
 // its values.
-const NON_MAPPING_FIELDS = new Set(['type', 'type2', 'url', 'fetched_at']);
+const NON_MAPPING_FIELDS = new Set(["type", "type2", "url", "fetched_at"]);
 
 // An Object listing all the fields that we don't need to map
 // and the reason, logic of not needing it is listed as the value of the object.
 // Common reasons are that some fields are actually implied from existing fields.
 const ALREADY_IMPLIED_FIELDS = {
   // '採購資料:預算金額是否公開': ""
-}
+};
 
-Object.defineProperty(String.prototype, 'hashCode', {
+Object.defineProperty(String.prototype, "hashCode", {
   value: function() {
-    var hash = 0, i, chr;
+    var hash = 0,
+      i,
+      chr;
     for (i = 0; i < this.length; i++) {
-      chr   = this.charCodeAt(i);
-      hash  = ((hash << 5) - hash) + chr;
+      chr = this.charCodeAt(i);
+      hash = (hash << 5) - hash + chr;
       hash |= 0; // Convert to 32bit integer
     }
     return hash;
@@ -149,9 +151,10 @@ function getReleaseTagFromZhString(typeString) {
     case "限制性招標(經公開評選或公開徵求)更正公告":
     case "招標文件公開閱覽公告資料更正公告":
     case "無法決標公告":
+    case "更正無法決標公告":
       return "tenderUpdate";
     case "決標公告":
-    return "award";
+      return "award";
     case "更正決標公告":
       return "awardUpdate";
     default:
@@ -226,8 +229,12 @@ function getAwardStatusFromFailedTenderStatus(failedTenderstatus) {
 // Same as the previous function
 // https://standard.open-contracting.org/latest/en/schema/codelists/#tender-status
 function getTenderStatusFromOngoingTenderStatus(ongoingTenderStatus) {
-  if(ongoingTenderStatus.indexOf('公開招標') >= 0) {
-    return 'active';
+  if (
+    ongoingTenderStatus.indexOf("公開招標") >= 0 ||
+    ongoingTenderStatus.indexOf("公開取得") >= 0 ||
+    ongoingTenderStatus.indexOf("限制性招標") >= 0
+  ) {
+    return "active";
   }
 
   throw `ongoing tender status: ${ongoingTenderStatus} is not covered`;
@@ -249,17 +256,13 @@ function postProcessing(ocdsRelease) {
 }
 
 const writeJsonFile = function(path, data) {
-  fs.writeFile(
-    path,
-    JSON.stringify(data, null, 4),
-    err => {
-      if (err) {
-        throw err;
-      }
-      console.log("JSON data is saved.");
+  fs.writeFile(path, JSON.stringify(data, null, 4), err => {
+    if (err) {
+      throw err;
     }
-  );
-}
+    console.log("JSON data is saved.");
+  });
+};
 
 const initPackage = function(ocid) {
   releasePackage = {};
