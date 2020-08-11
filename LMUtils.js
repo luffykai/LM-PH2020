@@ -1,4 +1,5 @@
 const fs = require("fs");
+var URL = require('url').URL;
 
 const TAIWANESE_YEAR_OFFSET = 1911;
 
