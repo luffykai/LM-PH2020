@@ -43,6 +43,12 @@ const argv = yargs
       alias: "in"
     }
   })
+  .command("search_list", "Search all projects in the list", {
+    input: {
+      description: "The input file to read from",
+      alias: "in"
+    }
+  })
   .string(["pid", "title", "unit_ids", "regex", "org_id", "contract_id"])
   .help()
   .alias("help", "h").argv;

@@ -1,4 +1,5 @@
 const fs = require("fs");
+var URL = require('url').URL;
 
 const TAIWANESE_YEAR_OFFSET = 1911;
 
@@ -289,6 +290,13 @@ const outputPackage = function(releasePackage) {
   writeJsonFile(`output/${uri.pathname}`, releasePackage);
 };
 
+const printProjectHeader = function(project, regex) {
+  console.log(`\n\x1b[32m[ ${project.pid} ]\x1b[36m`);
+  console.log(`  * title: ${project.title}`);
+  console.log(`  * uids: ${project.uid}`);
+  console.log(`  * regex: ${regex}\x1b[0m\n`);
+};
+
 module.exports = {
   ALREADY_IMPLIED_FIELDS,
   NON_MAPPING_FIELDS,
@@ -302,6 +310,7 @@ module.exports = {
   parseAddressToOcdsAddress,
   parseAmountToInt,
   postProcessing,
+  printProjectHeader,
   initPackage,
   outputPackage,
   writeJsonFile

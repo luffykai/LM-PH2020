@@ -1,4 +1,6 @@
 const fs = require("fs");
+
+const csvparse = require("csv-parse/lib/sync");
 const sync_request = require("sync-request");
 
 const argv = require("./commandsUtil.js");
@@ -8,6 +10,7 @@ const {
   initPackage,
   outputPackage,
   postProcessing,
+  printProjectHeader,
   writeJsonFile
 } = require("./LMUtils");
 const put = require("./put.js");
@@ -103,6 +106,23 @@ main = function() {
     const input = JSON.parse(fs.readFileSync(argv.input));
     const data = convertToOC4IDS(input);
     writeJsonFile("output/example_oc4ids", data);
+  } else if (argv._.includes("search_list")) {
+    const project_csv = fs.readFileSync(argv.input);
+    const projects = csvparse(project_csv, {
+      columns: true,
+      skip_empty_lines: true
+    });
+    for (let p of projects) {
+      const regex = `${p.regex}.*((安置)|(社會)|(公共)|(住宅))`;
+      const uids = p.uid.split(" ");
+      printProjectHeader(p, regex);
+      writeJsonFile(
+        `output/all/${p.pid}`,
+        convertToOC4IDS(
+          convertToOc4idsInput(p.pid, searchWithUnit(p.title, uids, regex))
+        )
+      );
+    }
   } else {
     console.log("sup bro!");
   }
