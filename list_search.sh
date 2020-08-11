@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
+INPUT='./data/test.tsv'
 GRN=$'\e[1;32m'
 GRY=$'\e[1;37m'
 NC=$'\e[0m'
