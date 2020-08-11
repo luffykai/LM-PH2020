@@ -11,7 +11,9 @@ const NON_MAPPING_FIELDS = new Set(["type", "type2", "url", "fetched_at"]);
 // and the reason, logic of not needing it is listed as the value of the object.
 // Common reasons are that some fields are actually implied from existing fields.
 const ALREADY_IMPLIED_FIELDS = {
-  // '採購資料:預算金額是否公開': ""
+  // '採購資料:預算金額是否公開': "",
+  '採購資料:本採購案是否屬於建築工程': "already covered in getProcurementCategory",
+  "是否為商業財物或服務": "already covered in getProcurementCategory",
 };
 
 Object.defineProperty(String.prototype, "hashCode", {
@@ -288,6 +290,7 @@ const outputPackage = function(releasePackage) {
 };
 
 module.exports = {
+  ALREADY_IMPLIED_FIELDS,
   NON_MAPPING_FIELDS,
   getAwardStatusFromFailedTenderStatus,
   getTenderStatusFromOngoingTenderStatus,

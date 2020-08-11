@@ -4,7 +4,7 @@ const csvparse = require("csv-parse/lib/sync");
 
 const fieldHandlers = require("./fieldHandlers");
 const put = require("./put");
-const { NON_MAPPING_FIELDS } = require("./LMUtils");
+const { ALREADY_IMPLIED_FIELDS, NON_MAPPING_FIELDS } = require("./LMUtils");
 
 /*
  * Load the csv file and turn it into a Map Object
@@ -50,7 +50,11 @@ const genericReleaseBuilder = {
           put(ocdsRelease, path, ocdsValue);
         }
       } else {
-        if (!NON_MAPPING_FIELDS.has(key) && releaseDetail[key] !== "") {
+        if (
+          !NON_MAPPING_FIELDS.has(key) &&
+          releaseDetail[key] !== "" &&
+          !(key in ALREADY_IMPLIED_FIELDS)
+        ) {
           console.error("no path for", key, " value = ", releaseDetail[key]);
         }
       }
