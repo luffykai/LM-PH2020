@@ -12,6 +12,7 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-async-await": "^1.1.0",
+    "firebase": "^7.17.2",
     "firebase-admin": "^9.0.0",
     "http-errors": "~1.6.3",
     "materialize-css": "^1.0.0-rc.2",
@@ -35,6 +36,7 @@
     "html-webpack-plugin": "^4.3.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-node-externals": "^2.5.1"
   }
 }

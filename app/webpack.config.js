@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require('path')
 
 module.exports = {
   entry: {
@@ -8,7 +9,7 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: __dirname + "/dist",
-    publicPath: '/'
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -29,18 +30,26 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    minimize: false,
+  },
   plugins: [
     new HtmlWebPackPlugin({
-      chunks: ['main'],
+      chunks: ["main"],
       template: "./src/html/index.html",
       filename: "./index.html",
     }),
     new HtmlWebPackPlugin({
-      base: 'county',
-      chunks: ['county'],
+      base: "county",
+      chunks: ["county"],
       template: "./src/html/county.html",
       filename: "./county.html",
     }),
   ],
-  watch: true
+  resolve: {
+    alias: {
+      react: path.resolve("./node_modules/react"),
+    },
+  },
+  watch: true,
 };

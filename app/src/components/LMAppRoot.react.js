@@ -13,7 +13,7 @@ function LMAppRoot() {
             <a className="btn-large lm-pink-1">I'm 監督者</a>
             <a className="btn-large lm-pink-1 marginLeft-8">I'm Officials</a>
         </div>
-        <LMMap />
+        {/*<LMMap />*/}
       </div>
     </div>
   );
