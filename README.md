@@ -153,6 +153,12 @@ npm run build
 More information can be found
 [here](https://reactjs.org/docs/add-react-to-a-website.html#quickly-try-jsx)
 
+### 6. Run all projects on spreadsheet
+
+```shell
+node index.js search_list --input data/all_project_query_with_county.csv
+```
+
 ## Install
 
 To add new dependency X: `npm install --save X`. And it will update `package.json`.
