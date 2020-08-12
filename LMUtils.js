@@ -1,5 +1,6 @@
+const crypto = require("crypto");
 const fs = require("fs");
-var URL = require('url').URL;
+const URL = require("url").URL;
 
 const TAIWANESE_YEAR_OFFSET = 1911;
 
@@ -13,21 +14,14 @@ const NON_MAPPING_FIELDS = new Set(["type", "type2", "url", "fetched_at"]);
 // Common reasons are that some fields are actually implied from existing fields.
 const ALREADY_IMPLIED_FIELDS = {
   // '採購資料:預算金額是否公開': "",
-  '採購資料:本採購案是否屬於建築工程': "already covered in getProcurementCategory",
-  "是否為商業財物或服務": "already covered in getProcurementCategory",
+  "採購資料:本採購案是否屬於建築工程":
+    "already covered in getProcurementCategory",
+  是否為商業財物或服務: "already covered in getProcurementCategory"
 };
 
-Object.defineProperty(String.prototype, "hashCode", {
+Object.defineProperty(String.prototype, "hash", {
   value: function() {
-    var hash = 0,
-      i,
-      chr;
-    for (i = 0; i < this.length; i++) {
-      chr = this.charCodeAt(i);
-      hash = (hash << 5) - hash + chr;
-      hash |= 0; // Convert to 32bit integer
-    }
-    return hash;
+    return crypto.createHash('md5').update(this.toString()).digest('hex');
   }
 });
 
@@ -147,6 +141,7 @@ function getReleaseTagFromZhString(typeString) {
     case "招標文件公開閱覽公告資料公告":
       return "planning";
     case "公開取得報價單或企劃書公告":
+    case "公開取得報價單或企劃書更正公告":
     case "公開招標公告":
     case "限制性招標(經公開評選或公開徵求)公告":
       return "tender";
@@ -157,8 +152,11 @@ function getReleaseTagFromZhString(typeString) {
     case "更正無法決標公告":
       return "tenderUpdate";
     case "決標公告":
+    case "定期彙送":
       return "award";
     case "更正決標公告":
+    case "更正定期彙送":
+    case "拒絕往來廠商名單公告":
       return "awardUpdate";
     default:
       throw `type: ${typeString} does not have a mapping tag.`;
@@ -219,14 +217,18 @@ function getProcurementMethod(methodString) {
 
 // https://standard.open-contracting.org/latest/en/schema/codelists/#award-status
 function getAwardStatusFromFailedTenderStatus(failedTenderstatus) {
-  if (failedTenderstatus === "廢標") {
+  if (
+    failedTenderstatus === "廢標" ||
+    // Example: unit_id=3.79&job_number=1060405C0033&date=20170602&filename=NAI-1-52150840
+    failedTenderstatus.indexOf("不予開標決標") >= 0
+  ) {
     return "cancelled";
   }
   if (failedTenderstatus.indexOf("流標") >= 0) {
     return "unsuccessful";
   }
-
-  throw `failed tender status: ${failedTenderStatus} is not covered`;
+  console.log(failedTenderstatus);
+  throw `failed tender status: ${failedTenderstatus} is not covered`;
 }
 
 // Same as the previous function
@@ -293,6 +295,7 @@ const outputPackage = function(releasePackage) {
 const printProjectHeader = function(project, regex) {
   console.log(`\n\x1b[32m[ ${project.pid} ]\x1b[36m`);
   console.log(`  * title: ${project.title}`);
+  console.log(`  * county: ${project.county}`);
   console.log(`  * uids: ${project.uid}`);
   console.log(`  * regex: ${regex}\x1b[0m\n`);
 };
