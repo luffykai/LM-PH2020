@@ -81,12 +81,12 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 30);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 7:
+/***/ 30:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -122,7 +122,8 @@ function LMAppRoot() {
   }, "An informative tool for both the public and ", /*#__PURE__*/React.createElement("br", null), "government officials"), /*#__PURE__*/React.createElement("div", {
     className: "marginTop-20"
   }, /*#__PURE__*/React.createElement("a", {
-    className: "btn-large lm-pink-1"
+    className: "btn-large lm-pink-1",
+    href: "/county"
   }, "I'm \u76E3\u7763\u8005"), /*#__PURE__*/React.createElement("a", {
     className: "btn-large lm-pink-1 marginLeft-8"
   }, "I'm Officials"))));

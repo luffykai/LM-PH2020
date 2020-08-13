@@ -6,10 +6,11 @@ require("firebase/firestore");
 
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import CountyTypes from "../javascripts/utils/CountyTypes";
 
 // Your web app's Firebase configuration
 const FIREBASE_CONFIG = {
-  apiKey: "", /* Please Fill in apiKey */
+  apiKey: "" /* Please Fill in apiKey */,
   authDomain: "lm-ph2020.firebaseapp.com",
   databaseURL: "https://lm-ph2020.firebaseio.com",
   projectId: "lm-ph2020",
@@ -65,6 +66,8 @@ export default function LMCountyRoot() {
   const data = JSON.parse(dataDiv.getAttribute("data"));
   const county = dataDiv.getAttribute("county");
 
+  console.log("county", county);
+
   const [documents, setDocuments] = useState([]);
 
   // Fetch the data with an effect
@@ -85,18 +88,40 @@ export default function LMCountyRoot() {
   if (data == null) {
     throw "data is null in LWICountyRoot";
   }
-  if (county == null) {
-    throw "county is null in LWICountyRoot";
+  let rightContent = null;
+  /* undefined will be casted to a string during ssr */
+  if (county === "undefined") {
+    // No county is specified, which means we're showing a Taiwan Map.
+    rightContent = (
+      <>
+        <a class="dropdown-trigger btn" href="#" data-target="county-dropdown">
+          Taiwan <i class="material-icons right">keyboard_arrow_down</i>
+        </a>
+        <ul id="county-dropdown" class="dropdown-content">
+          {Object.values(CountyTypes).map((name) => (
+            <li>
+              <a href={`/county?name=${name}`}>{name}</a>
+            </li>
+          ))}
+        </ul>
+      </>
+    );
   }
 
   return (
-    <div>
-      LMCountyRoot: {county}
-      aaaaa
-      <WorldMap />
-      {documents.map((name) => (
-        <div>{name}</div>
-      ))}
+    <div id="root">
+      <div id="left">
+        LMCountyRoot: {county}
+        <WorldMap />
+      </div>
+      <div id="rigth">
+        <div class="marginTop-20">
+          {documents.map((name) => (
+            <div>{name}</div>
+          ))}
+          {rightContent}
+        </div>
+      </div>
     </div>
   );
 }
