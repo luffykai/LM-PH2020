@@ -7,6 +7,7 @@ require("firebase/firestore");
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import CountyTypes from "../javascripts/utils/CountyTypes";
+import LMTaiwanMap from './LMTaiwanMap.react';
 
 // Your web app's Firebase configuration
 const FIREBASE_CONFIG = {
@@ -23,43 +24,6 @@ const FIREBASE_CONFIG = {
 // // Initialize Cloud Firestore through Firebase
 firebase.initializeApp(FIREBASE_CONFIG);
 const db = firebase.firestore();
-
-function WorldMap() {
-  const dataDiv = document.getElementById("county-map-data");
-  let worlddata = JSON.parse(dataDiv.getAttribute("mapData"));
-  //worlddata = worlddata.features;
-  worlddata = topojson.feature(worlddata, worlddata.objects.COUNTY_MOI_1090727)
-    .features;
-  let width = 800;
-  let height = 680;
-
-  const myProjection = () => {
-    return d3
-      .geoMercator()
-      .scale(10000)
-      .center([121, 24.3])
-      .translate([width / 2, height / 2.5]);
-  };
-
-  return (
-    <div>
-      <svg className="map-svg" width={800} height={680} viewBox="0 0 800 680">
-        <g className="countries">
-          {worlddata.map((d, i) => (
-            <path
-              key={`path-${i}`}
-              d={d3.geoPath().projection(myProjection())(d)}
-              className="country"
-              fill={`rgba(219, 163, 43,${(1 / worlddata.length) * i})`}
-              stroke="#FFFFFF"
-              strokeWidth={0.5}
-            />
-          ))}
-        </g>
-      </svg>
-    </div>
-  );
-}
 
 export default function LMCountyRoot() {
   const dataDiv = document.getElementById("county-map-data");
@@ -112,7 +76,7 @@ export default function LMCountyRoot() {
     <div id="root">
       <div id="left">
         LMCountyRoot: {county}
-        <WorldMap />
+        <LMTaiwanMap />
       </div>
       <div id="rigth">
         <div class="marginTop-20">

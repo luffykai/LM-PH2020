@@ -1,7 +1,5 @@
 "use strict";
 
-import LMMap from './LMMap.react';
-
 function LMAppRoot() {
   return (
     <div className="root">

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 32);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -335,18 +335,6 @@ function __classPrivateFieldSet(receiver, privateMap, value) {
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(15);
-} else {}
-
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2063,6 +2051,18 @@ exports.validateNamespace = validateNamespace;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
 
 /***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(17);
+} else {}
+
+
+/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2072,7 +2072,7 @@ exports.validateNamespace = validateNamespace;
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var tslib = __webpack_require__(0);
-var util = __webpack_require__(2);
+var util = __webpack_require__(1);
 var component = __webpack_require__(4);
 var logger$1 = __webpack_require__(6);
 
@@ -2753,7 +2753,7 @@ exports.firebase = firebase$1;
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var tslib = __webpack_require__(0);
-var util = __webpack_require__(2);
+var util = __webpack_require__(1);
 
 /**
  * Component for service name T, e.g. `auth`, `auth-internal`
@@ -3723,7 +3723,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_firebase_component__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
 /* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_firebase_util__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 /* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(idb__WEBPACK_IMPORTED_MODULE_4__);
@@ -5355,7 +5355,7 @@ Object.defineProperty(exports, "__esModule", {
     value: !0
 });
 
-var t, e = __webpack_require__(0), n = (t = __webpack_require__(3)) && "object" == typeof t && "default" in t ? t.default : t, r = __webpack_require__(6), i = __webpack_require__(2), o = __webpack_require__(19), s = __webpack_require__(4), u = new r.Logger("@firebase/firestore");
+var t, e = __webpack_require__(0), n = (t = __webpack_require__(3)) && "object" == typeof t && "default" in t ? t.default : t, r = __webpack_require__(6), i = __webpack_require__(1), o = __webpack_require__(21), s = __webpack_require__(4), u = new r.Logger("@firebase/firestore");
 
 // Helper methods are needed because variables can't be exported as read/write
 function a() {
@@ -20896,7 +20896,7 @@ if (true) {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(27);
+  module.exports = __webpack_require__(29);
 } else {}
 
 
@@ -33284,7 +33284,9 @@ $jscomp.polyfill = function (e, r, p, m) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
 
 /***/ }),
-/* 15 */
+/* 15 */,
+/* 16 */,
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33316,7 +33318,7 @@ exports.useLayoutEffect=function(a,b){return Z().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33325,15 +33327,15 @@ exports.useLayoutEffect=function(a,b){return Z().useLayoutEffect(a,b)};exports.u
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var firebase = _interopDefault(__webpack_require__(3));
-__webpack_require__(17);
-__webpack_require__(18);
-__webpack_require__(11);
+__webpack_require__(19);
 __webpack_require__(20);
-__webpack_require__(21);
+__webpack_require__(11);
 __webpack_require__(22);
 __webpack_require__(23);
 __webpack_require__(24);
 __webpack_require__(25);
+__webpack_require__(26);
+__webpack_require__(27);
 
 var name = "firebase";
 var version = "7.17.2";
@@ -33383,7 +33385,7 @@ module.exports = firebase;
 
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {(function() {var firebase = __webpack_require__(3).default;/*
@@ -33823,7 +33825,7 @@ instanceFactory:function(b){b=b.getProvider("auth").getImmediate();return{getUid
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33835,7 +33837,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var firebase = _interopDefault(__webpack_require__(3));
 var tslib = __webpack_require__(0);
-var util = __webpack_require__(2);
+var util = __webpack_require__(1);
 var logger$1 = __webpack_require__(6);
 var component = __webpack_require__(4);
 
@@ -49230,7 +49232,7 @@ exports.registerDatabase = registerDatabase;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50632,7 +50634,7 @@ var esm_5 = esm.XhrIo;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51283,7 +51285,7 @@ firebase.registerVersion(name, version);
 
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51294,7 +51296,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_firebase_component__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(0);
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1);
 /* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_firebase_util__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5);
 /* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(idb__WEBPACK_IMPORTED_MODULE_5__);
@@ -52901,7 +52903,7 @@ function isSWControllerSupported() {
 
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56413,7 +56415,7 @@ registerStorage(_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56426,7 +56428,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var firebase = _interopDefault(__webpack_require__(3));
 __webpack_require__(8);
 var tslib = __webpack_require__(0);
-var util = __webpack_require__(2);
+var util = __webpack_require__(1);
 var logger$1 = __webpack_require__(6);
 var component = __webpack_require__(4);
 
@@ -57833,7 +57835,7 @@ exports.registerPerformance = registerPerformance;
 
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57848,7 +57850,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_firebase_app__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _firebase_installations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
 /* harmony import */ var _firebase_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1);
 /* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_firebase_util__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_firebase_component__WEBPACK_IMPORTED_MODULE_5__);
@@ -58477,7 +58479,7 @@ function isSupported() {
 
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58490,7 +58492,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var firebase = _interopDefault(__webpack_require__(3));
 __webpack_require__(8);
 var tslib = __webpack_require__(0);
-var util = __webpack_require__(2);
+var util = __webpack_require__(1);
 var logger = __webpack_require__(6);
 var component = __webpack_require__(4);
 
@@ -59719,7 +59721,7 @@ exports.registerRemoteConfig = registerRemoteConfig;
 
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59731,7 +59733,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59747,7 +59749,7 @@ __webpack_require__.r(__webpack_exports__);
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),n=__webpack_require__(9),r=__webpack_require__(28);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
+var aa=__webpack_require__(2),n=__webpack_require__(9),r=__webpack_require__(30);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
 function ba(a,b,c,d,e,f,g,h,k){var l=Array.prototype.slice.call(arguments,3);try{b.apply(c,l)}catch(m){this.onError(m)}}var da=!1,ea=null,fa=!1,ha=null,ia={onError:function(a){da=!0;ea=a}};function ja(a,b,c,d,e,f,g,h,k){da=!1;ea=null;ba.apply(ia,arguments)}function ka(a,b,c,d,e,f,g,h,k){ja.apply(this,arguments);if(da){if(da){var l=ea;da=!1;ea=null}else throw Error(u(198));fa||(fa=!0,ha=l)}}var la=null,ma=null,na=null;
 function oa(a,b,c){var d=a.type||"unknown-event";a.currentTarget=na(c);ka(d,b,void 0,a);a.currentTarget=null}var pa=null,qa={};
 function ra(){if(pa)for(var a in qa){var b=qa[a],c=pa.indexOf(a);if(!(-1<c))throw Error(u(96,a));if(!sa[c]){if(!b.extractEvents)throw Error(u(97,a));sa[c]=b;c=b.eventTypes;for(var d in c){var e=void 0;var f=c[d],g=b,h=d;if(ta.hasOwnProperty(h))throw Error(u(99,h));ta[h]=f;var k=f.phasedRegistrationNames;if(k){for(e in k)k.hasOwnProperty(e)&&ua(k[e],g,h);e=!0}else f.registrationName?(ua(f.registrationName,g,h),e=!0):e=!1;if(!e)throw Error(u(98,d,a));}}}}
@@ -60030,19 +60032,19 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!gk(c))throw Er
 
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (true) {
-  module.exports = __webpack_require__(29);
+  module.exports = __webpack_require__(31);
 } else {}
 
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60070,8 +60072,7 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
 
 
 /***/ }),
-/* 30 */,
-/* 31 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60079,7 +60080,7 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(1);
+var react = __webpack_require__(2);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
 // EXTERNAL MODULE: ./node_modules/react-dom/index.js
@@ -60090,6 +60091,37 @@ var react_dom_default = /*#__PURE__*/__webpack_require__.n(react_dom);
 var CountyTypes = __webpack_require__(13);
 var CountyTypes_default = /*#__PURE__*/__webpack_require__.n(CountyTypes);
 
+// CONCATENATED MODULE: ./src/components/LMTaiwanMap.react.js
+
+var MAP_WIDTH = 800;
+var MAP_HEIGHT = 680;
+function LMTaiwanMap() {
+  var dataDiv = document.getElementById("county-map-data");
+  var taiwanData = JSON.parse(dataDiv.getAttribute("mapData"));
+  taiwanData = topojson.feature(taiwanData, taiwanData.objects.COUNTY_MOI_1090727).features;
+
+  var myProjection = function myProjection() {
+    return d3.geoMercator().scale(10000).center([121, 24.3]).translate([MAP_WIDTH / 2, MAP_HEIGHT / 2.5]);
+  };
+
+  return /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("svg", {
+    className: "map-svg",
+    width: MAP_WIDTH,
+    height: MAP_HEIGHT,
+    viewBox: "0 0 ".concat(MAP_WIDTH, " ").concat(MAP_HEIGHT)
+  }, /*#__PURE__*/react_default.a.createElement("g", {
+    className: "countries"
+  }, taiwanData.map(function (d, i) {
+    return /*#__PURE__*/react_default.a.createElement("path", {
+      key: "path-".concat(i),
+      d: d3.geoPath().projection(myProjection())(d),
+      className: "country",
+      fill: "rgba(219, 163, 43,".concat(1 / taiwanData.length * i, ")"),
+      stroke: "#FFFFFF",
+      strokeWidth: 0.5
+    });
+  }))));
+}
 // CONCATENATED MODULE: ./src/components/LMCountyRoot.react.js
 
 
@@ -60105,10 +60137,11 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var firebase = __webpack_require__(16); // Required for side-effects
+var firebase = __webpack_require__(18); // Required for side-effects
 
 
-__webpack_require__(26);
+__webpack_require__(28);
+
 
 
 
@@ -60129,38 +60162,6 @@ var FIREBASE_CONFIG = {
 
 firebase.initializeApp(FIREBASE_CONFIG);
 var db = firebase.firestore();
-
-function WorldMap() {
-  var dataDiv = document.getElementById("county-map-data");
-  var worlddata = JSON.parse(dataDiv.getAttribute("mapData")); //worlddata = worlddata.features;
-
-  worlddata = topojson.feature(worlddata, worlddata.objects.COUNTY_MOI_1090727).features;
-  var width = 800;
-  var height = 680;
-
-  var myProjection = function myProjection() {
-    return d3.geoMercator().scale(10000).center([121, 24.3]).translate([width / 2, height / 2.5]);
-  };
-
-  return /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("svg", {
-    className: "map-svg",
-    width: 800,
-    height: 680,
-    viewBox: "0 0 800 680"
-  }, /*#__PURE__*/react_default.a.createElement("g", {
-    className: "countries"
-  }, worlddata.map(function (d, i) {
-    return /*#__PURE__*/react_default.a.createElement("path", {
-      key: "path-".concat(i),
-      d: d3.geoPath().projection(myProjection())(d),
-      className: "country",
-      fill: "rgba(219, 163, 43,".concat(1 / worlddata.length * i, ")"),
-      stroke: "#FFFFFF",
-      strokeWidth: 0.5
-    });
-  }))));
-}
-
 function LMCountyRoot() {
   var dataDiv = document.getElementById("county-map-data");
   var data = JSON.parse(dataDiv.getAttribute("data"));
@@ -60212,7 +60213,7 @@ function LMCountyRoot() {
     id: "root"
   }, /*#__PURE__*/react_default.a.createElement("div", {
     id: "left"
-  }, "LMCountyRoot: ", county, /*#__PURE__*/react_default.a.createElement(WorldMap, null)), /*#__PURE__*/react_default.a.createElement("div", {
+  }, "LMCountyRoot: ", county, /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, null)), /*#__PURE__*/react_default.a.createElement("div", {
     id: "rigth"
   }, /*#__PURE__*/react_default.a.createElement("div", {
     "class": "marginTop-20"
