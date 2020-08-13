@@ -60166,7 +60166,6 @@ function LMCountyRoot() {
   var dataDiv = document.getElementById("county-map-data");
   var data = JSON.parse(dataDiv.getAttribute("data"));
   var county = dataDiv.getAttribute("county");
-  console.log("county", county);
 
   var _useState = Object(react["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -60193,19 +60192,29 @@ function LMCountyRoot() {
 
   if (county === "undefined") {
     // No county is specified, which means we're showing a Taiwan Map.
-    rightContent = /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement("a", {
+    rightContent = /*#__PURE__*/react_default.a.createElement("div", {
+      className: "rightContent"
+    }, /*#__PURE__*/react_default.a.createElement("div", {
+      id: "largeMetricAndUnit"
+    }, /*#__PURE__*/react_default.a.createElement("div", {
+      id: "largeMetric"
+    }, "6913"), /*#__PURE__*/react_default.a.createElement("span", {
+      id: "unit"
+    }, "House ", /*#__PURE__*/react_default.a.createElement("br", null), "Number")), /*#__PURE__*/react_default.a.createElement("div", null, "with ", "613", " build cases in this area"), /*#__PURE__*/react_default.a.createElement("h5", null, "Choose the county:"), /*#__PURE__*/react_default.a.createElement("div", {
+      className: "marginTop-8"
+    }, /*#__PURE__*/react_default.a.createElement("a", {
       "class": "dropdown-trigger btn",
       href: "#",
       "data-target": "county-dropdown"
     }, "Taiwan ", /*#__PURE__*/react_default.a.createElement("i", {
       "class": "material-icons right"
-    }, "keyboard_arrow_down")), /*#__PURE__*/react_default.a.createElement("ul", {
+    }, "keyboard_arrow_down"))), /*#__PURE__*/react_default.a.createElement("ul", {
       id: "county-dropdown",
       "class": "dropdown-content"
     }, Object.values(CountyTypes_default.a).map(function (name) {
       return /*#__PURE__*/react_default.a.createElement("li", null, /*#__PURE__*/react_default.a.createElement("a", {
         href: "/county?name=".concat(name)
-      }, name));
+      }, countyNameFormatter(name)));
     })));
   }
 
@@ -60221,6 +60230,14 @@ function LMCountyRoot() {
     return /*#__PURE__*/react_default.a.createElement("div", null, name);
   }), rightContent)));
 }
+
+function countyNameFormatter(countyNameRaw) {
+  var countyNames = countyNameRaw.split("_").map(function (_namePartRaw) {
+    return "".concat(_namePartRaw.slice(0, 1).toUpperCase()).concat(_namePartRaw.slice(1));
+  });
+  return countyNames.join(" ");
+}
+
 var domContainer = document.querySelector("#lm_county_root");
 react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(LMCountyRoot, null), domContainer);
 // EXTERNAL MODULE: ./node_modules/materialize-css/dist/js/materialize.js

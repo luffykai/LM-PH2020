@@ -9,3 +9,23 @@
 #right {
     width: 50%;
 }
+
+.rightContent {
+    display: flex;
+    flex-direction: column;
+}
+
+#largeMetricAndUnit{
+    display: flex;
+    align-items: center;
+}
+
+#largeMetric {
+    font-size: 72px;
+    font-weight: 600;
+}
+
+#unit {
+    display: flexbox;
+    margin-left: 4px;
+}

@@ -7,7 +7,7 @@ require("firebase/firestore");
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import CountyTypes from "../javascripts/utils/CountyTypes";
-import LMTaiwanMap from './LMTaiwanMap.react';
+import LMTaiwanMap from "./LMTaiwanMap.react";
 
 // Your web app's Firebase configuration
 const FIREBASE_CONFIG = {
@@ -29,9 +29,6 @@ export default function LMCountyRoot() {
   const dataDiv = document.getElementById("county-map-data");
   const data = JSON.parse(dataDiv.getAttribute("data"));
   const county = dataDiv.getAttribute("county");
-
-  console.log("county", county);
-
   const [documents, setDocuments] = useState([]);
 
   // Fetch the data with an effect
@@ -57,18 +54,33 @@ export default function LMCountyRoot() {
   if (county === "undefined") {
     // No county is specified, which means we're showing a Taiwan Map.
     rightContent = (
-      <>
-        <a class="dropdown-trigger btn" href="#" data-target="county-dropdown">
-          Taiwan <i class="material-icons right">keyboard_arrow_down</i>
-        </a>
+      <div className="rightContent">
+        <div id="largeMetricAndUnit">
+          <div id="largeMetric">6913</div>
+          <span id="unit">
+            House <br />
+            Number
+          </span>
+        </div>
+        <div>with {`613`} build cases in this area</div>
+        <h5>Choose the county:</h5>
+        <div className="marginTop-8">
+          <a
+            class="dropdown-trigger btn"
+            href="#"
+            data-target="county-dropdown"
+          >
+            Taiwan <i class="material-icons right">keyboard_arrow_down</i>
+          </a>
+        </div>
         <ul id="county-dropdown" class="dropdown-content">
           {Object.values(CountyTypes).map((name) => (
             <li>
-              <a href={`/county?name=${name}`}>{name}</a>
+              <a href={`/county?name=${name}`}>{countyNameFormatter(name)}</a>
             </li>
           ))}
         </ul>
-      </>
+      </div>
     );
   }
 
@@ -88,6 +100,16 @@ export default function LMCountyRoot() {
       </div>
     </div>
   );
+}
+
+function countyNameFormatter(countyNameRaw) {
+  const countyNames = countyNameRaw
+    .split("_")
+    .map(
+      (_namePartRaw) =>
+        `${_namePartRaw.slice(0, 1).toUpperCase()}${_namePartRaw.slice(1)}`
+    );
+  return countyNames.join(" ");
 }
 
 let domContainer = document.querySelector("#lm_county_root");
