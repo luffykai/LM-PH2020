@@ -55,10 +55,7 @@ const genericReleaseBuilder = {
           releaseDetail[key] !== "" &&
           !(key in ALREADY_IMPLIED_FIELDS)
         ) {
-          unmappedFields.push({
-            key,
-            value: String(releaseDetail[key]).replace(/\s/g, "")
-          });
+          unmappedFields[key] = String(releaseDetail[key]).replace(/\s/g, "");
           console.error("no path for", key, " value = ", releaseDetail[key]);
         }
       }

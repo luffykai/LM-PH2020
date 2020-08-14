@@ -35,7 +35,7 @@ const convertToOCDS = function (orgID, contractID) {
   const contract = getContract(orgID, contractID);
   releasePackage = initPackage(ocid);
 
-  const unmappedFields = [];
+  const unmappedFields = {};
 
   for (let release of contract.records) {
     // console.log("BRIEF");
@@ -75,7 +75,7 @@ const convertToOCDS = function (orgID, contractID) {
   });
 
   stringify(
-    unmappedFields,
+    Object.entries(unmappedFields),
     { header: true, columns: [{ key: "key" }, { key: "value" }] },
     (err, output) => {
       if (err) throw err;
@@ -85,10 +85,6 @@ const convertToOCDS = function (orgID, contractID) {
       });
     }
   );
-
-  for (let key in unmappedFields) {
-    stringifier.write([key, unmappedFields[key]]);
-  }
 
   return releasePackage;
 };

@@ -187,10 +187,7 @@ const awardReleaseBuilder = {
           ]
         );
       } else {
-        unmappedFields.push({
-            key,
-            value: String(releaseDetail[key]).replace(/\s/g, "")
-          });
+        unmappedFields[key] = String(releaseDetail[key]).replace(/\s/g, "");
       }
     }
     populateCommitteesInParties(releaseDetail, ocdsRelease);
