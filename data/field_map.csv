@@ -36,6 +36,7 @@ ronny_field,ocds_path
 "領投開標:是否提供電子投標","tender/submissionMethod[]"
 "領投開標:收受投標文件地點","tender/submissionMethodDetails"
 "領投開標:是否提供電子領標:總計","tender/participationFees[]"
+"領投開標:開標地點","tender/bidOpening/address"
 ,
 "其他:廠商資格摘要","tender/eligibilityCriteria"
 "其他:履約地點","tender/items[]"
