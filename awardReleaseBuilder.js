@@ -143,7 +143,7 @@ function updateAwards(ocdsRelease) {
 }
 
 const awardReleaseBuilder = {
-  build: (releaseDetail, ocdsRelease) => {
+  build: (releaseDetail, ocdsRelease, unmappedFields) => {
     const supplierToIdxMap = new Map();
     const supplierNameToIdMap = new Map();
     for (let key in releaseDetail) {
@@ -186,6 +186,11 @@ const awardReleaseBuilder = {
             `投標廠商:投標廠商${match[1]}(共同投標廠商)${match[2]}:廠商代碼`
           ]
         );
+      } else {
+        unmappedFields.push({
+            key,
+            value: String(releaseDetail[key]).replace(/\s/g, "")
+          });
       }
     }
     populateCommitteesInParties(releaseDetail, ocdsRelease);

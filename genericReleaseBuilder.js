@@ -27,7 +27,7 @@ const loadMap = function () {
 const FIELD_MAP = loadMap();
 
 const genericReleaseBuilder = {
-  build: (releaseDetail, ocdsRelease) => {
+  build: (releaseDetail, ocdsRelease, unmappedFields) => {
     for (let key in releaseDetail) {
       // For each field in the Ronny API, we find our mapping to
       // the OCDS Fields path. If the path is found, we set it
@@ -55,6 +55,10 @@ const genericReleaseBuilder = {
           releaseDetail[key] !== "" &&
           !(key in ALREADY_IMPLIED_FIELDS)
         ) {
+          unmappedFields.push({
+            key,
+            value: String(releaseDetail[key]).replace(/\s/g, "")
+          });
           console.error("no path for", key, " value = ", releaseDetail[key]);
         }
       }

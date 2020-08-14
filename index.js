@@ -11,15 +11,17 @@ const {
   outputPackage,
   postProcessing,
   printProjectHeader,
-  writeJsonFile
+  writeJsonFile,
 } = require("./LMUtils");
 const put = require("./put.js");
 const getReleaseBuilder = require("./releaseBuilders.js");
 const { convertToOc4idsInput, searchWithUnit } = require("./searchWithUnit.js");
 
+const stringify = require("csv-stringify");
+
 const LM_OCDS_PREFIX = "ocds-kj3ygj";
 
-const getContract = function(orgID, contractID) {
+const getContract = function (orgID, contractID) {
   res = sync_request(
     "GET",
     `https://pcc.g0v.ronny.tw/api/tender?unit_id=${orgID}&job_number=${contractID}`
@@ -28,10 +30,12 @@ const getContract = function(orgID, contractID) {
 };
 
 // Example: 3.80.11, 1090212-B2
-const convertToOCDS = function(orgID, contractID) {
+const convertToOCDS = function (orgID, contractID) {
   const ocid = `${LM_OCDS_PREFIX}-${orgID}-${contractID}`;
   const contract = getContract(orgID, contractID);
   releasePackage = initPackage(ocid);
+
+  const unmappedFields = [];
 
   for (let release of contract.records) {
     // console.log("BRIEF");
@@ -54,16 +58,42 @@ const convertToOCDS = function(orgID, contractID) {
     put(ocdsRelease, "language", "zh");
     put(ocdsRelease, "initiationType", "tender"); // Only tender is supported from this code list
 
-    getReleaseBuilder(releaseTag).build(release.detail, ocdsRelease);
+    getReleaseBuilder(releaseTag).build(
+      release.detail,
+      ocdsRelease,
+      unmappedFields
+    );
 
     // Post-processing for ocds release
     const processedOCDSRelease = postProcessing(ocdsRelease);
     releasePackage.releases.push(processedOCDSRelease);
   }
+
+  const stringifier = stringify({
+    columns: [{ key: "key" }, { key: "value" }],
+    delimiter: ",",
+  });
+
+  stringify(
+    unmappedFields,
+    { header: true, columns: [{ key: "key" }, { key: "value" }] },
+    (err, output) => {
+      if (err) throw err;
+      fs.writeFile("./output/unmapped_fields.csv", output, (err) => {
+        if (err) throw err;
+        console.log("unmapped_fields.csv saved.");
+      });
+    }
+  );
+
+  for (let key in unmappedFields) {
+    stringifier.write([key, unmappedFields[key]]);
+  }
+
   return releasePackage;
 };
 
-const convertToOC4IDS = function(input) {
+const convertToOC4IDS = function (input) {
   let oc4ids = {};
   oc4ids.id = input.project_id;
   oc4ids.title = input.project_name;
@@ -82,15 +112,15 @@ const convertToOC4IDS = function(input) {
     uri: `ocds://contract/${input.project_id}`,
     publishedDate: new Date().toISOString(),
     publisher: {
-      name: "Learning Man"
+      name: "Learning Man",
     },
     version: "0.9",
-    projects: [oc4ids]
+    projects: [oc4ids],
   };
   return oc4idsPackage;
 };
 
-main = function() {
+main = function () {
   if (argv._.includes("search_with_unit")) {
     const data = convertToOC4IDS(
       convertToOc4idsInput(
@@ -110,7 +140,7 @@ main = function() {
     const project_csv = fs.readFileSync(argv.input);
     const projects = csvparse(project_csv, {
       columns: true,
-      skip_empty_lines: true
+      skip_empty_lines: true,
     });
     for (let p of projects) {
       const regex = `${p.regex}.*((安置)|(社會)|(公共)|(住宅))`;
