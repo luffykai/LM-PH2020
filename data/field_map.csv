@@ -10,9 +10,11 @@ ronny_field,ocds_path
 "機關資料:聯絡人","parties[0]/contactPoint/name"
 "標案內容:聯絡人","parties[0]/contactPoint/name"
 "無法決標公告:聯絡人","parties[0]/contactPoint/name"
+,
 "機關資料:聯絡電話","parties[0]/contactPoint/telephone"
 "標案內容:聯絡電話","parties[0]/contactPoint/telephone"
 "無法決標公告:聯絡電話","parties[0]/contactPoint/telephone"
+"機關資料:聯絡電話","parties[0]/contactPoint/telephone"
 "機關資料:傳真號碼","parties[0]/contactPoint/faxNumber"
 "無法決標公告:傳真號碼","parties[0]/contactPoint/faxNumber"
 "機關資料:電子郵件信箱","parties[0]/contactPoint/email"

@@ -4,26 +4,12 @@ const csvparse = require("csv-parse/lib/sync");
 
 const fieldHandlers = require("./fieldHandlers");
 const put = require("./put");
-const { ALREADY_IMPLIED_FIELDS, NON_MAPPING_FIELDS } = require("./LMUtils");
+const {
+  ALREADY_IMPLIED_FIELDS,
+  NON_MAPPING_FIELDS,
+  loadMap,
+} = require("./LMUtils");
 
-/*
- * Load the csv file and turn it into a Map Object
- * synchronously
- */
-const loadMap = function () {
-  const map = new Map();
-  data = fs.readFileSync("data/field_map.csv");
-  const records = csvparse(data, {
-    columns: true,
-    skip_empty_lines: true,
-  });
-
-  for (record of records) {
-    map.set(record.ronny_field, record.ocds_path);
-  }
-
-  return map;
-};
 const FIELD_MAP = loadMap();
 
 const genericReleaseBuilder = {
