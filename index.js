@@ -155,3 +155,7 @@ main = function () {
 };
 
 main();
+
+module.exports = {
+  convertToOCDS
+}
