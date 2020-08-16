@@ -97,20 +97,23 @@ export default function LMCountyRoot() {
       <>
         <LMCountySelector selectedCounty={county} />
         <input
+          placeholder="Search for Social Housing Projects..."
           type="text"
           value={searchTerm}
           onInput={(e) => setSearchTerm(e.target.value)}
         />
-        {documents.map((name) => {
-          if (
-            debounceSearchTerm !== "" &&
-            name.indexOf(debounceSearchTerm) < 0
-          ) {
-            return null;
-          }
+        <div className="collection">
+          {documents.map((name) => {
+            if (
+              debounceSearchTerm !== "" &&
+              name.indexOf(debounceSearchTerm) < 0
+            ) {
+              return null;
+            }
 
-          return <LMProjectRow id={name} name={name} />;
-        })}
+            return <LMProjectRow id={name} name={name} />;
+          })}
+        </div>
       </>
     );
   }

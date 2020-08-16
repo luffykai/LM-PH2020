@@ -41,17 +41,67 @@
 }
 
 .projectRowRoot {
+    border-bottom: 1px solid #fce8f4;
     display: flex;
-    margin-bottom: 8px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    padding-left: 16px;
+}
+
+.projectRowRoot:hover{
+    cursor: pointer;
 }
 
 .projectRowImageWrap{
-    width: 260px;
-    height: 120px;
+    border-radius: 12px;
+    width: 240px;
+    height: 140px;
     overflow: hidden;
+    margin-right: 18px;
 }
 
 .projectRowImage{
     width: 100%;
     height: auto;
+}
+
+.projectRowInfo {
+    max-width: 530px;
+}
+
+.projectRowStatus {
+    box-sizing: content-box;
+    border-radius: 16px;
+    padding: 6px 8px;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    margin-bottom: 13px;
+}
+
+.projectRowName{
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.projectRowDate {
+    color: #9e9e9e;
+    font-weight: 300;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.projectRowDescription {
+    color: #9e9e9e;
+    font-weight: 300;
+    letter-spacing: 2px;
+    /* max-width: 220px; */
+    font-size: 15px;
+}
+
+.statusBuilding {
+    color: #ffa726;
+    background-color: #ffe0b2;
 }

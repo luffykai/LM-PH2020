@@ -63288,7 +63288,9 @@ is selected. This component would show
 */
 
 function LMProjectRow(props) {
-  return /*#__PURE__*/react_default.a.createElement("div", {
+  return /*#__PURE__*/react_default.a.createElement("a", {
+    className: "collection-item hoverable"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
     className: "projectRowRoot"
   }, /*#__PURE__*/react_default.a.createElement("div", {
     className: "projectRowImageWrap"
@@ -63298,12 +63300,14 @@ function LMProjectRow(props) {
   })), /*#__PURE__*/react_default.a.createElement("div", {
     className: "projectRowInfo"
   }, /*#__PURE__*/react_default.a.createElement("div", {
-    className: "projectRowStatus"
+    className: "projectRowStatus statusBuilding"
   }, "Building"), /*#__PURE__*/react_default.a.createElement("div", {
     className: "projectRowName"
   }, props.name), /*#__PURE__*/react_default.a.createElement("div", {
     className: "projectRowDate"
-  }, "\u9810\u8A08\u5B8C\u5DE5\uFF1A2024/07")));
+  }, "\u9810\u8A08\u5B8C\u5DE5\uFF1A2024/07"), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "projectRowDescription"
+  }, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean interdum enim quam, in interdum lectus vulputate vel. Duis volutpat augue ligula, sit amet sagittis odio ultricies rhoncus. Vivamus gravida pellentesque nibh, vel ornare nulla varius eu. Vestibulum ac ultrices justo. Suspendisse dolor ex, rhoncus in mi pretium, placerat lobortis nunc."))));
 }
 // EXTERNAL MODULE: ./src/javascripts/utils/CountyTypes.js
 var CountyTypes = __webpack_require__(12);
@@ -63552,12 +63556,15 @@ function LMCountyRoot() {
     rightContent = /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMCountySelector, {
       selectedCounty: county
     }), /*#__PURE__*/react_default.a.createElement("input", {
+      placeholder: "Search for Social Housing Projects...",
       type: "text",
       value: searchTerm,
       onInput: function onInput(e) {
         return setSearchTerm(e.target.value);
       }
-    }), documents.map(function (name) {
+    }), /*#__PURE__*/react_default.a.createElement("div", {
+      className: "collection"
+    }, documents.map(function (name) {
       if (debounceSearchTerm !== "" && name.indexOf(debounceSearchTerm) < 0) {
         return null;
       }
@@ -63566,7 +63573,7 @@ function LMCountyRoot() {
         id: name,
         name: name
       });
-    }));
+    })));
   }
 
   return /*#__PURE__*/react_default.a.createElement("div", {
