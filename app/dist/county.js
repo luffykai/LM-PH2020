@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 39);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -341,7 +341,7 @@ function __classPrivateFieldSet(receiver, privateMap, value) {
 
 
 if (true) {
-  module.exports = __webpack_require__(22);
+  module.exports = __webpack_require__(21);
 } else {}
 
 
@@ -359,7 +359,7 @@ if (true) {
 if (false) { var throwOnDirectAccess, ReactIs; } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(37)();
+  module.exports = __webpack_require__(36)();
 }
 
 
@@ -3113,7 +3113,7 @@ if (true) {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(34);
+  module.exports = __webpack_require__(33);
 } else {}
 
 
@@ -5746,7 +5746,7 @@ Object.defineProperty(exports, "__esModule", {
     value: !0
 });
 
-var t, e = __webpack_require__(0), n = (t = __webpack_require__(4)) && "object" == typeof t && "default" in t ? t.default : t, r = __webpack_require__(9), i = __webpack_require__(3), o = __webpack_require__(26), s = __webpack_require__(5), u = new r.Logger("@firebase/firestore");
+var t, e = __webpack_require__(0), n = (t = __webpack_require__(4)) && "object" == typeof t && "default" in t ? t.default : t, r = __webpack_require__(9), i = __webpack_require__(3), o = __webpack_require__(25), s = __webpack_require__(5), u = new r.Logger("@firebase/firestore");
 
 // Helper methods are needed because variables can't be exported as read/write
 function a() {
@@ -21687,2530 +21687,6 @@ module.exports = CountyMapDefaults;
 
 /***/ }),
 /* 18 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(1);
-var react_default = /*#__PURE__*/__webpack_require__.n(react);
-
-// EXTERNAL MODULE: ./node_modules/react-dom/index.js
-var react_dom = __webpack_require__(6);
-var react_dom_default = /*#__PURE__*/__webpack_require__.n(react_dom);
-
-// EXTERNAL MODULE: ./src/javascripts/utils/CountyTypes.js
-var CountyTypes = __webpack_require__(12);
-var CountyTypes_default = /*#__PURE__*/__webpack_require__.n(CountyTypes);
-
-// CONCATENATED MODULE: ./src/components/LMTaiwanMap.react.js
-
-var MAP_WIDTH = 800;
-var MAP_HEIGHT = 680;
-function LMTaiwanMap() {
-  var dataDiv = document.getElementById("county-map-data");
-  var taiwanData = JSON.parse(dataDiv.getAttribute("mapData"));
-  taiwanData = topojson.feature(taiwanData, taiwanData.objects.COUNTY_MOI_1090727).features;
-
-  var myProjection = function myProjection() {
-    return d3.geoMercator().scale(10000).center([121, 24.3]).translate([MAP_WIDTH / 2, MAP_HEIGHT / 2.5]);
-  };
-
-  return /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("svg", {
-    className: "map-svg",
-    width: MAP_WIDTH,
-    height: MAP_HEIGHT,
-    viewBox: "0 0 ".concat(MAP_WIDTH, " ").concat(MAP_HEIGHT)
-  }, /*#__PURE__*/react_default.a.createElement("g", {
-    className: "countries"
-  }, taiwanData.map(function (d, i) {
-    return /*#__PURE__*/react_default.a.createElement("path", {
-      key: "path-".concat(i),
-      d: d3.geoPath().projection(myProjection())(d),
-      className: "country",
-      fill: "rgba(219, 163, 43,".concat(1 / taiwanData.length * i, ")"),
-      stroke: "#FFFFFF",
-      strokeWidth: 0.5
-    });
-  }))));
-}
-// EXTERNAL MODULE: ./node_modules/prop-types/index.js
-var prop_types = __webpack_require__(2);
-var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
-
-// EXTERNAL MODULE: ./node_modules/eventemitter3/index.js
-var eventemitter3 = __webpack_require__(16);
-var eventemitter3_default = /*#__PURE__*/__webpack_require__.n(eventemitter3);
-
-// EXTERNAL MODULE: ./node_modules/@mapbox/point-geometry/index.js
-var point_geometry = __webpack_require__(8);
-var point_geometry_default = /*#__PURE__*/__webpack_require__.n(point_geometry);
-
-// CONCATENATED MODULE: ./node_modules/google-map-react/dist/index.modern.js
-
-
-
-
-
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-var style = {
-  width: '100%',
-  height: '100%',
-  left: 0,
-  top: 0,
-  margin: 0,
-  padding: 0,
-  position: 'absolute'
-};
-
-var index_modern_GoogleMapMap = /*#__PURE__*/function (_Component) {
-  _inheritsLoose(GoogleMapMap, _Component);
-
-  function GoogleMapMap() {
-    return _Component.apply(this, arguments) || this;
-  }
-
-  var _proto = GoogleMapMap.prototype;
-
-  _proto.shouldComponentUpdate = function shouldComponentUpdate() {
-    return false;
-  };
-
-  _proto.render = function render() {
-    var registerChild = this.props.registerChild;
-    return /*#__PURE__*/react_default.a.createElement("div", {
-      ref: registerChild,
-      style: style
-    });
-  };
-
-  return GoogleMapMap;
-}(react["Component"]);
-
-var MarkerDispatcher = /*#__PURE__*/function (_EventEmitter) {
-  _inheritsLoose(MarkerDispatcher, _EventEmitter);
-
-  function MarkerDispatcher(gmapInstance) {
-    var _this;
-
-    _this = _EventEmitter.call(this) || this;
-    _this.gmapInstance = gmapInstance;
-    return _this;
-  }
-
-  var _proto = MarkerDispatcher.prototype;
-
-  _proto.getChildren = function getChildren() {
-    return this.gmapInstance.props.children;
-  };
-
-  _proto.getMousePosition = function getMousePosition() {
-    return this.gmapInstance.mouse_;
-  };
-
-  _proto.getUpdateCounter = function getUpdateCounter() {
-    return this.gmapInstance.updateCounter_;
-  };
-
-  _proto.dispose = function dispose() {
-    this.gmapInstance = null;
-    this.removeAllListeners();
-  };
-
-  return MarkerDispatcher;
-}(eventemitter3_default.a);
-
-var omit = function omit(obj, keys) {
-  var rest = _extends({}, obj);
-
-  for (var i = 0; i < keys.length; i++) {
-    var key = keys[i];
-
-    if (key in rest) {
-      delete rest[key];
-    }
-  }
-
-  return rest;
-};
-
-var index_modern_hasOwnProperty = Object.prototype.hasOwnProperty;
-
-function is(x, y) {
-  if (x === y) {
-    return x !== 0 || y !== 0 || 1 / x === 1 / y;
-  }
-
-  return x !== x && y !== y;
-}
-
-function shallowEqual(objA, objB) {
-  if (is(objA, objB)) {
-    return true;
-  }
-
-  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
-    return false;
-  }
-
-  var keysA = Object.keys(objA);
-  var keysB = Object.keys(objB);
-
-  if (keysA.length !== keysB.length) {
-    return false;
-  }
-
-  for (var i = 0; i < keysA.length; i++) {
-    if (!index_modern_hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-var mainStyle = {
-  width: '100%',
-  height: '100%',
-  left: 0,
-  top: 0,
-  margin: 0,
-  padding: 0,
-  position: 'absolute'
-};
-var style$1 = {
-  width: 0,
-  height: 0,
-  left: 0,
-  top: 0,
-  backgroundColor: 'transparent',
-  position: 'absolute'
-};
-
-var index_modern_GoogleMapMarkers = /*#__PURE__*/function (_Component) {
-  _inheritsLoose(GoogleMapMarkers, _Component);
-
-  function GoogleMapMarkers(props) {
-    var _this;
-
-    _this = _Component.call(this, props) || this;
-
-    _this._getState = function () {
-      return {
-        children: _this.props.dispatcher.getChildren(),
-        updateCounter: _this.props.dispatcher.getUpdateCounter()
-      };
-    };
-
-    _this._onChangeHandler = function () {
-      if (!_this.dimensionsCache_) {
-        return;
-      }
-
-      var prevChildCount = (_this.state.children || []).length;
-
-      var state = _this._getState();
-
-      _this.setState(state, function () {
-        return (state.children || []).length !== prevChildCount && _this._onMouseChangeHandler();
-      });
-    };
-
-    _this._onChildClick = function () {
-      if (_this.props.onChildClick) {
-        if (_this.hoverChildProps_) {
-          var hoverKey = _this.hoverKey_;
-          var childProps = _this.hoverChildProps_;
-
-          _this.props.onChildClick(hoverKey, childProps);
-        }
-      }
-    };
-
-    _this._onChildMouseDown = function () {
-      if (_this.props.onChildMouseDown) {
-        if (_this.hoverChildProps_) {
-          var hoverKey = _this.hoverKey_;
-          var childProps = _this.hoverChildProps_;
-
-          _this.props.onChildMouseDown(hoverKey, childProps);
-        }
-      }
-    };
-
-    _this._onChildMouseEnter = function (hoverKey, childProps) {
-      if (!_this.dimensionsCache_) {
-        return;
-      }
-
-      if (_this.props.onChildMouseEnter) {
-        _this.props.onChildMouseEnter(hoverKey, childProps);
-      }
-
-      _this.hoverChildProps_ = childProps;
-      _this.hoverKey_ = hoverKey;
-
-      _this.setState({
-        hoverKey: hoverKey
-      });
-    };
-
-    _this._onChildMouseLeave = function () {
-      if (!_this.dimensionsCache_) {
-        return;
-      }
-
-      var hoverKey = _this.hoverKey_;
-      var childProps = _this.hoverChildProps_;
-
-      if (hoverKey !== undefined && hoverKey !== null) {
-        if (_this.props.onChildMouseLeave) {
-          _this.props.onChildMouseLeave(hoverKey, childProps);
-        }
-
-        _this.hoverKey_ = null;
-        _this.hoverChildProps_ = null;
-
-        _this.setState({
-          hoverKey: null
-        });
-      }
-    };
-
-    _this._onMouseAllow = function (value) {
-      if (!value) {
-        _this._onChildMouseLeave();
-      }
-
-      _this.allowMouse_ = value;
-    };
-
-    _this._onMouseChangeHandler = function () {
-      if (_this.allowMouse_) {
-        _this._onMouseChangeHandlerRaf();
-      }
-    };
-
-    _this._onMouseChangeHandlerRaf = function () {
-      if (!_this.dimensionsCache_) {
-        return;
-      }
-
-      var mp = _this.props.dispatcher.getMousePosition();
-
-      if (mp) {
-        var distances = [];
-
-        var hoverDistance = _this.props.getHoverDistance();
-
-        react_default.a.Children.forEach(_this.state.children, function (child, childIndex) {
-          if (!child) return;
-
-          if (child.props.latLng === undefined && child.props.lat === undefined && child.props.lng === undefined) {
-            return;
-          }
-
-          var childKey = child.key !== undefined && child.key !== null ? child.key : childIndex;
-
-          var dist = _this.props.distanceToMouse(_this.dimensionsCache_[childKey], mp, child.props);
-
-          if (dist < hoverDistance) {
-            distances.push({
-              key: childKey,
-              dist: dist,
-              props: child.props
-            });
-          }
-        });
-
-        if (distances.length) {
-          distances.sort(function (a, b) {
-            return a.dist - b.dist;
-          });
-          var hoverKey = distances[0].key;
-          var childProps = distances[0].props;
-
-          if (_this.hoverKey_ !== hoverKey) {
-            _this._onChildMouseLeave();
-
-            _this._onChildMouseEnter(hoverKey, childProps);
-          }
-        } else {
-          _this._onChildMouseLeave();
-        }
-      } else {
-        _this._onChildMouseLeave();
-      }
-    };
-
-    _this._getDimensions = function (key) {
-      var childKey = key;
-      return _this.dimensionsCache_[childKey];
-    };
-
-    _this.dimensionsCache_ = {};
-    _this.hoverKey_ = null;
-    _this.hoverChildProps_ = null;
-    _this.allowMouse_ = true;
-    _this.state = _extends({}, _this._getState(), {
-      hoverKey: null
-    });
-    return _this;
-  }
-
-  var _proto = GoogleMapMarkers.prototype;
-
-  _proto.componentDidMount = function componentDidMount() {
-    this.props.dispatcher.on('kON_CHANGE', this._onChangeHandler);
-    this.props.dispatcher.on('kON_MOUSE_POSITION_CHANGE', this._onMouseChangeHandler);
-    this.props.dispatcher.on('kON_CLICK', this._onChildClick);
-    this.props.dispatcher.on('kON_MDOWN', this._onChildMouseDown);
-  };
-
-  _proto.shouldComponentUpdate = function shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.experimental === true) {
-      return !shallowEqual(this.props, nextProps) || !shallowEqual(omit(this.state, ['hoverKey']), omit(nextState, ['hoverKey']));
-    }
-
-    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
-  };
-
-  _proto.componentWillUnmount = function componentWillUnmount() {
-    this.props.dispatcher.removeListener('kON_CHANGE', this._onChangeHandler);
-    this.props.dispatcher.removeListener('kON_MOUSE_POSITION_CHANGE', this._onMouseChangeHandler);
-    this.props.dispatcher.removeListener('kON_CLICK', this._onChildClick);
-    this.props.dispatcher.removeListener('kON_MDOWN', this._onChildMouseDown);
-    this.dimensionsCache_ = null;
-  };
-
-  _proto.render = function render() {
-    var _this2 = this;
-
-    var mainElementStyle = this.props.style || mainStyle;
-    this.dimensionsCache_ = {};
-    var markers = react_default.a.Children.map(this.state.children, function (child, childIndex) {
-      if (!child) return undefined;
-
-      if (child.props.latLng === undefined && child.props.lat === undefined && child.props.lng === undefined) {
-        return react_default.a.cloneElement(child, {
-          $geoService: _this2.props.geoService,
-          $onMouseAllow: _this2._onMouseAllow,
-          $prerender: _this2.props.prerender
-        });
-      }
-
-      var latLng = child.props.latLng !== undefined ? child.props.latLng : {
-        lat: child.props.lat,
-        lng: child.props.lng
-      };
-      var pt = _this2.props.insideMapPanes ? _this2.props.geoService.fromLatLngToDivPixel(latLng) : _this2.props.geoService.fromLatLngToCenterPixel(latLng);
-      var stylePtPos = {
-        left: pt.x,
-        top: pt.y
-      };
-
-      if (child.props.seLatLng !== undefined || child.props.seLat !== undefined && child.props.seLng !== undefined) {
-        var seLatLng = child.props.seLatLng !== undefined ? child.props.seLatLng : {
-          lat: child.props.seLat,
-          lng: child.props.seLng
-        };
-        var sePt = _this2.props.insideMapPanes ? _this2.props.geoService.fromLatLngToDivPixel(seLatLng) : _this2.props.geoService.fromLatLngToCenterPixel(seLatLng);
-        stylePtPos.width = sePt.x - pt.x;
-        stylePtPos.height = sePt.y - pt.y;
-      }
-
-      var containerPt = _this2.props.geoService.fromLatLngToContainerPixel(latLng);
-
-      var childKey = child.key !== undefined && child.key !== null ? child.key : childIndex;
-      _this2.dimensionsCache_[childKey] = _extends({
-        x: containerPt.x,
-        y: containerPt.y
-      }, latLng);
-      return /*#__PURE__*/react_default.a.createElement("div", {
-        key: childKey,
-        style: _extends({}, style$1, stylePtPos),
-        className: child.props.$markerHolderClassName
-      }, react_default.a.cloneElement(child, {
-        $hover: childKey === _this2.state.hoverKey,
-        $getDimensions: _this2._getDimensions,
-        $dimensionKey: childKey,
-        $geoService: _this2.props.geoService,
-        $onMouseAllow: _this2._onMouseAllow,
-        $prerender: _this2.props.prerender
-      }));
-    });
-    return /*#__PURE__*/react_default.a.createElement("div", {
-      style: mainElementStyle
-    }, markers);
-  };
-
-  return GoogleMapMarkers;
-}(react["Component"]);
-
-index_modern_GoogleMapMarkers.propTypes = {
-  geoService: prop_types_default.a.any,
-  style: prop_types_default.a.any,
-  distanceToMouse: prop_types_default.a.func,
-  dispatcher: prop_types_default.a.any,
-  onChildClick: prop_types_default.a.func,
-  onChildMouseDown: prop_types_default.a.func,
-  onChildMouseLeave: prop_types_default.a.func,
-  onChildMouseEnter: prop_types_default.a.func,
-  getHoverDistance: prop_types_default.a.func,
-  insideMapPanes: prop_types_default.a.bool,
-  prerender: prop_types_default.a.bool
-};
-index_modern_GoogleMapMarkers.defaultProps = {
-  insideMapPanes: false,
-  prerender: false
-};
-
-var style$2 = {
-  width: '50%',
-  height: '50%',
-  left: '50%',
-  top: '50%',
-  margin: 0,
-  padding: 0,
-  position: 'absolute'
-};
-function GoogleMapMarkersPrerender (props) {
-  return /*#__PURE__*/react_default.a.createElement("div", {
-    style: style$2
-  }, /*#__PURE__*/react_default.a.createElement(index_modern_GoogleMapMarkers, _extends({}, props, {
-    prerender: true
-  })));
-}
-
-var generateHeatmap = function generateHeatmap(instance, _ref) {
-  var positions = _ref.positions;
-  return new instance.visualization.HeatmapLayer({
-    data: positions.reduce(function (acc, _ref2) {
-      var lat = _ref2.lat,
-          lng = _ref2.lng,
-          _ref2$weight = _ref2.weight,
-          weight = _ref2$weight === void 0 ? 1 : _ref2$weight;
-      acc.push({
-        location: new instance.LatLng(lat, lng),
-        weight: weight
-      });
-      return acc;
-    }, [])
-  });
-};
-var optionsHeatmap = function optionsHeatmap(instance, _ref3) {
-  var _ref3$options = _ref3.options,
-      options = _ref3$options === void 0 ? {} : _ref3$options;
-  return Object.keys(options).map(function (option) {
-    return instance.set(option, options[option]);
-  });
-};
-
-var BASE_URL = 'https://maps';
-var DEFAULT_URL = BASE_URL + ".googleapis.com";
-var API_PATH = '/maps/api/js?callback=_$_google_map_initialize_$_';
-var $script_ = null;
-var loadPromise_;
-var resolveCustomPromise_;
-
-var _customPromise = new Promise(function (resolve) {
-  resolveCustomPromise_ = resolve;
-});
-
-var googleMapLoader = (function (bootstrapURLKeys, heatmapLibrary) {
-  if (!$script_) {
-    $script_ = __webpack_require__(39);
-  }
-
-  if (!bootstrapURLKeys) {
-    return _customPromise;
-  }
-
-  if (loadPromise_) {
-    return loadPromise_;
-  }
-
-  loadPromise_ = new Promise(function (resolve, reject) {
-    if (typeof window === 'undefined') {
-      reject(new Error('google map cannot be loaded outside browser env'));
-      return;
-    }
-
-    if (window.google && window.google.maps) {
-      resolve(window.google.maps);
-      return;
-    }
-
-    if (typeof window._$_google_map_initialize_$_ !== 'undefined') {
-      reject(new Error('google map initialization error'));
-    }
-
-    window._$_google_map_initialize_$_ = function () {
-      delete window._$_google_map_initialize_$_;
-      resolve(window.google.maps);
-    };
-
-    if (false) { var message; }
-
-    var params = Object.keys(bootstrapURLKeys).reduce(function (r, key) {
-      return r + "&" + key + "=" + bootstrapURLKeys[key];
-    }, '');
-    var libraries = heatmapLibrary ? '&libraries=visualization' : '';
-    $script_("" + DEFAULT_URL + API_PATH + params + libraries, function () {
-      return typeof window.google === 'undefined' && reject(new Error('google map initialization error (not loaded)'));
-    });
-  });
-  resolveCustomPromise_(loadPromise_);
-  return loadPromise_;
-});
-
-function wrap(n, min, max) {
-  var d = max - min;
-  return n === max ? n : ((n - min) % d + d) % d + min;
-}
-
-var LatLng = /*#__PURE__*/function () {
-  function LatLng(lat, lng) {
-    if (isNaN(lat) || isNaN(lng)) {
-      throw new Error("Invalid LatLng object: (" + lat + ", " + lng + ")");
-    }
-
-    this.lat = +lat;
-    this.lng = +lng;
-  }
-
-  var _proto = LatLng.prototype;
-
-  _proto.wrap = function wrap$1() {
-    return new LatLng(this.lat, wrap(this.lng, -180, 180));
-  };
-
-  return LatLng;
-}();
-
-LatLng.convert = function (a) {
-  if (a instanceof LatLng) {
-    return a;
-  }
-
-  if (Array.isArray(a)) {
-    return new LatLng(a[0], a[1]);
-  }
-
-  if ('lng' in a && 'lat' in a) {
-    return new LatLng(a.lat, a.lng);
-  }
-
-  return a;
-};
-
-var index_modern_Transform = /*#__PURE__*/function () {
-  function Transform(tileSize, minZoom, maxZoom) {
-    this.tileSize = tileSize || 512;
-    this._minZoom = minZoom || 0;
-    this._maxZoom = maxZoom || 52;
-    this.latRange = [-85.05113, 85.05113];
-    this.width = 0;
-    this.height = 0;
-    this.zoom = 0;
-    this.center = new LatLng(0, 0);
-    this.angle = 0;
-  }
-
-  var _proto = Transform.prototype;
-
-  _proto.zoomScale = function zoomScale(zoom) {
-    return Math.pow(2, zoom);
-  };
-
-  _proto.scaleZoom = function scaleZoom(scale) {
-    return Math.log(scale) / Math.LN2;
-  };
-
-  _proto.project = function project(latlng, worldSize) {
-    return new point_geometry_default.a(this.lngX(latlng.lng, worldSize), this.latY(latlng.lat, worldSize));
-  };
-
-  _proto.unproject = function unproject(point, worldSize) {
-    return new LatLng(this.yLat(point.y, worldSize), this.xLng(point.x, worldSize));
-  };
-
-  _proto.lngX = function lngX(lon, worldSize) {
-    return (180 + lon) * (worldSize || this.worldSize) / 360;
-  };
-
-  _proto.latY = function latY(lat, worldSize) {
-    var y = 180 / Math.PI * Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360));
-    return (180 - y) * (worldSize || this.worldSize) / 360;
-  };
-
-  _proto.xLng = function xLng(x, worldSize) {
-    return x * 360 / (worldSize || this.worldSize) - 180;
-  };
-
-  _proto.yLat = function yLat(y, worldSize) {
-    var y2 = 180 - y * 360 / (worldSize || this.worldSize);
-    return 360 / Math.PI * Math.atan(Math.exp(y2 * Math.PI / 180)) - 90;
-  };
-
-  _proto.locationPoint = function locationPoint(latlng) {
-    var p = this.project(latlng);
-    return this.centerPoint._sub(this.point._sub(p)._rotate(this.angle));
-  };
-
-  _proto.pointLocation = function pointLocation(p) {
-    var p2 = this.centerPoint._sub(p)._rotate(-this.angle);
-
-    return this.unproject(this.point.sub(p2));
-  };
-
-  _createClass(Transform, [{
-    key: "minZoom",
-    get: function get() {
-      return this._minZoom;
-    },
-    set: function set(zoom) {
-      this._minZoom = zoom;
-      this.zoom = Math.max(this.zoom, zoom);
-    }
-  }, {
-    key: "maxZoom",
-    get: function get() {
-      return this._maxZoom;
-    },
-    set: function set(zoom) {
-      this._maxZoom = zoom;
-      this.zoom = Math.min(this.zoom, zoom);
-    }
-  }, {
-    key: "worldSize",
-    get: function get() {
-      return this.tileSize * this.scale;
-    }
-  }, {
-    key: "centerPoint",
-    get: function get() {
-      return new point_geometry_default.a(0, 0);
-    }
-  }, {
-    key: "size",
-    get: function get() {
-      return new point_geometry_default.a(this.width, this.height);
-    }
-  }, {
-    key: "bearing",
-    get: function get() {
-      return -this.angle / Math.PI * 180;
-    },
-    set: function set(bearing) {
-      this.angle = -wrap(bearing, -180, 180) * Math.PI / 180;
-    }
-  }, {
-    key: "zoom",
-    get: function get() {
-      return this._zoom;
-    },
-    set: function set(zoom) {
-      var zoomV = Math.min(Math.max(zoom, this.minZoom), this.maxZoom);
-      this._zoom = zoomV;
-      this.scale = this.zoomScale(zoomV);
-      this.tileZoom = Math.floor(zoomV);
-      this.zoomFraction = zoomV - this.tileZoom;
-    }
-  }, {
-    key: "x",
-    get: function get() {
-      return this.lngX(this.center.lng);
-    }
-  }, {
-    key: "y",
-    get: function get() {
-      return this.latY(this.center.lat);
-    }
-  }, {
-    key: "point",
-    get: function get() {
-      return new point_geometry_default.a(this.x, this.y);
-    }
-  }]);
-
-  return Transform;
-}();
-
-var index_modern_Geo = /*#__PURE__*/function () {
-  function Geo(tileSize) {
-    this.hasSize_ = false;
-    this.hasView_ = false;
-    this.transform_ = new index_modern_Transform(tileSize || 512);
-  }
-
-  var _proto = Geo.prototype;
-
-  _proto.setView = function setView(center, zoom, bearing) {
-    this.transform_.center = LatLng.convert(center);
-    this.transform_.zoom = +zoom;
-    this.transform_.bearing = +bearing;
-    this.hasView_ = true;
-  };
-
-  _proto.setViewSize = function setViewSize(width, height) {
-    this.transform_.width = width;
-    this.transform_.height = height;
-    this.hasSize_ = true;
-  };
-
-  _proto.setMapCanvasProjection = function setMapCanvasProjection(maps, mapCanvasProjection) {
-    this.maps_ = maps;
-    this.mapCanvasProjection_ = mapCanvasProjection;
-  };
-
-  _proto.canProject = function canProject() {
-    return this.hasSize_ && this.hasView_;
-  };
-
-  _proto.hasSize = function hasSize() {
-    return this.hasSize_;
-  };
-
-  _proto.fromLatLngToCenterPixel = function fromLatLngToCenterPixel(ptLatLng) {
-    return this.transform_.locationPoint(LatLng.convert(ptLatLng));
-  };
-
-  _proto.fromLatLngToDivPixel = function fromLatLngToDivPixel(ptLatLng) {
-    if (this.mapCanvasProjection_) {
-      var latLng = new this.maps_.LatLng(ptLatLng.lat, ptLatLng.lng);
-      return this.mapCanvasProjection_.fromLatLngToDivPixel(latLng);
-    }
-
-    return this.fromLatLngToCenterPixel(ptLatLng);
-  };
-
-  _proto.fromLatLngToContainerPixel = function fromLatLngToContainerPixel(ptLatLng) {
-    if (this.mapCanvasProjection_) {
-      var latLng = new this.maps_.LatLng(ptLatLng.lat, ptLatLng.lng);
-      return this.mapCanvasProjection_.fromLatLngToContainerPixel(latLng);
-    }
-
-    var pt = this.fromLatLngToCenterPixel(ptLatLng);
-    pt.x -= this.transform_.worldSize * Math.round(pt.x / this.transform_.worldSize);
-    pt.x += this.transform_.width / 2;
-    pt.y += this.transform_.height / 2;
-    return pt;
-  };
-
-  _proto.fromContainerPixelToLatLng = function fromContainerPixelToLatLng(ptXY) {
-    if (this.mapCanvasProjection_) {
-      var latLng = this.mapCanvasProjection_.fromContainerPixelToLatLng(ptXY);
-      return {
-        lat: latLng.lat(),
-        lng: latLng.lng()
-      };
-    }
-
-    var ptxy = _extends({}, ptXY);
-
-    ptxy.x -= this.transform_.width / 2;
-    ptxy.y -= this.transform_.height / 2;
-    var ptRes = this.transform_.pointLocation(point_geometry_default.a.convert(ptxy));
-    ptRes.lng -= 360 * Math.round(ptRes.lng / 360);
-    return ptRes;
-  };
-
-  _proto.getWidth = function getWidth() {
-    return this.transform_.width;
-  };
-
-  _proto.getHeight = function getHeight() {
-    return this.transform_.height;
-  };
-
-  _proto.getZoom = function getZoom() {
-    return this.transform_.zoom;
-  };
-
-  _proto.getCenter = function getCenter() {
-    var ptRes = this.transform_.pointLocation({
-      x: 0,
-      y: 0
-    });
-    return ptRes;
-  };
-
-  _proto.getBounds = function getBounds(margins, roundFactor) {
-    var bndT = margins && margins[0] || 0;
-    var bndR = margins && margins[1] || 0;
-    var bndB = margins && margins[2] || 0;
-    var bndL = margins && margins[3] || 0;
-
-    if (this.getWidth() - bndR - bndL > 0 && this.getHeight() - bndT - bndB > 0) {
-      var topLeftCorner = this.transform_.pointLocation(point_geometry_default.a.convert({
-        x: bndL - this.getWidth() / 2,
-        y: bndT - this.getHeight() / 2
-      }));
-      var bottomRightCorner = this.transform_.pointLocation(point_geometry_default.a.convert({
-        x: this.getWidth() / 2 - bndR,
-        y: this.getHeight() / 2 - bndB
-      }));
-      var res = [topLeftCorner.lat, topLeftCorner.lng, bottomRightCorner.lat, bottomRightCorner.lng, bottomRightCorner.lat, topLeftCorner.lng, topLeftCorner.lat, bottomRightCorner.lng];
-
-      if (roundFactor) {
-        res = res.map(function (r) {
-          return Math.round(r * roundFactor) / roundFactor;
-        });
-      }
-
-      return res;
-    }
-
-    return [0, 0, 0, 0];
-  };
-
-  return Geo;
-}();
-
-function raf(callback) {
-  if (window.requestAnimationFrame) {
-    return window.requestAnimationFrame(callback);
-  }
-
-  var nativeRaf = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
-  return nativeRaf ? nativeRaf(callback) : window.setTimeout(callback, 1e3 / 60);
-}
-
-var log2 = Math.log2 ? Math.log2 : function (x) {
-  return Math.log(x) / Math.LN2;
-};
-
-function pick(obj, fn) {
-  return Object.keys(obj).reduce(function (result, key) {
-    if (fn(obj[key])) {
-      result[key] = obj[key];
-    }
-
-    return result;
-  }, {});
-}
-
-var isEmpty = function isEmpty(val) {
-  if (val !== null && typeof val === 'object') {
-    if (Object.keys(val).length === 0) {
-      return true;
-    }
-  } else if (val === null || val === undefined || val === '') {
-    return true;
-  }
-
-  return false;
-};
-
-function isObjectLike(value) {
-  return !!value && typeof value === 'object';
-}
-
-var objectToString = Object.prototype.toString;
-function isNumber(value) {
-  var numberTag = '[object Number]';
-  return typeof value === 'number' || isObjectLike(value) && objectToString.call(value) === numberTag;
-}
-
-var detectBrowserResult_ = null;
-function detectBrowser() {
-  if (detectBrowserResult_) {
-    return detectBrowserResult_;
-  }
-
-  if (typeof navigator !== 'undefined') {
-    var isExplorer = navigator.userAgent.indexOf('MSIE') > -1;
-    var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
-    var isOpera = navigator.userAgent.toLowerCase().indexOf('op') > -1;
-    var isChrome = navigator.userAgent.indexOf('Chrome') > -1;
-    var isSafari = navigator.userAgent.indexOf('Safari') > -1;
-
-    if (isChrome && isSafari) {
-      isSafari = false;
-    }
-
-    if (isChrome && isOpera) {
-      isChrome = false;
-    }
-
-    detectBrowserResult_ = {
-      isExplorer: isExplorer,
-      isFirefox: isFirefox,
-      isOpera: isOpera,
-      isChrome: isChrome,
-      isSafari: isSafari
-    };
-    return detectBrowserResult_;
-  }
-
-  detectBrowserResult_ = {
-    isChrome: true,
-    isExplorer: false,
-    isFirefox: false,
-    isOpera: false,
-    isSafari: false
-  };
-  return detectBrowserResult_;
-}
-
-var fnToString = function fnToString(fn) {
-  return Function.prototype.toString.call(fn);
-};
-
-function isPlainObject(obj) {
-  if (!obj || typeof obj !== 'object') {
-    return false;
-  }
-
-  var proto = typeof obj.constructor === 'function' ? Object.getPrototypeOf(obj) : Object.prototype;
-
-  if (proto === null) {
-    return true;
-  }
-
-  var constructor = proto.constructor;
-  return typeof constructor === 'function' && constructor instanceof constructor && fnToString(constructor) === fnToString(Object);
-}
-
-function isArraysEqualEps(arrayA, arrayB, eps) {
-  if (arrayA && arrayB) {
-    for (var i = 0; i !== arrayA.length; ++i) {
-      if (Math.abs(arrayA[i] - arrayB[i]) > eps) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-  return false;
-}
-
-function hasPassiveSupport() {
-  var passiveSupported = false;
-
-  try {
-    var options = Object.defineProperty({}, 'passive', {
-      get: function get() {
-        passiveSupported = true;
-      }
-    });
-    window.addEventListener('test', options, options);
-    window.removeEventListener('test', options, options);
-  } catch (err) {
-    passiveSupported = false;
-  }
-
-  return passiveSupported;
-}
-
-function addPassiveEventListener(element, eventName, func, capture) {
-  element.addEventListener(eventName, func, hasPassiveSupport() ? {
-    capture: capture,
-    passive: true
-  } : capture);
-}
-
-var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
-
-var _window;
-
-if (canUseDOM) {
-  _window = window;
-} else if (typeof self !== 'undefined') {
-  _window = self;
-} else {
-  _window = undefined;
-}
-
-var attachEvent = typeof document !== 'undefined' && document.attachEvent;
-var stylesCreated = false;
-
-if (canUseDOM && !attachEvent) {
-  var requestFrame = function () {
-    var raf = _window.requestAnimationFrame || _window.mozRequestAnimationFrame || _window.webkitRequestAnimationFrame || function (fn) {
-      return _window.setTimeout(fn, 20);
-    };
-
-    return function (fn) {
-      return raf(fn);
-    };
-  }();
-
-  var cancelFrame = function () {
-    var cancel = _window.cancelAnimationFrame || _window.mozCancelAnimationFrame || _window.webkitCancelAnimationFrame || _window.clearTimeout;
-    return function (id) {
-      return cancel(id);
-    };
-  }();
-
-  var resetTriggers = function resetTriggers(element) {
-    var triggers = element.__resizeTriggers__,
-        expand = triggers.firstElementChild,
-        contract = triggers.lastElementChild,
-        expandChild = expand.firstElementChild;
-    contract.scrollLeft = contract.scrollWidth;
-    contract.scrollTop = contract.scrollHeight;
-    expandChild.style.width = expand.offsetWidth + 1 + 'px';
-    expandChild.style.height = expand.offsetHeight + 1 + 'px';
-    expand.scrollLeft = expand.scrollWidth;
-    expand.scrollTop = expand.scrollHeight;
-  };
-
-  var checkTriggers = function checkTriggers(element) {
-    return element.offsetWidth != element.__resizeLast__.width || element.offsetHeight != element.__resizeLast__.height;
-  };
-
-  var scrollListener = function scrollListener(e) {
-    var element = this;
-    resetTriggers(this);
-    if (this.__resizeRAF__) cancelFrame(this.__resizeRAF__);
-    this.__resizeRAF__ = requestFrame(function () {
-      if (checkTriggers(element)) {
-        element.__resizeLast__.width = element.offsetWidth;
-        element.__resizeLast__.height = element.offsetHeight;
-
-        element.__resizeListeners__.forEach(function (fn) {
-          fn.call(element, e);
-        });
-      }
-    });
-  };
-
-  var animation = false,
-      keyframeprefix = '',
-      animationstartevent = 'animationstart',
-      domPrefixes = 'Webkit Moz O ms'.split(' '),
-      startEvents = 'webkitAnimationStart animationstart oAnimationStart MSAnimationStart'.split(' '),
-      pfx = '';
-
-  if (canUseDOM) {
-    var elm = document.createElement('fakeelement');
-
-    if (elm.style.animationName !== undefined) {
-      animation = true;
-    }
-
-    if (animation === false) {
-      for (var index_modern_i = 0; index_modern_i < domPrefixes.length; index_modern_i++) {
-        if (elm.style[domPrefixes[index_modern_i] + 'AnimationName'] !== undefined) {
-          pfx = domPrefixes[index_modern_i];
-          keyframeprefix = '-' + pfx.toLowerCase() + '-';
-          animationstartevent = startEvents[index_modern_i];
-          animation = true;
-          break;
-        }
-      }
-    }
-  }
-
-  var animationName = 'resizeanim';
-  var animationKeyframes = '@' + keyframeprefix + 'keyframes ' + animationName + ' { from { opacity: 0; } to { opacity: 0; } } ';
-  var animationStyle = keyframeprefix + 'animation: 1ms ' + animationName + '; ';
-}
-
-var createStyles = function createStyles() {
-  if (!stylesCreated) {
-    var css = (animationKeyframes ? animationKeyframes : '') + '.resize-triggers { ' + (animationStyle ? animationStyle : '') + 'visibility: hidden; opacity: 0; } ' + '.resize-triggers, .resize-triggers > div, .contract-trigger:before { content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; } .resize-triggers > div { background: #eee; overflow: auto; } .contract-trigger:before { width: 200%; height: 200%; }',
-        head = document.head || document.getElementsByTagName('head')[0],
-        style = document.createElement('style');
-    style.type = 'text/css';
-
-    if (style.styleSheet) {
-      style.styleSheet.cssText = css;
-    } else {
-      style.appendChild(document.createTextNode(css));
-    }
-
-    head.appendChild(style);
-    stylesCreated = true;
-  }
-};
-
-var addResizeListener = function addResizeListener(element, fn) {
-  if (element.parentNode === undefined) {
-    var tempParentDiv = document.createElement('div');
-    element.parentNode = tempParentDiv;
-  }
-
-  element = element.parentNode;
-  if (attachEvent) element.attachEvent('onresize', fn);else {
-    if (!element.__resizeTriggers__) {
-      if (getComputedStyle(element).position == 'static') element.style.position = 'relative';
-      createStyles();
-      element.__resizeLast__ = {};
-      element.__resizeListeners__ = [];
-      (element.__resizeTriggers__ = document.createElement('div')).className = 'resize-triggers';
-      element.__resizeTriggers__.innerHTML = '<div class="expand-trigger"><div></div></div>' + '<div class="contract-trigger"></div>';
-      element.appendChild(element.__resizeTriggers__);
-      resetTriggers(element);
-      addPassiveEventListener(element, 'scroll', scrollListener, true);
-      animationstartevent && element.__resizeTriggers__.addEventListener(animationstartevent, function (e) {
-        if (e.animationName == animationName) resetTriggers(element);
-      });
-    }
-
-    element.__resizeListeners__.push(fn);
-  }
-};
-
-var removeResizeListener = function removeResizeListener(element, fn) {
-  element = element.parentNode;
-  if (attachEvent) element.detachEvent('onresize', fn);else {
-    element.__resizeListeners__.splice(element.__resizeListeners__.indexOf(fn), 1);
-
-    if (!element.__resizeListeners__.length) {
-      element.removeEventListener('scroll', scrollListener);
-      element.__resizeTriggers__ = !element.removeChild(element.__resizeTriggers__);
-    }
-  }
-};
-
-var kEPS = 0.00001;
-var K_GOOGLE_TILE_SIZE = 256;
-var K_IDLE_TIMEOUT = 100;
-var K_IDLE_CLICK_TIMEOUT = 300;
-var DEFAULT_MIN_ZOOM = 3;
-var DRAW_CALLED_DURING_ANIMATION_VERSION = 32;
-var IS_REACT_16 = react_dom_default.a.createPortal !== undefined;
-var createPortal = IS_REACT_16 ? react_dom_default.a.createPortal : react_dom_default.a.unstable_renderSubtreeIntoContainer;
-
-function defaultOptions_() {
-  return {
-    overviewMapControl: false,
-    streetViewControl: false,
-    rotateControl: true,
-    mapTypeControl: false,
-    styles: [{
-      featureType: 'poi',
-      elementType: 'labels',
-      stylers: [{
-        visibility: 'off'
-      }]
-    }],
-    minZoom: DEFAULT_MIN_ZOOM
-  };
-}
-
-var latLng2Obj = function latLng2Obj(latLng) {
-  return isPlainObject(latLng) ? latLng : {
-    lat: latLng[0],
-    lng: latLng[1]
-  };
-};
-
-var _checkMinZoom = function _checkMinZoom(zoom, minZoom) {
-  if (false) {}
-
-  if (minZoom < zoom) {
-    return zoom;
-  }
-
-  return minZoom;
-};
-
-var isFullScreen = function isFullScreen() {
-  return document.fullscreen || document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement;
-};
-
-var index_modern_GoogleMap = /*#__PURE__*/function (_Component) {
-  _inheritsLoose(GoogleMap, _Component);
-
-  function GoogleMap(props) {
-    var _this;
-
-    _this = _Component.call(this, props) || this;
-
-    _this._getMinZoom = function () {
-      if (_this.geoService_.getWidth() > 0 || _this.geoService_.getHeight() > 0) {
-        var tilesPerWidth = Math.ceil(_this.geoService_.getWidth() / K_GOOGLE_TILE_SIZE) + 2;
-        var tilesPerHeight = Math.ceil(_this.geoService_.getHeight() / K_GOOGLE_TILE_SIZE) + 2;
-        var maxTilesPerDim = Math.max(tilesPerWidth, tilesPerHeight);
-        return Math.ceil(log2(maxTilesPerDim));
-      }
-
-      return DEFAULT_MIN_ZOOM;
-    };
-
-    _this._computeMinZoom = function (minZoom) {
-      if (!isEmpty(minZoom)) {
-        return minZoom;
-      }
-
-      return _this._getMinZoom();
-    };
-
-    _this._mapDomResizeCallback = function () {
-      _this.resetSizeOnIdle_ = true;
-
-      if (_this.maps_) {
-        var originalCenter = _this.props.center || _this.props.defaultCenter;
-
-        var currentCenter = _this.map_.getCenter();
-
-        _this.maps_.event.trigger(_this.map_, 'resize');
-
-        _this.map_.setCenter(_this.props.resetBoundsOnResize ? originalCenter : currentCenter);
-      }
-    };
-
-    _this._setLayers = function (layerTypes) {
-      layerTypes.forEach(function (layerType) {
-        _this.layers_[layerType] = new _this.maps_[layerType]();
-
-        _this.layers_[layerType].setMap(_this.map_);
-      });
-    };
-
-    _this._renderPortal = function () {
-      return /*#__PURE__*/react_default.a.createElement(index_modern_GoogleMapMarkers, {
-        experimental: _this.props.experimental,
-        onChildClick: _this._onChildClick,
-        onChildMouseDown: _this._onChildMouseDown,
-        onChildMouseEnter: _this._onChildMouseEnter,
-        onChildMouseLeave: _this._onChildMouseLeave,
-        geoService: _this.geoService_,
-        insideMapPanes: true,
-        distanceToMouse: _this.props.distanceToMouse,
-        getHoverDistance: _this._getHoverDistance,
-        dispatcher: _this.markersDispatcher_
-      });
-    };
-
-    _this._initMap = function () {
-      if (_this.initialized_) {
-        return;
-      }
-
-      _this.initialized_ = true;
-      var propsCenter = latLng2Obj(_this.props.center || _this.props.defaultCenter);
-
-      _this.geoService_.setView(propsCenter, _this.props.zoom || _this.props.defaultZoom, 0);
-
-      _this._onBoundsChanged();
-
-      var bootstrapURLKeys = _extends({}, _this.props.apiKey && {
-        key: _this.props.apiKey
-      }, _this.props.bootstrapURLKeys);
-
-      _this.props.googleMapLoader(bootstrapURLKeys, _this.props.heatmapLibrary).then(function (maps) {
-        if (!_this.mounted_) {
-          return;
-        }
-
-        var centerLatLng = _this.geoService_.getCenter();
-
-        var propsOptions = {
-          zoom: _this.props.zoom || _this.props.defaultZoom,
-          center: new maps.LatLng(centerLatLng.lat, centerLatLng.lng)
-        };
-
-        if (_this.props.heatmap.positions) {
-          Object.assign(_assertThisInitialized(_this), {
-            heatmap: generateHeatmap(maps, _this.props.heatmap)
-          });
-          optionsHeatmap(_this.heatmap, _this.props.heatmap);
-        }
-
-        var mapPlainObjects = pick(maps, isPlainObject);
-        var options = typeof _this.props.options === 'function' ? _this.props.options(mapPlainObjects) : _this.props.options;
-        var defaultOptions = defaultOptions_();
-        var draggableOptions = !isEmpty(_this.props.draggable) && {
-          draggable: _this.props.draggable
-        };
-
-        var minZoom = _this._computeMinZoom(options.minZoom);
-
-        _this.minZoom_ = minZoom;
-
-        var preMapOptions = _extends({}, defaultOptions, {
-          minZoom: minZoom
-        }, options, propsOptions);
-
-        _this.defaultDraggableOption_ = !isEmpty(preMapOptions.draggable) ? preMapOptions.draggable : _this.defaultDraggableOption_;
-
-        var mapOptions = _extends({}, preMapOptions, draggableOptions);
-
-        mapOptions.minZoom = _checkMinZoom(mapOptions.minZoom, minZoom);
-        var map = new maps.Map(react_dom_default.a.findDOMNode(_this.googleMapDom_), mapOptions);
-        _this.map_ = map;
-        _this.maps_ = maps;
-
-        _this._setLayers(_this.props.layerTypes);
-
-        var versionMatch = maps.version.match(/^3\.(\d+)\./);
-        var mapsVersion = versionMatch && Number(versionMatch[1]);
-
-        var this_ = _assertThisInitialized(_this);
-
-        var overlay = Object.assign(new maps.OverlayView(), {
-          onAdd: function onAdd() {
-            var K_MAX_WIDTH = typeof screen !== 'undefined' ? screen.width + "px" : '2000px';
-            var K_MAX_HEIGHT = typeof screen !== 'undefined' ? screen.height + "px" : '2000px';
-            var div = document.createElement('div');
-            div.style.backgroundColor = 'transparent';
-            div.style.position = 'absolute';
-            div.style.left = '0px';
-            div.style.top = '0px';
-            div.style.width = K_MAX_WIDTH;
-            div.style.height = K_MAX_HEIGHT;
-
-            if (this_.props.overlayViewDivStyle) {
-              var overlayViewDivStyle = this_.props.overlayViewDivStyle;
-
-              if (typeof overlayViewDivStyle === 'object') {
-                Object.keys(overlayViewDivStyle).forEach(function (property) {
-                  div.style[property] = overlayViewDivStyle[property];
-                });
-              }
-            }
-
-            var panes = this.getPanes();
-            panes.overlayMouseTarget.appendChild(div);
-            this_.geoService_.setMapCanvasProjection(maps, overlay.getProjection());
-
-            if (!IS_REACT_16) {
-              createPortal(this_, this_._renderPortal(), div, function () {
-                return this_.setState({
-                  overlay: div
-                });
-              });
-            } else {
-              this_.setState({
-                overlay: div
-              });
-            }
-          },
-          onRemove: function onRemove() {
-            var renderedOverlay = this_.state.overlay;
-
-            if (renderedOverlay && !IS_REACT_16) {
-              react_dom_default.a.unmountComponentAtNode(renderedOverlay);
-            }
-
-            this_.setState({
-              overlay: null
-            });
-          },
-          draw: function draw() {
-            this_.updateCounter_++;
-
-            this_._onBoundsChanged(map, maps, !this_.props.debounced);
-
-            if (!this_.googleApiLoadedCalled_) {
-              this_._onGoogleApiLoaded({
-                map: map,
-                maps: maps,
-                ref: this_.googleMapDom_
-              });
-
-              this_.googleApiLoadedCalled_ = true;
-            }
-
-            if (this_.mouse_) {
-              var latLng = this_.geoService_.fromContainerPixelToLatLng(this_.mouse_);
-              this_.mouse_.lat = latLng.lat;
-              this_.mouse_.lng = latLng.lng;
-            }
-
-            this_._onChildMouseMove();
-
-            if (this_.markersDispatcher_) {
-              this_.markersDispatcher_.emit('kON_CHANGE');
-
-              if (this_.fireMouseEventOnIdle_) {
-                this_.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
-              }
-            }
-          }
-        });
-        _this.overlay_ = overlay;
-        overlay.setMap(map);
-
-        if (_this.props.heatmap.positions) {
-          _this.heatmap.setMap(map);
-        }
-
-        if (_this.props.onTilesLoaded) {
-          maps.event.addListener(map, 'tilesloaded', function () {
-            this_._onTilesLoaded();
-          });
-        }
-
-        maps.event.addListener(map, 'zoom_changed', function () {
-          if (this_.geoService_.getZoom() !== map.getZoom()) {
-            if (!this_.zoomAnimationInProgress_) {
-              this_.zoomAnimationInProgress_ = true;
-
-              this_._onZoomAnimationStart(map.zoom);
-            }
-
-            if (mapsVersion < DRAW_CALLED_DURING_ANIMATION_VERSION) {
-              var TIMEOUT_ZOOM = 300;
-
-              if (new Date().getTime() - _this.zoomControlClickTime_ < TIMEOUT_ZOOM) {
-                raf(function () {
-                  return raf(function () {
-                    this_.updateCounter_++;
-
-                    this_._onBoundsChanged(map, maps);
-                  });
-                });
-              } else {
-                this_.updateCounter_++;
-
-                this_._onBoundsChanged(map, maps);
-              }
-            }
-          }
-        });
-        maps.event.addListener(map, 'idle', function () {
-          if (_this.resetSizeOnIdle_) {
-            _this._setViewSize();
-
-            var currMinZoom = _this._computeMinZoom(options.minZoom);
-
-            if (currMinZoom !== _this.minZoom_) {
-              _this.minZoom_ = currMinZoom;
-              map.setOptions({
-                minZoom: currMinZoom
-              });
-            }
-
-            _this.resetSizeOnIdle_ = false;
-          }
-
-          if (this_.zoomAnimationInProgress_) {
-            this_.zoomAnimationInProgress_ = false;
-
-            this_._onZoomAnimationEnd(map.zoom);
-          }
-
-          this_.updateCounter_++;
-
-          this_._onBoundsChanged(map, maps);
-
-          this_.dragTime_ = 0;
-
-          if (this_.markersDispatcher_) {
-            this_.markersDispatcher_.emit('kON_CHANGE');
-          }
-        });
-        maps.event.addListener(map, 'mouseover', function () {
-          this_.mouseInMap_ = true;
-        });
-        maps.event.addListener(map, 'click', function () {
-          this_.mouseInMap_ = true;
-        });
-        maps.event.addListener(map, 'mouseout', function () {
-          this_.mouseInMap_ = false;
-          this_.mouse_ = null;
-          this_.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
-        });
-        maps.event.addListener(map, 'drag', function () {
-          this_.dragTime_ = new Date().getTime();
-
-          this_._onDrag(map);
-        });
-        maps.event.addListener(map, 'dragend', function () {
-          var idleListener = maps.event.addListener(map, 'idle', function () {
-            maps.event.removeListener(idleListener);
-
-            this_._onDragEnd(map);
-          });
-        });
-        maps.event.addListener(map, 'maptypeid_changed', function () {
-          this_._onMapTypeIdChange(map.getMapTypeId());
-        });
-      })["catch"](function (e) {
-        _this._onGoogleApiLoaded({
-          map: null,
-          maps: null,
-          ref: _this.googleMapDom_
-        });
-
-        console.error(e);
-        throw e;
-      });
-    };
-
-    _this._onGoogleApiLoaded = function () {
-      if (_this.props.onGoogleApiLoaded) {
-        var _this$props;
-
-        if (false) {}
-
-        (_this$props = _this.props).onGoogleApiLoaded.apply(_this$props, arguments);
-      }
-    };
-
-    _this._getHoverDistance = function () {
-      return _this.props.hoverDistance;
-    };
-
-    _this._onDrag = function () {
-      var _this$props2;
-
-      return _this.props.onDrag && (_this$props2 = _this.props).onDrag.apply(_this$props2, arguments);
-    };
-
-    _this._onDragEnd = function () {
-      var _this$props3;
-
-      return _this.props.onDragEnd && (_this$props3 = _this.props).onDragEnd.apply(_this$props3, arguments);
-    };
-
-    _this._onMapTypeIdChange = function () {
-      var _this$props4;
-
-      return _this.props.onMapTypeIdChange && (_this$props4 = _this.props).onMapTypeIdChange.apply(_this$props4, arguments);
-    };
-
-    _this._onZoomAnimationStart = function () {
-      var _this$props5;
-
-      return _this.props.onZoomAnimationStart && (_this$props5 = _this.props).onZoomAnimationStart.apply(_this$props5, arguments);
-    };
-
-    _this._onZoomAnimationEnd = function () {
-      var _this$props6;
-
-      return _this.props.onZoomAnimationEnd && (_this$props6 = _this.props).onZoomAnimationEnd.apply(_this$props6, arguments);
-    };
-
-    _this._onTilesLoaded = function () {
-      return _this.props.onTilesLoaded && _this.props.onTilesLoaded();
-    };
-
-    _this._onChildClick = function () {
-      if (_this.props.onChildClick) {
-        var _this$props7;
-
-        return (_this$props7 = _this.props).onChildClick.apply(_this$props7, arguments);
-      }
-
-      return undefined;
-    };
-
-    _this._onChildMouseDown = function (hoverKey, childProps) {
-      _this.childMouseDownArgs_ = [hoverKey, childProps];
-
-      if (_this.props.onChildMouseDown) {
-        _this.props.onChildMouseDown(hoverKey, childProps, _extends({}, _this.mouse_));
-      }
-    };
-
-    _this._onChildMouseUp = function () {
-      if (_this.childMouseDownArgs_) {
-        if (_this.props.onChildMouseUp) {
-          var _this$props8;
-
-          (_this$props8 = _this.props).onChildMouseUp.apply(_this$props8, _this.childMouseDownArgs_.concat([_extends({}, _this.mouse_)]));
-        }
-
-        _this.childMouseDownArgs_ = null;
-        _this.childMouseUpTime_ = new Date().getTime();
-      }
-    };
-
-    _this._onChildMouseMove = function () {
-      if (_this.childMouseDownArgs_) {
-        if (_this.props.onChildMouseMove) {
-          var _this$props9;
-
-          (_this$props9 = _this.props).onChildMouseMove.apply(_this$props9, _this.childMouseDownArgs_.concat([_extends({}, _this.mouse_)]));
-        }
-      }
-    };
-
-    _this._onChildMouseEnter = function () {
-      if (_this.props.onChildMouseEnter) {
-        var _this$props10;
-
-        return (_this$props10 = _this.props).onChildMouseEnter.apply(_this$props10, arguments);
-      }
-
-      return undefined;
-    };
-
-    _this._onChildMouseLeave = function () {
-      if (_this.props.onChildMouseLeave) {
-        var _this$props11;
-
-        return (_this$props11 = _this.props).onChildMouseLeave.apply(_this$props11, arguments);
-      }
-
-      return undefined;
-    };
-
-    _this._setViewSize = function () {
-      if (!_this.mounted_) return;
-
-      if (isFullScreen()) {
-        _this.geoService_.setViewSize(window.innerWidth, window.innerHeight);
-      } else {
-        var mapDom = react_dom_default.a.findDOMNode(_this.googleMapDom_);
-
-        _this.geoService_.setViewSize(mapDom.clientWidth, mapDom.clientHeight);
-      }
-
-      _this._onBoundsChanged();
-    };
-
-    _this._onWindowResize = function () {
-      _this.resetSizeOnIdle_ = true;
-    };
-
-    _this._onMapMouseMove = function (e) {
-      if (!_this.mouseInMap_) return;
-      var currTime = new Date().getTime();
-      var K_RECALC_CLIENT_RECT_MS = 50;
-
-      if (currTime - _this.mouseMoveTime_ > K_RECALC_CLIENT_RECT_MS) {
-        _this.boundingRect_ = e.currentTarget.getBoundingClientRect();
-      }
-
-      _this.mouseMoveTime_ = currTime;
-      var mousePosX = e.clientX - _this.boundingRect_.left;
-      var mousePosY = e.clientY - _this.boundingRect_.top;
-
-      if (!_this.mouse_) {
-        _this.mouse_ = {
-          x: 0,
-          y: 0,
-          lat: 0,
-          lng: 0
-        };
-      }
-
-      _this.mouse_.x = mousePosX;
-      _this.mouse_.y = mousePosY;
-
-      var latLng = _this.geoService_.fromContainerPixelToLatLng(_this.mouse_);
-
-      _this.mouse_.lat = latLng.lat;
-      _this.mouse_.lng = latLng.lng;
-
-      _this._onChildMouseMove();
-
-      if (currTime - _this.dragTime_ < K_IDLE_TIMEOUT) {
-        _this.fireMouseEventOnIdle_ = true;
-      } else {
-        _this.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
-
-        _this.fireMouseEventOnIdle_ = false;
-      }
-    };
-
-    _this._onClick = function () {
-      var _this$props12;
-
-      return _this.props.onClick && !_this.childMouseDownArgs_ && new Date().getTime() - _this.childMouseUpTime_ > K_IDLE_CLICK_TIMEOUT && _this.dragTime_ === 0 && (_this$props12 = _this.props).onClick.apply(_this$props12, arguments);
-    };
-
-    _this._onMapClick = function (event) {
-      if (_this.markersDispatcher_) {
-        _this._onMapMouseMove(event);
-
-        var currTime = new Date().getTime();
-
-        if (currTime - _this.dragTime_ > K_IDLE_TIMEOUT) {
-          if (_this.mouse_) {
-            _this._onClick(_extends({}, _this.mouse_, {
-              event: event
-            }));
-          }
-
-          _this.markersDispatcher_.emit('kON_CLICK', event);
-        }
-      }
-    };
-
-    _this._onMapMouseDownNative = function (event) {
-      if (!_this.mouseInMap_) return;
-
-      _this._onMapMouseDown(event);
-    };
-
-    _this._onMapMouseDown = function (event) {
-      if (_this.markersDispatcher_) {
-        var currTime = new Date().getTime();
-
-        if (currTime - _this.dragTime_ > K_IDLE_TIMEOUT) {
-          _this._onMapMouseMove(event);
-
-          _this.markersDispatcher_.emit('kON_MDOWN', event);
-        }
-      }
-    };
-
-    _this._onMapMouseDownCapture = function () {
-      if (detectBrowser().isChrome) {
-        _this.zoomControlClickTime_ = new Date().getTime();
-      }
-    };
-
-    _this._onKeyDownCapture = function () {
-      if (detectBrowser().isChrome) {
-        _this.zoomControlClickTime_ = new Date().getTime();
-      }
-    };
-
-    _this._isCenterDefined = function (center) {
-      return center && (isPlainObject(center) && isNumber(center.lat) && isNumber(center.lng) || center.length === 2 && isNumber(center[0]) && isNumber(center[1]));
-    };
-
-    _this._onBoundsChanged = function (map, maps, callExtBoundsChange) {
-      if (map) {
-        var gmC = map.getCenter();
-
-        _this.geoService_.setView([gmC.lat(), gmC.lng()], map.getZoom(), 0);
-      }
-
-      if ((_this.props.onChange || _this.props.onBoundsChange) && _this.geoService_.canProject()) {
-        var zoom = _this.geoService_.getZoom();
-
-        var bounds = _this.geoService_.getBounds();
-
-        var centerLatLng = _this.geoService_.getCenter();
-
-        if (!isArraysEqualEps(bounds, _this.prevBounds_, kEPS)) {
-          if (callExtBoundsChange !== false) {
-            var marginBounds = _this.geoService_.getBounds(_this.props.margin);
-
-            if (_this.props.onBoundsChange) {
-              _this.props.onBoundsChange(_this.centerIsObject_ ? _extends({}, centerLatLng) : [centerLatLng.lat, centerLatLng.lng], zoom, bounds, marginBounds);
-            }
-
-            if (_this.props.onChange) {
-              _this.props.onChange({
-                center: _extends({}, centerLatLng),
-                zoom: zoom,
-                bounds: {
-                  nw: {
-                    lat: bounds[0],
-                    lng: bounds[1]
-                  },
-                  se: {
-                    lat: bounds[2],
-                    lng: bounds[3]
-                  },
-                  sw: {
-                    lat: bounds[4],
-                    lng: bounds[5]
-                  },
-                  ne: {
-                    lat: bounds[6],
-                    lng: bounds[7]
-                  }
-                },
-                marginBounds: {
-                  nw: {
-                    lat: marginBounds[0],
-                    lng: marginBounds[1]
-                  },
-                  se: {
-                    lat: marginBounds[2],
-                    lng: marginBounds[3]
-                  },
-                  sw: {
-                    lat: marginBounds[4],
-                    lng: marginBounds[5]
-                  },
-                  ne: {
-                    lat: marginBounds[6],
-                    lng: marginBounds[7]
-                  }
-                },
-                size: _this.geoService_.hasSize() ? {
-                  width: _this.geoService_.getWidth(),
-                  height: _this.geoService_.getHeight()
-                } : {
-                  width: 0,
-                  height: 0
-                }
-              });
-            }
-
-            _this.prevBounds_ = bounds;
-          }
-        }
-      }
-    };
-
-    _this._registerChild = function (ref) {
-      _this.googleMapDom_ = ref;
-    };
-
-    _this.mounted_ = false;
-    _this.initialized_ = false;
-    _this.googleApiLoadedCalled_ = false;
-    _this.map_ = null;
-    _this.maps_ = null;
-    _this.prevBounds_ = null;
-    _this.heatmap = null;
-    _this.layers_ = {};
-    _this.mouse_ = null;
-    _this.mouseMoveTime_ = 0;
-    _this.boundingRect_ = null;
-    _this.mouseInMap_ = true;
-    _this.dragTime_ = 0;
-    _this.fireMouseEventOnIdle_ = false;
-    _this.updateCounter_ = 0;
-    _this.markersDispatcher_ = new MarkerDispatcher(_assertThisInitialized(_this));
-    _this.geoService_ = new index_modern_Geo(K_GOOGLE_TILE_SIZE);
-    _this.centerIsObject_ = isPlainObject(_this.props.center);
-    _this.minZoom_ = DEFAULT_MIN_ZOOM;
-    _this.defaultDraggableOption_ = true;
-    _this.zoomControlClickTime_ = 0;
-    _this.childMouseDownArgs_ = null;
-    _this.childMouseUpTime_ = 0;
-    _this.googleMapDom_ = null;
-
-    if (false) {}
-
-    if (_this._isCenterDefined(_this.props.center || _this.props.defaultCenter)) {
-      var propsCenter = latLng2Obj(_this.props.center || _this.props.defaultCenter);
-
-      _this.geoService_.setView(propsCenter, _this.props.zoom || _this.props.defaultZoom, 0);
-    }
-
-    _this.zoomAnimationInProgress_ = false;
-    _this.state = {
-      overlay: null
-    };
-    return _this;
-  }
-
-  var _proto = GoogleMap.prototype;
-
-  _proto.componentDidMount = function componentDidMount() {
-    var _this2 = this;
-
-    this.mounted_ = true;
-    addPassiveEventListener(window, 'resize', this._onWindowResize, false);
-    addPassiveEventListener(window, 'keydown', this._onKeyDownCapture, true);
-    var mapDom = react_dom_default.a.findDOMNode(this.googleMapDom_);
-
-    if (mapDom) {
-      addPassiveEventListener(mapDom, 'mousedown', this._onMapMouseDownNative, true);
-    }
-
-    addPassiveEventListener(window, 'mouseup', this._onChildMouseUp, false);
-
-    var bootstrapURLKeys = _extends({}, this.props.apiKey && {
-      key: this.props.apiKey
-    }, this.props.bootstrapURLKeys);
-
-    this.props.googleMapLoader(bootstrapURLKeys, this.props.heatmapLibrary);
-    setTimeout(function () {
-      _this2._setViewSize();
-
-      if (_this2._isCenterDefined(_this2.props.center || _this2.props.defaultCenter)) {
-        _this2._initMap();
-      }
-    }, 0, this);
-
-    if (this.props.resetBoundsOnResize) {
-      var that = this;
-      addResizeListener(mapDom, that._mapDomResizeCallback);
-    }
-  };
-
-  _proto.UNSAFE_componentWillReceiveProps = function UNSAFE_componentWillReceiveProps(nextProps) {
-    var _this3 = this;
-
-    if (false) {}
-
-    if (!this._isCenterDefined(this.props.center) && this._isCenterDefined(nextProps.center)) {
-      setTimeout(function () {
-        return _this3._initMap();
-      }, 0);
-    }
-
-    if (this.map_) {
-      var centerLatLng = this.geoService_.getCenter();
-
-      if (this._isCenterDefined(nextProps.center)) {
-        var nextPropsCenter = latLng2Obj(nextProps.center);
-        var currCenter = this._isCenterDefined(this.props.center) ? latLng2Obj(this.props.center) : null;
-
-        if (!currCenter || Math.abs(nextPropsCenter.lat - currCenter.lat) + Math.abs(nextPropsCenter.lng - currCenter.lng) > kEPS) {
-          if (Math.abs(nextPropsCenter.lat - centerLatLng.lat) + Math.abs(nextPropsCenter.lng - centerLatLng.lng) > kEPS) {
-            this.map_.panTo({
-              lat: nextPropsCenter.lat,
-              lng: nextPropsCenter.lng
-            });
-          }
-        }
-      }
-
-      if (!isEmpty(nextProps.zoom)) {
-        if (Math.abs(nextProps.zoom - this.props.zoom) > 0) {
-          this.map_.setZoom(nextProps.zoom);
-        }
-      }
-
-      if (!isEmpty(this.props.draggable) && isEmpty(nextProps.draggable)) {
-        this.map_.setOptions({
-          draggable: this.defaultDraggableOption_
-        });
-      } else if (!shallowEqual(this.props.draggable, nextProps.draggable)) {
-        this.map_.setOptions({
-          draggable: nextProps.draggable
-        });
-      }
-
-      if (!isEmpty(nextProps.options) && !shallowEqual(this.props.options, nextProps.options)) {
-        var mapPlainObjects = pick(this.maps_, isPlainObject);
-        var options = typeof nextProps.options === 'function' ? nextProps.options(mapPlainObjects) : nextProps.options;
-        options = omit(options, ['zoom', 'center', 'draggable']);
-
-        if ('minZoom' in options) {
-          var minZoom = this._computeMinZoom(options.minZoom);
-
-          options.minZoom = _checkMinZoom(options.minZoom, minZoom);
-        }
-
-        this.map_.setOptions(options);
-      }
-
-      if (!shallowEqual(nextProps.layerTypes, this.props.layerTypes)) {
-        Object.keys(this.layers_).forEach(function (layerKey) {
-          _this3.layers_[layerKey].setMap(null);
-
-          delete _this3.layers_[layerKey];
-        });
-
-        this._setLayers(nextProps.layerTypes);
-      }
-
-      if (this.heatmap && !shallowEqual(nextProps.heatmap.positions, this.props.heatmap.positions)) {
-        this.heatmap.setData(nextProps.heatmap.positions.map(function (p) {
-          return {
-            location: new _this3.maps_.LatLng(p.lat, p.lng),
-            weight: p.weight
-          };
-        }));
-      }
-
-      if (this.heatmap && !shallowEqual(nextProps.heatmap.options, this.props.heatmap.options)) {
-        Object.keys(nextProps.heatmap.options).forEach(function (option) {
-          _this3.heatmap.set(option, nextProps.heatmap.options[option]);
-        });
-      }
-    }
-  };
-
-  _proto.shouldComponentUpdate = function shouldComponentUpdate(nextProps, nextState) {
-    return !shallowEqual(omit(this.props, ['draggable']), omit(nextProps, ['draggable'])) || !shallowEqual(this.state, nextState);
-  };
-
-  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
-    this.markersDispatcher_.emit('kON_CHANGE');
-
-    if (!shallowEqual(this.props.hoverDistance, prevProps.hoverDistance)) {
-      this.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
-    }
-  };
-
-  _proto.componentWillUnmount = function componentWillUnmount() {
-    this.mounted_ = false;
-    var mapDom = react_dom_default.a.findDOMNode(this.googleMapDom_);
-
-    if (mapDom) {
-      mapDom.removeEventListener('mousedown', this._onMapMouseDownNative, true);
-    }
-
-    window.removeEventListener('resize', this._onWindowResize);
-    window.removeEventListener('keydown', this._onKeyDownCapture);
-    window.removeEventListener('mouseup', this._onChildMouseUp, false);
-
-    if (this.props.resetBoundsOnResize) {
-      removeResizeListener(mapDom, this._mapDomResizeCallback);
-    }
-
-    if (this.overlay_) {
-      this.overlay_.setMap(null);
-    }
-
-    if (this.maps_ && this.map_ && this.props.shouldUnregisterMapOnUnmount) {
-      this.map_.setOptions({
-        scrollwheel: false
-      });
-      this.maps_.event.clearInstanceListeners(this.map_);
-    }
-
-    if (this.props.shouldUnregisterMapOnUnmount) {
-      this.map_ = null;
-      this.maps_ = null;
-    }
-
-    this.markersDispatcher_.dispose();
-    this.resetSizeOnIdle_ = false;
-
-    if (this.props.shouldUnregisterMapOnUnmount) {
-      delete this.map_;
-      delete this.markersDispatcher_;
-    }
-  };
-
-  _proto.render = function render() {
-    var overlay = this.state.overlay;
-    var mapMarkerPrerender = !overlay ? /*#__PURE__*/react_default.a.createElement(GoogleMapMarkersPrerender, {
-      experimental: this.props.experimental,
-      onChildClick: this._onChildClick,
-      onChildMouseDown: this._onChildMouseDown,
-      onChildMouseEnter: this._onChildMouseEnter,
-      onChildMouseLeave: this._onChildMouseLeave,
-      geoService: this.geoService_,
-      insideMapPanes: false,
-      distanceToMouse: this.props.distanceToMouse,
-      getHoverDistance: this._getHoverDistance,
-      dispatcher: this.markersDispatcher_
-    }) : null;
-    return /*#__PURE__*/react_default.a.createElement("div", {
-      style: this.props.style,
-      onMouseMove: this._onMapMouseMove,
-      onMouseDownCapture: this._onMapMouseDownCapture,
-      onClick: this._onMapClick
-    }, /*#__PURE__*/react_default.a.createElement(index_modern_GoogleMapMap, {
-      registerChild: this._registerChild
-    }), IS_REACT_16 && overlay && createPortal(this._renderPortal(), overlay), mapMarkerPrerender);
-  };
-
-  return GoogleMap;
-}(react["Component"]);
-
-index_modern_GoogleMap.propTypes = {
-  apiKey: prop_types_default.a.string,
-  bootstrapURLKeys: prop_types_default.a.any,
-  defaultCenter: prop_types_default.a.oneOfType([prop_types_default.a.array, prop_types_default.a.shape({
-    lat: prop_types_default.a.number,
-    lng: prop_types_default.a.number
-  })]),
-  center: prop_types_default.a.oneOfType([prop_types_default.a.array, prop_types_default.a.shape({
-    lat: prop_types_default.a.number,
-    lng: prop_types_default.a.number
-  })]),
-  defaultZoom: prop_types_default.a.number,
-  zoom: prop_types_default.a.number,
-  onBoundsChange: prop_types_default.a.func,
-  onChange: prop_types_default.a.func,
-  onClick: prop_types_default.a.func,
-  onChildClick: prop_types_default.a.func,
-  onChildMouseDown: prop_types_default.a.func,
-  onChildMouseUp: prop_types_default.a.func,
-  onChildMouseMove: prop_types_default.a.func,
-  onChildMouseEnter: prop_types_default.a.func,
-  onChildMouseLeave: prop_types_default.a.func,
-  onZoomAnimationStart: prop_types_default.a.func,
-  onZoomAnimationEnd: prop_types_default.a.func,
-  onDrag: prop_types_default.a.func,
-  onDragEnd: prop_types_default.a.func,
-  onMapTypeIdChange: prop_types_default.a.func,
-  onTilesLoaded: prop_types_default.a.func,
-  options: prop_types_default.a.any,
-  distanceToMouse: prop_types_default.a.func,
-  hoverDistance: prop_types_default.a.number,
-  debounced: prop_types_default.a.bool,
-  margin: prop_types_default.a.array,
-  googleMapLoader: prop_types_default.a.any,
-  onGoogleApiLoaded: prop_types_default.a.func,
-  yesIWantToUseGoogleMapApiInternals: prop_types_default.a.bool,
-  draggable: prop_types_default.a.bool,
-  style: prop_types_default.a.any,
-  resetBoundsOnResize: prop_types_default.a.bool,
-  layerTypes: prop_types_default.a.arrayOf(prop_types_default.a.string),
-  shouldUnregisterMapOnUnmount: prop_types_default.a.bool
-};
-index_modern_GoogleMap.defaultProps = {
-  distanceToMouse: function distanceToMouse(pt, mousePos) {
-    return Math.sqrt((pt.x - mousePos.x) * (pt.x - mousePos.x) + (pt.y - mousePos.y) * (pt.y - mousePos.y));
-  },
-  hoverDistance: 30,
-  debounced: true,
-  options: defaultOptions_,
-  googleMapLoader: googleMapLoader,
-  yesIWantToUseGoogleMapApiInternals: false,
-  style: {
-    width: '100%',
-    height: '100%',
-    margin: 0,
-    padding: 0,
-    position: 'relative'
-  },
-  layerTypes: [],
-  heatmap: {},
-  heatmapLibrary: false,
-  shouldUnregisterMapOnUnmount: true
-};
-index_modern_GoogleMap.googleMapLoader = googleMapLoader;
-
-/* harmony default export */ var index_modern = (index_modern_GoogleMap);
-//# sourceMappingURL=index.modern.js.map
-
-// EXTERNAL MODULE: ./src/javascripts/utils/CountyMapDefaults.js
-var CountyMapDefaults = __webpack_require__(17);
-var CountyMapDefaults_default = /*#__PURE__*/__webpack_require__.n(CountyMapDefaults);
-
-// CONCATENATED MODULE: ./src/components/LMProjectRow.react.js
-/*
-This is a component rendered in LMCountyRoot when a specific county
-is selected. This component would show
-1. An image
-2. Project Name
-3. Expected construction complete date
-4. construction status
-5. description
-*/
-
-function LMProjectRow(props) {
-  return /*#__PURE__*/react_default.a.createElement("div", {
-    className: "projectRowRoot"
-  }, /*#__PURE__*/react_default.a.createElement("div", {
-    className: "projectRowImageWrap"
-  }, /*#__PURE__*/react_default.a.createElement("img", {
-    className: "projectRowImage",
-    src: "https://x.webdo.cc/userfiles/53670197/image/_D8A6613.jpg"
-  })), /*#__PURE__*/react_default.a.createElement("div", {
-    className: "projectRowInfo"
-  }, /*#__PURE__*/react_default.a.createElement("div", {
-    className: "projectRowStatus"
-  }, "Building"), /*#__PURE__*/react_default.a.createElement("div", {
-    className: "projectRowName"
-  }, props.name), /*#__PURE__*/react_default.a.createElement("div", {
-    className: "projectRowDate"
-  }, "\u9810\u8A08\u5B8C\u5DE5\uFF1A2024/07")));
-}
-// CONCATENATED MODULE: ./node_modules/use-debounce/esm/useDebouncedCallback.js
-
-function useDebouncedCallback(callback, delay, options) {
-    if (options === void 0) { options = {}; }
-    var maxWait = options.maxWait;
-    var maxWaitHandler = Object(react["useRef"])(null);
-    var maxWaitArgs = Object(react["useRef"])([]);
-    var leading = options.leading;
-    var trailing = options.trailing === undefined ? true : options.trailing;
-    var leadingCall = Object(react["useRef"])(false);
-    var functionTimeoutHandler = Object(react["useRef"])(null);
-    var isComponentUnmounted = Object(react["useRef"])(false);
-    var debouncedFunction = Object(react["useRef"])(callback);
-    debouncedFunction.current = callback;
-    var cancelDebouncedCallback = Object(react["useCallback"])(function () {
-        clearTimeout(functionTimeoutHandler.current);
-        clearTimeout(maxWaitHandler.current);
-        maxWaitHandler.current = null;
-        maxWaitArgs.current = [];
-        functionTimeoutHandler.current = null;
-        leadingCall.current = false;
-    }, []);
-    Object(react["useEffect"])(function () {
-        // We have to set isComponentUnmounted to be truth, as fast-refresh runs all useEffects
-        isComponentUnmounted.current = false;
-        return function () {
-            // we use flag, as we allow to call callPending outside the hook
-            isComponentUnmounted.current = true;
-        };
-    }, []);
-    var debouncedCallback = Object(react["useCallback"])(function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        maxWaitArgs.current = args;
-        clearTimeout(functionTimeoutHandler.current);
-        if (leadingCall.current) {
-            leadingCall.current = false;
-        }
-        if (!functionTimeoutHandler.current && leading && !leadingCall.current) {
-            debouncedFunction.current.apply(debouncedFunction, args);
-            leadingCall.current = true;
-        }
-        functionTimeoutHandler.current = setTimeout(function () {
-            var shouldCallFunction = true;
-            if (leading && leadingCall.current) {
-                shouldCallFunction = false;
-            }
-            cancelDebouncedCallback();
-            if (!isComponentUnmounted.current && trailing && shouldCallFunction) {
-                debouncedFunction.current.apply(debouncedFunction, args);
-            }
-        }, delay);
-        if (maxWait && !maxWaitHandler.current && trailing) {
-            maxWaitHandler.current = setTimeout(function () {
-                var args = maxWaitArgs.current;
-                cancelDebouncedCallback();
-                if (!isComponentUnmounted.current) {
-                    debouncedFunction.current.apply(null, args);
-                }
-            }, maxWait);
-        }
-    }, [maxWait, delay, cancelDebouncedCallback, leading, trailing]);
-    var callPending = Object(react["useCallback"])(function () {
-        // Call pending callback only if we have anything in our queue
-        if (!functionTimeoutHandler.current) {
-            return;
-        }
-        debouncedFunction.current.apply(null, maxWaitArgs.current);
-        cancelDebouncedCallback();
-    }, [cancelDebouncedCallback]);
-    // At the moment, we use 3 args array so that we save backward compatibility
-    return [debouncedCallback, cancelDebouncedCallback, callPending];
-}
-
-// CONCATENATED MODULE: ./node_modules/use-debounce/esm/useDebounce.js
-
-
-function valueEquality(left, right) {
-    return left === right;
-}
-function useDebounce(value, delay, options) {
-    var eq = options && options.equalityFn ? options.equalityFn : valueEquality;
-    var _a = Object(react["useState"])(value), state = _a[0], dispatch = _a[1];
-    var _b = useDebouncedCallback(Object(react["useCallback"])(function (value) { return dispatch(value); }, []), delay, options), callback = _b[0], cancel = _b[1], callPending = _b[2];
-    var previousValue = Object(react["useRef"])(value);
-    Object(react["useEffect"])(function () {
-        // We need to use this condition otherwise we will run debounce timer for the first render (including maxWait option)
-        if (!eq(previousValue.current, value)) {
-            callback(value);
-            previousValue.current = value;
-        }
-    }, [value, callback, eq]);
-    return [state, cancel, callPending];
-}
-
-// CONCATENATED MODULE: ./src/components/LMCountyRoot.react.js
-
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-var firebase = __webpack_require__(23); // Required for side-effects
-
-
-__webpack_require__(33);
-
-
-
-
-
-
-
-
-
-var DEFAULT_GOOGLE_MAP_ZOOM = 11;
-var DEFAULT_GOOGLE_MAP_CENTER = {
-  lat: 23.782127,
-  lng: 120.956679
-}; // Your web app's Firebase configuration
-
-var FIREBASE_CONFIG = {
-  apiKey: ""
-  /* Please Fill in apiKey */
-  ,
-  authDomain: "lm-ph2020.firebaseapp.com",
-  databaseURL: "https://lm-ph2020.firebaseio.com",
-  projectId: "lm-ph2020",
-  storageBucket: "lm-ph2020.appspot.com",
-  messagingSenderId: "1083392040408",
-  appId: "1:1083392040408:web:38449f3320b530d891e6ad",
-  measurementId: "G-JES8JBQ70D"
-}; // // Initialize Cloud Firestore through Firebase
-
-firebase.initializeApp(FIREBASE_CONFIG);
-var db = firebase.firestore();
-function LMCountyRoot() {
-  var dataDiv = document.getElementById("county-map-data");
-  var data = JSON.parse(dataDiv.getAttribute("data"));
-  var county = dataDiv.getAttribute("county");
-
-  var _useState = Object(react["useState"])([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      documents = _useState2[0],
-      setDocuments = _useState2[1];
-
-  var _useState3 = Object(react["useState"])(""),
-      _useState4 = _slicedToArray(_useState3, 2),
-      searchTerm = _useState4[0],
-      setSearchTerm = _useState4[1];
-
-  var _useDebounce = useDebounce(searchTerm, 800),
-      _useDebounce2 = _slicedToArray(_useDebounce, 1),
-      debounceSearchTerm = _useDebounce2[0]; // Fetch the data with an effect
-
-
-  Object(react["useEffect"])(function () {
-    db.collection("counties").doc(county).collection("projects").get().then(function (querySnapshot) {
-      var _documemts = [];
-      querySnapshot.forEach(function (doc) {
-        _documemts.push(doc.data().projects[0].title);
-      });
-      setDocuments(_documemts);
-    });
-  }, [county]);
-
-  if (data == null) {
-    throw "data is null in LWICountyRoot";
-  }
-
-  var rightContent = null;
-  var leftContent = null;
-  /* undefined will be casted to a string during ssr */
-
-  if (county === "undefined") {
-    // No county is specified, which means we're showing a Taiwan Map.
-    rightContent = /*#__PURE__*/react_default.a.createElement("div", {
-      className: "rightContent"
-    }, /*#__PURE__*/react_default.a.createElement("div", {
-      id: "largeMetricAndUnit"
-    }, /*#__PURE__*/react_default.a.createElement("div", {
-      id: "largeMetric"
-    }, "6913"), /*#__PURE__*/react_default.a.createElement("span", {
-      id: "unit"
-    }, "House ", /*#__PURE__*/react_default.a.createElement("br", null), "Number")), /*#__PURE__*/react_default.a.createElement("div", null, "with ", "613", " build cases in this area"), /*#__PURE__*/react_default.a.createElement("h5", null, "Choose the county:"), /*#__PURE__*/react_default.a.createElement("div", {
-      className: "marginTop-8"
-    }, /*#__PURE__*/react_default.a.createElement("a", {
-      "class": "dropdown-trigger btn",
-      href: "#",
-      "data-target": "county-dropdown"
-    }, "Taiwan ", /*#__PURE__*/react_default.a.createElement("i", {
-      "class": "material-icons right"
-    }, "keyboard_arrow_down"))), /*#__PURE__*/react_default.a.createElement("ul", {
-      id: "county-dropdown",
-      "class": "dropdown-content"
-    }, Object.values(CountyTypes_default.a).map(function (name) {
-      return /*#__PURE__*/react_default.a.createElement("li", null, /*#__PURE__*/react_default.a.createElement("a", {
-        href: "/county?name=".concat(name)
-      }, countyNameFormatter(name)));
-    })));
-    leftContent = /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, null);
-  } else {
-    // When a county is selected, we show its map and projects
-    var countyMapDefaults = CountyMapDefaults_default.a[county];
-    leftContent = /*#__PURE__*/react_default.a.createElement("div", {
-      style: {
-        height: "100%",
-        width: "100%"
-      }
-    }, /*#__PURE__*/react_default.a.createElement(index_modern, {
-      bootstrapURLKeys: {
-        key: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw"
-      },
-      defaultCenter: countyMapDefaults.center,
-      defaultZoom: countyMapDefaults.zoom
-    }));
-    rightContent = /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement("input", {
-      type: "text",
-      value: searchTerm,
-      onInput: function onInput(e) {
-        return setSearchTerm(e.target.value);
-      }
-    }), documents.map(function (name) {
-      if (debounceSearchTerm !== "" && name.indexOf(debounceSearchTerm) < 0) {
-        return null;
-      }
-
-      return /*#__PURE__*/react_default.a.createElement(LMProjectRow, {
-        id: name,
-        name: name
-      });
-    }));
-  }
-
-  return /*#__PURE__*/react_default.a.createElement("div", {
-    id: "root"
-  }, /*#__PURE__*/react_default.a.createElement("div", {
-    id: "left"
-  }, leftContent), /*#__PURE__*/react_default.a.createElement("div", {
-    id: "right"
-  }, /*#__PURE__*/react_default.a.createElement("div", {
-    "class": "marginTop-20 scroll"
-  }, rightContent)));
-}
-
-function countyNameFormatter(countyNameRaw) {
-  var countyNames = countyNameRaw.split("_").map(function (_namePartRaw) {
-    return "".concat(_namePartRaw.slice(0, 1).toUpperCase()).concat(_namePartRaw.slice(1));
-  });
-  return countyNames.join(" ");
-}
-
-var domContainer = document.querySelector("#lm_county_root");
-react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(LMCountyRoot, null), domContainer);
-// EXTERNAL MODULE: ./node_modules/materialize-css/dist/js/materialize.js
-var materialize = __webpack_require__(19);
-var materialize_default = /*#__PURE__*/__webpack_require__.n(materialize);
-
-// CONCATENATED MODULE: ./src/county.js
-
-
- // This enables all the materialize components
-
-materialize_default.a.AutoInit();
-
-/***/ }),
-/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -36573,9 +34049,9 @@ $jscomp.polyfill = function (e, r, p, m) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
+/* 19 */,
 /* 20 */,
-/* 21 */,
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36607,7 +34083,7 @@ exports.useLayoutEffect=function(a,b){return Z().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36616,15 +34092,15 @@ exports.useLayoutEffect=function(a,b){return Z().useLayoutEffect(a,b)};exports.u
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var firebase = _interopDefault(__webpack_require__(4));
+__webpack_require__(23);
 __webpack_require__(24);
-__webpack_require__(25);
 __webpack_require__(15);
+__webpack_require__(26);
 __webpack_require__(27);
 __webpack_require__(28);
 __webpack_require__(29);
 __webpack_require__(30);
 __webpack_require__(31);
-__webpack_require__(32);
 
 var name = "firebase";
 var version = "7.17.2";
@@ -36674,7 +34150,7 @@ module.exports = firebase;
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {(function() {var firebase = __webpack_require__(4).default;/*
@@ -37114,7 +34590,7 @@ instanceFactory:function(b){b=b.getProvider("auth").getImmediate();return{getUid
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52521,7 +49997,7 @@ exports.registerDatabase = registerDatabase;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(14)))
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53923,7 +51399,7 @@ var esm_5 = esm.XhrIo;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54574,7 +52050,7 @@ firebase.registerVersion(name, version);
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56192,7 +53668,7 @@ function isSWControllerSupported() {
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59704,7 +57180,7 @@ registerStorage(_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61124,7 +58600,7 @@ exports.registerPerformance = registerPerformance;
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61768,7 +59244,7 @@ function isSupported() {
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63010,7 +60486,7 @@ exports.registerRemoteConfig = registerRemoteConfig;
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63022,7 +60498,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63038,7 +60514,7 @@ __webpack_require__.r(__webpack_exports__);
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),n=__webpack_require__(13),r=__webpack_require__(35);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
+var aa=__webpack_require__(1),n=__webpack_require__(13),r=__webpack_require__(34);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
 function ba(a,b,c,d,e,f,g,h,k){var l=Array.prototype.slice.call(arguments,3);try{b.apply(c,l)}catch(m){this.onError(m)}}var da=!1,ea=null,fa=!1,ha=null,ia={onError:function(a){da=!0;ea=a}};function ja(a,b,c,d,e,f,g,h,k){da=!1;ea=null;ba.apply(ia,arguments)}function ka(a,b,c,d,e,f,g,h,k){ja.apply(this,arguments);if(da){if(da){var l=ea;da=!1;ea=null}else throw Error(u(198));fa||(fa=!0,ha=l)}}var la=null,ma=null,na=null;
 function oa(a,b,c){var d=a.type||"unknown-event";a.currentTarget=na(c);ka(d,b,void 0,a);a.currentTarget=null}var pa=null,qa={};
 function ra(){if(pa)for(var a in qa){var b=qa[a],c=pa.indexOf(a);if(!(-1<c))throw Error(u(96,a));if(!sa[c]){if(!b.extractEvents)throw Error(u(97,a));sa[c]=b;c=b.eventTypes;for(var d in c){var e=void 0;var f=c[d],g=b,h=d;if(ta.hasOwnProperty(h))throw Error(u(99,h));ta[h]=f;var k=f.phasedRegistrationNames;if(k){for(e in k)k.hasOwnProperty(e)&&ua(k[e],g,h);e=!0}else f.registrationName?(ua(f.registrationName,g,h),e=!0):e=!1;if(!e)throw Error(u(98,d,a));}}}}
@@ -63321,19 +60797,19 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!gk(c))throw Er
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (true) {
-  module.exports = __webpack_require__(36);
+  module.exports = __webpack_require__(35);
 } else {}
 
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63361,7 +60837,7 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63374,7 +60850,7 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
 
 
 
-var ReactPropTypesSecret = __webpack_require__(38);
+var ReactPropTypesSecret = __webpack_require__(37);
 
 function emptyFunction() {}
 function emptyFunctionWithReset() {}
@@ -63432,7 +60908,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63451,7 +60927,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -63583,6 +61059,2538 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   return $script
 });
 
+
+/***/ }),
+/* 39 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(1);
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/react-dom/index.js
+var react_dom = __webpack_require__(6);
+var react_dom_default = /*#__PURE__*/__webpack_require__.n(react_dom);
+
+// CONCATENATED MODULE: ./src/components/LMTaiwanMap.react.js
+
+var MAP_WIDTH = 800;
+var MAP_HEIGHT = 680;
+function LMTaiwanMap() {
+  var dataDiv = document.getElementById("county-map-data");
+  var taiwanData = JSON.parse(dataDiv.getAttribute("mapData"));
+  taiwanData = topojson.feature(taiwanData, taiwanData.objects.COUNTY_MOI_1090727).features;
+
+  var myProjection = function myProjection() {
+    return d3.geoMercator().scale(10000).center([121, 24.3]).translate([MAP_WIDTH / 2, MAP_HEIGHT / 2.5]);
+  };
+
+  return /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("svg", {
+    className: "map-svg",
+    width: MAP_WIDTH,
+    height: MAP_HEIGHT,
+    viewBox: "0 0 ".concat(MAP_WIDTH, " ").concat(MAP_HEIGHT)
+  }, /*#__PURE__*/react_default.a.createElement("g", {
+    className: "countries"
+  }, taiwanData.map(function (d, i) {
+    return /*#__PURE__*/react_default.a.createElement("path", {
+      key: "path-".concat(i),
+      d: d3.geoPath().projection(myProjection())(d),
+      className: "country",
+      fill: "rgba(219, 163, 43,".concat(1 / taiwanData.length * i, ")"),
+      stroke: "#FFFFFF",
+      strokeWidth: 0.5
+    });
+  }))));
+}
+// EXTERNAL MODULE: ./node_modules/prop-types/index.js
+var prop_types = __webpack_require__(2);
+var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
+
+// EXTERNAL MODULE: ./node_modules/eventemitter3/index.js
+var eventemitter3 = __webpack_require__(16);
+var eventemitter3_default = /*#__PURE__*/__webpack_require__.n(eventemitter3);
+
+// EXTERNAL MODULE: ./node_modules/@mapbox/point-geometry/index.js
+var point_geometry = __webpack_require__(8);
+var point_geometry_default = /*#__PURE__*/__webpack_require__.n(point_geometry);
+
+// CONCATENATED MODULE: ./node_modules/google-map-react/dist/index.modern.js
+
+
+
+
+
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+var style = {
+  width: '100%',
+  height: '100%',
+  left: 0,
+  top: 0,
+  margin: 0,
+  padding: 0,
+  position: 'absolute'
+};
+
+var index_modern_GoogleMapMap = /*#__PURE__*/function (_Component) {
+  _inheritsLoose(GoogleMapMap, _Component);
+
+  function GoogleMapMap() {
+    return _Component.apply(this, arguments) || this;
+  }
+
+  var _proto = GoogleMapMap.prototype;
+
+  _proto.shouldComponentUpdate = function shouldComponentUpdate() {
+    return false;
+  };
+
+  _proto.render = function render() {
+    var registerChild = this.props.registerChild;
+    return /*#__PURE__*/react_default.a.createElement("div", {
+      ref: registerChild,
+      style: style
+    });
+  };
+
+  return GoogleMapMap;
+}(react["Component"]);
+
+var MarkerDispatcher = /*#__PURE__*/function (_EventEmitter) {
+  _inheritsLoose(MarkerDispatcher, _EventEmitter);
+
+  function MarkerDispatcher(gmapInstance) {
+    var _this;
+
+    _this = _EventEmitter.call(this) || this;
+    _this.gmapInstance = gmapInstance;
+    return _this;
+  }
+
+  var _proto = MarkerDispatcher.prototype;
+
+  _proto.getChildren = function getChildren() {
+    return this.gmapInstance.props.children;
+  };
+
+  _proto.getMousePosition = function getMousePosition() {
+    return this.gmapInstance.mouse_;
+  };
+
+  _proto.getUpdateCounter = function getUpdateCounter() {
+    return this.gmapInstance.updateCounter_;
+  };
+
+  _proto.dispose = function dispose() {
+    this.gmapInstance = null;
+    this.removeAllListeners();
+  };
+
+  return MarkerDispatcher;
+}(eventemitter3_default.a);
+
+var omit = function omit(obj, keys) {
+  var rest = _extends({}, obj);
+
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+
+    if (key in rest) {
+      delete rest[key];
+    }
+  }
+
+  return rest;
+};
+
+var index_modern_hasOwnProperty = Object.prototype.hasOwnProperty;
+
+function is(x, y) {
+  if (x === y) {
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+  }
+
+  return x !== x && y !== y;
+}
+
+function shallowEqual(objA, objB) {
+  if (is(objA, objB)) {
+    return true;
+  }
+
+  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+
+  if (keysA.length !== keysB.length) {
+    return false;
+  }
+
+  for (var i = 0; i < keysA.length; i++) {
+    if (!index_modern_hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+var mainStyle = {
+  width: '100%',
+  height: '100%',
+  left: 0,
+  top: 0,
+  margin: 0,
+  padding: 0,
+  position: 'absolute'
+};
+var style$1 = {
+  width: 0,
+  height: 0,
+  left: 0,
+  top: 0,
+  backgroundColor: 'transparent',
+  position: 'absolute'
+};
+
+var index_modern_GoogleMapMarkers = /*#__PURE__*/function (_Component) {
+  _inheritsLoose(GoogleMapMarkers, _Component);
+
+  function GoogleMapMarkers(props) {
+    var _this;
+
+    _this = _Component.call(this, props) || this;
+
+    _this._getState = function () {
+      return {
+        children: _this.props.dispatcher.getChildren(),
+        updateCounter: _this.props.dispatcher.getUpdateCounter()
+      };
+    };
+
+    _this._onChangeHandler = function () {
+      if (!_this.dimensionsCache_) {
+        return;
+      }
+
+      var prevChildCount = (_this.state.children || []).length;
+
+      var state = _this._getState();
+
+      _this.setState(state, function () {
+        return (state.children || []).length !== prevChildCount && _this._onMouseChangeHandler();
+      });
+    };
+
+    _this._onChildClick = function () {
+      if (_this.props.onChildClick) {
+        if (_this.hoverChildProps_) {
+          var hoverKey = _this.hoverKey_;
+          var childProps = _this.hoverChildProps_;
+
+          _this.props.onChildClick(hoverKey, childProps);
+        }
+      }
+    };
+
+    _this._onChildMouseDown = function () {
+      if (_this.props.onChildMouseDown) {
+        if (_this.hoverChildProps_) {
+          var hoverKey = _this.hoverKey_;
+          var childProps = _this.hoverChildProps_;
+
+          _this.props.onChildMouseDown(hoverKey, childProps);
+        }
+      }
+    };
+
+    _this._onChildMouseEnter = function (hoverKey, childProps) {
+      if (!_this.dimensionsCache_) {
+        return;
+      }
+
+      if (_this.props.onChildMouseEnter) {
+        _this.props.onChildMouseEnter(hoverKey, childProps);
+      }
+
+      _this.hoverChildProps_ = childProps;
+      _this.hoverKey_ = hoverKey;
+
+      _this.setState({
+        hoverKey: hoverKey
+      });
+    };
+
+    _this._onChildMouseLeave = function () {
+      if (!_this.dimensionsCache_) {
+        return;
+      }
+
+      var hoverKey = _this.hoverKey_;
+      var childProps = _this.hoverChildProps_;
+
+      if (hoverKey !== undefined && hoverKey !== null) {
+        if (_this.props.onChildMouseLeave) {
+          _this.props.onChildMouseLeave(hoverKey, childProps);
+        }
+
+        _this.hoverKey_ = null;
+        _this.hoverChildProps_ = null;
+
+        _this.setState({
+          hoverKey: null
+        });
+      }
+    };
+
+    _this._onMouseAllow = function (value) {
+      if (!value) {
+        _this._onChildMouseLeave();
+      }
+
+      _this.allowMouse_ = value;
+    };
+
+    _this._onMouseChangeHandler = function () {
+      if (_this.allowMouse_) {
+        _this._onMouseChangeHandlerRaf();
+      }
+    };
+
+    _this._onMouseChangeHandlerRaf = function () {
+      if (!_this.dimensionsCache_) {
+        return;
+      }
+
+      var mp = _this.props.dispatcher.getMousePosition();
+
+      if (mp) {
+        var distances = [];
+
+        var hoverDistance = _this.props.getHoverDistance();
+
+        react_default.a.Children.forEach(_this.state.children, function (child, childIndex) {
+          if (!child) return;
+
+          if (child.props.latLng === undefined && child.props.lat === undefined && child.props.lng === undefined) {
+            return;
+          }
+
+          var childKey = child.key !== undefined && child.key !== null ? child.key : childIndex;
+
+          var dist = _this.props.distanceToMouse(_this.dimensionsCache_[childKey], mp, child.props);
+
+          if (dist < hoverDistance) {
+            distances.push({
+              key: childKey,
+              dist: dist,
+              props: child.props
+            });
+          }
+        });
+
+        if (distances.length) {
+          distances.sort(function (a, b) {
+            return a.dist - b.dist;
+          });
+          var hoverKey = distances[0].key;
+          var childProps = distances[0].props;
+
+          if (_this.hoverKey_ !== hoverKey) {
+            _this._onChildMouseLeave();
+
+            _this._onChildMouseEnter(hoverKey, childProps);
+          }
+        } else {
+          _this._onChildMouseLeave();
+        }
+      } else {
+        _this._onChildMouseLeave();
+      }
+    };
+
+    _this._getDimensions = function (key) {
+      var childKey = key;
+      return _this.dimensionsCache_[childKey];
+    };
+
+    _this.dimensionsCache_ = {};
+    _this.hoverKey_ = null;
+    _this.hoverChildProps_ = null;
+    _this.allowMouse_ = true;
+    _this.state = _extends({}, _this._getState(), {
+      hoverKey: null
+    });
+    return _this;
+  }
+
+  var _proto = GoogleMapMarkers.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    this.props.dispatcher.on('kON_CHANGE', this._onChangeHandler);
+    this.props.dispatcher.on('kON_MOUSE_POSITION_CHANGE', this._onMouseChangeHandler);
+    this.props.dispatcher.on('kON_CLICK', this._onChildClick);
+    this.props.dispatcher.on('kON_MDOWN', this._onChildMouseDown);
+  };
+
+  _proto.shouldComponentUpdate = function shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.experimental === true) {
+      return !shallowEqual(this.props, nextProps) || !shallowEqual(omit(this.state, ['hoverKey']), omit(nextState, ['hoverKey']));
+    }
+
+    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    this.props.dispatcher.removeListener('kON_CHANGE', this._onChangeHandler);
+    this.props.dispatcher.removeListener('kON_MOUSE_POSITION_CHANGE', this._onMouseChangeHandler);
+    this.props.dispatcher.removeListener('kON_CLICK', this._onChildClick);
+    this.props.dispatcher.removeListener('kON_MDOWN', this._onChildMouseDown);
+    this.dimensionsCache_ = null;
+  };
+
+  _proto.render = function render() {
+    var _this2 = this;
+
+    var mainElementStyle = this.props.style || mainStyle;
+    this.dimensionsCache_ = {};
+    var markers = react_default.a.Children.map(this.state.children, function (child, childIndex) {
+      if (!child) return undefined;
+
+      if (child.props.latLng === undefined && child.props.lat === undefined && child.props.lng === undefined) {
+        return react_default.a.cloneElement(child, {
+          $geoService: _this2.props.geoService,
+          $onMouseAllow: _this2._onMouseAllow,
+          $prerender: _this2.props.prerender
+        });
+      }
+
+      var latLng = child.props.latLng !== undefined ? child.props.latLng : {
+        lat: child.props.lat,
+        lng: child.props.lng
+      };
+      var pt = _this2.props.insideMapPanes ? _this2.props.geoService.fromLatLngToDivPixel(latLng) : _this2.props.geoService.fromLatLngToCenterPixel(latLng);
+      var stylePtPos = {
+        left: pt.x,
+        top: pt.y
+      };
+
+      if (child.props.seLatLng !== undefined || child.props.seLat !== undefined && child.props.seLng !== undefined) {
+        var seLatLng = child.props.seLatLng !== undefined ? child.props.seLatLng : {
+          lat: child.props.seLat,
+          lng: child.props.seLng
+        };
+        var sePt = _this2.props.insideMapPanes ? _this2.props.geoService.fromLatLngToDivPixel(seLatLng) : _this2.props.geoService.fromLatLngToCenterPixel(seLatLng);
+        stylePtPos.width = sePt.x - pt.x;
+        stylePtPos.height = sePt.y - pt.y;
+      }
+
+      var containerPt = _this2.props.geoService.fromLatLngToContainerPixel(latLng);
+
+      var childKey = child.key !== undefined && child.key !== null ? child.key : childIndex;
+      _this2.dimensionsCache_[childKey] = _extends({
+        x: containerPt.x,
+        y: containerPt.y
+      }, latLng);
+      return /*#__PURE__*/react_default.a.createElement("div", {
+        key: childKey,
+        style: _extends({}, style$1, stylePtPos),
+        className: child.props.$markerHolderClassName
+      }, react_default.a.cloneElement(child, {
+        $hover: childKey === _this2.state.hoverKey,
+        $getDimensions: _this2._getDimensions,
+        $dimensionKey: childKey,
+        $geoService: _this2.props.geoService,
+        $onMouseAllow: _this2._onMouseAllow,
+        $prerender: _this2.props.prerender
+      }));
+    });
+    return /*#__PURE__*/react_default.a.createElement("div", {
+      style: mainElementStyle
+    }, markers);
+  };
+
+  return GoogleMapMarkers;
+}(react["Component"]);
+
+index_modern_GoogleMapMarkers.propTypes = {
+  geoService: prop_types_default.a.any,
+  style: prop_types_default.a.any,
+  distanceToMouse: prop_types_default.a.func,
+  dispatcher: prop_types_default.a.any,
+  onChildClick: prop_types_default.a.func,
+  onChildMouseDown: prop_types_default.a.func,
+  onChildMouseLeave: prop_types_default.a.func,
+  onChildMouseEnter: prop_types_default.a.func,
+  getHoverDistance: prop_types_default.a.func,
+  insideMapPanes: prop_types_default.a.bool,
+  prerender: prop_types_default.a.bool
+};
+index_modern_GoogleMapMarkers.defaultProps = {
+  insideMapPanes: false,
+  prerender: false
+};
+
+var style$2 = {
+  width: '50%',
+  height: '50%',
+  left: '50%',
+  top: '50%',
+  margin: 0,
+  padding: 0,
+  position: 'absolute'
+};
+function GoogleMapMarkersPrerender (props) {
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    style: style$2
+  }, /*#__PURE__*/react_default.a.createElement(index_modern_GoogleMapMarkers, _extends({}, props, {
+    prerender: true
+  })));
+}
+
+var generateHeatmap = function generateHeatmap(instance, _ref) {
+  var positions = _ref.positions;
+  return new instance.visualization.HeatmapLayer({
+    data: positions.reduce(function (acc, _ref2) {
+      var lat = _ref2.lat,
+          lng = _ref2.lng,
+          _ref2$weight = _ref2.weight,
+          weight = _ref2$weight === void 0 ? 1 : _ref2$weight;
+      acc.push({
+        location: new instance.LatLng(lat, lng),
+        weight: weight
+      });
+      return acc;
+    }, [])
+  });
+};
+var optionsHeatmap = function optionsHeatmap(instance, _ref3) {
+  var _ref3$options = _ref3.options,
+      options = _ref3$options === void 0 ? {} : _ref3$options;
+  return Object.keys(options).map(function (option) {
+    return instance.set(option, options[option]);
+  });
+};
+
+var BASE_URL = 'https://maps';
+var DEFAULT_URL = BASE_URL + ".googleapis.com";
+var API_PATH = '/maps/api/js?callback=_$_google_map_initialize_$_';
+var $script_ = null;
+var loadPromise_;
+var resolveCustomPromise_;
+
+var _customPromise = new Promise(function (resolve) {
+  resolveCustomPromise_ = resolve;
+});
+
+var googleMapLoader = (function (bootstrapURLKeys, heatmapLibrary) {
+  if (!$script_) {
+    $script_ = __webpack_require__(38);
+  }
+
+  if (!bootstrapURLKeys) {
+    return _customPromise;
+  }
+
+  if (loadPromise_) {
+    return loadPromise_;
+  }
+
+  loadPromise_ = new Promise(function (resolve, reject) {
+    if (typeof window === 'undefined') {
+      reject(new Error('google map cannot be loaded outside browser env'));
+      return;
+    }
+
+    if (window.google && window.google.maps) {
+      resolve(window.google.maps);
+      return;
+    }
+
+    if (typeof window._$_google_map_initialize_$_ !== 'undefined') {
+      reject(new Error('google map initialization error'));
+    }
+
+    window._$_google_map_initialize_$_ = function () {
+      delete window._$_google_map_initialize_$_;
+      resolve(window.google.maps);
+    };
+
+    if (false) { var message; }
+
+    var params = Object.keys(bootstrapURLKeys).reduce(function (r, key) {
+      return r + "&" + key + "=" + bootstrapURLKeys[key];
+    }, '');
+    var libraries = heatmapLibrary ? '&libraries=visualization' : '';
+    $script_("" + DEFAULT_URL + API_PATH + params + libraries, function () {
+      return typeof window.google === 'undefined' && reject(new Error('google map initialization error (not loaded)'));
+    });
+  });
+  resolveCustomPromise_(loadPromise_);
+  return loadPromise_;
+});
+
+function wrap(n, min, max) {
+  var d = max - min;
+  return n === max ? n : ((n - min) % d + d) % d + min;
+}
+
+var LatLng = /*#__PURE__*/function () {
+  function LatLng(lat, lng) {
+    if (isNaN(lat) || isNaN(lng)) {
+      throw new Error("Invalid LatLng object: (" + lat + ", " + lng + ")");
+    }
+
+    this.lat = +lat;
+    this.lng = +lng;
+  }
+
+  var _proto = LatLng.prototype;
+
+  _proto.wrap = function wrap$1() {
+    return new LatLng(this.lat, wrap(this.lng, -180, 180));
+  };
+
+  return LatLng;
+}();
+
+LatLng.convert = function (a) {
+  if (a instanceof LatLng) {
+    return a;
+  }
+
+  if (Array.isArray(a)) {
+    return new LatLng(a[0], a[1]);
+  }
+
+  if ('lng' in a && 'lat' in a) {
+    return new LatLng(a.lat, a.lng);
+  }
+
+  return a;
+};
+
+var index_modern_Transform = /*#__PURE__*/function () {
+  function Transform(tileSize, minZoom, maxZoom) {
+    this.tileSize = tileSize || 512;
+    this._minZoom = minZoom || 0;
+    this._maxZoom = maxZoom || 52;
+    this.latRange = [-85.05113, 85.05113];
+    this.width = 0;
+    this.height = 0;
+    this.zoom = 0;
+    this.center = new LatLng(0, 0);
+    this.angle = 0;
+  }
+
+  var _proto = Transform.prototype;
+
+  _proto.zoomScale = function zoomScale(zoom) {
+    return Math.pow(2, zoom);
+  };
+
+  _proto.scaleZoom = function scaleZoom(scale) {
+    return Math.log(scale) / Math.LN2;
+  };
+
+  _proto.project = function project(latlng, worldSize) {
+    return new point_geometry_default.a(this.lngX(latlng.lng, worldSize), this.latY(latlng.lat, worldSize));
+  };
+
+  _proto.unproject = function unproject(point, worldSize) {
+    return new LatLng(this.yLat(point.y, worldSize), this.xLng(point.x, worldSize));
+  };
+
+  _proto.lngX = function lngX(lon, worldSize) {
+    return (180 + lon) * (worldSize || this.worldSize) / 360;
+  };
+
+  _proto.latY = function latY(lat, worldSize) {
+    var y = 180 / Math.PI * Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360));
+    return (180 - y) * (worldSize || this.worldSize) / 360;
+  };
+
+  _proto.xLng = function xLng(x, worldSize) {
+    return x * 360 / (worldSize || this.worldSize) - 180;
+  };
+
+  _proto.yLat = function yLat(y, worldSize) {
+    var y2 = 180 - y * 360 / (worldSize || this.worldSize);
+    return 360 / Math.PI * Math.atan(Math.exp(y2 * Math.PI / 180)) - 90;
+  };
+
+  _proto.locationPoint = function locationPoint(latlng) {
+    var p = this.project(latlng);
+    return this.centerPoint._sub(this.point._sub(p)._rotate(this.angle));
+  };
+
+  _proto.pointLocation = function pointLocation(p) {
+    var p2 = this.centerPoint._sub(p)._rotate(-this.angle);
+
+    return this.unproject(this.point.sub(p2));
+  };
+
+  _createClass(Transform, [{
+    key: "minZoom",
+    get: function get() {
+      return this._minZoom;
+    },
+    set: function set(zoom) {
+      this._minZoom = zoom;
+      this.zoom = Math.max(this.zoom, zoom);
+    }
+  }, {
+    key: "maxZoom",
+    get: function get() {
+      return this._maxZoom;
+    },
+    set: function set(zoom) {
+      this._maxZoom = zoom;
+      this.zoom = Math.min(this.zoom, zoom);
+    }
+  }, {
+    key: "worldSize",
+    get: function get() {
+      return this.tileSize * this.scale;
+    }
+  }, {
+    key: "centerPoint",
+    get: function get() {
+      return new point_geometry_default.a(0, 0);
+    }
+  }, {
+    key: "size",
+    get: function get() {
+      return new point_geometry_default.a(this.width, this.height);
+    }
+  }, {
+    key: "bearing",
+    get: function get() {
+      return -this.angle / Math.PI * 180;
+    },
+    set: function set(bearing) {
+      this.angle = -wrap(bearing, -180, 180) * Math.PI / 180;
+    }
+  }, {
+    key: "zoom",
+    get: function get() {
+      return this._zoom;
+    },
+    set: function set(zoom) {
+      var zoomV = Math.min(Math.max(zoom, this.minZoom), this.maxZoom);
+      this._zoom = zoomV;
+      this.scale = this.zoomScale(zoomV);
+      this.tileZoom = Math.floor(zoomV);
+      this.zoomFraction = zoomV - this.tileZoom;
+    }
+  }, {
+    key: "x",
+    get: function get() {
+      return this.lngX(this.center.lng);
+    }
+  }, {
+    key: "y",
+    get: function get() {
+      return this.latY(this.center.lat);
+    }
+  }, {
+    key: "point",
+    get: function get() {
+      return new point_geometry_default.a(this.x, this.y);
+    }
+  }]);
+
+  return Transform;
+}();
+
+var index_modern_Geo = /*#__PURE__*/function () {
+  function Geo(tileSize) {
+    this.hasSize_ = false;
+    this.hasView_ = false;
+    this.transform_ = new index_modern_Transform(tileSize || 512);
+  }
+
+  var _proto = Geo.prototype;
+
+  _proto.setView = function setView(center, zoom, bearing) {
+    this.transform_.center = LatLng.convert(center);
+    this.transform_.zoom = +zoom;
+    this.transform_.bearing = +bearing;
+    this.hasView_ = true;
+  };
+
+  _proto.setViewSize = function setViewSize(width, height) {
+    this.transform_.width = width;
+    this.transform_.height = height;
+    this.hasSize_ = true;
+  };
+
+  _proto.setMapCanvasProjection = function setMapCanvasProjection(maps, mapCanvasProjection) {
+    this.maps_ = maps;
+    this.mapCanvasProjection_ = mapCanvasProjection;
+  };
+
+  _proto.canProject = function canProject() {
+    return this.hasSize_ && this.hasView_;
+  };
+
+  _proto.hasSize = function hasSize() {
+    return this.hasSize_;
+  };
+
+  _proto.fromLatLngToCenterPixel = function fromLatLngToCenterPixel(ptLatLng) {
+    return this.transform_.locationPoint(LatLng.convert(ptLatLng));
+  };
+
+  _proto.fromLatLngToDivPixel = function fromLatLngToDivPixel(ptLatLng) {
+    if (this.mapCanvasProjection_) {
+      var latLng = new this.maps_.LatLng(ptLatLng.lat, ptLatLng.lng);
+      return this.mapCanvasProjection_.fromLatLngToDivPixel(latLng);
+    }
+
+    return this.fromLatLngToCenterPixel(ptLatLng);
+  };
+
+  _proto.fromLatLngToContainerPixel = function fromLatLngToContainerPixel(ptLatLng) {
+    if (this.mapCanvasProjection_) {
+      var latLng = new this.maps_.LatLng(ptLatLng.lat, ptLatLng.lng);
+      return this.mapCanvasProjection_.fromLatLngToContainerPixel(latLng);
+    }
+
+    var pt = this.fromLatLngToCenterPixel(ptLatLng);
+    pt.x -= this.transform_.worldSize * Math.round(pt.x / this.transform_.worldSize);
+    pt.x += this.transform_.width / 2;
+    pt.y += this.transform_.height / 2;
+    return pt;
+  };
+
+  _proto.fromContainerPixelToLatLng = function fromContainerPixelToLatLng(ptXY) {
+    if (this.mapCanvasProjection_) {
+      var latLng = this.mapCanvasProjection_.fromContainerPixelToLatLng(ptXY);
+      return {
+        lat: latLng.lat(),
+        lng: latLng.lng()
+      };
+    }
+
+    var ptxy = _extends({}, ptXY);
+
+    ptxy.x -= this.transform_.width / 2;
+    ptxy.y -= this.transform_.height / 2;
+    var ptRes = this.transform_.pointLocation(point_geometry_default.a.convert(ptxy));
+    ptRes.lng -= 360 * Math.round(ptRes.lng / 360);
+    return ptRes;
+  };
+
+  _proto.getWidth = function getWidth() {
+    return this.transform_.width;
+  };
+
+  _proto.getHeight = function getHeight() {
+    return this.transform_.height;
+  };
+
+  _proto.getZoom = function getZoom() {
+    return this.transform_.zoom;
+  };
+
+  _proto.getCenter = function getCenter() {
+    var ptRes = this.transform_.pointLocation({
+      x: 0,
+      y: 0
+    });
+    return ptRes;
+  };
+
+  _proto.getBounds = function getBounds(margins, roundFactor) {
+    var bndT = margins && margins[0] || 0;
+    var bndR = margins && margins[1] || 0;
+    var bndB = margins && margins[2] || 0;
+    var bndL = margins && margins[3] || 0;
+
+    if (this.getWidth() - bndR - bndL > 0 && this.getHeight() - bndT - bndB > 0) {
+      var topLeftCorner = this.transform_.pointLocation(point_geometry_default.a.convert({
+        x: bndL - this.getWidth() / 2,
+        y: bndT - this.getHeight() / 2
+      }));
+      var bottomRightCorner = this.transform_.pointLocation(point_geometry_default.a.convert({
+        x: this.getWidth() / 2 - bndR,
+        y: this.getHeight() / 2 - bndB
+      }));
+      var res = [topLeftCorner.lat, topLeftCorner.lng, bottomRightCorner.lat, bottomRightCorner.lng, bottomRightCorner.lat, topLeftCorner.lng, topLeftCorner.lat, bottomRightCorner.lng];
+
+      if (roundFactor) {
+        res = res.map(function (r) {
+          return Math.round(r * roundFactor) / roundFactor;
+        });
+      }
+
+      return res;
+    }
+
+    return [0, 0, 0, 0];
+  };
+
+  return Geo;
+}();
+
+function raf(callback) {
+  if (window.requestAnimationFrame) {
+    return window.requestAnimationFrame(callback);
+  }
+
+  var nativeRaf = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
+  return nativeRaf ? nativeRaf(callback) : window.setTimeout(callback, 1e3 / 60);
+}
+
+var log2 = Math.log2 ? Math.log2 : function (x) {
+  return Math.log(x) / Math.LN2;
+};
+
+function pick(obj, fn) {
+  return Object.keys(obj).reduce(function (result, key) {
+    if (fn(obj[key])) {
+      result[key] = obj[key];
+    }
+
+    return result;
+  }, {});
+}
+
+var isEmpty = function isEmpty(val) {
+  if (val !== null && typeof val === 'object') {
+    if (Object.keys(val).length === 0) {
+      return true;
+    }
+  } else if (val === null || val === undefined || val === '') {
+    return true;
+  }
+
+  return false;
+};
+
+function isObjectLike(value) {
+  return !!value && typeof value === 'object';
+}
+
+var objectToString = Object.prototype.toString;
+function isNumber(value) {
+  var numberTag = '[object Number]';
+  return typeof value === 'number' || isObjectLike(value) && objectToString.call(value) === numberTag;
+}
+
+var detectBrowserResult_ = null;
+function detectBrowser() {
+  if (detectBrowserResult_) {
+    return detectBrowserResult_;
+  }
+
+  if (typeof navigator !== 'undefined') {
+    var isExplorer = navigator.userAgent.indexOf('MSIE') > -1;
+    var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
+    var isOpera = navigator.userAgent.toLowerCase().indexOf('op') > -1;
+    var isChrome = navigator.userAgent.indexOf('Chrome') > -1;
+    var isSafari = navigator.userAgent.indexOf('Safari') > -1;
+
+    if (isChrome && isSafari) {
+      isSafari = false;
+    }
+
+    if (isChrome && isOpera) {
+      isChrome = false;
+    }
+
+    detectBrowserResult_ = {
+      isExplorer: isExplorer,
+      isFirefox: isFirefox,
+      isOpera: isOpera,
+      isChrome: isChrome,
+      isSafari: isSafari
+    };
+    return detectBrowserResult_;
+  }
+
+  detectBrowserResult_ = {
+    isChrome: true,
+    isExplorer: false,
+    isFirefox: false,
+    isOpera: false,
+    isSafari: false
+  };
+  return detectBrowserResult_;
+}
+
+var fnToString = function fnToString(fn) {
+  return Function.prototype.toString.call(fn);
+};
+
+function isPlainObject(obj) {
+  if (!obj || typeof obj !== 'object') {
+    return false;
+  }
+
+  var proto = typeof obj.constructor === 'function' ? Object.getPrototypeOf(obj) : Object.prototype;
+
+  if (proto === null) {
+    return true;
+  }
+
+  var constructor = proto.constructor;
+  return typeof constructor === 'function' && constructor instanceof constructor && fnToString(constructor) === fnToString(Object);
+}
+
+function isArraysEqualEps(arrayA, arrayB, eps) {
+  if (arrayA && arrayB) {
+    for (var i = 0; i !== arrayA.length; ++i) {
+      if (Math.abs(arrayA[i] - arrayB[i]) > eps) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  return false;
+}
+
+function hasPassiveSupport() {
+  var passiveSupported = false;
+
+  try {
+    var options = Object.defineProperty({}, 'passive', {
+      get: function get() {
+        passiveSupported = true;
+      }
+    });
+    window.addEventListener('test', options, options);
+    window.removeEventListener('test', options, options);
+  } catch (err) {
+    passiveSupported = false;
+  }
+
+  return passiveSupported;
+}
+
+function addPassiveEventListener(element, eventName, func, capture) {
+  element.addEventListener(eventName, func, hasPassiveSupport() ? {
+    capture: capture,
+    passive: true
+  } : capture);
+}
+
+var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+var _window;
+
+if (canUseDOM) {
+  _window = window;
+} else if (typeof self !== 'undefined') {
+  _window = self;
+} else {
+  _window = undefined;
+}
+
+var attachEvent = typeof document !== 'undefined' && document.attachEvent;
+var stylesCreated = false;
+
+if (canUseDOM && !attachEvent) {
+  var requestFrame = function () {
+    var raf = _window.requestAnimationFrame || _window.mozRequestAnimationFrame || _window.webkitRequestAnimationFrame || function (fn) {
+      return _window.setTimeout(fn, 20);
+    };
+
+    return function (fn) {
+      return raf(fn);
+    };
+  }();
+
+  var cancelFrame = function () {
+    var cancel = _window.cancelAnimationFrame || _window.mozCancelAnimationFrame || _window.webkitCancelAnimationFrame || _window.clearTimeout;
+    return function (id) {
+      return cancel(id);
+    };
+  }();
+
+  var resetTriggers = function resetTriggers(element) {
+    var triggers = element.__resizeTriggers__,
+        expand = triggers.firstElementChild,
+        contract = triggers.lastElementChild,
+        expandChild = expand.firstElementChild;
+    contract.scrollLeft = contract.scrollWidth;
+    contract.scrollTop = contract.scrollHeight;
+    expandChild.style.width = expand.offsetWidth + 1 + 'px';
+    expandChild.style.height = expand.offsetHeight + 1 + 'px';
+    expand.scrollLeft = expand.scrollWidth;
+    expand.scrollTop = expand.scrollHeight;
+  };
+
+  var checkTriggers = function checkTriggers(element) {
+    return element.offsetWidth != element.__resizeLast__.width || element.offsetHeight != element.__resizeLast__.height;
+  };
+
+  var scrollListener = function scrollListener(e) {
+    var element = this;
+    resetTriggers(this);
+    if (this.__resizeRAF__) cancelFrame(this.__resizeRAF__);
+    this.__resizeRAF__ = requestFrame(function () {
+      if (checkTriggers(element)) {
+        element.__resizeLast__.width = element.offsetWidth;
+        element.__resizeLast__.height = element.offsetHeight;
+
+        element.__resizeListeners__.forEach(function (fn) {
+          fn.call(element, e);
+        });
+      }
+    });
+  };
+
+  var animation = false,
+      keyframeprefix = '',
+      animationstartevent = 'animationstart',
+      domPrefixes = 'Webkit Moz O ms'.split(' '),
+      startEvents = 'webkitAnimationStart animationstart oAnimationStart MSAnimationStart'.split(' '),
+      pfx = '';
+
+  if (canUseDOM) {
+    var elm = document.createElement('fakeelement');
+
+    if (elm.style.animationName !== undefined) {
+      animation = true;
+    }
+
+    if (animation === false) {
+      for (var index_modern_i = 0; index_modern_i < domPrefixes.length; index_modern_i++) {
+        if (elm.style[domPrefixes[index_modern_i] + 'AnimationName'] !== undefined) {
+          pfx = domPrefixes[index_modern_i];
+          keyframeprefix = '-' + pfx.toLowerCase() + '-';
+          animationstartevent = startEvents[index_modern_i];
+          animation = true;
+          break;
+        }
+      }
+    }
+  }
+
+  var animationName = 'resizeanim';
+  var animationKeyframes = '@' + keyframeprefix + 'keyframes ' + animationName + ' { from { opacity: 0; } to { opacity: 0; } } ';
+  var animationStyle = keyframeprefix + 'animation: 1ms ' + animationName + '; ';
+}
+
+var createStyles = function createStyles() {
+  if (!stylesCreated) {
+    var css = (animationKeyframes ? animationKeyframes : '') + '.resize-triggers { ' + (animationStyle ? animationStyle : '') + 'visibility: hidden; opacity: 0; } ' + '.resize-triggers, .resize-triggers > div, .contract-trigger:before { content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; } .resize-triggers > div { background: #eee; overflow: auto; } .contract-trigger:before { width: 200%; height: 200%; }',
+        head = document.head || document.getElementsByTagName('head')[0],
+        style = document.createElement('style');
+    style.type = 'text/css';
+
+    if (style.styleSheet) {
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+
+    head.appendChild(style);
+    stylesCreated = true;
+  }
+};
+
+var addResizeListener = function addResizeListener(element, fn) {
+  if (element.parentNode === undefined) {
+    var tempParentDiv = document.createElement('div');
+    element.parentNode = tempParentDiv;
+  }
+
+  element = element.parentNode;
+  if (attachEvent) element.attachEvent('onresize', fn);else {
+    if (!element.__resizeTriggers__) {
+      if (getComputedStyle(element).position == 'static') element.style.position = 'relative';
+      createStyles();
+      element.__resizeLast__ = {};
+      element.__resizeListeners__ = [];
+      (element.__resizeTriggers__ = document.createElement('div')).className = 'resize-triggers';
+      element.__resizeTriggers__.innerHTML = '<div class="expand-trigger"><div></div></div>' + '<div class="contract-trigger"></div>';
+      element.appendChild(element.__resizeTriggers__);
+      resetTriggers(element);
+      addPassiveEventListener(element, 'scroll', scrollListener, true);
+      animationstartevent && element.__resizeTriggers__.addEventListener(animationstartevent, function (e) {
+        if (e.animationName == animationName) resetTriggers(element);
+      });
+    }
+
+    element.__resizeListeners__.push(fn);
+  }
+};
+
+var removeResizeListener = function removeResizeListener(element, fn) {
+  element = element.parentNode;
+  if (attachEvent) element.detachEvent('onresize', fn);else {
+    element.__resizeListeners__.splice(element.__resizeListeners__.indexOf(fn), 1);
+
+    if (!element.__resizeListeners__.length) {
+      element.removeEventListener('scroll', scrollListener);
+      element.__resizeTriggers__ = !element.removeChild(element.__resizeTriggers__);
+    }
+  }
+};
+
+var kEPS = 0.00001;
+var K_GOOGLE_TILE_SIZE = 256;
+var K_IDLE_TIMEOUT = 100;
+var K_IDLE_CLICK_TIMEOUT = 300;
+var DEFAULT_MIN_ZOOM = 3;
+var DRAW_CALLED_DURING_ANIMATION_VERSION = 32;
+var IS_REACT_16 = react_dom_default.a.createPortal !== undefined;
+var createPortal = IS_REACT_16 ? react_dom_default.a.createPortal : react_dom_default.a.unstable_renderSubtreeIntoContainer;
+
+function defaultOptions_() {
+  return {
+    overviewMapControl: false,
+    streetViewControl: false,
+    rotateControl: true,
+    mapTypeControl: false,
+    styles: [{
+      featureType: 'poi',
+      elementType: 'labels',
+      stylers: [{
+        visibility: 'off'
+      }]
+    }],
+    minZoom: DEFAULT_MIN_ZOOM
+  };
+}
+
+var latLng2Obj = function latLng2Obj(latLng) {
+  return isPlainObject(latLng) ? latLng : {
+    lat: latLng[0],
+    lng: latLng[1]
+  };
+};
+
+var _checkMinZoom = function _checkMinZoom(zoom, minZoom) {
+  if (false) {}
+
+  if (minZoom < zoom) {
+    return zoom;
+  }
+
+  return minZoom;
+};
+
+var isFullScreen = function isFullScreen() {
+  return document.fullscreen || document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement;
+};
+
+var index_modern_GoogleMap = /*#__PURE__*/function (_Component) {
+  _inheritsLoose(GoogleMap, _Component);
+
+  function GoogleMap(props) {
+    var _this;
+
+    _this = _Component.call(this, props) || this;
+
+    _this._getMinZoom = function () {
+      if (_this.geoService_.getWidth() > 0 || _this.geoService_.getHeight() > 0) {
+        var tilesPerWidth = Math.ceil(_this.geoService_.getWidth() / K_GOOGLE_TILE_SIZE) + 2;
+        var tilesPerHeight = Math.ceil(_this.geoService_.getHeight() / K_GOOGLE_TILE_SIZE) + 2;
+        var maxTilesPerDim = Math.max(tilesPerWidth, tilesPerHeight);
+        return Math.ceil(log2(maxTilesPerDim));
+      }
+
+      return DEFAULT_MIN_ZOOM;
+    };
+
+    _this._computeMinZoom = function (minZoom) {
+      if (!isEmpty(minZoom)) {
+        return minZoom;
+      }
+
+      return _this._getMinZoom();
+    };
+
+    _this._mapDomResizeCallback = function () {
+      _this.resetSizeOnIdle_ = true;
+
+      if (_this.maps_) {
+        var originalCenter = _this.props.center || _this.props.defaultCenter;
+
+        var currentCenter = _this.map_.getCenter();
+
+        _this.maps_.event.trigger(_this.map_, 'resize');
+
+        _this.map_.setCenter(_this.props.resetBoundsOnResize ? originalCenter : currentCenter);
+      }
+    };
+
+    _this._setLayers = function (layerTypes) {
+      layerTypes.forEach(function (layerType) {
+        _this.layers_[layerType] = new _this.maps_[layerType]();
+
+        _this.layers_[layerType].setMap(_this.map_);
+      });
+    };
+
+    _this._renderPortal = function () {
+      return /*#__PURE__*/react_default.a.createElement(index_modern_GoogleMapMarkers, {
+        experimental: _this.props.experimental,
+        onChildClick: _this._onChildClick,
+        onChildMouseDown: _this._onChildMouseDown,
+        onChildMouseEnter: _this._onChildMouseEnter,
+        onChildMouseLeave: _this._onChildMouseLeave,
+        geoService: _this.geoService_,
+        insideMapPanes: true,
+        distanceToMouse: _this.props.distanceToMouse,
+        getHoverDistance: _this._getHoverDistance,
+        dispatcher: _this.markersDispatcher_
+      });
+    };
+
+    _this._initMap = function () {
+      if (_this.initialized_) {
+        return;
+      }
+
+      _this.initialized_ = true;
+      var propsCenter = latLng2Obj(_this.props.center || _this.props.defaultCenter);
+
+      _this.geoService_.setView(propsCenter, _this.props.zoom || _this.props.defaultZoom, 0);
+
+      _this._onBoundsChanged();
+
+      var bootstrapURLKeys = _extends({}, _this.props.apiKey && {
+        key: _this.props.apiKey
+      }, _this.props.bootstrapURLKeys);
+
+      _this.props.googleMapLoader(bootstrapURLKeys, _this.props.heatmapLibrary).then(function (maps) {
+        if (!_this.mounted_) {
+          return;
+        }
+
+        var centerLatLng = _this.geoService_.getCenter();
+
+        var propsOptions = {
+          zoom: _this.props.zoom || _this.props.defaultZoom,
+          center: new maps.LatLng(centerLatLng.lat, centerLatLng.lng)
+        };
+
+        if (_this.props.heatmap.positions) {
+          Object.assign(_assertThisInitialized(_this), {
+            heatmap: generateHeatmap(maps, _this.props.heatmap)
+          });
+          optionsHeatmap(_this.heatmap, _this.props.heatmap);
+        }
+
+        var mapPlainObjects = pick(maps, isPlainObject);
+        var options = typeof _this.props.options === 'function' ? _this.props.options(mapPlainObjects) : _this.props.options;
+        var defaultOptions = defaultOptions_();
+        var draggableOptions = !isEmpty(_this.props.draggable) && {
+          draggable: _this.props.draggable
+        };
+
+        var minZoom = _this._computeMinZoom(options.minZoom);
+
+        _this.minZoom_ = minZoom;
+
+        var preMapOptions = _extends({}, defaultOptions, {
+          minZoom: minZoom
+        }, options, propsOptions);
+
+        _this.defaultDraggableOption_ = !isEmpty(preMapOptions.draggable) ? preMapOptions.draggable : _this.defaultDraggableOption_;
+
+        var mapOptions = _extends({}, preMapOptions, draggableOptions);
+
+        mapOptions.minZoom = _checkMinZoom(mapOptions.minZoom, minZoom);
+        var map = new maps.Map(react_dom_default.a.findDOMNode(_this.googleMapDom_), mapOptions);
+        _this.map_ = map;
+        _this.maps_ = maps;
+
+        _this._setLayers(_this.props.layerTypes);
+
+        var versionMatch = maps.version.match(/^3\.(\d+)\./);
+        var mapsVersion = versionMatch && Number(versionMatch[1]);
+
+        var this_ = _assertThisInitialized(_this);
+
+        var overlay = Object.assign(new maps.OverlayView(), {
+          onAdd: function onAdd() {
+            var K_MAX_WIDTH = typeof screen !== 'undefined' ? screen.width + "px" : '2000px';
+            var K_MAX_HEIGHT = typeof screen !== 'undefined' ? screen.height + "px" : '2000px';
+            var div = document.createElement('div');
+            div.style.backgroundColor = 'transparent';
+            div.style.position = 'absolute';
+            div.style.left = '0px';
+            div.style.top = '0px';
+            div.style.width = K_MAX_WIDTH;
+            div.style.height = K_MAX_HEIGHT;
+
+            if (this_.props.overlayViewDivStyle) {
+              var overlayViewDivStyle = this_.props.overlayViewDivStyle;
+
+              if (typeof overlayViewDivStyle === 'object') {
+                Object.keys(overlayViewDivStyle).forEach(function (property) {
+                  div.style[property] = overlayViewDivStyle[property];
+                });
+              }
+            }
+
+            var panes = this.getPanes();
+            panes.overlayMouseTarget.appendChild(div);
+            this_.geoService_.setMapCanvasProjection(maps, overlay.getProjection());
+
+            if (!IS_REACT_16) {
+              createPortal(this_, this_._renderPortal(), div, function () {
+                return this_.setState({
+                  overlay: div
+                });
+              });
+            } else {
+              this_.setState({
+                overlay: div
+              });
+            }
+          },
+          onRemove: function onRemove() {
+            var renderedOverlay = this_.state.overlay;
+
+            if (renderedOverlay && !IS_REACT_16) {
+              react_dom_default.a.unmountComponentAtNode(renderedOverlay);
+            }
+
+            this_.setState({
+              overlay: null
+            });
+          },
+          draw: function draw() {
+            this_.updateCounter_++;
+
+            this_._onBoundsChanged(map, maps, !this_.props.debounced);
+
+            if (!this_.googleApiLoadedCalled_) {
+              this_._onGoogleApiLoaded({
+                map: map,
+                maps: maps,
+                ref: this_.googleMapDom_
+              });
+
+              this_.googleApiLoadedCalled_ = true;
+            }
+
+            if (this_.mouse_) {
+              var latLng = this_.geoService_.fromContainerPixelToLatLng(this_.mouse_);
+              this_.mouse_.lat = latLng.lat;
+              this_.mouse_.lng = latLng.lng;
+            }
+
+            this_._onChildMouseMove();
+
+            if (this_.markersDispatcher_) {
+              this_.markersDispatcher_.emit('kON_CHANGE');
+
+              if (this_.fireMouseEventOnIdle_) {
+                this_.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
+              }
+            }
+          }
+        });
+        _this.overlay_ = overlay;
+        overlay.setMap(map);
+
+        if (_this.props.heatmap.positions) {
+          _this.heatmap.setMap(map);
+        }
+
+        if (_this.props.onTilesLoaded) {
+          maps.event.addListener(map, 'tilesloaded', function () {
+            this_._onTilesLoaded();
+          });
+        }
+
+        maps.event.addListener(map, 'zoom_changed', function () {
+          if (this_.geoService_.getZoom() !== map.getZoom()) {
+            if (!this_.zoomAnimationInProgress_) {
+              this_.zoomAnimationInProgress_ = true;
+
+              this_._onZoomAnimationStart(map.zoom);
+            }
+
+            if (mapsVersion < DRAW_CALLED_DURING_ANIMATION_VERSION) {
+              var TIMEOUT_ZOOM = 300;
+
+              if (new Date().getTime() - _this.zoomControlClickTime_ < TIMEOUT_ZOOM) {
+                raf(function () {
+                  return raf(function () {
+                    this_.updateCounter_++;
+
+                    this_._onBoundsChanged(map, maps);
+                  });
+                });
+              } else {
+                this_.updateCounter_++;
+
+                this_._onBoundsChanged(map, maps);
+              }
+            }
+          }
+        });
+        maps.event.addListener(map, 'idle', function () {
+          if (_this.resetSizeOnIdle_) {
+            _this._setViewSize();
+
+            var currMinZoom = _this._computeMinZoom(options.minZoom);
+
+            if (currMinZoom !== _this.minZoom_) {
+              _this.minZoom_ = currMinZoom;
+              map.setOptions({
+                minZoom: currMinZoom
+              });
+            }
+
+            _this.resetSizeOnIdle_ = false;
+          }
+
+          if (this_.zoomAnimationInProgress_) {
+            this_.zoomAnimationInProgress_ = false;
+
+            this_._onZoomAnimationEnd(map.zoom);
+          }
+
+          this_.updateCounter_++;
+
+          this_._onBoundsChanged(map, maps);
+
+          this_.dragTime_ = 0;
+
+          if (this_.markersDispatcher_) {
+            this_.markersDispatcher_.emit('kON_CHANGE');
+          }
+        });
+        maps.event.addListener(map, 'mouseover', function () {
+          this_.mouseInMap_ = true;
+        });
+        maps.event.addListener(map, 'click', function () {
+          this_.mouseInMap_ = true;
+        });
+        maps.event.addListener(map, 'mouseout', function () {
+          this_.mouseInMap_ = false;
+          this_.mouse_ = null;
+          this_.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
+        });
+        maps.event.addListener(map, 'drag', function () {
+          this_.dragTime_ = new Date().getTime();
+
+          this_._onDrag(map);
+        });
+        maps.event.addListener(map, 'dragend', function () {
+          var idleListener = maps.event.addListener(map, 'idle', function () {
+            maps.event.removeListener(idleListener);
+
+            this_._onDragEnd(map);
+          });
+        });
+        maps.event.addListener(map, 'maptypeid_changed', function () {
+          this_._onMapTypeIdChange(map.getMapTypeId());
+        });
+      })["catch"](function (e) {
+        _this._onGoogleApiLoaded({
+          map: null,
+          maps: null,
+          ref: _this.googleMapDom_
+        });
+
+        console.error(e);
+        throw e;
+      });
+    };
+
+    _this._onGoogleApiLoaded = function () {
+      if (_this.props.onGoogleApiLoaded) {
+        var _this$props;
+
+        if (false) {}
+
+        (_this$props = _this.props).onGoogleApiLoaded.apply(_this$props, arguments);
+      }
+    };
+
+    _this._getHoverDistance = function () {
+      return _this.props.hoverDistance;
+    };
+
+    _this._onDrag = function () {
+      var _this$props2;
+
+      return _this.props.onDrag && (_this$props2 = _this.props).onDrag.apply(_this$props2, arguments);
+    };
+
+    _this._onDragEnd = function () {
+      var _this$props3;
+
+      return _this.props.onDragEnd && (_this$props3 = _this.props).onDragEnd.apply(_this$props3, arguments);
+    };
+
+    _this._onMapTypeIdChange = function () {
+      var _this$props4;
+
+      return _this.props.onMapTypeIdChange && (_this$props4 = _this.props).onMapTypeIdChange.apply(_this$props4, arguments);
+    };
+
+    _this._onZoomAnimationStart = function () {
+      var _this$props5;
+
+      return _this.props.onZoomAnimationStart && (_this$props5 = _this.props).onZoomAnimationStart.apply(_this$props5, arguments);
+    };
+
+    _this._onZoomAnimationEnd = function () {
+      var _this$props6;
+
+      return _this.props.onZoomAnimationEnd && (_this$props6 = _this.props).onZoomAnimationEnd.apply(_this$props6, arguments);
+    };
+
+    _this._onTilesLoaded = function () {
+      return _this.props.onTilesLoaded && _this.props.onTilesLoaded();
+    };
+
+    _this._onChildClick = function () {
+      if (_this.props.onChildClick) {
+        var _this$props7;
+
+        return (_this$props7 = _this.props).onChildClick.apply(_this$props7, arguments);
+      }
+
+      return undefined;
+    };
+
+    _this._onChildMouseDown = function (hoverKey, childProps) {
+      _this.childMouseDownArgs_ = [hoverKey, childProps];
+
+      if (_this.props.onChildMouseDown) {
+        _this.props.onChildMouseDown(hoverKey, childProps, _extends({}, _this.mouse_));
+      }
+    };
+
+    _this._onChildMouseUp = function () {
+      if (_this.childMouseDownArgs_) {
+        if (_this.props.onChildMouseUp) {
+          var _this$props8;
+
+          (_this$props8 = _this.props).onChildMouseUp.apply(_this$props8, _this.childMouseDownArgs_.concat([_extends({}, _this.mouse_)]));
+        }
+
+        _this.childMouseDownArgs_ = null;
+        _this.childMouseUpTime_ = new Date().getTime();
+      }
+    };
+
+    _this._onChildMouseMove = function () {
+      if (_this.childMouseDownArgs_) {
+        if (_this.props.onChildMouseMove) {
+          var _this$props9;
+
+          (_this$props9 = _this.props).onChildMouseMove.apply(_this$props9, _this.childMouseDownArgs_.concat([_extends({}, _this.mouse_)]));
+        }
+      }
+    };
+
+    _this._onChildMouseEnter = function () {
+      if (_this.props.onChildMouseEnter) {
+        var _this$props10;
+
+        return (_this$props10 = _this.props).onChildMouseEnter.apply(_this$props10, arguments);
+      }
+
+      return undefined;
+    };
+
+    _this._onChildMouseLeave = function () {
+      if (_this.props.onChildMouseLeave) {
+        var _this$props11;
+
+        return (_this$props11 = _this.props).onChildMouseLeave.apply(_this$props11, arguments);
+      }
+
+      return undefined;
+    };
+
+    _this._setViewSize = function () {
+      if (!_this.mounted_) return;
+
+      if (isFullScreen()) {
+        _this.geoService_.setViewSize(window.innerWidth, window.innerHeight);
+      } else {
+        var mapDom = react_dom_default.a.findDOMNode(_this.googleMapDom_);
+
+        _this.geoService_.setViewSize(mapDom.clientWidth, mapDom.clientHeight);
+      }
+
+      _this._onBoundsChanged();
+    };
+
+    _this._onWindowResize = function () {
+      _this.resetSizeOnIdle_ = true;
+    };
+
+    _this._onMapMouseMove = function (e) {
+      if (!_this.mouseInMap_) return;
+      var currTime = new Date().getTime();
+      var K_RECALC_CLIENT_RECT_MS = 50;
+
+      if (currTime - _this.mouseMoveTime_ > K_RECALC_CLIENT_RECT_MS) {
+        _this.boundingRect_ = e.currentTarget.getBoundingClientRect();
+      }
+
+      _this.mouseMoveTime_ = currTime;
+      var mousePosX = e.clientX - _this.boundingRect_.left;
+      var mousePosY = e.clientY - _this.boundingRect_.top;
+
+      if (!_this.mouse_) {
+        _this.mouse_ = {
+          x: 0,
+          y: 0,
+          lat: 0,
+          lng: 0
+        };
+      }
+
+      _this.mouse_.x = mousePosX;
+      _this.mouse_.y = mousePosY;
+
+      var latLng = _this.geoService_.fromContainerPixelToLatLng(_this.mouse_);
+
+      _this.mouse_.lat = latLng.lat;
+      _this.mouse_.lng = latLng.lng;
+
+      _this._onChildMouseMove();
+
+      if (currTime - _this.dragTime_ < K_IDLE_TIMEOUT) {
+        _this.fireMouseEventOnIdle_ = true;
+      } else {
+        _this.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
+
+        _this.fireMouseEventOnIdle_ = false;
+      }
+    };
+
+    _this._onClick = function () {
+      var _this$props12;
+
+      return _this.props.onClick && !_this.childMouseDownArgs_ && new Date().getTime() - _this.childMouseUpTime_ > K_IDLE_CLICK_TIMEOUT && _this.dragTime_ === 0 && (_this$props12 = _this.props).onClick.apply(_this$props12, arguments);
+    };
+
+    _this._onMapClick = function (event) {
+      if (_this.markersDispatcher_) {
+        _this._onMapMouseMove(event);
+
+        var currTime = new Date().getTime();
+
+        if (currTime - _this.dragTime_ > K_IDLE_TIMEOUT) {
+          if (_this.mouse_) {
+            _this._onClick(_extends({}, _this.mouse_, {
+              event: event
+            }));
+          }
+
+          _this.markersDispatcher_.emit('kON_CLICK', event);
+        }
+      }
+    };
+
+    _this._onMapMouseDownNative = function (event) {
+      if (!_this.mouseInMap_) return;
+
+      _this._onMapMouseDown(event);
+    };
+
+    _this._onMapMouseDown = function (event) {
+      if (_this.markersDispatcher_) {
+        var currTime = new Date().getTime();
+
+        if (currTime - _this.dragTime_ > K_IDLE_TIMEOUT) {
+          _this._onMapMouseMove(event);
+
+          _this.markersDispatcher_.emit('kON_MDOWN', event);
+        }
+      }
+    };
+
+    _this._onMapMouseDownCapture = function () {
+      if (detectBrowser().isChrome) {
+        _this.zoomControlClickTime_ = new Date().getTime();
+      }
+    };
+
+    _this._onKeyDownCapture = function () {
+      if (detectBrowser().isChrome) {
+        _this.zoomControlClickTime_ = new Date().getTime();
+      }
+    };
+
+    _this._isCenterDefined = function (center) {
+      return center && (isPlainObject(center) && isNumber(center.lat) && isNumber(center.lng) || center.length === 2 && isNumber(center[0]) && isNumber(center[1]));
+    };
+
+    _this._onBoundsChanged = function (map, maps, callExtBoundsChange) {
+      if (map) {
+        var gmC = map.getCenter();
+
+        _this.geoService_.setView([gmC.lat(), gmC.lng()], map.getZoom(), 0);
+      }
+
+      if ((_this.props.onChange || _this.props.onBoundsChange) && _this.geoService_.canProject()) {
+        var zoom = _this.geoService_.getZoom();
+
+        var bounds = _this.geoService_.getBounds();
+
+        var centerLatLng = _this.geoService_.getCenter();
+
+        if (!isArraysEqualEps(bounds, _this.prevBounds_, kEPS)) {
+          if (callExtBoundsChange !== false) {
+            var marginBounds = _this.geoService_.getBounds(_this.props.margin);
+
+            if (_this.props.onBoundsChange) {
+              _this.props.onBoundsChange(_this.centerIsObject_ ? _extends({}, centerLatLng) : [centerLatLng.lat, centerLatLng.lng], zoom, bounds, marginBounds);
+            }
+
+            if (_this.props.onChange) {
+              _this.props.onChange({
+                center: _extends({}, centerLatLng),
+                zoom: zoom,
+                bounds: {
+                  nw: {
+                    lat: bounds[0],
+                    lng: bounds[1]
+                  },
+                  se: {
+                    lat: bounds[2],
+                    lng: bounds[3]
+                  },
+                  sw: {
+                    lat: bounds[4],
+                    lng: bounds[5]
+                  },
+                  ne: {
+                    lat: bounds[6],
+                    lng: bounds[7]
+                  }
+                },
+                marginBounds: {
+                  nw: {
+                    lat: marginBounds[0],
+                    lng: marginBounds[1]
+                  },
+                  se: {
+                    lat: marginBounds[2],
+                    lng: marginBounds[3]
+                  },
+                  sw: {
+                    lat: marginBounds[4],
+                    lng: marginBounds[5]
+                  },
+                  ne: {
+                    lat: marginBounds[6],
+                    lng: marginBounds[7]
+                  }
+                },
+                size: _this.geoService_.hasSize() ? {
+                  width: _this.geoService_.getWidth(),
+                  height: _this.geoService_.getHeight()
+                } : {
+                  width: 0,
+                  height: 0
+                }
+              });
+            }
+
+            _this.prevBounds_ = bounds;
+          }
+        }
+      }
+    };
+
+    _this._registerChild = function (ref) {
+      _this.googleMapDom_ = ref;
+    };
+
+    _this.mounted_ = false;
+    _this.initialized_ = false;
+    _this.googleApiLoadedCalled_ = false;
+    _this.map_ = null;
+    _this.maps_ = null;
+    _this.prevBounds_ = null;
+    _this.heatmap = null;
+    _this.layers_ = {};
+    _this.mouse_ = null;
+    _this.mouseMoveTime_ = 0;
+    _this.boundingRect_ = null;
+    _this.mouseInMap_ = true;
+    _this.dragTime_ = 0;
+    _this.fireMouseEventOnIdle_ = false;
+    _this.updateCounter_ = 0;
+    _this.markersDispatcher_ = new MarkerDispatcher(_assertThisInitialized(_this));
+    _this.geoService_ = new index_modern_Geo(K_GOOGLE_TILE_SIZE);
+    _this.centerIsObject_ = isPlainObject(_this.props.center);
+    _this.minZoom_ = DEFAULT_MIN_ZOOM;
+    _this.defaultDraggableOption_ = true;
+    _this.zoomControlClickTime_ = 0;
+    _this.childMouseDownArgs_ = null;
+    _this.childMouseUpTime_ = 0;
+    _this.googleMapDom_ = null;
+
+    if (false) {}
+
+    if (_this._isCenterDefined(_this.props.center || _this.props.defaultCenter)) {
+      var propsCenter = latLng2Obj(_this.props.center || _this.props.defaultCenter);
+
+      _this.geoService_.setView(propsCenter, _this.props.zoom || _this.props.defaultZoom, 0);
+    }
+
+    _this.zoomAnimationInProgress_ = false;
+    _this.state = {
+      overlay: null
+    };
+    return _this;
+  }
+
+  var _proto = GoogleMap.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    var _this2 = this;
+
+    this.mounted_ = true;
+    addPassiveEventListener(window, 'resize', this._onWindowResize, false);
+    addPassiveEventListener(window, 'keydown', this._onKeyDownCapture, true);
+    var mapDom = react_dom_default.a.findDOMNode(this.googleMapDom_);
+
+    if (mapDom) {
+      addPassiveEventListener(mapDom, 'mousedown', this._onMapMouseDownNative, true);
+    }
+
+    addPassiveEventListener(window, 'mouseup', this._onChildMouseUp, false);
+
+    var bootstrapURLKeys = _extends({}, this.props.apiKey && {
+      key: this.props.apiKey
+    }, this.props.bootstrapURLKeys);
+
+    this.props.googleMapLoader(bootstrapURLKeys, this.props.heatmapLibrary);
+    setTimeout(function () {
+      _this2._setViewSize();
+
+      if (_this2._isCenterDefined(_this2.props.center || _this2.props.defaultCenter)) {
+        _this2._initMap();
+      }
+    }, 0, this);
+
+    if (this.props.resetBoundsOnResize) {
+      var that = this;
+      addResizeListener(mapDom, that._mapDomResizeCallback);
+    }
+  };
+
+  _proto.UNSAFE_componentWillReceiveProps = function UNSAFE_componentWillReceiveProps(nextProps) {
+    var _this3 = this;
+
+    if (false) {}
+
+    if (!this._isCenterDefined(this.props.center) && this._isCenterDefined(nextProps.center)) {
+      setTimeout(function () {
+        return _this3._initMap();
+      }, 0);
+    }
+
+    if (this.map_) {
+      var centerLatLng = this.geoService_.getCenter();
+
+      if (this._isCenterDefined(nextProps.center)) {
+        var nextPropsCenter = latLng2Obj(nextProps.center);
+        var currCenter = this._isCenterDefined(this.props.center) ? latLng2Obj(this.props.center) : null;
+
+        if (!currCenter || Math.abs(nextPropsCenter.lat - currCenter.lat) + Math.abs(nextPropsCenter.lng - currCenter.lng) > kEPS) {
+          if (Math.abs(nextPropsCenter.lat - centerLatLng.lat) + Math.abs(nextPropsCenter.lng - centerLatLng.lng) > kEPS) {
+            this.map_.panTo({
+              lat: nextPropsCenter.lat,
+              lng: nextPropsCenter.lng
+            });
+          }
+        }
+      }
+
+      if (!isEmpty(nextProps.zoom)) {
+        if (Math.abs(nextProps.zoom - this.props.zoom) > 0) {
+          this.map_.setZoom(nextProps.zoom);
+        }
+      }
+
+      if (!isEmpty(this.props.draggable) && isEmpty(nextProps.draggable)) {
+        this.map_.setOptions({
+          draggable: this.defaultDraggableOption_
+        });
+      } else if (!shallowEqual(this.props.draggable, nextProps.draggable)) {
+        this.map_.setOptions({
+          draggable: nextProps.draggable
+        });
+      }
+
+      if (!isEmpty(nextProps.options) && !shallowEqual(this.props.options, nextProps.options)) {
+        var mapPlainObjects = pick(this.maps_, isPlainObject);
+        var options = typeof nextProps.options === 'function' ? nextProps.options(mapPlainObjects) : nextProps.options;
+        options = omit(options, ['zoom', 'center', 'draggable']);
+
+        if ('minZoom' in options) {
+          var minZoom = this._computeMinZoom(options.minZoom);
+
+          options.minZoom = _checkMinZoom(options.minZoom, minZoom);
+        }
+
+        this.map_.setOptions(options);
+      }
+
+      if (!shallowEqual(nextProps.layerTypes, this.props.layerTypes)) {
+        Object.keys(this.layers_).forEach(function (layerKey) {
+          _this3.layers_[layerKey].setMap(null);
+
+          delete _this3.layers_[layerKey];
+        });
+
+        this._setLayers(nextProps.layerTypes);
+      }
+
+      if (this.heatmap && !shallowEqual(nextProps.heatmap.positions, this.props.heatmap.positions)) {
+        this.heatmap.setData(nextProps.heatmap.positions.map(function (p) {
+          return {
+            location: new _this3.maps_.LatLng(p.lat, p.lng),
+            weight: p.weight
+          };
+        }));
+      }
+
+      if (this.heatmap && !shallowEqual(nextProps.heatmap.options, this.props.heatmap.options)) {
+        Object.keys(nextProps.heatmap.options).forEach(function (option) {
+          _this3.heatmap.set(option, nextProps.heatmap.options[option]);
+        });
+      }
+    }
+  };
+
+  _proto.shouldComponentUpdate = function shouldComponentUpdate(nextProps, nextState) {
+    return !shallowEqual(omit(this.props, ['draggable']), omit(nextProps, ['draggable'])) || !shallowEqual(this.state, nextState);
+  };
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+    this.markersDispatcher_.emit('kON_CHANGE');
+
+    if (!shallowEqual(this.props.hoverDistance, prevProps.hoverDistance)) {
+      this.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
+    }
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    this.mounted_ = false;
+    var mapDom = react_dom_default.a.findDOMNode(this.googleMapDom_);
+
+    if (mapDom) {
+      mapDom.removeEventListener('mousedown', this._onMapMouseDownNative, true);
+    }
+
+    window.removeEventListener('resize', this._onWindowResize);
+    window.removeEventListener('keydown', this._onKeyDownCapture);
+    window.removeEventListener('mouseup', this._onChildMouseUp, false);
+
+    if (this.props.resetBoundsOnResize) {
+      removeResizeListener(mapDom, this._mapDomResizeCallback);
+    }
+
+    if (this.overlay_) {
+      this.overlay_.setMap(null);
+    }
+
+    if (this.maps_ && this.map_ && this.props.shouldUnregisterMapOnUnmount) {
+      this.map_.setOptions({
+        scrollwheel: false
+      });
+      this.maps_.event.clearInstanceListeners(this.map_);
+    }
+
+    if (this.props.shouldUnregisterMapOnUnmount) {
+      this.map_ = null;
+      this.maps_ = null;
+    }
+
+    this.markersDispatcher_.dispose();
+    this.resetSizeOnIdle_ = false;
+
+    if (this.props.shouldUnregisterMapOnUnmount) {
+      delete this.map_;
+      delete this.markersDispatcher_;
+    }
+  };
+
+  _proto.render = function render() {
+    var overlay = this.state.overlay;
+    var mapMarkerPrerender = !overlay ? /*#__PURE__*/react_default.a.createElement(GoogleMapMarkersPrerender, {
+      experimental: this.props.experimental,
+      onChildClick: this._onChildClick,
+      onChildMouseDown: this._onChildMouseDown,
+      onChildMouseEnter: this._onChildMouseEnter,
+      onChildMouseLeave: this._onChildMouseLeave,
+      geoService: this.geoService_,
+      insideMapPanes: false,
+      distanceToMouse: this.props.distanceToMouse,
+      getHoverDistance: this._getHoverDistance,
+      dispatcher: this.markersDispatcher_
+    }) : null;
+    return /*#__PURE__*/react_default.a.createElement("div", {
+      style: this.props.style,
+      onMouseMove: this._onMapMouseMove,
+      onMouseDownCapture: this._onMapMouseDownCapture,
+      onClick: this._onMapClick
+    }, /*#__PURE__*/react_default.a.createElement(index_modern_GoogleMapMap, {
+      registerChild: this._registerChild
+    }), IS_REACT_16 && overlay && createPortal(this._renderPortal(), overlay), mapMarkerPrerender);
+  };
+
+  return GoogleMap;
+}(react["Component"]);
+
+index_modern_GoogleMap.propTypes = {
+  apiKey: prop_types_default.a.string,
+  bootstrapURLKeys: prop_types_default.a.any,
+  defaultCenter: prop_types_default.a.oneOfType([prop_types_default.a.array, prop_types_default.a.shape({
+    lat: prop_types_default.a.number,
+    lng: prop_types_default.a.number
+  })]),
+  center: prop_types_default.a.oneOfType([prop_types_default.a.array, prop_types_default.a.shape({
+    lat: prop_types_default.a.number,
+    lng: prop_types_default.a.number
+  })]),
+  defaultZoom: prop_types_default.a.number,
+  zoom: prop_types_default.a.number,
+  onBoundsChange: prop_types_default.a.func,
+  onChange: prop_types_default.a.func,
+  onClick: prop_types_default.a.func,
+  onChildClick: prop_types_default.a.func,
+  onChildMouseDown: prop_types_default.a.func,
+  onChildMouseUp: prop_types_default.a.func,
+  onChildMouseMove: prop_types_default.a.func,
+  onChildMouseEnter: prop_types_default.a.func,
+  onChildMouseLeave: prop_types_default.a.func,
+  onZoomAnimationStart: prop_types_default.a.func,
+  onZoomAnimationEnd: prop_types_default.a.func,
+  onDrag: prop_types_default.a.func,
+  onDragEnd: prop_types_default.a.func,
+  onMapTypeIdChange: prop_types_default.a.func,
+  onTilesLoaded: prop_types_default.a.func,
+  options: prop_types_default.a.any,
+  distanceToMouse: prop_types_default.a.func,
+  hoverDistance: prop_types_default.a.number,
+  debounced: prop_types_default.a.bool,
+  margin: prop_types_default.a.array,
+  googleMapLoader: prop_types_default.a.any,
+  onGoogleApiLoaded: prop_types_default.a.func,
+  yesIWantToUseGoogleMapApiInternals: prop_types_default.a.bool,
+  draggable: prop_types_default.a.bool,
+  style: prop_types_default.a.any,
+  resetBoundsOnResize: prop_types_default.a.bool,
+  layerTypes: prop_types_default.a.arrayOf(prop_types_default.a.string),
+  shouldUnregisterMapOnUnmount: prop_types_default.a.bool
+};
+index_modern_GoogleMap.defaultProps = {
+  distanceToMouse: function distanceToMouse(pt, mousePos) {
+    return Math.sqrt((pt.x - mousePos.x) * (pt.x - mousePos.x) + (pt.y - mousePos.y) * (pt.y - mousePos.y));
+  },
+  hoverDistance: 30,
+  debounced: true,
+  options: defaultOptions_,
+  googleMapLoader: googleMapLoader,
+  yesIWantToUseGoogleMapApiInternals: false,
+  style: {
+    width: '100%',
+    height: '100%',
+    margin: 0,
+    padding: 0,
+    position: 'relative'
+  },
+  layerTypes: [],
+  heatmap: {},
+  heatmapLibrary: false,
+  shouldUnregisterMapOnUnmount: true
+};
+index_modern_GoogleMap.googleMapLoader = googleMapLoader;
+
+/* harmony default export */ var index_modern = (index_modern_GoogleMap);
+//# sourceMappingURL=index.modern.js.map
+
+// EXTERNAL MODULE: ./src/javascripts/utils/CountyMapDefaults.js
+var CountyMapDefaults = __webpack_require__(17);
+var CountyMapDefaults_default = /*#__PURE__*/__webpack_require__.n(CountyMapDefaults);
+
+// CONCATENATED MODULE: ./src/components/LMProjectRow.react.js
+/*
+This is a component rendered in LMCountyRoot when a specific county
+is selected. This component would show
+1. An image
+2. Project Name
+3. Expected construction complete date
+4. construction status
+5. description
+*/
+
+function LMProjectRow(props) {
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    className: "projectRowRoot"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    className: "projectRowImageWrap"
+  }, /*#__PURE__*/react_default.a.createElement("img", {
+    className: "projectRowImage",
+    src: "https://x.webdo.cc/userfiles/53670197/image/_D8A6613.jpg"
+  })), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "projectRowInfo"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    className: "projectRowStatus"
+  }, "Building"), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "projectRowName"
+  }, props.name), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "projectRowDate"
+  }, "\u9810\u8A08\u5B8C\u5DE5\uFF1A2024/07")));
+}
+// EXTERNAL MODULE: ./src/javascripts/utils/CountyTypes.js
+var CountyTypes = __webpack_require__(12);
+var CountyTypes_default = /*#__PURE__*/__webpack_require__.n(CountyTypes);
+
+// CONCATENATED MODULE: ./src/components/LMCountySelector.react.js
+
+
+function LMCountySelector(_ref) {
+  var selectedCounty = _ref.selectedCounty;
+  var dropdownButtonLabel = selectedCounty == null ? "Taiwan" : countyNameFormatter(selectedCounty);
+  return /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("a", {
+    "class": "dropdown-trigger btn",
+    href: "#",
+    "data-target": "county-dropdown"
+  }, dropdownButtonLabel, /*#__PURE__*/react_default.a.createElement("i", {
+    "class": "material-icons right"
+  }, "keyboard_arrow_down")), /*#__PURE__*/react_default.a.createElement("ul", {
+    id: "county-dropdown",
+    "class": "dropdown-content"
+  }, /*#__PURE__*/react_default.a.createElement("li", null, /*#__PURE__*/react_default.a.createElement("a", {
+    href: "/county"
+  }, "Taiwan")), Object.values(CountyTypes_default.a).map(function (name) {
+    return /*#__PURE__*/react_default.a.createElement("li", null, /*#__PURE__*/react_default.a.createElement("a", {
+      href: "/county?name=".concat(name)
+    }, countyNameFormatter(name)));
+  })));
+}
+
+function countyNameFormatter(countyNameRaw) {
+  var countyNames = countyNameRaw.split("_").map(function (_namePartRaw) {
+    return "".concat(_namePartRaw.slice(0, 1).toUpperCase()).concat(_namePartRaw.slice(1));
+  });
+  return countyNames.join(" ");
+}
+// CONCATENATED MODULE: ./node_modules/use-debounce/esm/useDebouncedCallback.js
+
+function useDebouncedCallback(callback, delay, options) {
+    if (options === void 0) { options = {}; }
+    var maxWait = options.maxWait;
+    var maxWaitHandler = Object(react["useRef"])(null);
+    var maxWaitArgs = Object(react["useRef"])([]);
+    var leading = options.leading;
+    var trailing = options.trailing === undefined ? true : options.trailing;
+    var leadingCall = Object(react["useRef"])(false);
+    var functionTimeoutHandler = Object(react["useRef"])(null);
+    var isComponentUnmounted = Object(react["useRef"])(false);
+    var debouncedFunction = Object(react["useRef"])(callback);
+    debouncedFunction.current = callback;
+    var cancelDebouncedCallback = Object(react["useCallback"])(function () {
+        clearTimeout(functionTimeoutHandler.current);
+        clearTimeout(maxWaitHandler.current);
+        maxWaitHandler.current = null;
+        maxWaitArgs.current = [];
+        functionTimeoutHandler.current = null;
+        leadingCall.current = false;
+    }, []);
+    Object(react["useEffect"])(function () {
+        // We have to set isComponentUnmounted to be truth, as fast-refresh runs all useEffects
+        isComponentUnmounted.current = false;
+        return function () {
+            // we use flag, as we allow to call callPending outside the hook
+            isComponentUnmounted.current = true;
+        };
+    }, []);
+    var debouncedCallback = Object(react["useCallback"])(function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        maxWaitArgs.current = args;
+        clearTimeout(functionTimeoutHandler.current);
+        if (leadingCall.current) {
+            leadingCall.current = false;
+        }
+        if (!functionTimeoutHandler.current && leading && !leadingCall.current) {
+            debouncedFunction.current.apply(debouncedFunction, args);
+            leadingCall.current = true;
+        }
+        functionTimeoutHandler.current = setTimeout(function () {
+            var shouldCallFunction = true;
+            if (leading && leadingCall.current) {
+                shouldCallFunction = false;
+            }
+            cancelDebouncedCallback();
+            if (!isComponentUnmounted.current && trailing && shouldCallFunction) {
+                debouncedFunction.current.apply(debouncedFunction, args);
+            }
+        }, delay);
+        if (maxWait && !maxWaitHandler.current && trailing) {
+            maxWaitHandler.current = setTimeout(function () {
+                var args = maxWaitArgs.current;
+                cancelDebouncedCallback();
+                if (!isComponentUnmounted.current) {
+                    debouncedFunction.current.apply(null, args);
+                }
+            }, maxWait);
+        }
+    }, [maxWait, delay, cancelDebouncedCallback, leading, trailing]);
+    var callPending = Object(react["useCallback"])(function () {
+        // Call pending callback only if we have anything in our queue
+        if (!functionTimeoutHandler.current) {
+            return;
+        }
+        debouncedFunction.current.apply(null, maxWaitArgs.current);
+        cancelDebouncedCallback();
+    }, [cancelDebouncedCallback]);
+    // At the moment, we use 3 args array so that we save backward compatibility
+    return [debouncedCallback, cancelDebouncedCallback, callPending];
+}
+
+// CONCATENATED MODULE: ./node_modules/use-debounce/esm/useDebounce.js
+
+
+function valueEquality(left, right) {
+    return left === right;
+}
+function useDebounce(value, delay, options) {
+    var eq = options && options.equalityFn ? options.equalityFn : valueEquality;
+    var _a = Object(react["useState"])(value), state = _a[0], dispatch = _a[1];
+    var _b = useDebouncedCallback(Object(react["useCallback"])(function (value) { return dispatch(value); }, []), delay, options), callback = _b[0], cancel = _b[1], callPending = _b[2];
+    var previousValue = Object(react["useRef"])(value);
+    Object(react["useEffect"])(function () {
+        // We need to use this condition otherwise we will run debounce timer for the first render (including maxWait option)
+        if (!eq(previousValue.current, value)) {
+            callback(value);
+            previousValue.current = value;
+        }
+    }, [value, callback, eq]);
+    return [state, cancel, callPending];
+}
+
+// CONCATENATED MODULE: ./src/components/LMCountyRoot.react.js
+
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var firebase = __webpack_require__(22); // Required for side-effects
+
+
+__webpack_require__(32);
+
+
+
+
+
+
+
+
+ // Your web app's Firebase configuration
+
+var FIREBASE_CONFIG = {
+  apiKey: ""
+  /* Please Fill in apiKey */
+  ,
+  authDomain: "lm-ph2020.firebaseapp.com",
+  databaseURL: "https://lm-ph2020.firebaseio.com",
+  projectId: "lm-ph2020",
+  storageBucket: "lm-ph2020.appspot.com",
+  messagingSenderId: "1083392040408",
+  appId: "1:1083392040408:web:38449f3320b530d891e6ad",
+  measurementId: "G-JES8JBQ70D"
+}; // // Initialize Cloud Firestore through Firebase
+
+firebase.initializeApp(FIREBASE_CONFIG);
+var db = firebase.firestore();
+function LMCountyRoot() {
+  var dataDiv = document.getElementById("county-map-data");
+  var data = JSON.parse(dataDiv.getAttribute("data"));
+  var county = dataDiv.getAttribute("county");
+
+  var _useState = Object(react["useState"])([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      documents = _useState2[0],
+      setDocuments = _useState2[1];
+
+  var _useState3 = Object(react["useState"])(""),
+      _useState4 = _slicedToArray(_useState3, 2),
+      searchTerm = _useState4[0],
+      setSearchTerm = _useState4[1];
+
+  var _useDebounce = useDebounce(searchTerm, 800),
+      _useDebounce2 = _slicedToArray(_useDebounce, 1),
+      debounceSearchTerm = _useDebounce2[0]; // Fetch the data with an effect
+
+
+  Object(react["useEffect"])(function () {
+    db.collection("counties").doc(county).collection("projects").get().then(function (querySnapshot) {
+      var _documemts = [];
+      querySnapshot.forEach(function (doc) {
+        _documemts.push(doc.data().projects[0].title);
+      });
+      setDocuments(_documemts);
+    });
+  }, [county]);
+
+  if (data == null) {
+    throw "data is null in LWICountyRoot";
+  }
+
+  var rightContent = null;
+  var leftContent = null;
+  /* undefined will be casted to a string during ssr */
+
+  if (county === "undefined") {
+    // No county is specified, which means we're showing a Taiwan Map.
+    rightContent = /*#__PURE__*/react_default.a.createElement("div", {
+      className: "rightContent"
+    }, /*#__PURE__*/react_default.a.createElement("div", {
+      id: "largeMetricAndUnit"
+    }, /*#__PURE__*/react_default.a.createElement("div", {
+      id: "largeMetric"
+    }, "6913"), /*#__PURE__*/react_default.a.createElement("span", {
+      id: "unit"
+    }, "House ", /*#__PURE__*/react_default.a.createElement("br", null), "Number")), /*#__PURE__*/react_default.a.createElement("div", null, "with ", "613", " build cases in this area"), /*#__PURE__*/react_default.a.createElement("h5", null, "Choose the county:"), /*#__PURE__*/react_default.a.createElement("div", {
+      className: "marginTop-8"
+    }), /*#__PURE__*/react_default.a.createElement(LMCountySelector, {
+      selectedCounty: null
+    }));
+    leftContent = /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, null);
+  } else {
+    // When a county is selected, we show its map and projects
+    var countyMapDefaults = CountyMapDefaults_default.a[county];
+    leftContent = /*#__PURE__*/react_default.a.createElement("div", {
+      style: {
+        height: "100%",
+        width: "100%"
+      }
+    }, /*#__PURE__*/react_default.a.createElement(index_modern, {
+      bootstrapURLKeys: {
+        key: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw"
+      },
+      defaultCenter: countyMapDefaults.center,
+      defaultZoom: countyMapDefaults.zoom
+    }));
+    rightContent = /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMCountySelector, {
+      selectedCounty: county
+    }), /*#__PURE__*/react_default.a.createElement("input", {
+      type: "text",
+      value: searchTerm,
+      onInput: function onInput(e) {
+        return setSearchTerm(e.target.value);
+      }
+    }), documents.map(function (name) {
+      if (debounceSearchTerm !== "" && name.indexOf(debounceSearchTerm) < 0) {
+        return null;
+      }
+
+      return /*#__PURE__*/react_default.a.createElement(LMProjectRow, {
+        id: name,
+        name: name
+      });
+    }));
+  }
+
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    id: "root"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    id: "left"
+  }, leftContent), /*#__PURE__*/react_default.a.createElement("div", {
+    id: "right"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    "class": "marginTop-20 scroll"
+  }, rightContent)));
+}
+var domContainer = document.querySelector("#lm_county_root");
+react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(LMCountyRoot, null), domContainer);
+// EXTERNAL MODULE: ./node_modules/materialize-css/dist/js/materialize.js
+var materialize = __webpack_require__(18);
+var materialize_default = /*#__PURE__*/__webpack_require__.n(materialize);
+
+// CONCATENATED MODULE: ./src/county.js
+
+
+ // This enables all the materialize components
+
+materialize_default.a.AutoInit();
 
 /***/ })
 /******/ ]);

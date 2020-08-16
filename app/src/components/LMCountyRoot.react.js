@@ -6,19 +6,13 @@ require("firebase/firestore");
 
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import CountyTypes from "../javascripts/utils/CountyTypes";
 import LMTaiwanMap from "./LMTaiwanMap.react";
 import GoogleMapReact from "google-map-react";
 import CountyMapDefaults from "../javascripts/utils/CountyMapDefaults";
 import LMProjectRow from "./LMProjectRow.react";
+import LMCountySelector from "./LMCountySelector.react";
 
-import {useDebounce} from 'use-debounce';
-
-const DEFAULT_GOOGLE_MAP_ZOOM = 11;
-const DEFAULT_GOOGLE_MAP_CENTER = {
-  lat: 23.782127,
-  lng: 120.956679,
-};
+import { useDebounce } from "use-debounce";
 
 // Your web app's Firebase configuration
 const FIREBASE_CONFIG = {
@@ -79,22 +73,8 @@ export default function LMCountyRoot() {
         </div>
         <div>with {`613`} build cases in this area</div>
         <h5>Choose the county:</h5>
-        <div className="marginTop-8">
-          <a
-            class="dropdown-trigger btn"
-            href="#"
-            data-target="county-dropdown"
-          >
-            Taiwan <i class="material-icons right">keyboard_arrow_down</i>
-          </a>
-        </div>
-        <ul id="county-dropdown" class="dropdown-content">
-          {Object.values(CountyTypes).map((name) => (
-            <li>
-              <a href={`/county?name=${name}`}>{countyNameFormatter(name)}</a>
-            </li>
-          ))}
-        </ul>
+        <div className="marginTop-8"></div>
+        <LMCountySelector selectedCounty={null} />
       </div>
     );
 
@@ -115,13 +95,17 @@ export default function LMCountyRoot() {
 
     rightContent = (
       <>
+        <LMCountySelector selectedCounty={county} />
         <input
           type="text"
           value={searchTerm}
           onInput={(e) => setSearchTerm(e.target.value)}
         />
         {documents.map((name) => {
-          if (debounceSearchTerm !== "" && name.indexOf(debounceSearchTerm) < 0) {
+          if (
+            debounceSearchTerm !== "" &&
+            name.indexOf(debounceSearchTerm) < 0
+          ) {
             return null;
           }
 
@@ -139,16 +123,6 @@ export default function LMCountyRoot() {
       </div>
     </div>
   );
-}
-
-function countyNameFormatter(countyNameRaw) {
-  const countyNames = countyNameRaw
-    .split("_")
-    .map(
-      (_namePartRaw) =>
-        `${_namePartRaw.slice(0, 1).toUpperCase()}${_namePartRaw.slice(1)}`
-    );
-  return countyNames.join(" ");
 }
 
 let domContainer = document.querySelector("#lm_county_root");
