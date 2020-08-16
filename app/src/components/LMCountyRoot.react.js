@@ -9,9 +9,9 @@ import ReactDOM from "react-dom";
 import CountyTypes from "../javascripts/utils/CountyTypes";
 import LMTaiwanMap from "./LMTaiwanMap.react";
 import GoogleMapReact from "google-map-react";
+import CountyMapDefaults from "../javascripts/utils/CountyMapDefaults";
 
 const DEFAULT_GOOGLE_MAP_ZOOM = 11;
-
 const DEFAULT_GOOGLE_MAP_CENTER = {
   lat: 23.782127,
   lng: 120.956679,
@@ -101,12 +101,15 @@ export default function LMCountyRoot() {
   } else {
     // get a center for each county.
     // Return the whole view of a County
+
+    const countyMapDefaults = CountyMapDefaults[county];
+
     leftContent = (
       <div style={{ height: "100%", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw" }}
-          defaultCenter={DEFAULT_GOOGLE_MAP_CENTER}
-          defaultZoom={DEFAULT_GOOGLE_MAP_ZOOM}
+          defaultCenter={countyMapDefaults.center}
+          defaultZoom={countyMapDefaults.zoom}
         ></GoogleMapReact>
       </div>
     );

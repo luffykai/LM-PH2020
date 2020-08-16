@@ -63191,6 +63191,10 @@ index_modern_GoogleMap.googleMapLoader = googleMapLoader;
 /* harmony default export */ var index_modern = (index_modern_GoogleMap);
 //# sourceMappingURL=index.modern.js.map
 
+// EXTERNAL MODULE: ./src/javascripts/utils/CountyMapDefaults.js
+var CountyMapDefaults = __webpack_require__(39);
+var CountyMapDefaults_default = /*#__PURE__*/__webpack_require__.n(CountyMapDefaults);
+
 // CONCATENATED MODULE: ./src/components/LMCountyRoot.react.js
 
 
@@ -63210,6 +63214,7 @@ var firebase = __webpack_require__(21); // Required for side-effects
 
 
 __webpack_require__(31);
+
 
 
 
@@ -63296,6 +63301,7 @@ function LMCountyRoot() {
   } else {
     // get a center for each county.
     // Return the whole view of a County
+    var countyMapDefaults = CountyMapDefaults_default.a[county];
     leftContent = /*#__PURE__*/react_default.a.createElement("div", {
       style: {
         height: "100%",
@@ -63305,8 +63311,8 @@ function LMCountyRoot() {
       bootstrapURLKeys: {
         key: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw"
       },
-      defaultCenter: DEFAULT_GOOGLE_MAP_CENTER,
-      defaultZoom: DEFAULT_GOOGLE_MAP_ZOOM
+      defaultCenter: countyMapDefaults.center,
+      defaultZoom: countyMapDefaults.zoom
     }));
   }
 
@@ -63342,6 +63348,91 @@ var materialize_default = /*#__PURE__*/__webpack_require__.n(materialize);
  // This enables all the materialize components
 
 materialize_default.a.AutoInit();
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _CountyMapDefaults;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var CountyTypes = __webpack_require__(15);
+
+var CountyMapDefaults = (_CountyMapDefaults = {}, _defineProperty(_CountyMapDefaults, CountyTypes.HSINCHU, {
+  center: {
+    lat: 24.7858178,
+    lng: 120.9526337
+  },
+  zoom: 12.86
+}), _defineProperty(_CountyMapDefaults, CountyTypes.KAOHSIUNG, {
+  center: {
+    lat: 22.6311876,
+    lng: 120.3370974
+  },
+  zoom: 12.36
+}), _defineProperty(_CountyMapDefaults, CountyTypes.KINMEN, {
+  center: {
+    lat: 24.444409,
+    lng: 118.34799
+  },
+  zoom: 12.58
+}), _defineProperty(_CountyMapDefaults, CountyTypes.LIENCHIANG, {
+  center: {
+    lat: 26.1950683,
+    lng: 119.9668753
+  },
+  zoom: 12.91
+}), _defineProperty(_CountyMapDefaults, CountyTypes.NANTOU, {
+  center: {
+    lat: 23.859214,
+    lng: 120.965297
+  },
+  zoom: 10.55
+}), _defineProperty(_CountyMapDefaults, CountyTypes.NEW_TAIPEI, {
+  center: {
+    lat: 25.160994,
+    lng: 121.564604
+  },
+  zoom: 11
+}), _defineProperty(_CountyMapDefaults, CountyTypes.PENGHU, {
+  center: {
+    lat: 23.581511,
+    lng: 119.580488
+  },
+  zoom: 12.43
+}), _defineProperty(_CountyMapDefaults, CountyTypes.TAICHUNG, {
+  center: {
+    lat: 24.153038,
+    lng: 120.680802
+  },
+  zoom: 12.47
+}), _defineProperty(_CountyMapDefaults, CountyTypes.TAINAN, {
+  center: {
+    lat: 22.991912,
+    lng: 120.20161
+  },
+  zoom: 13.24
+}), _defineProperty(_CountyMapDefaults, CountyTypes.TAIPEI, {
+  center: {
+    lat: 25.045204,
+    lng: 121.538817
+  },
+  zoom: 13.66
+}), _defineProperty(_CountyMapDefaults, CountyTypes.TAITUNG, {
+  center: {
+    lat: 22.75495,
+    lng: 121.117761
+  },
+  zoom: 13.23
+}), _defineProperty(_CountyMapDefaults, CountyTypes.TAOYUAN, {
+  center: {
+    lat: 24.993843,
+    lng: 121.309029
+  },
+  zoom: 13.71
+}), _CountyMapDefaults);
+module.exports = CountyMapDefaults;
 
 /***/ })
 /******/ ]);
