@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -335,6 +335,36 @@ function __classPrivateFieldSet(receiver, privateMap, value) {
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (false) { var throwOnDirectAccess, ReactIs; } else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(35)();
+}
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(20);
+} else {}
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2048,22 +2078,10 @@ exports.validateIndexedDBOpenable = validateIndexedDBOpenable;
 exports.validateNamespace = validateNamespace;
 //# sourceMappingURL=index.cjs.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(17);
-} else {}
-
-
-/***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2072,9 +2090,9 @@ if (true) {
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var tslib = __webpack_require__(0);
-var util = __webpack_require__(1);
-var component = __webpack_require__(4);
-var logger$1 = __webpack_require__(6);
+var util = __webpack_require__(3);
+var component = __webpack_require__(5);
+var logger$1 = __webpack_require__(9);
 
 /**
  * @license
@@ -2744,7 +2762,7 @@ exports.firebase = firebase$1;
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2753,7 +2771,7 @@ exports.firebase = firebase$1;
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var tslib = __webpack_require__(0);
-var util = __webpack_require__(1);
+var util = __webpack_require__(3);
 
 /**
  * Component for service name T, e.g. `auth`, `auth-internal`
@@ -3066,7 +3084,41 @@ exports.Provider = Provider;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
+  ) {
+    return;
+  }
+  if (false) {}
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
+if (true) {
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = __webpack_require__(32);
+} else {}
+
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -3387,7 +3439,326 @@ exports.Provider = Provider;
 
 
 /***/ }),
-/* 6 */
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = Point;
+
+/**
+ * A standalone point geometry with useful accessor, comparison, and
+ * modification methods.
+ *
+ * @class Point
+ * @param {Number} x the x-coordinate. this could be longitude or screen
+ * pixels, or any other sort of unit.
+ * @param {Number} y the y-coordinate. this could be latitude or screen
+ * pixels, or any other sort of unit.
+ * @example
+ * var point = new Point(-77, 38);
+ */
+function Point(x, y) {
+    this.x = x;
+    this.y = y;
+}
+
+Point.prototype = {
+
+    /**
+     * Clone this point, returning a new point that can be modified
+     * without affecting the old one.
+     * @return {Point} the clone
+     */
+    clone: function() { return new Point(this.x, this.y); },
+
+    /**
+     * Add this point's x & y coordinates to another point,
+     * yielding a new point.
+     * @param {Point} p the other point
+     * @return {Point} output point
+     */
+    add:     function(p) { return this.clone()._add(p); },
+
+    /**
+     * Subtract this point's x & y coordinates to from point,
+     * yielding a new point.
+     * @param {Point} p the other point
+     * @return {Point} output point
+     */
+    sub:     function(p) { return this.clone()._sub(p); },
+
+    /**
+     * Multiply this point's x & y coordinates by point,
+     * yielding a new point.
+     * @param {Point} p the other point
+     * @return {Point} output point
+     */
+    multByPoint:    function(p) { return this.clone()._multByPoint(p); },
+
+    /**
+     * Divide this point's x & y coordinates by point,
+     * yielding a new point.
+     * @param {Point} p the other point
+     * @return {Point} output point
+     */
+    divByPoint:     function(p) { return this.clone()._divByPoint(p); },
+
+    /**
+     * Multiply this point's x & y coordinates by a factor,
+     * yielding a new point.
+     * @param {Point} k factor
+     * @return {Point} output point
+     */
+    mult:    function(k) { return this.clone()._mult(k); },
+
+    /**
+     * Divide this point's x & y coordinates by a factor,
+     * yielding a new point.
+     * @param {Point} k factor
+     * @return {Point} output point
+     */
+    div:     function(k) { return this.clone()._div(k); },
+
+    /**
+     * Rotate this point around the 0, 0 origin by an angle a,
+     * given in radians
+     * @param {Number} a angle to rotate around, in radians
+     * @return {Point} output point
+     */
+    rotate:  function(a) { return this.clone()._rotate(a); },
+
+    /**
+     * Rotate this point around p point by an angle a,
+     * given in radians
+     * @param {Number} a angle to rotate around, in radians
+     * @param {Point} p Point to rotate around
+     * @return {Point} output point
+     */
+    rotateAround:  function(a,p) { return this.clone()._rotateAround(a,p); },
+
+    /**
+     * Multiply this point by a 4x1 transformation matrix
+     * @param {Array<Number>} m transformation matrix
+     * @return {Point} output point
+     */
+    matMult: function(m) { return this.clone()._matMult(m); },
+
+    /**
+     * Calculate this point but as a unit vector from 0, 0, meaning
+     * that the distance from the resulting point to the 0, 0
+     * coordinate will be equal to 1 and the angle from the resulting
+     * point to the 0, 0 coordinate will be the same as before.
+     * @return {Point} unit vector point
+     */
+    unit:    function() { return this.clone()._unit(); },
+
+    /**
+     * Compute a perpendicular point, where the new y coordinate
+     * is the old x coordinate and the new x coordinate is the old y
+     * coordinate multiplied by -1
+     * @return {Point} perpendicular point
+     */
+    perp:    function() { return this.clone()._perp(); },
+
+    /**
+     * Return a version of this point with the x & y coordinates
+     * rounded to integers.
+     * @return {Point} rounded point
+     */
+    round:   function() { return this.clone()._round(); },
+
+    /**
+     * Return the magitude of this point: this is the Euclidean
+     * distance from the 0, 0 coordinate to this point's x and y
+     * coordinates.
+     * @return {Number} magnitude
+     */
+    mag: function() {
+        return Math.sqrt(this.x * this.x + this.y * this.y);
+    },
+
+    /**
+     * Judge whether this point is equal to another point, returning
+     * true or false.
+     * @param {Point} other the other point
+     * @return {boolean} whether the points are equal
+     */
+    equals: function(other) {
+        return this.x === other.x &&
+               this.y === other.y;
+    },
+
+    /**
+     * Calculate the distance from this point to another point
+     * @param {Point} p the other point
+     * @return {Number} distance
+     */
+    dist: function(p) {
+        return Math.sqrt(this.distSqr(p));
+    },
+
+    /**
+     * Calculate the distance from this point to another point,
+     * without the square root step. Useful if you're comparing
+     * relative distances.
+     * @param {Point} p the other point
+     * @return {Number} distance
+     */
+    distSqr: function(p) {
+        var dx = p.x - this.x,
+            dy = p.y - this.y;
+        return dx * dx + dy * dy;
+    },
+
+    /**
+     * Get the angle from the 0, 0 coordinate to this point, in radians
+     * coordinates.
+     * @return {Number} angle
+     */
+    angle: function() {
+        return Math.atan2(this.y, this.x);
+    },
+
+    /**
+     * Get the angle from this point to another point, in radians
+     * @param {Point} b the other point
+     * @return {Number} angle
+     */
+    angleTo: function(b) {
+        return Math.atan2(this.y - b.y, this.x - b.x);
+    },
+
+    /**
+     * Get the angle between this point and another point, in radians
+     * @param {Point} b the other point
+     * @return {Number} angle
+     */
+    angleWith: function(b) {
+        return this.angleWithSep(b.x, b.y);
+    },
+
+    /*
+     * Find the angle of the two vectors, solving the formula for
+     * the cross product a x b = |a||b|sin(θ) for θ.
+     * @param {Number} x the x-coordinate
+     * @param {Number} y the y-coordinate
+     * @return {Number} the angle in radians
+     */
+    angleWithSep: function(x, y) {
+        return Math.atan2(
+            this.x * y - this.y * x,
+            this.x * x + this.y * y);
+    },
+
+    _matMult: function(m) {
+        var x = m[0] * this.x + m[1] * this.y,
+            y = m[2] * this.x + m[3] * this.y;
+        this.x = x;
+        this.y = y;
+        return this;
+    },
+
+    _add: function(p) {
+        this.x += p.x;
+        this.y += p.y;
+        return this;
+    },
+
+    _sub: function(p) {
+        this.x -= p.x;
+        this.y -= p.y;
+        return this;
+    },
+
+    _mult: function(k) {
+        this.x *= k;
+        this.y *= k;
+        return this;
+    },
+
+    _div: function(k) {
+        this.x /= k;
+        this.y /= k;
+        return this;
+    },
+
+    _multByPoint: function(p) {
+        this.x *= p.x;
+        this.y *= p.y;
+        return this;
+    },
+
+    _divByPoint: function(p) {
+        this.x /= p.x;
+        this.y /= p.y;
+        return this;
+    },
+
+    _unit: function() {
+        this._div(this.mag());
+        return this;
+    },
+
+    _perp: function() {
+        var y = this.y;
+        this.y = this.x;
+        this.x = -y;
+        return this;
+    },
+
+    _rotate: function(angle) {
+        var cos = Math.cos(angle),
+            sin = Math.sin(angle),
+            x = cos * this.x - sin * this.y,
+            y = sin * this.x + cos * this.y;
+        this.x = x;
+        this.y = y;
+        return this;
+    },
+
+    _rotateAround: function(angle, p) {
+        var cos = Math.cos(angle),
+            sin = Math.sin(angle),
+            x = p.x + cos * (this.x - p.x) - sin * (this.y - p.y),
+            y = p.y + sin * (this.x - p.x) + cos * (this.y - p.y);
+        this.x = x;
+        this.y = y;
+        return this;
+    },
+
+    _round: function() {
+        this.x = Math.round(this.x);
+        this.y = Math.round(this.y);
+        return this;
+    }
+};
+
+/**
+ * Construct a point from an array if necessary, otherwise if the input
+ * is already a Point, or an unknown type, return it unchanged
+ * @param {Array<Number>|Point|*} a any kind of input value
+ * @return {Point} constructed point, or passed-through value.
+ * @example
+ * // this
+ * var point = Point.convert([0, 1]);
+ * // is equivalent to
+ * var point = new Point(0, 1);
+ */
+Point.convert = function (a) {
+    if (a instanceof Point) {
+        return a;
+    }
+    if (Array.isArray(a)) {
+        return new Point(a[0], a[1]);
+    }
+    return a;
+};
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3686,7 +4057,7 @@ function setUserLogHandler(logCallback, options) {
 
 
 /***/ }),
-/* 7 */
+/* 10 */
 /***/ (function(module, exports) {
 
 var g;
@@ -3712,20 +4083,20 @@ module.exports = g;
 
 
 /***/ }),
-/* 8 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "registerInstallations", function() { return registerInstallations; });
-/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 /* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firebase_app__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_firebase_component__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
 /* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_firebase_util__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
 /* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(idb__WEBPACK_IMPORTED_MODULE_4__);
 
 
@@ -5058,7 +5429,7 @@ registerInstallations(_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 
 /***/ }),
-/* 9 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5155,7 +5526,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 10 */
+/* 13 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -5345,7 +5716,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 11 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5355,7 +5726,7 @@ Object.defineProperty(exports, "__esModule", {
     value: !0
 });
 
-var t, e = __webpack_require__(0), n = (t = __webpack_require__(3)) && "object" == typeof t && "default" in t ? t.default : t, r = __webpack_require__(6), i = __webpack_require__(1), o = __webpack_require__(21), s = __webpack_require__(4), u = new r.Logger("@firebase/firestore");
+var t, e = __webpack_require__(0), n = (t = __webpack_require__(4)) && "object" == typeof t && "default" in t ? t.default : t, r = __webpack_require__(9), i = __webpack_require__(3), o = __webpack_require__(24), s = __webpack_require__(5), u = new r.Logger("@firebase/firestore");
 
 // Helper methods are needed because variables can't be exported as read/write
 function a() {
@@ -20864,44 +21235,10 @@ var Js = {
 tu(n), exports.__PRIVATE_registerFirestore = tu;
 //# sourceMappingURL=index.cjs.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(13)))
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function checkDCE() {
-  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-  if (
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
-  ) {
-    return;
-  }
-  if (false) {}
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
-}
-
-if (true) {
-  // DCE check should happen before ReactDOM bundle executes so that
-  // DevTools can report bad minification during injection.
-  checkDCE();
-  module.exports = __webpack_require__(29);
-} else {}
-
-
-/***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports) {
 
 var CountyTypes = {
@@ -20921,7 +21258,350 @@ var CountyTypes = {
 module.exports = CountyTypes;
 
 /***/ }),
-/* 14 */
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var has = Object.prototype.hasOwnProperty
+  , prefix = '~';
+
+/**
+ * Constructor to create a storage for our `EE` objects.
+ * An `Events` instance is a plain object whose properties are event names.
+ *
+ * @constructor
+ * @private
+ */
+function Events() {}
+
+//
+// We try to not inherit from `Object.prototype`. In some engines creating an
+// instance in this way is faster than calling `Object.create(null)` directly.
+// If `Object.create(null)` is not supported we prefix the event names with a
+// character to make sure that the built-in object properties are not
+// overridden or used as an attack vector.
+//
+if (Object.create) {
+  Events.prototype = Object.create(null);
+
+  //
+  // This hack is needed because the `__proto__` property is still inherited in
+  // some old browsers like Android 4, iPhone 5.1, Opera 11 and Safari 5.
+  //
+  if (!new Events().__proto__) prefix = false;
+}
+
+/**
+ * Representation of a single event listener.
+ *
+ * @param {Function} fn The listener function.
+ * @param {*} context The context to invoke the listener with.
+ * @param {Boolean} [once=false] Specify if the listener is a one-time listener.
+ * @constructor
+ * @private
+ */
+function EE(fn, context, once) {
+  this.fn = fn;
+  this.context = context;
+  this.once = once || false;
+}
+
+/**
+ * Add a listener for a given event.
+ *
+ * @param {EventEmitter} emitter Reference to the `EventEmitter` instance.
+ * @param {(String|Symbol)} event The event name.
+ * @param {Function} fn The listener function.
+ * @param {*} context The context to invoke the listener with.
+ * @param {Boolean} once Specify if the listener is a one-time listener.
+ * @returns {EventEmitter}
+ * @private
+ */
+function addListener(emitter, event, fn, context, once) {
+  if (typeof fn !== 'function') {
+    throw new TypeError('The listener must be a function');
+  }
+
+  var listener = new EE(fn, context || emitter, once)
+    , evt = prefix ? prefix + event : event;
+
+  if (!emitter._events[evt]) emitter._events[evt] = listener, emitter._eventsCount++;
+  else if (!emitter._events[evt].fn) emitter._events[evt].push(listener);
+  else emitter._events[evt] = [emitter._events[evt], listener];
+
+  return emitter;
+}
+
+/**
+ * Clear event by name.
+ *
+ * @param {EventEmitter} emitter Reference to the `EventEmitter` instance.
+ * @param {(String|Symbol)} evt The Event name.
+ * @private
+ */
+function clearEvent(emitter, evt) {
+  if (--emitter._eventsCount === 0) emitter._events = new Events();
+  else delete emitter._events[evt];
+}
+
+/**
+ * Minimal `EventEmitter` interface that is molded against the Node.js
+ * `EventEmitter` interface.
+ *
+ * @constructor
+ * @public
+ */
+function EventEmitter() {
+  this._events = new Events();
+  this._eventsCount = 0;
+}
+
+/**
+ * Return an array listing the events for which the emitter has registered
+ * listeners.
+ *
+ * @returns {Array}
+ * @public
+ */
+EventEmitter.prototype.eventNames = function eventNames() {
+  var names = []
+    , events
+    , name;
+
+  if (this._eventsCount === 0) return names;
+
+  for (name in (events = this._events)) {
+    if (has.call(events, name)) names.push(prefix ? name.slice(1) : name);
+  }
+
+  if (Object.getOwnPropertySymbols) {
+    return names.concat(Object.getOwnPropertySymbols(events));
+  }
+
+  return names;
+};
+
+/**
+ * Return the listeners registered for a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @returns {Array} The registered listeners.
+ * @public
+ */
+EventEmitter.prototype.listeners = function listeners(event) {
+  var evt = prefix ? prefix + event : event
+    , handlers = this._events[evt];
+
+  if (!handlers) return [];
+  if (handlers.fn) return [handlers.fn];
+
+  for (var i = 0, l = handlers.length, ee = new Array(l); i < l; i++) {
+    ee[i] = handlers[i].fn;
+  }
+
+  return ee;
+};
+
+/**
+ * Return the number of listeners listening to a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @returns {Number} The number of listeners.
+ * @public
+ */
+EventEmitter.prototype.listenerCount = function listenerCount(event) {
+  var evt = prefix ? prefix + event : event
+    , listeners = this._events[evt];
+
+  if (!listeners) return 0;
+  if (listeners.fn) return 1;
+  return listeners.length;
+};
+
+/**
+ * Calls each of the listeners registered for a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @returns {Boolean} `true` if the event had listeners, else `false`.
+ * @public
+ */
+EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
+  var evt = prefix ? prefix + event : event;
+
+  if (!this._events[evt]) return false;
+
+  var listeners = this._events[evt]
+    , len = arguments.length
+    , args
+    , i;
+
+  if (listeners.fn) {
+    if (listeners.once) this.removeListener(event, listeners.fn, undefined, true);
+
+    switch (len) {
+      case 1: return listeners.fn.call(listeners.context), true;
+      case 2: return listeners.fn.call(listeners.context, a1), true;
+      case 3: return listeners.fn.call(listeners.context, a1, a2), true;
+      case 4: return listeners.fn.call(listeners.context, a1, a2, a3), true;
+      case 5: return listeners.fn.call(listeners.context, a1, a2, a3, a4), true;
+      case 6: return listeners.fn.call(listeners.context, a1, a2, a3, a4, a5), true;
+    }
+
+    for (i = 1, args = new Array(len -1); i < len; i++) {
+      args[i - 1] = arguments[i];
+    }
+
+    listeners.fn.apply(listeners.context, args);
+  } else {
+    var length = listeners.length
+      , j;
+
+    for (i = 0; i < length; i++) {
+      if (listeners[i].once) this.removeListener(event, listeners[i].fn, undefined, true);
+
+      switch (len) {
+        case 1: listeners[i].fn.call(listeners[i].context); break;
+        case 2: listeners[i].fn.call(listeners[i].context, a1); break;
+        case 3: listeners[i].fn.call(listeners[i].context, a1, a2); break;
+        case 4: listeners[i].fn.call(listeners[i].context, a1, a2, a3); break;
+        default:
+          if (!args) for (j = 1, args = new Array(len -1); j < len; j++) {
+            args[j - 1] = arguments[j];
+          }
+
+          listeners[i].fn.apply(listeners[i].context, args);
+      }
+    }
+  }
+
+  return true;
+};
+
+/**
+ * Add a listener for a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @param {Function} fn The listener function.
+ * @param {*} [context=this] The context to invoke the listener with.
+ * @returns {EventEmitter} `this`.
+ * @public
+ */
+EventEmitter.prototype.on = function on(event, fn, context) {
+  return addListener(this, event, fn, context, false);
+};
+
+/**
+ * Add a one-time listener for a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @param {Function} fn The listener function.
+ * @param {*} [context=this] The context to invoke the listener with.
+ * @returns {EventEmitter} `this`.
+ * @public
+ */
+EventEmitter.prototype.once = function once(event, fn, context) {
+  return addListener(this, event, fn, context, true);
+};
+
+/**
+ * Remove the listeners of a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @param {Function} fn Only remove the listeners that match this function.
+ * @param {*} context Only remove the listeners that have this context.
+ * @param {Boolean} once Only remove one-time listeners.
+ * @returns {EventEmitter} `this`.
+ * @public
+ */
+EventEmitter.prototype.removeListener = function removeListener(event, fn, context, once) {
+  var evt = prefix ? prefix + event : event;
+
+  if (!this._events[evt]) return this;
+  if (!fn) {
+    clearEvent(this, evt);
+    return this;
+  }
+
+  var listeners = this._events[evt];
+
+  if (listeners.fn) {
+    if (
+      listeners.fn === fn &&
+      (!once || listeners.once) &&
+      (!context || listeners.context === context)
+    ) {
+      clearEvent(this, evt);
+    }
+  } else {
+    for (var i = 0, events = [], length = listeners.length; i < length; i++) {
+      if (
+        listeners[i].fn !== fn ||
+        (once && !listeners[i].once) ||
+        (context && listeners[i].context !== context)
+      ) {
+        events.push(listeners[i]);
+      }
+    }
+
+    //
+    // Reset the array, or remove it completely if we have no more listeners.
+    //
+    if (events.length) this._events[evt] = events.length === 1 ? events[0] : events;
+    else clearEvent(this, evt);
+  }
+
+  return this;
+};
+
+/**
+ * Remove all listeners, or those of the specified event.
+ *
+ * @param {(String|Symbol)} [event] The event name.
+ * @returns {EventEmitter} `this`.
+ * @public
+ */
+EventEmitter.prototype.removeAllListeners = function removeAllListeners(event) {
+  var evt;
+
+  if (event) {
+    evt = prefix ? prefix + event : event;
+    if (this._events[evt]) clearEvent(this, evt);
+  } else {
+    this._events = new Events();
+    this._eventsCount = 0;
+  }
+
+  return this;
+};
+
+//
+// Alias methods names because people roll like that.
+//
+EventEmitter.prototype.off = EventEmitter.prototype.removeListener;
+EventEmitter.prototype.addListener = EventEmitter.prototype.on;
+
+//
+// Expose the prefix.
+//
+EventEmitter.prefixed = prefix;
+
+//
+// Allow `EventEmitter` to be imported as module namespace.
+//
+EventEmitter.EventEmitter = EventEmitter;
+
+//
+// Expose the module.
+//
+if (true) {
+  module.exports = EventEmitter;
+}
+
+
+/***/ }),
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -33281,12 +33961,12 @@ $jscomp.polyfill = function (e, r, p, m) {
   Range.init($('input[type=range]'));
 })(cash, M.anime);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
-/* 15 */,
-/* 16 */,
-/* 17 */
+/* 18 */,
+/* 19 */,
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33299,7 +33979,7 @@ $jscomp.polyfill = function (e, r, p, m) {
  * LICENSE file in the root directory of this source tree.
  */
 
-var l=__webpack_require__(9),n="function"===typeof Symbol&&Symbol.for,p=n?Symbol.for("react.element"):60103,q=n?Symbol.for("react.portal"):60106,r=n?Symbol.for("react.fragment"):60107,t=n?Symbol.for("react.strict_mode"):60108,u=n?Symbol.for("react.profiler"):60114,v=n?Symbol.for("react.provider"):60109,w=n?Symbol.for("react.context"):60110,x=n?Symbol.for("react.forward_ref"):60112,y=n?Symbol.for("react.suspense"):60113,z=n?Symbol.for("react.memo"):60115,A=n?Symbol.for("react.lazy"):
+var l=__webpack_require__(12),n="function"===typeof Symbol&&Symbol.for,p=n?Symbol.for("react.element"):60103,q=n?Symbol.for("react.portal"):60106,r=n?Symbol.for("react.fragment"):60107,t=n?Symbol.for("react.strict_mode"):60108,u=n?Symbol.for("react.profiler"):60114,v=n?Symbol.for("react.provider"):60109,w=n?Symbol.for("react.context"):60110,x=n?Symbol.for("react.forward_ref"):60112,y=n?Symbol.for("react.suspense"):60113,z=n?Symbol.for("react.memo"):60115,A=n?Symbol.for("react.lazy"):
 60116,B="function"===typeof Symbol&&Symbol.iterator;function C(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}
 var D={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}},E={};function F(a,b,c){this.props=a;this.context=b;this.refs=E;this.updater=c||D}F.prototype.isReactComponent={};F.prototype.setState=function(a,b){if("object"!==typeof a&&"function"!==typeof a&&null!=a)throw Error(C(85));this.updater.enqueueSetState(this,a,b,"setState")};F.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function G(){}G.prototype=F.prototype;function H(a,b,c){this.props=a;this.context=b;this.refs=E;this.updater=c||D}var I=H.prototype=new G;I.constructor=H;l(I,F.prototype);I.isPureReactComponent=!0;var J={current:null},K=Object.prototype.hasOwnProperty,L={key:!0,ref:!0,__self:!0,__source:!0};
@@ -33318,7 +33998,7 @@ exports.useLayoutEffect=function(a,b){return Z().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 18 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33326,16 +34006,16 @@ exports.useLayoutEffect=function(a,b){return Z().useLayoutEffect(a,b)};exports.u
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var firebase = _interopDefault(__webpack_require__(3));
-__webpack_require__(19);
-__webpack_require__(20);
-__webpack_require__(11);
+var firebase = _interopDefault(__webpack_require__(4));
 __webpack_require__(22);
 __webpack_require__(23);
-__webpack_require__(24);
+__webpack_require__(14);
 __webpack_require__(25);
 __webpack_require__(26);
 __webpack_require__(27);
+__webpack_require__(28);
+__webpack_require__(29);
+__webpack_require__(30);
 
 var name = "firebase";
 var version = "7.17.2";
@@ -33385,10 +34065,10 @@ module.exports = firebase;
 
 
 /***/ }),
-/* 19 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {(function() {var firebase = __webpack_require__(3).default;/*
+/* WEBPACK VAR INJECTION */(function(global) {(function() {var firebase = __webpack_require__(4).default;/*
 
  Copyright The Closure Library Authors.
  SPDX-License-Identifier: Apache-2.0
@@ -33822,10 +34502,10 @@ instanceFactory:function(b){b=b.getProvider("auth").getImmediate();return{getUid
 
 //# sourceMappingURL=auth.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
-/* 20 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33835,11 +34515,11 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var firebase = _interopDefault(__webpack_require__(3));
+var firebase = _interopDefault(__webpack_require__(4));
 var tslib = __webpack_require__(0);
-var util = __webpack_require__(1);
-var logger$1 = __webpack_require__(6);
-var component = __webpack_require__(4);
+var util = __webpack_require__(3);
+var logger$1 = __webpack_require__(9);
+var component = __webpack_require__(5);
 
 /**
  * @license
@@ -49229,10 +49909,10 @@ exports.enableLogging = enableLogging;
 exports.registerDatabase = registerDatabase;
 //# sourceMappingURL=index.cjs.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(13)))
 
 /***/ }),
-/* 21 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50631,10 +51311,10 @@ var esm_5 = esm.XhrIo;
 
 //# sourceMappingURL=index.esm.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50642,9 +51322,9 @@ var esm_5 = esm.XhrIo;
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var firebase = _interopDefault(__webpack_require__(3));
+var firebase = _interopDefault(__webpack_require__(4));
 var tslib = __webpack_require__(0);
-var component = __webpack_require__(4);
+var component = __webpack_require__(5);
 
 /**
  * @license
@@ -51285,20 +51965,20 @@ firebase.registerVersion(name, version);
 
 
 /***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 /* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firebase_app__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _firebase_installations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
-/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
+/* harmony import */ var _firebase_installations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_firebase_component__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(0);
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
 /* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_firebase_util__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5);
+/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
 /* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(idb__WEBPACK_IMPORTED_MODULE_5__);
 
 
@@ -52903,16 +53583,16 @@ function isSWControllerSupported() {
 
 
 /***/ }),
-/* 24 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "registerStorage", function() { return registerStorage; });
-/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 /* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firebase_app__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_firebase_component__WEBPACK_IMPORTED_MODULE_2__);
 
 
@@ -56415,7 +57095,7 @@ registerStorage(_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 
 /***/ }),
-/* 25 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56425,12 +57105,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var firebase = _interopDefault(__webpack_require__(3));
-__webpack_require__(8);
+var firebase = _interopDefault(__webpack_require__(4));
+__webpack_require__(11);
 var tslib = __webpack_require__(0);
-var util = __webpack_require__(1);
-var logger$1 = __webpack_require__(6);
-var component = __webpack_require__(4);
+var util = __webpack_require__(3);
+var logger$1 = __webpack_require__(9);
+var component = __webpack_require__(5);
 
 var name = "@firebase/performance";
 var version = "0.3.10";
@@ -57835,7 +58515,7 @@ exports.registerPerformance = registerPerformance;
 
 
 /***/ }),
-/* 26 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57846,13 +58526,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetGlobalVars", function() { return resetGlobalVars; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "settings", function() { return settings; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_firebase_app__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _firebase_installations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
-/* harmony import */ var _firebase_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1);
+/* harmony import */ var _firebase_installations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
+/* harmony import */ var _firebase_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
 /* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_firebase_util__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_firebase_component__WEBPACK_IMPORTED_MODULE_5__);
 
 
@@ -58479,7 +59159,7 @@ function isSupported() {
 
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58489,12 +59169,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var firebase = _interopDefault(__webpack_require__(3));
-__webpack_require__(8);
+var firebase = _interopDefault(__webpack_require__(4));
+__webpack_require__(11);
 var tslib = __webpack_require__(0);
-var util = __webpack_require__(1);
-var logger = __webpack_require__(6);
-var component = __webpack_require__(4);
+var util = __webpack_require__(3);
+var logger = __webpack_require__(9);
+var component = __webpack_require__(5);
 
 /**
  * @license
@@ -59721,19 +60401,19 @@ exports.registerRemoteConfig = registerRemoteConfig;
 
 
 /***/ }),
-/* 28 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _firebase_firestore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
+/* harmony import */ var _firebase_firestore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
 /* harmony import */ var _firebase_firestore__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firebase_firestore__WEBPACK_IMPORTED_MODULE_0__);
 
 //# sourceMappingURL=index.esm.js.map
 
 
 /***/ }),
-/* 29 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59749,7 +60429,7 @@ __webpack_require__.r(__webpack_exports__);
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(2),n=__webpack_require__(9),r=__webpack_require__(30);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
+var aa=__webpack_require__(2),n=__webpack_require__(12),r=__webpack_require__(33);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
 function ba(a,b,c,d,e,f,g,h,k){var l=Array.prototype.slice.call(arguments,3);try{b.apply(c,l)}catch(m){this.onError(m)}}var da=!1,ea=null,fa=!1,ha=null,ia={onError:function(a){da=!0;ea=a}};function ja(a,b,c,d,e,f,g,h,k){da=!1;ea=null;ba.apply(ia,arguments)}function ka(a,b,c,d,e,f,g,h,k){ja.apply(this,arguments);if(da){if(da){var l=ea;da=!1;ea=null}else throw Error(u(198));fa||(fa=!0,ha=l)}}var la=null,ma=null,na=null;
 function oa(a,b,c){var d=a.type||"unknown-event";a.currentTarget=na(c);ka(d,b,void 0,a);a.currentTarget=null}var pa=null,qa={};
 function ra(){if(pa)for(var a in qa){var b=qa[a],c=pa.indexOf(a);if(!(-1<c))throw Error(u(96,a));if(!sa[c]){if(!b.extractEvents)throw Error(u(97,a));sa[c]=b;c=b.eventTypes;for(var d in c){var e=void 0;var f=c[d],g=b,h=d;if(ta.hasOwnProperty(h))throw Error(u(99,h));ta[h]=f;var k=f.phasedRegistrationNames;if(k){for(e in k)k.hasOwnProperty(e)&&ua(k[e],g,h);e=!0}else f.registrationName?(ua(f.registrationName,g,h),e=!0):e=!1;if(!e)throw Error(u(98,d,a));}}}}
@@ -60032,19 +60712,19 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!gk(c))throw Er
 
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (true) {
-  module.exports = __webpack_require__(31);
+  module.exports = __webpack_require__(34);
 } else {}
 
 
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60072,7 +60752,231 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
 
 
 /***/ }),
-/* 32 */
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactPropTypesSecret = __webpack_require__(36);
+
+function emptyFunction() {}
+function emptyFunctionWithReset() {}
+emptyFunctionWithReset.resetWarningCache = emptyFunction;
+
+module.exports = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret) {
+      // It is still safe when called from React.
+      return;
+    }
+    var err = new Error(
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+    err.name = 'Invariant Violation';
+    throw err;
+  };
+  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  };
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    elementType: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim,
+    exact: getShim,
+
+    checkPropTypes: emptyFunctionWithReset,
+    resetWarningCache: emptyFunction
+  };
+
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+module.exports = ReactPropTypesSecret;
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  * $script.js JS loader & dependency manager
+  * https://github.com/ded/script.js
+  * (c) Dustin Diaz 2014 | License MIT
+  */
+
+(function (name, definition) {
+  if ( true && module.exports) module.exports = definition()
+  else if (true) !(__WEBPACK_AMD_DEFINE_FACTORY__ = (definition),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+  else {}
+})('$script', function () {
+  var doc = document
+    , head = doc.getElementsByTagName('head')[0]
+    , s = 'string'
+    , f = false
+    , push = 'push'
+    , readyState = 'readyState'
+    , onreadystatechange = 'onreadystatechange'
+    , list = {}
+    , ids = {}
+    , delay = {}
+    , scripts = {}
+    , scriptpath
+    , urlArgs
+
+  function every(ar, fn) {
+    for (var i = 0, j = ar.length; i < j; ++i) if (!fn(ar[i])) return f
+    return 1
+  }
+  function each(ar, fn) {
+    every(ar, function (el) {
+      fn(el)
+      return 1
+    })
+  }
+
+  function $script(paths, idOrDone, optDone) {
+    paths = paths[push] ? paths : [paths]
+    var idOrDoneIsDone = idOrDone && idOrDone.call
+      , done = idOrDoneIsDone ? idOrDone : optDone
+      , id = idOrDoneIsDone ? paths.join('') : idOrDone
+      , queue = paths.length
+    function loopFn(item) {
+      return item.call ? item() : list[item]
+    }
+    function callback() {
+      if (!--queue) {
+        list[id] = 1
+        done && done()
+        for (var dset in delay) {
+          every(dset.split('|'), loopFn) && !each(delay[dset], loopFn) && (delay[dset] = [])
+        }
+      }
+    }
+    setTimeout(function () {
+      each(paths, function loading(path, force) {
+        if (path === null) return callback()
+        
+        if (!force && !/^https?:\/\//.test(path) && scriptpath) {
+          path = (path.indexOf('.js') === -1) ? scriptpath + path + '.js' : scriptpath + path;
+        }
+        
+        if (scripts[path]) {
+          if (id) ids[id] = 1
+          return (scripts[path] == 2) ? callback() : setTimeout(function () { loading(path, true) }, 0)
+        }
+
+        scripts[path] = 1
+        if (id) ids[id] = 1
+        create(path, callback)
+      })
+    }, 0)
+    return $script
+  }
+
+  function create(path, fn) {
+    var el = doc.createElement('script'), loaded
+    el.onload = el.onerror = el[onreadystatechange] = function () {
+      if ((el[readyState] && !(/^c|loade/.test(el[readyState]))) || loaded) return;
+      el.onload = el[onreadystatechange] = null
+      loaded = 1
+      scripts[path] = 2
+      fn()
+    }
+    el.async = 1
+    el.src = urlArgs ? path + (path.indexOf('?') === -1 ? '?' : '&') + urlArgs : path;
+    head.insertBefore(el, head.lastChild)
+  }
+
+  $script.get = create
+
+  $script.order = function (scripts, id, done) {
+    (function callback(s) {
+      s = scripts.shift()
+      !scripts.length ? $script(s, id, done) : $script(s, callback)
+    }())
+  }
+
+  $script.path = function (p) {
+    scriptpath = p
+  }
+  $script.urlArgs = function (str) {
+    urlArgs = str;
+  }
+  $script.ready = function (deps, ready, req) {
+    deps = deps[push] ? deps : [deps]
+    var missing = [];
+    !each(deps, function (dep) {
+      list[dep] || missing[push](dep);
+    }) && every(deps, function (dep) {return list[dep]}) ?
+      ready() : !function (key) {
+      delay[key] = delay[key] || []
+      delay[key][push](ready)
+      req && req(missing)
+    }(deps.join('|'))
+    return $script
+  }
+
+  $script.done = function (idOrDone) {
+    $script([null], idOrDone)
+  }
+
+  return $script
+});
+
+
+/***/ }),
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60084,11 +60988,11 @@ var react = __webpack_require__(2);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
 // EXTERNAL MODULE: ./node_modules/react-dom/index.js
-var react_dom = __webpack_require__(12);
+var react_dom = __webpack_require__(6);
 var react_dom_default = /*#__PURE__*/__webpack_require__.n(react_dom);
 
 // EXTERNAL MODULE: ./src/javascripts/utils/CountyTypes.js
-var CountyTypes = __webpack_require__(13);
+var CountyTypes = __webpack_require__(15);
 var CountyTypes_default = /*#__PURE__*/__webpack_require__.n(CountyTypes);
 
 // CONCATENATED MODULE: ./src/components/LMTaiwanMap.react.js
@@ -60122,6 +61026,2171 @@ function LMTaiwanMap() {
     });
   }))));
 }
+// EXTERNAL MODULE: ./node_modules/prop-types/index.js
+var prop_types = __webpack_require__(1);
+var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
+
+// EXTERNAL MODULE: ./node_modules/eventemitter3/index.js
+var eventemitter3 = __webpack_require__(16);
+var eventemitter3_default = /*#__PURE__*/__webpack_require__.n(eventemitter3);
+
+// EXTERNAL MODULE: ./node_modules/@mapbox/point-geometry/index.js
+var point_geometry = __webpack_require__(8);
+var point_geometry_default = /*#__PURE__*/__webpack_require__.n(point_geometry);
+
+// CONCATENATED MODULE: ./node_modules/google-map-react/dist/index.modern.js
+
+
+
+
+
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+var style = {
+  width: '100%',
+  height: '100%',
+  left: 0,
+  top: 0,
+  margin: 0,
+  padding: 0,
+  position: 'absolute'
+};
+
+var index_modern_GoogleMapMap = /*#__PURE__*/function (_Component) {
+  _inheritsLoose(GoogleMapMap, _Component);
+
+  function GoogleMapMap() {
+    return _Component.apply(this, arguments) || this;
+  }
+
+  var _proto = GoogleMapMap.prototype;
+
+  _proto.shouldComponentUpdate = function shouldComponentUpdate() {
+    return false;
+  };
+
+  _proto.render = function render() {
+    var registerChild = this.props.registerChild;
+    return /*#__PURE__*/react_default.a.createElement("div", {
+      ref: registerChild,
+      style: style
+    });
+  };
+
+  return GoogleMapMap;
+}(react["Component"]);
+
+var MarkerDispatcher = /*#__PURE__*/function (_EventEmitter) {
+  _inheritsLoose(MarkerDispatcher, _EventEmitter);
+
+  function MarkerDispatcher(gmapInstance) {
+    var _this;
+
+    _this = _EventEmitter.call(this) || this;
+    _this.gmapInstance = gmapInstance;
+    return _this;
+  }
+
+  var _proto = MarkerDispatcher.prototype;
+
+  _proto.getChildren = function getChildren() {
+    return this.gmapInstance.props.children;
+  };
+
+  _proto.getMousePosition = function getMousePosition() {
+    return this.gmapInstance.mouse_;
+  };
+
+  _proto.getUpdateCounter = function getUpdateCounter() {
+    return this.gmapInstance.updateCounter_;
+  };
+
+  _proto.dispose = function dispose() {
+    this.gmapInstance = null;
+    this.removeAllListeners();
+  };
+
+  return MarkerDispatcher;
+}(eventemitter3_default.a);
+
+var omit = function omit(obj, keys) {
+  var rest = _extends({}, obj);
+
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+
+    if (key in rest) {
+      delete rest[key];
+    }
+  }
+
+  return rest;
+};
+
+var index_modern_hasOwnProperty = Object.prototype.hasOwnProperty;
+
+function is(x, y) {
+  if (x === y) {
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+  }
+
+  return x !== x && y !== y;
+}
+
+function shallowEqual(objA, objB) {
+  if (is(objA, objB)) {
+    return true;
+  }
+
+  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+
+  if (keysA.length !== keysB.length) {
+    return false;
+  }
+
+  for (var i = 0; i < keysA.length; i++) {
+    if (!index_modern_hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+var mainStyle = {
+  width: '100%',
+  height: '100%',
+  left: 0,
+  top: 0,
+  margin: 0,
+  padding: 0,
+  position: 'absolute'
+};
+var style$1 = {
+  width: 0,
+  height: 0,
+  left: 0,
+  top: 0,
+  backgroundColor: 'transparent',
+  position: 'absolute'
+};
+
+var index_modern_GoogleMapMarkers = /*#__PURE__*/function (_Component) {
+  _inheritsLoose(GoogleMapMarkers, _Component);
+
+  function GoogleMapMarkers(props) {
+    var _this;
+
+    _this = _Component.call(this, props) || this;
+
+    _this._getState = function () {
+      return {
+        children: _this.props.dispatcher.getChildren(),
+        updateCounter: _this.props.dispatcher.getUpdateCounter()
+      };
+    };
+
+    _this._onChangeHandler = function () {
+      if (!_this.dimensionsCache_) {
+        return;
+      }
+
+      var prevChildCount = (_this.state.children || []).length;
+
+      var state = _this._getState();
+
+      _this.setState(state, function () {
+        return (state.children || []).length !== prevChildCount && _this._onMouseChangeHandler();
+      });
+    };
+
+    _this._onChildClick = function () {
+      if (_this.props.onChildClick) {
+        if (_this.hoverChildProps_) {
+          var hoverKey = _this.hoverKey_;
+          var childProps = _this.hoverChildProps_;
+
+          _this.props.onChildClick(hoverKey, childProps);
+        }
+      }
+    };
+
+    _this._onChildMouseDown = function () {
+      if (_this.props.onChildMouseDown) {
+        if (_this.hoverChildProps_) {
+          var hoverKey = _this.hoverKey_;
+          var childProps = _this.hoverChildProps_;
+
+          _this.props.onChildMouseDown(hoverKey, childProps);
+        }
+      }
+    };
+
+    _this._onChildMouseEnter = function (hoverKey, childProps) {
+      if (!_this.dimensionsCache_) {
+        return;
+      }
+
+      if (_this.props.onChildMouseEnter) {
+        _this.props.onChildMouseEnter(hoverKey, childProps);
+      }
+
+      _this.hoverChildProps_ = childProps;
+      _this.hoverKey_ = hoverKey;
+
+      _this.setState({
+        hoverKey: hoverKey
+      });
+    };
+
+    _this._onChildMouseLeave = function () {
+      if (!_this.dimensionsCache_) {
+        return;
+      }
+
+      var hoverKey = _this.hoverKey_;
+      var childProps = _this.hoverChildProps_;
+
+      if (hoverKey !== undefined && hoverKey !== null) {
+        if (_this.props.onChildMouseLeave) {
+          _this.props.onChildMouseLeave(hoverKey, childProps);
+        }
+
+        _this.hoverKey_ = null;
+        _this.hoverChildProps_ = null;
+
+        _this.setState({
+          hoverKey: null
+        });
+      }
+    };
+
+    _this._onMouseAllow = function (value) {
+      if (!value) {
+        _this._onChildMouseLeave();
+      }
+
+      _this.allowMouse_ = value;
+    };
+
+    _this._onMouseChangeHandler = function () {
+      if (_this.allowMouse_) {
+        _this._onMouseChangeHandlerRaf();
+      }
+    };
+
+    _this._onMouseChangeHandlerRaf = function () {
+      if (!_this.dimensionsCache_) {
+        return;
+      }
+
+      var mp = _this.props.dispatcher.getMousePosition();
+
+      if (mp) {
+        var distances = [];
+
+        var hoverDistance = _this.props.getHoverDistance();
+
+        react_default.a.Children.forEach(_this.state.children, function (child, childIndex) {
+          if (!child) return;
+
+          if (child.props.latLng === undefined && child.props.lat === undefined && child.props.lng === undefined) {
+            return;
+          }
+
+          var childKey = child.key !== undefined && child.key !== null ? child.key : childIndex;
+
+          var dist = _this.props.distanceToMouse(_this.dimensionsCache_[childKey], mp, child.props);
+
+          if (dist < hoverDistance) {
+            distances.push({
+              key: childKey,
+              dist: dist,
+              props: child.props
+            });
+          }
+        });
+
+        if (distances.length) {
+          distances.sort(function (a, b) {
+            return a.dist - b.dist;
+          });
+          var hoverKey = distances[0].key;
+          var childProps = distances[0].props;
+
+          if (_this.hoverKey_ !== hoverKey) {
+            _this._onChildMouseLeave();
+
+            _this._onChildMouseEnter(hoverKey, childProps);
+          }
+        } else {
+          _this._onChildMouseLeave();
+        }
+      } else {
+        _this._onChildMouseLeave();
+      }
+    };
+
+    _this._getDimensions = function (key) {
+      var childKey = key;
+      return _this.dimensionsCache_[childKey];
+    };
+
+    _this.dimensionsCache_ = {};
+    _this.hoverKey_ = null;
+    _this.hoverChildProps_ = null;
+    _this.allowMouse_ = true;
+    _this.state = _extends({}, _this._getState(), {
+      hoverKey: null
+    });
+    return _this;
+  }
+
+  var _proto = GoogleMapMarkers.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    this.props.dispatcher.on('kON_CHANGE', this._onChangeHandler);
+    this.props.dispatcher.on('kON_MOUSE_POSITION_CHANGE', this._onMouseChangeHandler);
+    this.props.dispatcher.on('kON_CLICK', this._onChildClick);
+    this.props.dispatcher.on('kON_MDOWN', this._onChildMouseDown);
+  };
+
+  _proto.shouldComponentUpdate = function shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.experimental === true) {
+      return !shallowEqual(this.props, nextProps) || !shallowEqual(omit(this.state, ['hoverKey']), omit(nextState, ['hoverKey']));
+    }
+
+    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    this.props.dispatcher.removeListener('kON_CHANGE', this._onChangeHandler);
+    this.props.dispatcher.removeListener('kON_MOUSE_POSITION_CHANGE', this._onMouseChangeHandler);
+    this.props.dispatcher.removeListener('kON_CLICK', this._onChildClick);
+    this.props.dispatcher.removeListener('kON_MDOWN', this._onChildMouseDown);
+    this.dimensionsCache_ = null;
+  };
+
+  _proto.render = function render() {
+    var _this2 = this;
+
+    var mainElementStyle = this.props.style || mainStyle;
+    this.dimensionsCache_ = {};
+    var markers = react_default.a.Children.map(this.state.children, function (child, childIndex) {
+      if (!child) return undefined;
+
+      if (child.props.latLng === undefined && child.props.lat === undefined && child.props.lng === undefined) {
+        return react_default.a.cloneElement(child, {
+          $geoService: _this2.props.geoService,
+          $onMouseAllow: _this2._onMouseAllow,
+          $prerender: _this2.props.prerender
+        });
+      }
+
+      var latLng = child.props.latLng !== undefined ? child.props.latLng : {
+        lat: child.props.lat,
+        lng: child.props.lng
+      };
+      var pt = _this2.props.insideMapPanes ? _this2.props.geoService.fromLatLngToDivPixel(latLng) : _this2.props.geoService.fromLatLngToCenterPixel(latLng);
+      var stylePtPos = {
+        left: pt.x,
+        top: pt.y
+      };
+
+      if (child.props.seLatLng !== undefined || child.props.seLat !== undefined && child.props.seLng !== undefined) {
+        var seLatLng = child.props.seLatLng !== undefined ? child.props.seLatLng : {
+          lat: child.props.seLat,
+          lng: child.props.seLng
+        };
+        var sePt = _this2.props.insideMapPanes ? _this2.props.geoService.fromLatLngToDivPixel(seLatLng) : _this2.props.geoService.fromLatLngToCenterPixel(seLatLng);
+        stylePtPos.width = sePt.x - pt.x;
+        stylePtPos.height = sePt.y - pt.y;
+      }
+
+      var containerPt = _this2.props.geoService.fromLatLngToContainerPixel(latLng);
+
+      var childKey = child.key !== undefined && child.key !== null ? child.key : childIndex;
+      _this2.dimensionsCache_[childKey] = _extends({
+        x: containerPt.x,
+        y: containerPt.y
+      }, latLng);
+      return /*#__PURE__*/react_default.a.createElement("div", {
+        key: childKey,
+        style: _extends({}, style$1, stylePtPos),
+        className: child.props.$markerHolderClassName
+      }, react_default.a.cloneElement(child, {
+        $hover: childKey === _this2.state.hoverKey,
+        $getDimensions: _this2._getDimensions,
+        $dimensionKey: childKey,
+        $geoService: _this2.props.geoService,
+        $onMouseAllow: _this2._onMouseAllow,
+        $prerender: _this2.props.prerender
+      }));
+    });
+    return /*#__PURE__*/react_default.a.createElement("div", {
+      style: mainElementStyle
+    }, markers);
+  };
+
+  return GoogleMapMarkers;
+}(react["Component"]);
+
+index_modern_GoogleMapMarkers.propTypes = {
+  geoService: prop_types_default.a.any,
+  style: prop_types_default.a.any,
+  distanceToMouse: prop_types_default.a.func,
+  dispatcher: prop_types_default.a.any,
+  onChildClick: prop_types_default.a.func,
+  onChildMouseDown: prop_types_default.a.func,
+  onChildMouseLeave: prop_types_default.a.func,
+  onChildMouseEnter: prop_types_default.a.func,
+  getHoverDistance: prop_types_default.a.func,
+  insideMapPanes: prop_types_default.a.bool,
+  prerender: prop_types_default.a.bool
+};
+index_modern_GoogleMapMarkers.defaultProps = {
+  insideMapPanes: false,
+  prerender: false
+};
+
+var style$2 = {
+  width: '50%',
+  height: '50%',
+  left: '50%',
+  top: '50%',
+  margin: 0,
+  padding: 0,
+  position: 'absolute'
+};
+function GoogleMapMarkersPrerender (props) {
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    style: style$2
+  }, /*#__PURE__*/react_default.a.createElement(index_modern_GoogleMapMarkers, _extends({}, props, {
+    prerender: true
+  })));
+}
+
+var generateHeatmap = function generateHeatmap(instance, _ref) {
+  var positions = _ref.positions;
+  return new instance.visualization.HeatmapLayer({
+    data: positions.reduce(function (acc, _ref2) {
+      var lat = _ref2.lat,
+          lng = _ref2.lng,
+          _ref2$weight = _ref2.weight,
+          weight = _ref2$weight === void 0 ? 1 : _ref2$weight;
+      acc.push({
+        location: new instance.LatLng(lat, lng),
+        weight: weight
+      });
+      return acc;
+    }, [])
+  });
+};
+var optionsHeatmap = function optionsHeatmap(instance, _ref3) {
+  var _ref3$options = _ref3.options,
+      options = _ref3$options === void 0 ? {} : _ref3$options;
+  return Object.keys(options).map(function (option) {
+    return instance.set(option, options[option]);
+  });
+};
+
+var BASE_URL = 'https://maps';
+var DEFAULT_URL = BASE_URL + ".googleapis.com";
+var API_PATH = '/maps/api/js?callback=_$_google_map_initialize_$_';
+var $script_ = null;
+var loadPromise_;
+var resolveCustomPromise_;
+
+var _customPromise = new Promise(function (resolve) {
+  resolveCustomPromise_ = resolve;
+});
+
+var googleMapLoader = (function (bootstrapURLKeys, heatmapLibrary) {
+  if (!$script_) {
+    $script_ = __webpack_require__(37);
+  }
+
+  if (!bootstrapURLKeys) {
+    return _customPromise;
+  }
+
+  if (loadPromise_) {
+    return loadPromise_;
+  }
+
+  loadPromise_ = new Promise(function (resolve, reject) {
+    if (typeof window === 'undefined') {
+      reject(new Error('google map cannot be loaded outside browser env'));
+      return;
+    }
+
+    if (window.google && window.google.maps) {
+      resolve(window.google.maps);
+      return;
+    }
+
+    if (typeof window._$_google_map_initialize_$_ !== 'undefined') {
+      reject(new Error('google map initialization error'));
+    }
+
+    window._$_google_map_initialize_$_ = function () {
+      delete window._$_google_map_initialize_$_;
+      resolve(window.google.maps);
+    };
+
+    if (false) { var message; }
+
+    var params = Object.keys(bootstrapURLKeys).reduce(function (r, key) {
+      return r + "&" + key + "=" + bootstrapURLKeys[key];
+    }, '');
+    var libraries = heatmapLibrary ? '&libraries=visualization' : '';
+    $script_("" + DEFAULT_URL + API_PATH + params + libraries, function () {
+      return typeof window.google === 'undefined' && reject(new Error('google map initialization error (not loaded)'));
+    });
+  });
+  resolveCustomPromise_(loadPromise_);
+  return loadPromise_;
+});
+
+function wrap(n, min, max) {
+  var d = max - min;
+  return n === max ? n : ((n - min) % d + d) % d + min;
+}
+
+var LatLng = /*#__PURE__*/function () {
+  function LatLng(lat, lng) {
+    if (isNaN(lat) || isNaN(lng)) {
+      throw new Error("Invalid LatLng object: (" + lat + ", " + lng + ")");
+    }
+
+    this.lat = +lat;
+    this.lng = +lng;
+  }
+
+  var _proto = LatLng.prototype;
+
+  _proto.wrap = function wrap$1() {
+    return new LatLng(this.lat, wrap(this.lng, -180, 180));
+  };
+
+  return LatLng;
+}();
+
+LatLng.convert = function (a) {
+  if (a instanceof LatLng) {
+    return a;
+  }
+
+  if (Array.isArray(a)) {
+    return new LatLng(a[0], a[1]);
+  }
+
+  if ('lng' in a && 'lat' in a) {
+    return new LatLng(a.lat, a.lng);
+  }
+
+  return a;
+};
+
+var index_modern_Transform = /*#__PURE__*/function () {
+  function Transform(tileSize, minZoom, maxZoom) {
+    this.tileSize = tileSize || 512;
+    this._minZoom = minZoom || 0;
+    this._maxZoom = maxZoom || 52;
+    this.latRange = [-85.05113, 85.05113];
+    this.width = 0;
+    this.height = 0;
+    this.zoom = 0;
+    this.center = new LatLng(0, 0);
+    this.angle = 0;
+  }
+
+  var _proto = Transform.prototype;
+
+  _proto.zoomScale = function zoomScale(zoom) {
+    return Math.pow(2, zoom);
+  };
+
+  _proto.scaleZoom = function scaleZoom(scale) {
+    return Math.log(scale) / Math.LN2;
+  };
+
+  _proto.project = function project(latlng, worldSize) {
+    return new point_geometry_default.a(this.lngX(latlng.lng, worldSize), this.latY(latlng.lat, worldSize));
+  };
+
+  _proto.unproject = function unproject(point, worldSize) {
+    return new LatLng(this.yLat(point.y, worldSize), this.xLng(point.x, worldSize));
+  };
+
+  _proto.lngX = function lngX(lon, worldSize) {
+    return (180 + lon) * (worldSize || this.worldSize) / 360;
+  };
+
+  _proto.latY = function latY(lat, worldSize) {
+    var y = 180 / Math.PI * Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360));
+    return (180 - y) * (worldSize || this.worldSize) / 360;
+  };
+
+  _proto.xLng = function xLng(x, worldSize) {
+    return x * 360 / (worldSize || this.worldSize) - 180;
+  };
+
+  _proto.yLat = function yLat(y, worldSize) {
+    var y2 = 180 - y * 360 / (worldSize || this.worldSize);
+    return 360 / Math.PI * Math.atan(Math.exp(y2 * Math.PI / 180)) - 90;
+  };
+
+  _proto.locationPoint = function locationPoint(latlng) {
+    var p = this.project(latlng);
+    return this.centerPoint._sub(this.point._sub(p)._rotate(this.angle));
+  };
+
+  _proto.pointLocation = function pointLocation(p) {
+    var p2 = this.centerPoint._sub(p)._rotate(-this.angle);
+
+    return this.unproject(this.point.sub(p2));
+  };
+
+  _createClass(Transform, [{
+    key: "minZoom",
+    get: function get() {
+      return this._minZoom;
+    },
+    set: function set(zoom) {
+      this._minZoom = zoom;
+      this.zoom = Math.max(this.zoom, zoom);
+    }
+  }, {
+    key: "maxZoom",
+    get: function get() {
+      return this._maxZoom;
+    },
+    set: function set(zoom) {
+      this._maxZoom = zoom;
+      this.zoom = Math.min(this.zoom, zoom);
+    }
+  }, {
+    key: "worldSize",
+    get: function get() {
+      return this.tileSize * this.scale;
+    }
+  }, {
+    key: "centerPoint",
+    get: function get() {
+      return new point_geometry_default.a(0, 0);
+    }
+  }, {
+    key: "size",
+    get: function get() {
+      return new point_geometry_default.a(this.width, this.height);
+    }
+  }, {
+    key: "bearing",
+    get: function get() {
+      return -this.angle / Math.PI * 180;
+    },
+    set: function set(bearing) {
+      this.angle = -wrap(bearing, -180, 180) * Math.PI / 180;
+    }
+  }, {
+    key: "zoom",
+    get: function get() {
+      return this._zoom;
+    },
+    set: function set(zoom) {
+      var zoomV = Math.min(Math.max(zoom, this.minZoom), this.maxZoom);
+      this._zoom = zoomV;
+      this.scale = this.zoomScale(zoomV);
+      this.tileZoom = Math.floor(zoomV);
+      this.zoomFraction = zoomV - this.tileZoom;
+    }
+  }, {
+    key: "x",
+    get: function get() {
+      return this.lngX(this.center.lng);
+    }
+  }, {
+    key: "y",
+    get: function get() {
+      return this.latY(this.center.lat);
+    }
+  }, {
+    key: "point",
+    get: function get() {
+      return new point_geometry_default.a(this.x, this.y);
+    }
+  }]);
+
+  return Transform;
+}();
+
+var index_modern_Geo = /*#__PURE__*/function () {
+  function Geo(tileSize) {
+    this.hasSize_ = false;
+    this.hasView_ = false;
+    this.transform_ = new index_modern_Transform(tileSize || 512);
+  }
+
+  var _proto = Geo.prototype;
+
+  _proto.setView = function setView(center, zoom, bearing) {
+    this.transform_.center = LatLng.convert(center);
+    this.transform_.zoom = +zoom;
+    this.transform_.bearing = +bearing;
+    this.hasView_ = true;
+  };
+
+  _proto.setViewSize = function setViewSize(width, height) {
+    this.transform_.width = width;
+    this.transform_.height = height;
+    this.hasSize_ = true;
+  };
+
+  _proto.setMapCanvasProjection = function setMapCanvasProjection(maps, mapCanvasProjection) {
+    this.maps_ = maps;
+    this.mapCanvasProjection_ = mapCanvasProjection;
+  };
+
+  _proto.canProject = function canProject() {
+    return this.hasSize_ && this.hasView_;
+  };
+
+  _proto.hasSize = function hasSize() {
+    return this.hasSize_;
+  };
+
+  _proto.fromLatLngToCenterPixel = function fromLatLngToCenterPixel(ptLatLng) {
+    return this.transform_.locationPoint(LatLng.convert(ptLatLng));
+  };
+
+  _proto.fromLatLngToDivPixel = function fromLatLngToDivPixel(ptLatLng) {
+    if (this.mapCanvasProjection_) {
+      var latLng = new this.maps_.LatLng(ptLatLng.lat, ptLatLng.lng);
+      return this.mapCanvasProjection_.fromLatLngToDivPixel(latLng);
+    }
+
+    return this.fromLatLngToCenterPixel(ptLatLng);
+  };
+
+  _proto.fromLatLngToContainerPixel = function fromLatLngToContainerPixel(ptLatLng) {
+    if (this.mapCanvasProjection_) {
+      var latLng = new this.maps_.LatLng(ptLatLng.lat, ptLatLng.lng);
+      return this.mapCanvasProjection_.fromLatLngToContainerPixel(latLng);
+    }
+
+    var pt = this.fromLatLngToCenterPixel(ptLatLng);
+    pt.x -= this.transform_.worldSize * Math.round(pt.x / this.transform_.worldSize);
+    pt.x += this.transform_.width / 2;
+    pt.y += this.transform_.height / 2;
+    return pt;
+  };
+
+  _proto.fromContainerPixelToLatLng = function fromContainerPixelToLatLng(ptXY) {
+    if (this.mapCanvasProjection_) {
+      var latLng = this.mapCanvasProjection_.fromContainerPixelToLatLng(ptXY);
+      return {
+        lat: latLng.lat(),
+        lng: latLng.lng()
+      };
+    }
+
+    var ptxy = _extends({}, ptXY);
+
+    ptxy.x -= this.transform_.width / 2;
+    ptxy.y -= this.transform_.height / 2;
+    var ptRes = this.transform_.pointLocation(point_geometry_default.a.convert(ptxy));
+    ptRes.lng -= 360 * Math.round(ptRes.lng / 360);
+    return ptRes;
+  };
+
+  _proto.getWidth = function getWidth() {
+    return this.transform_.width;
+  };
+
+  _proto.getHeight = function getHeight() {
+    return this.transform_.height;
+  };
+
+  _proto.getZoom = function getZoom() {
+    return this.transform_.zoom;
+  };
+
+  _proto.getCenter = function getCenter() {
+    var ptRes = this.transform_.pointLocation({
+      x: 0,
+      y: 0
+    });
+    return ptRes;
+  };
+
+  _proto.getBounds = function getBounds(margins, roundFactor) {
+    var bndT = margins && margins[0] || 0;
+    var bndR = margins && margins[1] || 0;
+    var bndB = margins && margins[2] || 0;
+    var bndL = margins && margins[3] || 0;
+
+    if (this.getWidth() - bndR - bndL > 0 && this.getHeight() - bndT - bndB > 0) {
+      var topLeftCorner = this.transform_.pointLocation(point_geometry_default.a.convert({
+        x: bndL - this.getWidth() / 2,
+        y: bndT - this.getHeight() / 2
+      }));
+      var bottomRightCorner = this.transform_.pointLocation(point_geometry_default.a.convert({
+        x: this.getWidth() / 2 - bndR,
+        y: this.getHeight() / 2 - bndB
+      }));
+      var res = [topLeftCorner.lat, topLeftCorner.lng, bottomRightCorner.lat, bottomRightCorner.lng, bottomRightCorner.lat, topLeftCorner.lng, topLeftCorner.lat, bottomRightCorner.lng];
+
+      if (roundFactor) {
+        res = res.map(function (r) {
+          return Math.round(r * roundFactor) / roundFactor;
+        });
+      }
+
+      return res;
+    }
+
+    return [0, 0, 0, 0];
+  };
+
+  return Geo;
+}();
+
+function raf(callback) {
+  if (window.requestAnimationFrame) {
+    return window.requestAnimationFrame(callback);
+  }
+
+  var nativeRaf = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
+  return nativeRaf ? nativeRaf(callback) : window.setTimeout(callback, 1e3 / 60);
+}
+
+var log2 = Math.log2 ? Math.log2 : function (x) {
+  return Math.log(x) / Math.LN2;
+};
+
+function pick(obj, fn) {
+  return Object.keys(obj).reduce(function (result, key) {
+    if (fn(obj[key])) {
+      result[key] = obj[key];
+    }
+
+    return result;
+  }, {});
+}
+
+var isEmpty = function isEmpty(val) {
+  if (val !== null && typeof val === 'object') {
+    if (Object.keys(val).length === 0) {
+      return true;
+    }
+  } else if (val === null || val === undefined || val === '') {
+    return true;
+  }
+
+  return false;
+};
+
+function isObjectLike(value) {
+  return !!value && typeof value === 'object';
+}
+
+var objectToString = Object.prototype.toString;
+function isNumber(value) {
+  var numberTag = '[object Number]';
+  return typeof value === 'number' || isObjectLike(value) && objectToString.call(value) === numberTag;
+}
+
+var detectBrowserResult_ = null;
+function detectBrowser() {
+  if (detectBrowserResult_) {
+    return detectBrowserResult_;
+  }
+
+  if (typeof navigator !== 'undefined') {
+    var isExplorer = navigator.userAgent.indexOf('MSIE') > -1;
+    var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
+    var isOpera = navigator.userAgent.toLowerCase().indexOf('op') > -1;
+    var isChrome = navigator.userAgent.indexOf('Chrome') > -1;
+    var isSafari = navigator.userAgent.indexOf('Safari') > -1;
+
+    if (isChrome && isSafari) {
+      isSafari = false;
+    }
+
+    if (isChrome && isOpera) {
+      isChrome = false;
+    }
+
+    detectBrowserResult_ = {
+      isExplorer: isExplorer,
+      isFirefox: isFirefox,
+      isOpera: isOpera,
+      isChrome: isChrome,
+      isSafari: isSafari
+    };
+    return detectBrowserResult_;
+  }
+
+  detectBrowserResult_ = {
+    isChrome: true,
+    isExplorer: false,
+    isFirefox: false,
+    isOpera: false,
+    isSafari: false
+  };
+  return detectBrowserResult_;
+}
+
+var fnToString = function fnToString(fn) {
+  return Function.prototype.toString.call(fn);
+};
+
+function isPlainObject(obj) {
+  if (!obj || typeof obj !== 'object') {
+    return false;
+  }
+
+  var proto = typeof obj.constructor === 'function' ? Object.getPrototypeOf(obj) : Object.prototype;
+
+  if (proto === null) {
+    return true;
+  }
+
+  var constructor = proto.constructor;
+  return typeof constructor === 'function' && constructor instanceof constructor && fnToString(constructor) === fnToString(Object);
+}
+
+function isArraysEqualEps(arrayA, arrayB, eps) {
+  if (arrayA && arrayB) {
+    for (var i = 0; i !== arrayA.length; ++i) {
+      if (Math.abs(arrayA[i] - arrayB[i]) > eps) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  return false;
+}
+
+function hasPassiveSupport() {
+  var passiveSupported = false;
+
+  try {
+    var options = Object.defineProperty({}, 'passive', {
+      get: function get() {
+        passiveSupported = true;
+      }
+    });
+    window.addEventListener('test', options, options);
+    window.removeEventListener('test', options, options);
+  } catch (err) {
+    passiveSupported = false;
+  }
+
+  return passiveSupported;
+}
+
+function addPassiveEventListener(element, eventName, func, capture) {
+  element.addEventListener(eventName, func, hasPassiveSupport() ? {
+    capture: capture,
+    passive: true
+  } : capture);
+}
+
+var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+var _window;
+
+if (canUseDOM) {
+  _window = window;
+} else if (typeof self !== 'undefined') {
+  _window = self;
+} else {
+  _window = undefined;
+}
+
+var attachEvent = typeof document !== 'undefined' && document.attachEvent;
+var stylesCreated = false;
+
+if (canUseDOM && !attachEvent) {
+  var requestFrame = function () {
+    var raf = _window.requestAnimationFrame || _window.mozRequestAnimationFrame || _window.webkitRequestAnimationFrame || function (fn) {
+      return _window.setTimeout(fn, 20);
+    };
+
+    return function (fn) {
+      return raf(fn);
+    };
+  }();
+
+  var cancelFrame = function () {
+    var cancel = _window.cancelAnimationFrame || _window.mozCancelAnimationFrame || _window.webkitCancelAnimationFrame || _window.clearTimeout;
+    return function (id) {
+      return cancel(id);
+    };
+  }();
+
+  var resetTriggers = function resetTriggers(element) {
+    var triggers = element.__resizeTriggers__,
+        expand = triggers.firstElementChild,
+        contract = triggers.lastElementChild,
+        expandChild = expand.firstElementChild;
+    contract.scrollLeft = contract.scrollWidth;
+    contract.scrollTop = contract.scrollHeight;
+    expandChild.style.width = expand.offsetWidth + 1 + 'px';
+    expandChild.style.height = expand.offsetHeight + 1 + 'px';
+    expand.scrollLeft = expand.scrollWidth;
+    expand.scrollTop = expand.scrollHeight;
+  };
+
+  var checkTriggers = function checkTriggers(element) {
+    return element.offsetWidth != element.__resizeLast__.width || element.offsetHeight != element.__resizeLast__.height;
+  };
+
+  var scrollListener = function scrollListener(e) {
+    var element = this;
+    resetTriggers(this);
+    if (this.__resizeRAF__) cancelFrame(this.__resizeRAF__);
+    this.__resizeRAF__ = requestFrame(function () {
+      if (checkTriggers(element)) {
+        element.__resizeLast__.width = element.offsetWidth;
+        element.__resizeLast__.height = element.offsetHeight;
+
+        element.__resizeListeners__.forEach(function (fn) {
+          fn.call(element, e);
+        });
+      }
+    });
+  };
+
+  var animation = false,
+      keyframeprefix = '',
+      animationstartevent = 'animationstart',
+      domPrefixes = 'Webkit Moz O ms'.split(' '),
+      startEvents = 'webkitAnimationStart animationstart oAnimationStart MSAnimationStart'.split(' '),
+      pfx = '';
+
+  if (canUseDOM) {
+    var elm = document.createElement('fakeelement');
+
+    if (elm.style.animationName !== undefined) {
+      animation = true;
+    }
+
+    if (animation === false) {
+      for (var index_modern_i = 0; index_modern_i < domPrefixes.length; index_modern_i++) {
+        if (elm.style[domPrefixes[index_modern_i] + 'AnimationName'] !== undefined) {
+          pfx = domPrefixes[index_modern_i];
+          keyframeprefix = '-' + pfx.toLowerCase() + '-';
+          animationstartevent = startEvents[index_modern_i];
+          animation = true;
+          break;
+        }
+      }
+    }
+  }
+
+  var animationName = 'resizeanim';
+  var animationKeyframes = '@' + keyframeprefix + 'keyframes ' + animationName + ' { from { opacity: 0; } to { opacity: 0; } } ';
+  var animationStyle = keyframeprefix + 'animation: 1ms ' + animationName + '; ';
+}
+
+var createStyles = function createStyles() {
+  if (!stylesCreated) {
+    var css = (animationKeyframes ? animationKeyframes : '') + '.resize-triggers { ' + (animationStyle ? animationStyle : '') + 'visibility: hidden; opacity: 0; } ' + '.resize-triggers, .resize-triggers > div, .contract-trigger:before { content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; } .resize-triggers > div { background: #eee; overflow: auto; } .contract-trigger:before { width: 200%; height: 200%; }',
+        head = document.head || document.getElementsByTagName('head')[0],
+        style = document.createElement('style');
+    style.type = 'text/css';
+
+    if (style.styleSheet) {
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+
+    head.appendChild(style);
+    stylesCreated = true;
+  }
+};
+
+var addResizeListener = function addResizeListener(element, fn) {
+  if (element.parentNode === undefined) {
+    var tempParentDiv = document.createElement('div');
+    element.parentNode = tempParentDiv;
+  }
+
+  element = element.parentNode;
+  if (attachEvent) element.attachEvent('onresize', fn);else {
+    if (!element.__resizeTriggers__) {
+      if (getComputedStyle(element).position == 'static') element.style.position = 'relative';
+      createStyles();
+      element.__resizeLast__ = {};
+      element.__resizeListeners__ = [];
+      (element.__resizeTriggers__ = document.createElement('div')).className = 'resize-triggers';
+      element.__resizeTriggers__.innerHTML = '<div class="expand-trigger"><div></div></div>' + '<div class="contract-trigger"></div>';
+      element.appendChild(element.__resizeTriggers__);
+      resetTriggers(element);
+      addPassiveEventListener(element, 'scroll', scrollListener, true);
+      animationstartevent && element.__resizeTriggers__.addEventListener(animationstartevent, function (e) {
+        if (e.animationName == animationName) resetTriggers(element);
+      });
+    }
+
+    element.__resizeListeners__.push(fn);
+  }
+};
+
+var removeResizeListener = function removeResizeListener(element, fn) {
+  element = element.parentNode;
+  if (attachEvent) element.detachEvent('onresize', fn);else {
+    element.__resizeListeners__.splice(element.__resizeListeners__.indexOf(fn), 1);
+
+    if (!element.__resizeListeners__.length) {
+      element.removeEventListener('scroll', scrollListener);
+      element.__resizeTriggers__ = !element.removeChild(element.__resizeTriggers__);
+    }
+  }
+};
+
+var kEPS = 0.00001;
+var K_GOOGLE_TILE_SIZE = 256;
+var K_IDLE_TIMEOUT = 100;
+var K_IDLE_CLICK_TIMEOUT = 300;
+var DEFAULT_MIN_ZOOM = 3;
+var DRAW_CALLED_DURING_ANIMATION_VERSION = 32;
+var IS_REACT_16 = react_dom_default.a.createPortal !== undefined;
+var createPortal = IS_REACT_16 ? react_dom_default.a.createPortal : react_dom_default.a.unstable_renderSubtreeIntoContainer;
+
+function defaultOptions_() {
+  return {
+    overviewMapControl: false,
+    streetViewControl: false,
+    rotateControl: true,
+    mapTypeControl: false,
+    styles: [{
+      featureType: 'poi',
+      elementType: 'labels',
+      stylers: [{
+        visibility: 'off'
+      }]
+    }],
+    minZoom: DEFAULT_MIN_ZOOM
+  };
+}
+
+var latLng2Obj = function latLng2Obj(latLng) {
+  return isPlainObject(latLng) ? latLng : {
+    lat: latLng[0],
+    lng: latLng[1]
+  };
+};
+
+var _checkMinZoom = function _checkMinZoom(zoom, minZoom) {
+  if (false) {}
+
+  if (minZoom < zoom) {
+    return zoom;
+  }
+
+  return minZoom;
+};
+
+var isFullScreen = function isFullScreen() {
+  return document.fullscreen || document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement;
+};
+
+var index_modern_GoogleMap = /*#__PURE__*/function (_Component) {
+  _inheritsLoose(GoogleMap, _Component);
+
+  function GoogleMap(props) {
+    var _this;
+
+    _this = _Component.call(this, props) || this;
+
+    _this._getMinZoom = function () {
+      if (_this.geoService_.getWidth() > 0 || _this.geoService_.getHeight() > 0) {
+        var tilesPerWidth = Math.ceil(_this.geoService_.getWidth() / K_GOOGLE_TILE_SIZE) + 2;
+        var tilesPerHeight = Math.ceil(_this.geoService_.getHeight() / K_GOOGLE_TILE_SIZE) + 2;
+        var maxTilesPerDim = Math.max(tilesPerWidth, tilesPerHeight);
+        return Math.ceil(log2(maxTilesPerDim));
+      }
+
+      return DEFAULT_MIN_ZOOM;
+    };
+
+    _this._computeMinZoom = function (minZoom) {
+      if (!isEmpty(minZoom)) {
+        return minZoom;
+      }
+
+      return _this._getMinZoom();
+    };
+
+    _this._mapDomResizeCallback = function () {
+      _this.resetSizeOnIdle_ = true;
+
+      if (_this.maps_) {
+        var originalCenter = _this.props.center || _this.props.defaultCenter;
+
+        var currentCenter = _this.map_.getCenter();
+
+        _this.maps_.event.trigger(_this.map_, 'resize');
+
+        _this.map_.setCenter(_this.props.resetBoundsOnResize ? originalCenter : currentCenter);
+      }
+    };
+
+    _this._setLayers = function (layerTypes) {
+      layerTypes.forEach(function (layerType) {
+        _this.layers_[layerType] = new _this.maps_[layerType]();
+
+        _this.layers_[layerType].setMap(_this.map_);
+      });
+    };
+
+    _this._renderPortal = function () {
+      return /*#__PURE__*/react_default.a.createElement(index_modern_GoogleMapMarkers, {
+        experimental: _this.props.experimental,
+        onChildClick: _this._onChildClick,
+        onChildMouseDown: _this._onChildMouseDown,
+        onChildMouseEnter: _this._onChildMouseEnter,
+        onChildMouseLeave: _this._onChildMouseLeave,
+        geoService: _this.geoService_,
+        insideMapPanes: true,
+        distanceToMouse: _this.props.distanceToMouse,
+        getHoverDistance: _this._getHoverDistance,
+        dispatcher: _this.markersDispatcher_
+      });
+    };
+
+    _this._initMap = function () {
+      if (_this.initialized_) {
+        return;
+      }
+
+      _this.initialized_ = true;
+      var propsCenter = latLng2Obj(_this.props.center || _this.props.defaultCenter);
+
+      _this.geoService_.setView(propsCenter, _this.props.zoom || _this.props.defaultZoom, 0);
+
+      _this._onBoundsChanged();
+
+      var bootstrapURLKeys = _extends({}, _this.props.apiKey && {
+        key: _this.props.apiKey
+      }, _this.props.bootstrapURLKeys);
+
+      _this.props.googleMapLoader(bootstrapURLKeys, _this.props.heatmapLibrary).then(function (maps) {
+        if (!_this.mounted_) {
+          return;
+        }
+
+        var centerLatLng = _this.geoService_.getCenter();
+
+        var propsOptions = {
+          zoom: _this.props.zoom || _this.props.defaultZoom,
+          center: new maps.LatLng(centerLatLng.lat, centerLatLng.lng)
+        };
+
+        if (_this.props.heatmap.positions) {
+          Object.assign(_assertThisInitialized(_this), {
+            heatmap: generateHeatmap(maps, _this.props.heatmap)
+          });
+          optionsHeatmap(_this.heatmap, _this.props.heatmap);
+        }
+
+        var mapPlainObjects = pick(maps, isPlainObject);
+        var options = typeof _this.props.options === 'function' ? _this.props.options(mapPlainObjects) : _this.props.options;
+        var defaultOptions = defaultOptions_();
+        var draggableOptions = !isEmpty(_this.props.draggable) && {
+          draggable: _this.props.draggable
+        };
+
+        var minZoom = _this._computeMinZoom(options.minZoom);
+
+        _this.minZoom_ = minZoom;
+
+        var preMapOptions = _extends({}, defaultOptions, {
+          minZoom: minZoom
+        }, options, propsOptions);
+
+        _this.defaultDraggableOption_ = !isEmpty(preMapOptions.draggable) ? preMapOptions.draggable : _this.defaultDraggableOption_;
+
+        var mapOptions = _extends({}, preMapOptions, draggableOptions);
+
+        mapOptions.minZoom = _checkMinZoom(mapOptions.minZoom, minZoom);
+        var map = new maps.Map(react_dom_default.a.findDOMNode(_this.googleMapDom_), mapOptions);
+        _this.map_ = map;
+        _this.maps_ = maps;
+
+        _this._setLayers(_this.props.layerTypes);
+
+        var versionMatch = maps.version.match(/^3\.(\d+)\./);
+        var mapsVersion = versionMatch && Number(versionMatch[1]);
+
+        var this_ = _assertThisInitialized(_this);
+
+        var overlay = Object.assign(new maps.OverlayView(), {
+          onAdd: function onAdd() {
+            var K_MAX_WIDTH = typeof screen !== 'undefined' ? screen.width + "px" : '2000px';
+            var K_MAX_HEIGHT = typeof screen !== 'undefined' ? screen.height + "px" : '2000px';
+            var div = document.createElement('div');
+            div.style.backgroundColor = 'transparent';
+            div.style.position = 'absolute';
+            div.style.left = '0px';
+            div.style.top = '0px';
+            div.style.width = K_MAX_WIDTH;
+            div.style.height = K_MAX_HEIGHT;
+
+            if (this_.props.overlayViewDivStyle) {
+              var overlayViewDivStyle = this_.props.overlayViewDivStyle;
+
+              if (typeof overlayViewDivStyle === 'object') {
+                Object.keys(overlayViewDivStyle).forEach(function (property) {
+                  div.style[property] = overlayViewDivStyle[property];
+                });
+              }
+            }
+
+            var panes = this.getPanes();
+            panes.overlayMouseTarget.appendChild(div);
+            this_.geoService_.setMapCanvasProjection(maps, overlay.getProjection());
+
+            if (!IS_REACT_16) {
+              createPortal(this_, this_._renderPortal(), div, function () {
+                return this_.setState({
+                  overlay: div
+                });
+              });
+            } else {
+              this_.setState({
+                overlay: div
+              });
+            }
+          },
+          onRemove: function onRemove() {
+            var renderedOverlay = this_.state.overlay;
+
+            if (renderedOverlay && !IS_REACT_16) {
+              react_dom_default.a.unmountComponentAtNode(renderedOverlay);
+            }
+
+            this_.setState({
+              overlay: null
+            });
+          },
+          draw: function draw() {
+            this_.updateCounter_++;
+
+            this_._onBoundsChanged(map, maps, !this_.props.debounced);
+
+            if (!this_.googleApiLoadedCalled_) {
+              this_._onGoogleApiLoaded({
+                map: map,
+                maps: maps,
+                ref: this_.googleMapDom_
+              });
+
+              this_.googleApiLoadedCalled_ = true;
+            }
+
+            if (this_.mouse_) {
+              var latLng = this_.geoService_.fromContainerPixelToLatLng(this_.mouse_);
+              this_.mouse_.lat = latLng.lat;
+              this_.mouse_.lng = latLng.lng;
+            }
+
+            this_._onChildMouseMove();
+
+            if (this_.markersDispatcher_) {
+              this_.markersDispatcher_.emit('kON_CHANGE');
+
+              if (this_.fireMouseEventOnIdle_) {
+                this_.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
+              }
+            }
+          }
+        });
+        _this.overlay_ = overlay;
+        overlay.setMap(map);
+
+        if (_this.props.heatmap.positions) {
+          _this.heatmap.setMap(map);
+        }
+
+        if (_this.props.onTilesLoaded) {
+          maps.event.addListener(map, 'tilesloaded', function () {
+            this_._onTilesLoaded();
+          });
+        }
+
+        maps.event.addListener(map, 'zoom_changed', function () {
+          if (this_.geoService_.getZoom() !== map.getZoom()) {
+            if (!this_.zoomAnimationInProgress_) {
+              this_.zoomAnimationInProgress_ = true;
+
+              this_._onZoomAnimationStart(map.zoom);
+            }
+
+            if (mapsVersion < DRAW_CALLED_DURING_ANIMATION_VERSION) {
+              var TIMEOUT_ZOOM = 300;
+
+              if (new Date().getTime() - _this.zoomControlClickTime_ < TIMEOUT_ZOOM) {
+                raf(function () {
+                  return raf(function () {
+                    this_.updateCounter_++;
+
+                    this_._onBoundsChanged(map, maps);
+                  });
+                });
+              } else {
+                this_.updateCounter_++;
+
+                this_._onBoundsChanged(map, maps);
+              }
+            }
+          }
+        });
+        maps.event.addListener(map, 'idle', function () {
+          if (_this.resetSizeOnIdle_) {
+            _this._setViewSize();
+
+            var currMinZoom = _this._computeMinZoom(options.minZoom);
+
+            if (currMinZoom !== _this.minZoom_) {
+              _this.minZoom_ = currMinZoom;
+              map.setOptions({
+                minZoom: currMinZoom
+              });
+            }
+
+            _this.resetSizeOnIdle_ = false;
+          }
+
+          if (this_.zoomAnimationInProgress_) {
+            this_.zoomAnimationInProgress_ = false;
+
+            this_._onZoomAnimationEnd(map.zoom);
+          }
+
+          this_.updateCounter_++;
+
+          this_._onBoundsChanged(map, maps);
+
+          this_.dragTime_ = 0;
+
+          if (this_.markersDispatcher_) {
+            this_.markersDispatcher_.emit('kON_CHANGE');
+          }
+        });
+        maps.event.addListener(map, 'mouseover', function () {
+          this_.mouseInMap_ = true;
+        });
+        maps.event.addListener(map, 'click', function () {
+          this_.mouseInMap_ = true;
+        });
+        maps.event.addListener(map, 'mouseout', function () {
+          this_.mouseInMap_ = false;
+          this_.mouse_ = null;
+          this_.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
+        });
+        maps.event.addListener(map, 'drag', function () {
+          this_.dragTime_ = new Date().getTime();
+
+          this_._onDrag(map);
+        });
+        maps.event.addListener(map, 'dragend', function () {
+          var idleListener = maps.event.addListener(map, 'idle', function () {
+            maps.event.removeListener(idleListener);
+
+            this_._onDragEnd(map);
+          });
+        });
+        maps.event.addListener(map, 'maptypeid_changed', function () {
+          this_._onMapTypeIdChange(map.getMapTypeId());
+        });
+      })["catch"](function (e) {
+        _this._onGoogleApiLoaded({
+          map: null,
+          maps: null,
+          ref: _this.googleMapDom_
+        });
+
+        console.error(e);
+        throw e;
+      });
+    };
+
+    _this._onGoogleApiLoaded = function () {
+      if (_this.props.onGoogleApiLoaded) {
+        var _this$props;
+
+        if (false) {}
+
+        (_this$props = _this.props).onGoogleApiLoaded.apply(_this$props, arguments);
+      }
+    };
+
+    _this._getHoverDistance = function () {
+      return _this.props.hoverDistance;
+    };
+
+    _this._onDrag = function () {
+      var _this$props2;
+
+      return _this.props.onDrag && (_this$props2 = _this.props).onDrag.apply(_this$props2, arguments);
+    };
+
+    _this._onDragEnd = function () {
+      var _this$props3;
+
+      return _this.props.onDragEnd && (_this$props3 = _this.props).onDragEnd.apply(_this$props3, arguments);
+    };
+
+    _this._onMapTypeIdChange = function () {
+      var _this$props4;
+
+      return _this.props.onMapTypeIdChange && (_this$props4 = _this.props).onMapTypeIdChange.apply(_this$props4, arguments);
+    };
+
+    _this._onZoomAnimationStart = function () {
+      var _this$props5;
+
+      return _this.props.onZoomAnimationStart && (_this$props5 = _this.props).onZoomAnimationStart.apply(_this$props5, arguments);
+    };
+
+    _this._onZoomAnimationEnd = function () {
+      var _this$props6;
+
+      return _this.props.onZoomAnimationEnd && (_this$props6 = _this.props).onZoomAnimationEnd.apply(_this$props6, arguments);
+    };
+
+    _this._onTilesLoaded = function () {
+      return _this.props.onTilesLoaded && _this.props.onTilesLoaded();
+    };
+
+    _this._onChildClick = function () {
+      if (_this.props.onChildClick) {
+        var _this$props7;
+
+        return (_this$props7 = _this.props).onChildClick.apply(_this$props7, arguments);
+      }
+
+      return undefined;
+    };
+
+    _this._onChildMouseDown = function (hoverKey, childProps) {
+      _this.childMouseDownArgs_ = [hoverKey, childProps];
+
+      if (_this.props.onChildMouseDown) {
+        _this.props.onChildMouseDown(hoverKey, childProps, _extends({}, _this.mouse_));
+      }
+    };
+
+    _this._onChildMouseUp = function () {
+      if (_this.childMouseDownArgs_) {
+        if (_this.props.onChildMouseUp) {
+          var _this$props8;
+
+          (_this$props8 = _this.props).onChildMouseUp.apply(_this$props8, _this.childMouseDownArgs_.concat([_extends({}, _this.mouse_)]));
+        }
+
+        _this.childMouseDownArgs_ = null;
+        _this.childMouseUpTime_ = new Date().getTime();
+      }
+    };
+
+    _this._onChildMouseMove = function () {
+      if (_this.childMouseDownArgs_) {
+        if (_this.props.onChildMouseMove) {
+          var _this$props9;
+
+          (_this$props9 = _this.props).onChildMouseMove.apply(_this$props9, _this.childMouseDownArgs_.concat([_extends({}, _this.mouse_)]));
+        }
+      }
+    };
+
+    _this._onChildMouseEnter = function () {
+      if (_this.props.onChildMouseEnter) {
+        var _this$props10;
+
+        return (_this$props10 = _this.props).onChildMouseEnter.apply(_this$props10, arguments);
+      }
+
+      return undefined;
+    };
+
+    _this._onChildMouseLeave = function () {
+      if (_this.props.onChildMouseLeave) {
+        var _this$props11;
+
+        return (_this$props11 = _this.props).onChildMouseLeave.apply(_this$props11, arguments);
+      }
+
+      return undefined;
+    };
+
+    _this._setViewSize = function () {
+      if (!_this.mounted_) return;
+
+      if (isFullScreen()) {
+        _this.geoService_.setViewSize(window.innerWidth, window.innerHeight);
+      } else {
+        var mapDom = react_dom_default.a.findDOMNode(_this.googleMapDom_);
+
+        _this.geoService_.setViewSize(mapDom.clientWidth, mapDom.clientHeight);
+      }
+
+      _this._onBoundsChanged();
+    };
+
+    _this._onWindowResize = function () {
+      _this.resetSizeOnIdle_ = true;
+    };
+
+    _this._onMapMouseMove = function (e) {
+      if (!_this.mouseInMap_) return;
+      var currTime = new Date().getTime();
+      var K_RECALC_CLIENT_RECT_MS = 50;
+
+      if (currTime - _this.mouseMoveTime_ > K_RECALC_CLIENT_RECT_MS) {
+        _this.boundingRect_ = e.currentTarget.getBoundingClientRect();
+      }
+
+      _this.mouseMoveTime_ = currTime;
+      var mousePosX = e.clientX - _this.boundingRect_.left;
+      var mousePosY = e.clientY - _this.boundingRect_.top;
+
+      if (!_this.mouse_) {
+        _this.mouse_ = {
+          x: 0,
+          y: 0,
+          lat: 0,
+          lng: 0
+        };
+      }
+
+      _this.mouse_.x = mousePosX;
+      _this.mouse_.y = mousePosY;
+
+      var latLng = _this.geoService_.fromContainerPixelToLatLng(_this.mouse_);
+
+      _this.mouse_.lat = latLng.lat;
+      _this.mouse_.lng = latLng.lng;
+
+      _this._onChildMouseMove();
+
+      if (currTime - _this.dragTime_ < K_IDLE_TIMEOUT) {
+        _this.fireMouseEventOnIdle_ = true;
+      } else {
+        _this.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
+
+        _this.fireMouseEventOnIdle_ = false;
+      }
+    };
+
+    _this._onClick = function () {
+      var _this$props12;
+
+      return _this.props.onClick && !_this.childMouseDownArgs_ && new Date().getTime() - _this.childMouseUpTime_ > K_IDLE_CLICK_TIMEOUT && _this.dragTime_ === 0 && (_this$props12 = _this.props).onClick.apply(_this$props12, arguments);
+    };
+
+    _this._onMapClick = function (event) {
+      if (_this.markersDispatcher_) {
+        _this._onMapMouseMove(event);
+
+        var currTime = new Date().getTime();
+
+        if (currTime - _this.dragTime_ > K_IDLE_TIMEOUT) {
+          if (_this.mouse_) {
+            _this._onClick(_extends({}, _this.mouse_, {
+              event: event
+            }));
+          }
+
+          _this.markersDispatcher_.emit('kON_CLICK', event);
+        }
+      }
+    };
+
+    _this._onMapMouseDownNative = function (event) {
+      if (!_this.mouseInMap_) return;
+
+      _this._onMapMouseDown(event);
+    };
+
+    _this._onMapMouseDown = function (event) {
+      if (_this.markersDispatcher_) {
+        var currTime = new Date().getTime();
+
+        if (currTime - _this.dragTime_ > K_IDLE_TIMEOUT) {
+          _this._onMapMouseMove(event);
+
+          _this.markersDispatcher_.emit('kON_MDOWN', event);
+        }
+      }
+    };
+
+    _this._onMapMouseDownCapture = function () {
+      if (detectBrowser().isChrome) {
+        _this.zoomControlClickTime_ = new Date().getTime();
+      }
+    };
+
+    _this._onKeyDownCapture = function () {
+      if (detectBrowser().isChrome) {
+        _this.zoomControlClickTime_ = new Date().getTime();
+      }
+    };
+
+    _this._isCenterDefined = function (center) {
+      return center && (isPlainObject(center) && isNumber(center.lat) && isNumber(center.lng) || center.length === 2 && isNumber(center[0]) && isNumber(center[1]));
+    };
+
+    _this._onBoundsChanged = function (map, maps, callExtBoundsChange) {
+      if (map) {
+        var gmC = map.getCenter();
+
+        _this.geoService_.setView([gmC.lat(), gmC.lng()], map.getZoom(), 0);
+      }
+
+      if ((_this.props.onChange || _this.props.onBoundsChange) && _this.geoService_.canProject()) {
+        var zoom = _this.geoService_.getZoom();
+
+        var bounds = _this.geoService_.getBounds();
+
+        var centerLatLng = _this.geoService_.getCenter();
+
+        if (!isArraysEqualEps(bounds, _this.prevBounds_, kEPS)) {
+          if (callExtBoundsChange !== false) {
+            var marginBounds = _this.geoService_.getBounds(_this.props.margin);
+
+            if (_this.props.onBoundsChange) {
+              _this.props.onBoundsChange(_this.centerIsObject_ ? _extends({}, centerLatLng) : [centerLatLng.lat, centerLatLng.lng], zoom, bounds, marginBounds);
+            }
+
+            if (_this.props.onChange) {
+              _this.props.onChange({
+                center: _extends({}, centerLatLng),
+                zoom: zoom,
+                bounds: {
+                  nw: {
+                    lat: bounds[0],
+                    lng: bounds[1]
+                  },
+                  se: {
+                    lat: bounds[2],
+                    lng: bounds[3]
+                  },
+                  sw: {
+                    lat: bounds[4],
+                    lng: bounds[5]
+                  },
+                  ne: {
+                    lat: bounds[6],
+                    lng: bounds[7]
+                  }
+                },
+                marginBounds: {
+                  nw: {
+                    lat: marginBounds[0],
+                    lng: marginBounds[1]
+                  },
+                  se: {
+                    lat: marginBounds[2],
+                    lng: marginBounds[3]
+                  },
+                  sw: {
+                    lat: marginBounds[4],
+                    lng: marginBounds[5]
+                  },
+                  ne: {
+                    lat: marginBounds[6],
+                    lng: marginBounds[7]
+                  }
+                },
+                size: _this.geoService_.hasSize() ? {
+                  width: _this.geoService_.getWidth(),
+                  height: _this.geoService_.getHeight()
+                } : {
+                  width: 0,
+                  height: 0
+                }
+              });
+            }
+
+            _this.prevBounds_ = bounds;
+          }
+        }
+      }
+    };
+
+    _this._registerChild = function (ref) {
+      _this.googleMapDom_ = ref;
+    };
+
+    _this.mounted_ = false;
+    _this.initialized_ = false;
+    _this.googleApiLoadedCalled_ = false;
+    _this.map_ = null;
+    _this.maps_ = null;
+    _this.prevBounds_ = null;
+    _this.heatmap = null;
+    _this.layers_ = {};
+    _this.mouse_ = null;
+    _this.mouseMoveTime_ = 0;
+    _this.boundingRect_ = null;
+    _this.mouseInMap_ = true;
+    _this.dragTime_ = 0;
+    _this.fireMouseEventOnIdle_ = false;
+    _this.updateCounter_ = 0;
+    _this.markersDispatcher_ = new MarkerDispatcher(_assertThisInitialized(_this));
+    _this.geoService_ = new index_modern_Geo(K_GOOGLE_TILE_SIZE);
+    _this.centerIsObject_ = isPlainObject(_this.props.center);
+    _this.minZoom_ = DEFAULT_MIN_ZOOM;
+    _this.defaultDraggableOption_ = true;
+    _this.zoomControlClickTime_ = 0;
+    _this.childMouseDownArgs_ = null;
+    _this.childMouseUpTime_ = 0;
+    _this.googleMapDom_ = null;
+
+    if (false) {}
+
+    if (_this._isCenterDefined(_this.props.center || _this.props.defaultCenter)) {
+      var propsCenter = latLng2Obj(_this.props.center || _this.props.defaultCenter);
+
+      _this.geoService_.setView(propsCenter, _this.props.zoom || _this.props.defaultZoom, 0);
+    }
+
+    _this.zoomAnimationInProgress_ = false;
+    _this.state = {
+      overlay: null
+    };
+    return _this;
+  }
+
+  var _proto = GoogleMap.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    var _this2 = this;
+
+    this.mounted_ = true;
+    addPassiveEventListener(window, 'resize', this._onWindowResize, false);
+    addPassiveEventListener(window, 'keydown', this._onKeyDownCapture, true);
+    var mapDom = react_dom_default.a.findDOMNode(this.googleMapDom_);
+
+    if (mapDom) {
+      addPassiveEventListener(mapDom, 'mousedown', this._onMapMouseDownNative, true);
+    }
+
+    addPassiveEventListener(window, 'mouseup', this._onChildMouseUp, false);
+
+    var bootstrapURLKeys = _extends({}, this.props.apiKey && {
+      key: this.props.apiKey
+    }, this.props.bootstrapURLKeys);
+
+    this.props.googleMapLoader(bootstrapURLKeys, this.props.heatmapLibrary);
+    setTimeout(function () {
+      _this2._setViewSize();
+
+      if (_this2._isCenterDefined(_this2.props.center || _this2.props.defaultCenter)) {
+        _this2._initMap();
+      }
+    }, 0, this);
+
+    if (this.props.resetBoundsOnResize) {
+      var that = this;
+      addResizeListener(mapDom, that._mapDomResizeCallback);
+    }
+  };
+
+  _proto.UNSAFE_componentWillReceiveProps = function UNSAFE_componentWillReceiveProps(nextProps) {
+    var _this3 = this;
+
+    if (false) {}
+
+    if (!this._isCenterDefined(this.props.center) && this._isCenterDefined(nextProps.center)) {
+      setTimeout(function () {
+        return _this3._initMap();
+      }, 0);
+    }
+
+    if (this.map_) {
+      var centerLatLng = this.geoService_.getCenter();
+
+      if (this._isCenterDefined(nextProps.center)) {
+        var nextPropsCenter = latLng2Obj(nextProps.center);
+        var currCenter = this._isCenterDefined(this.props.center) ? latLng2Obj(this.props.center) : null;
+
+        if (!currCenter || Math.abs(nextPropsCenter.lat - currCenter.lat) + Math.abs(nextPropsCenter.lng - currCenter.lng) > kEPS) {
+          if (Math.abs(nextPropsCenter.lat - centerLatLng.lat) + Math.abs(nextPropsCenter.lng - centerLatLng.lng) > kEPS) {
+            this.map_.panTo({
+              lat: nextPropsCenter.lat,
+              lng: nextPropsCenter.lng
+            });
+          }
+        }
+      }
+
+      if (!isEmpty(nextProps.zoom)) {
+        if (Math.abs(nextProps.zoom - this.props.zoom) > 0) {
+          this.map_.setZoom(nextProps.zoom);
+        }
+      }
+
+      if (!isEmpty(this.props.draggable) && isEmpty(nextProps.draggable)) {
+        this.map_.setOptions({
+          draggable: this.defaultDraggableOption_
+        });
+      } else if (!shallowEqual(this.props.draggable, nextProps.draggable)) {
+        this.map_.setOptions({
+          draggable: nextProps.draggable
+        });
+      }
+
+      if (!isEmpty(nextProps.options) && !shallowEqual(this.props.options, nextProps.options)) {
+        var mapPlainObjects = pick(this.maps_, isPlainObject);
+        var options = typeof nextProps.options === 'function' ? nextProps.options(mapPlainObjects) : nextProps.options;
+        options = omit(options, ['zoom', 'center', 'draggable']);
+
+        if ('minZoom' in options) {
+          var minZoom = this._computeMinZoom(options.minZoom);
+
+          options.minZoom = _checkMinZoom(options.minZoom, minZoom);
+        }
+
+        this.map_.setOptions(options);
+      }
+
+      if (!shallowEqual(nextProps.layerTypes, this.props.layerTypes)) {
+        Object.keys(this.layers_).forEach(function (layerKey) {
+          _this3.layers_[layerKey].setMap(null);
+
+          delete _this3.layers_[layerKey];
+        });
+
+        this._setLayers(nextProps.layerTypes);
+      }
+
+      if (this.heatmap && !shallowEqual(nextProps.heatmap.positions, this.props.heatmap.positions)) {
+        this.heatmap.setData(nextProps.heatmap.positions.map(function (p) {
+          return {
+            location: new _this3.maps_.LatLng(p.lat, p.lng),
+            weight: p.weight
+          };
+        }));
+      }
+
+      if (this.heatmap && !shallowEqual(nextProps.heatmap.options, this.props.heatmap.options)) {
+        Object.keys(nextProps.heatmap.options).forEach(function (option) {
+          _this3.heatmap.set(option, nextProps.heatmap.options[option]);
+        });
+      }
+    }
+  };
+
+  _proto.shouldComponentUpdate = function shouldComponentUpdate(nextProps, nextState) {
+    return !shallowEqual(omit(this.props, ['draggable']), omit(nextProps, ['draggable'])) || !shallowEqual(this.state, nextState);
+  };
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+    this.markersDispatcher_.emit('kON_CHANGE');
+
+    if (!shallowEqual(this.props.hoverDistance, prevProps.hoverDistance)) {
+      this.markersDispatcher_.emit('kON_MOUSE_POSITION_CHANGE');
+    }
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    this.mounted_ = false;
+    var mapDom = react_dom_default.a.findDOMNode(this.googleMapDom_);
+
+    if (mapDom) {
+      mapDom.removeEventListener('mousedown', this._onMapMouseDownNative, true);
+    }
+
+    window.removeEventListener('resize', this._onWindowResize);
+    window.removeEventListener('keydown', this._onKeyDownCapture);
+    window.removeEventListener('mouseup', this._onChildMouseUp, false);
+
+    if (this.props.resetBoundsOnResize) {
+      removeResizeListener(mapDom, this._mapDomResizeCallback);
+    }
+
+    if (this.overlay_) {
+      this.overlay_.setMap(null);
+    }
+
+    if (this.maps_ && this.map_ && this.props.shouldUnregisterMapOnUnmount) {
+      this.map_.setOptions({
+        scrollwheel: false
+      });
+      this.maps_.event.clearInstanceListeners(this.map_);
+    }
+
+    if (this.props.shouldUnregisterMapOnUnmount) {
+      this.map_ = null;
+      this.maps_ = null;
+    }
+
+    this.markersDispatcher_.dispose();
+    this.resetSizeOnIdle_ = false;
+
+    if (this.props.shouldUnregisterMapOnUnmount) {
+      delete this.map_;
+      delete this.markersDispatcher_;
+    }
+  };
+
+  _proto.render = function render() {
+    var overlay = this.state.overlay;
+    var mapMarkerPrerender = !overlay ? /*#__PURE__*/react_default.a.createElement(GoogleMapMarkersPrerender, {
+      experimental: this.props.experimental,
+      onChildClick: this._onChildClick,
+      onChildMouseDown: this._onChildMouseDown,
+      onChildMouseEnter: this._onChildMouseEnter,
+      onChildMouseLeave: this._onChildMouseLeave,
+      geoService: this.geoService_,
+      insideMapPanes: false,
+      distanceToMouse: this.props.distanceToMouse,
+      getHoverDistance: this._getHoverDistance,
+      dispatcher: this.markersDispatcher_
+    }) : null;
+    return /*#__PURE__*/react_default.a.createElement("div", {
+      style: this.props.style,
+      onMouseMove: this._onMapMouseMove,
+      onMouseDownCapture: this._onMapMouseDownCapture,
+      onClick: this._onMapClick
+    }, /*#__PURE__*/react_default.a.createElement(index_modern_GoogleMapMap, {
+      registerChild: this._registerChild
+    }), IS_REACT_16 && overlay && createPortal(this._renderPortal(), overlay), mapMarkerPrerender);
+  };
+
+  return GoogleMap;
+}(react["Component"]);
+
+index_modern_GoogleMap.propTypes = {
+  apiKey: prop_types_default.a.string,
+  bootstrapURLKeys: prop_types_default.a.any,
+  defaultCenter: prop_types_default.a.oneOfType([prop_types_default.a.array, prop_types_default.a.shape({
+    lat: prop_types_default.a.number,
+    lng: prop_types_default.a.number
+  })]),
+  center: prop_types_default.a.oneOfType([prop_types_default.a.array, prop_types_default.a.shape({
+    lat: prop_types_default.a.number,
+    lng: prop_types_default.a.number
+  })]),
+  defaultZoom: prop_types_default.a.number,
+  zoom: prop_types_default.a.number,
+  onBoundsChange: prop_types_default.a.func,
+  onChange: prop_types_default.a.func,
+  onClick: prop_types_default.a.func,
+  onChildClick: prop_types_default.a.func,
+  onChildMouseDown: prop_types_default.a.func,
+  onChildMouseUp: prop_types_default.a.func,
+  onChildMouseMove: prop_types_default.a.func,
+  onChildMouseEnter: prop_types_default.a.func,
+  onChildMouseLeave: prop_types_default.a.func,
+  onZoomAnimationStart: prop_types_default.a.func,
+  onZoomAnimationEnd: prop_types_default.a.func,
+  onDrag: prop_types_default.a.func,
+  onDragEnd: prop_types_default.a.func,
+  onMapTypeIdChange: prop_types_default.a.func,
+  onTilesLoaded: prop_types_default.a.func,
+  options: prop_types_default.a.any,
+  distanceToMouse: prop_types_default.a.func,
+  hoverDistance: prop_types_default.a.number,
+  debounced: prop_types_default.a.bool,
+  margin: prop_types_default.a.array,
+  googleMapLoader: prop_types_default.a.any,
+  onGoogleApiLoaded: prop_types_default.a.func,
+  yesIWantToUseGoogleMapApiInternals: prop_types_default.a.bool,
+  draggable: prop_types_default.a.bool,
+  style: prop_types_default.a.any,
+  resetBoundsOnResize: prop_types_default.a.bool,
+  layerTypes: prop_types_default.a.arrayOf(prop_types_default.a.string),
+  shouldUnregisterMapOnUnmount: prop_types_default.a.bool
+};
+index_modern_GoogleMap.defaultProps = {
+  distanceToMouse: function distanceToMouse(pt, mousePos) {
+    return Math.sqrt((pt.x - mousePos.x) * (pt.x - mousePos.x) + (pt.y - mousePos.y) * (pt.y - mousePos.y));
+  },
+  hoverDistance: 30,
+  debounced: true,
+  options: defaultOptions_,
+  googleMapLoader: googleMapLoader,
+  yesIWantToUseGoogleMapApiInternals: false,
+  style: {
+    width: '100%',
+    height: '100%',
+    margin: 0,
+    padding: 0,
+    position: 'relative'
+  },
+  layerTypes: [],
+  heatmap: {},
+  heatmapLibrary: false,
+  shouldUnregisterMapOnUnmount: true
+};
+index_modern_GoogleMap.googleMapLoader = googleMapLoader;
+
+/* harmony default export */ var index_modern = (index_modern_GoogleMap);
+//# sourceMappingURL=index.modern.js.map
+
 // CONCATENATED MODULE: ./src/components/LMCountyRoot.react.js
 
 
@@ -60137,15 +63206,21 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var firebase = __webpack_require__(18); // Required for side-effects
+var firebase = __webpack_require__(21); // Required for side-effects
 
 
-__webpack_require__(28);
+__webpack_require__(31);
 
 
 
 
- // Your web app's Firebase configuration
+
+
+var DEFAULT_GOOGLE_MAP_ZOOM = 11;
+var DEFAULT_GOOGLE_MAP_CENTER = {
+  lat: 23.782127,
+  lng: 120.956679
+}; // Your web app's Firebase configuration
 
 var FIREBASE_CONFIG = {
   apiKey: ""
@@ -60188,6 +63263,7 @@ function LMCountyRoot() {
   }
 
   var rightContent = null;
+  var leftContent = null;
   /* undefined will be casted to a string during ssr */
 
   if (county === "undefined") {
@@ -60216,13 +63292,29 @@ function LMCountyRoot() {
         href: "/county?name=".concat(name)
       }, countyNameFormatter(name)));
     })));
+    leftContent = /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, "LMCountyRoot: ", county, /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, null));
+  } else {
+    // get a center for each county.
+    // Return the whole view of a County
+    leftContent = /*#__PURE__*/react_default.a.createElement("div", {
+      style: {
+        height: "100%",
+        width: "100%"
+      }
+    }, /*#__PURE__*/react_default.a.createElement(index_modern, {
+      bootstrapURLKeys: {
+        key: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw"
+      },
+      defaultCenter: DEFAULT_GOOGLE_MAP_CENTER,
+      defaultZoom: DEFAULT_GOOGLE_MAP_ZOOM
+    }));
   }
 
   return /*#__PURE__*/react_default.a.createElement("div", {
     id: "root"
   }, /*#__PURE__*/react_default.a.createElement("div", {
     id: "left"
-  }, "LMCountyRoot: ", county, /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, null)), /*#__PURE__*/react_default.a.createElement("div", {
+  }, leftContent), /*#__PURE__*/react_default.a.createElement("div", {
     id: "rigth"
   }, /*#__PURE__*/react_default.a.createElement("div", {
     "class": "marginTop-20"
@@ -60241,7 +63333,7 @@ function countyNameFormatter(countyNameRaw) {
 var domContainer = document.querySelector("#lm_county_root");
 react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(LMCountyRoot, null), domContainer);
 // EXTERNAL MODULE: ./node_modules/materialize-css/dist/js/materialize.js
-var materialize = __webpack_require__(14);
+var materialize = __webpack_require__(17);
 var materialize_default = /*#__PURE__*/__webpack_require__.n(materialize);
 
 // CONCATENATED MODULE: ./src/county.js

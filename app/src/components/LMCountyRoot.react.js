@@ -8,6 +8,14 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import CountyTypes from "../javascripts/utils/CountyTypes";
 import LMTaiwanMap from "./LMTaiwanMap.react";
+import GoogleMapReact from "google-map-react";
+
+const DEFAULT_GOOGLE_MAP_ZOOM = 11;
+
+const DEFAULT_GOOGLE_MAP_CENTER = {
+  lat: 23.782127,
+  lng: 120.956679,
+};
 
 // Your web app's Firebase configuration
 const FIREBASE_CONFIG = {
@@ -50,6 +58,7 @@ export default function LMCountyRoot() {
     throw "data is null in LWICountyRoot";
   }
   let rightContent = null;
+  let leftContent = null;
   /* undefined will be casted to a string during ssr */
   if (county === "undefined") {
     // No county is specified, which means we're showing a Taiwan Map.
@@ -82,14 +91,30 @@ export default function LMCountyRoot() {
         </ul>
       </div>
     );
+
+    leftContent = (
+      <>
+        LMCountyRoot: {county}
+        <LMTaiwanMap />
+      </>
+    );
+  } else {
+    // get a center for each county.
+    // Return the whole view of a County
+    leftContent = (
+      <div style={{ height: "100%", width: "100%" }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw" }}
+          defaultCenter={DEFAULT_GOOGLE_MAP_CENTER}
+          defaultZoom={DEFAULT_GOOGLE_MAP_ZOOM}
+        ></GoogleMapReact>
+      </div>
+    );
   }
 
   return (
     <div id="root">
-      <div id="left">
-        LMCountyRoot: {county}
-        <LMTaiwanMap />
-      </div>
+      <div id="left">{leftContent}</div>
       <div id="rigth">
         <div class="marginTop-20">
           {documents.map((name) => (
