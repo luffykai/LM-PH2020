@@ -45,6 +45,12 @@ module.exports = {
       template: "./src/html/county.html",
       filename: "./county.html",
     }),
+    new HtmlWebPackPlugin({
+      base: "project",
+      chunks: ["project"],
+      template: "./src/html/project.html",
+      filename: "./project.html",
+    }),
   ],
   resolve: {
     alias: {

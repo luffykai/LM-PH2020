@@ -1,0 +1,8 @@
+doctype html
+html
+  head
+    title= title
+  body
+    div(id="project-data" data=`${JSON.stringify(data)}` ocid=`${ocid}`)
+    include ../dist/project.html
+    block content
