@@ -10,6 +10,7 @@ import CountyTypes from "../javascripts/utils/CountyTypes";
 import LMTaiwanMap from "./LMTaiwanMap.react";
 import GoogleMapReact from "google-map-react";
 import CountyMapDefaults from "../javascripts/utils/CountyMapDefaults";
+import LMProjectRow from "./LMProjectRow.react";
 
 const DEFAULT_GOOGLE_MAP_ZOOM = 11;
 const DEFAULT_GOOGLE_MAP_CENTER = {
@@ -118,10 +119,10 @@ export default function LMCountyRoot() {
   return (
     <div id="root">
       <div id="left">{leftContent}</div>
-      <div id="rigth">
-        <div class="marginTop-20">
+      <div id="right">
+        <div class="marginTop-20 scroll">
           {documents.map((name) => (
-            <div>{name}</div>
+            <LMProjectRow id={name} name={name} />
           ))}
           {rightContent}
         </div>
