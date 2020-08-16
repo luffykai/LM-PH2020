@@ -169,6 +169,33 @@ const fieldHandlers = {
       put(ocdsRelease, "tender.coveredBy[]", "ASTEP");
     }
     return null;
+  },
+  "招標資料:是否適用採購法第104條或105條或招標期限標準第10條或第4條之1": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "採購法第104條或105條或招標期限標準第10條或第4條之1");
+    }
+    return null;
+  },
+  "招標資料:是否依據採購法第106條第1項第1款辦理": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "採購法第106條第1項第1款");
+    }
+    return null;
+  },
+  "其他:是否依據採購法第99條": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "採購法第99條");
+    }
+    return null;
   }
 };
 
