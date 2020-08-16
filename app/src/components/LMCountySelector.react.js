@@ -23,8 +23,16 @@ export default function LMCountySelector({ selectedCounty }) {
         }}
       >
         {dropdownButtonLabel}
-        <div style={{ backgroundImage: `url(images/triangle.svg)`, display: 'inline-block', width: 42, height: 42, backgroundSize: "cover", backgroundRepeat: 'no-repeat'}} />
-        {/*<img class="right" src="triangle.svg" />*/}
+        <div
+          style={{
+            backgroundImage: `url(images/triangle.svg)`,
+            display: "inline-block",
+            width: 42,
+            height: 42,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
       </a>
       <ul id="county-dropdown" class="dropdown-content">
         <li>

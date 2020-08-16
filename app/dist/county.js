@@ -63335,11 +63335,11 @@ function LMCountySelector(_ref) {
   }, dropdownButtonLabel, /*#__PURE__*/react_default.a.createElement("div", {
     style: {
       backgroundImage: "url(images/triangle.svg)",
-      display: 'inline-block',
+      display: "inline-block",
       width: 42,
       height: 42,
       backgroundSize: "cover",
-      backgroundRepeat: 'no-repeat'
+      backgroundRepeat: "no-repeat"
     }
   })), /*#__PURE__*/react_default.a.createElement("ul", {
     id: "county-dropdown",
