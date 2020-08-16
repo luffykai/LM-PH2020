@@ -23934,6 +23934,103 @@ function LMProjectRow(props) {
     className: "projectRowDate"
   }, "\u9810\u8A08\u5B8C\u5DE5\uFF1A2024/07")));
 }
+// CONCATENATED MODULE: ./node_modules/use-debounce/esm/useDebouncedCallback.js
+
+function useDebouncedCallback(callback, delay, options) {
+    if (options === void 0) { options = {}; }
+    var maxWait = options.maxWait;
+    var maxWaitHandler = Object(react["useRef"])(null);
+    var maxWaitArgs = Object(react["useRef"])([]);
+    var leading = options.leading;
+    var trailing = options.trailing === undefined ? true : options.trailing;
+    var leadingCall = Object(react["useRef"])(false);
+    var functionTimeoutHandler = Object(react["useRef"])(null);
+    var isComponentUnmounted = Object(react["useRef"])(false);
+    var debouncedFunction = Object(react["useRef"])(callback);
+    debouncedFunction.current = callback;
+    var cancelDebouncedCallback = Object(react["useCallback"])(function () {
+        clearTimeout(functionTimeoutHandler.current);
+        clearTimeout(maxWaitHandler.current);
+        maxWaitHandler.current = null;
+        maxWaitArgs.current = [];
+        functionTimeoutHandler.current = null;
+        leadingCall.current = false;
+    }, []);
+    Object(react["useEffect"])(function () {
+        // We have to set isComponentUnmounted to be truth, as fast-refresh runs all useEffects
+        isComponentUnmounted.current = false;
+        return function () {
+            // we use flag, as we allow to call callPending outside the hook
+            isComponentUnmounted.current = true;
+        };
+    }, []);
+    var debouncedCallback = Object(react["useCallback"])(function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        maxWaitArgs.current = args;
+        clearTimeout(functionTimeoutHandler.current);
+        if (leadingCall.current) {
+            leadingCall.current = false;
+        }
+        if (!functionTimeoutHandler.current && leading && !leadingCall.current) {
+            debouncedFunction.current.apply(debouncedFunction, args);
+            leadingCall.current = true;
+        }
+        functionTimeoutHandler.current = setTimeout(function () {
+            var shouldCallFunction = true;
+            if (leading && leadingCall.current) {
+                shouldCallFunction = false;
+            }
+            cancelDebouncedCallback();
+            if (!isComponentUnmounted.current && trailing && shouldCallFunction) {
+                debouncedFunction.current.apply(debouncedFunction, args);
+            }
+        }, delay);
+        if (maxWait && !maxWaitHandler.current && trailing) {
+            maxWaitHandler.current = setTimeout(function () {
+                var args = maxWaitArgs.current;
+                cancelDebouncedCallback();
+                if (!isComponentUnmounted.current) {
+                    debouncedFunction.current.apply(null, args);
+                }
+            }, maxWait);
+        }
+    }, [maxWait, delay, cancelDebouncedCallback, leading, trailing]);
+    var callPending = Object(react["useCallback"])(function () {
+        // Call pending callback only if we have anything in our queue
+        if (!functionTimeoutHandler.current) {
+            return;
+        }
+        debouncedFunction.current.apply(null, maxWaitArgs.current);
+        cancelDebouncedCallback();
+    }, [cancelDebouncedCallback]);
+    // At the moment, we use 3 args array so that we save backward compatibility
+    return [debouncedCallback, cancelDebouncedCallback, callPending];
+}
+
+// CONCATENATED MODULE: ./node_modules/use-debounce/esm/useDebounce.js
+
+
+function valueEquality(left, right) {
+    return left === right;
+}
+function useDebounce(value, delay, options) {
+    var eq = options && options.equalityFn ? options.equalityFn : valueEquality;
+    var _a = Object(react["useState"])(value), state = _a[0], dispatch = _a[1];
+    var _b = useDebouncedCallback(Object(react["useCallback"])(function (value) { return dispatch(value); }, []), delay, options), callback = _b[0], cancel = _b[1], callPending = _b[2];
+    var previousValue = Object(react["useRef"])(value);
+    Object(react["useEffect"])(function () {
+        // We need to use this condition otherwise we will run debounce timer for the first render (including maxWait option)
+        if (!eq(previousValue.current, value)) {
+            callback(value);
+            previousValue.current = value;
+        }
+    }, [value, callback, eq]);
+    return [state, cancel, callPending];
+}
+
 // CONCATENATED MODULE: ./src/components/LMCountyRoot.react.js
 
 
@@ -23953,6 +24050,7 @@ var firebase = __webpack_require__(23); // Required for side-effects
 
 
 __webpack_require__(33);
+
 
 
 
@@ -23990,7 +24088,16 @@ function LMCountyRoot() {
   var _useState = Object(react["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
       documents = _useState2[0],
-      setDocuments = _useState2[1]; // Fetch the data with an effect
+      setDocuments = _useState2[1];
+
+  var _useState3 = Object(react["useState"])(""),
+      _useState4 = _slicedToArray(_useState3, 2),
+      searchTerm = _useState4[0],
+      setSearchTerm = _useState4[1];
+
+  var _useDebounce = useDebounce(searchTerm, 800),
+      _useDebounce2 = _slicedToArray(_useDebounce, 1),
+      debounceSearchTerm = _useDebounce2[0]; // Fetch the data with an effect
 
 
   Object(react["useEffect"])(function () {
@@ -24001,7 +24108,7 @@ function LMCountyRoot() {
       });
       setDocuments(_documemts);
     });
-  }, []);
+  }, [county]);
 
   if (data == null) {
     throw "data is null in LWICountyRoot";
@@ -24037,10 +24144,9 @@ function LMCountyRoot() {
         href: "/county?name=".concat(name)
       }, countyNameFormatter(name)));
     })));
-    leftContent = /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, "LMCountyRoot: ", county, /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, null));
+    leftContent = /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, null);
   } else {
-    // get a center for each county.
-    // Return the whole view of a County
+    // When a county is selected, we show its map and projects
     var countyMapDefaults = CountyMapDefaults_default.a[county];
     leftContent = /*#__PURE__*/react_default.a.createElement("div", {
       style: {
@@ -24054,6 +24160,22 @@ function LMCountyRoot() {
       defaultCenter: countyMapDefaults.center,
       defaultZoom: countyMapDefaults.zoom
     }));
+    rightContent = /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement("input", {
+      type: "text",
+      value: searchTerm,
+      onInput: function onInput(e) {
+        return setSearchTerm(e.target.value);
+      }
+    }), documents.map(function (name) {
+      if (debounceSearchTerm !== "" && name.indexOf(debounceSearchTerm) < 0) {
+        return null;
+      }
+
+      return /*#__PURE__*/react_default.a.createElement(LMProjectRow, {
+        id: name,
+        name: name
+      });
+    }));
   }
 
   return /*#__PURE__*/react_default.a.createElement("div", {
@@ -24064,12 +24186,7 @@ function LMCountyRoot() {
     id: "right"
   }, /*#__PURE__*/react_default.a.createElement("div", {
     "class": "marginTop-20 scroll"
-  }, documents.map(function (name) {
-    return /*#__PURE__*/react_default.a.createElement(LMProjectRow, {
-      id: name,
-      name: name
-    });
-  }), rightContent)));
+  }, rightContent)));
 }
 
 function countyNameFormatter(countyNameRaw) {

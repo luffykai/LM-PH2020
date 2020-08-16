@@ -12,6 +12,8 @@ import GoogleMapReact from "google-map-react";
 import CountyMapDefaults from "../javascripts/utils/CountyMapDefaults";
 import LMProjectRow from "./LMProjectRow.react";
 
+import {useDebounce} from 'use-debounce';
+
 const DEFAULT_GOOGLE_MAP_ZOOM = 11;
 const DEFAULT_GOOGLE_MAP_CENTER = {
   lat: 23.782127,
@@ -39,6 +41,9 @@ export default function LMCountyRoot() {
   const data = JSON.parse(dataDiv.getAttribute("data"));
   const county = dataDiv.getAttribute("county");
   const [documents, setDocuments] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const [debounceSearchTerm] = useDebounce(searchTerm, 800);
 
   // Fetch the data with an effect
   useEffect(() => {
@@ -53,7 +58,7 @@ export default function LMCountyRoot() {
         });
         setDocuments(_documemts);
       });
-  }, []);
+  }, [county]);
 
   if (data == null) {
     throw "data is null in LWICountyRoot";
@@ -93,16 +98,9 @@ export default function LMCountyRoot() {
       </div>
     );
 
-    leftContent = (
-      <>
-        LMCountyRoot: {county}
-        <LMTaiwanMap />
-      </>
-    );
+    leftContent = <LMTaiwanMap />;
   } else {
-    // get a center for each county.
-    // Return the whole view of a County
-
+    // When a county is selected, we show its map and projects
     const countyMapDefaults = CountyMapDefaults[county];
 
     leftContent = (
@@ -114,18 +112,30 @@ export default function LMCountyRoot() {
         ></GoogleMapReact>
       </div>
     );
+
+    rightContent = (
+      <>
+        <input
+          type="text"
+          value={searchTerm}
+          onInput={(e) => setSearchTerm(e.target.value)}
+        />
+        {documents.map((name) => {
+          if (debounceSearchTerm !== "" && name.indexOf(debounceSearchTerm) < 0) {
+            return null;
+          }
+
+          return <LMProjectRow id={name} name={name} />;
+        })}
+      </>
+    );
   }
 
   return (
     <div id="root">
       <div id="left">{leftContent}</div>
       <div id="right">
-        <div class="marginTop-20 scroll">
-          {documents.map((name) => (
-            <LMProjectRow id={name} name={name} />
-          ))}
-          {rightContent}
-        </div>
+        <div class="marginTop-20 scroll">{rightContent}</div>
       </div>
     </div>
   );
