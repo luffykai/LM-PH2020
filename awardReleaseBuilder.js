@@ -209,7 +209,7 @@ const awardReleaseBuilder = {
             !(key in ALREADY_IMPLIED_FIELDS)
           ) {
             unmappedFields[key] = String(releaseDetail[key]).replace(/\s/g, "");
-            console.error("no path for", key, " value = ", releaseDetail[key]);
+            console.log("no path for", key, " value = ", releaseDetail[key]);
           }
         }
       }
