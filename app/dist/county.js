@@ -63542,10 +63542,7 @@ function LMCountyRoot() {
     // When a county is selected, we show its map and projects
     var countyMapDefaults = CountyMapDefaults_default.a[county];
     leftContent = /*#__PURE__*/react_default.a.createElement("div", {
-      style: {
-        height: "100%",
-        width: "100%"
-      }
+      id: "mapWrap"
     }, /*#__PURE__*/react_default.a.createElement(index_modern, {
       bootstrapURLKeys: {
         key: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw"

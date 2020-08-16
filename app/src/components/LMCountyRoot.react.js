@@ -84,7 +84,7 @@ export default function LMCountyRoot() {
     const countyMapDefaults = CountyMapDefaults[county];
 
     leftContent = (
-      <div style={{ height: "100%", width: "100%" }}>
+      <div id="mapWrap">
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw" }}
           defaultCenter={countyMapDefaults.center}

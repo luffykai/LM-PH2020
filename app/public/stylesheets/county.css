@@ -4,6 +4,9 @@
 }
 
 #left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     margin-right: 8px;
     width: 50%;
@@ -40,9 +43,17 @@
     width: 100%;
 }
 
+#mapWrap {
+    height: 715px;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 655px;
+}
+
 .projectRowRoot {
     border-bottom: 1px solid #fce8f4;
     display: flex;
+    margin-right: 16px;
     padding-bottom: 16px;
     padding-top: 16px;
     padding-left: 16px;
