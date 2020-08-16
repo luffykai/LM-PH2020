@@ -44,10 +44,12 @@
 }
 
 #mapWrap {
-    height: 715px;
+    min-height: 715px;
     border-radius: 12px;
     overflow: hidden;
-    width: 655px;
+    min-width: 655px;
+    height: 80%;
+    width: 85%;
 }
 
 .projectRowRoot {
@@ -65,8 +67,8 @@
 
 .projectRowImageWrap{
     border-radius: 12px;
-    width: 240px;
-    height: 140px;
+    width: 200px;
+    height: 180px;
     overflow: hidden;
     margin-right: 18px;
 }

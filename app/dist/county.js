@@ -63316,16 +63316,32 @@ var CountyTypes_default = /*#__PURE__*/__webpack_require__.n(CountyTypes);
 // CONCATENATED MODULE: ./src/components/LMCountySelector.react.js
 
 
+var LM_PINK = "#ff4081";
 function LMCountySelector(_ref) {
   var selectedCounty = _ref.selectedCounty;
   var dropdownButtonLabel = selectedCounty == null ? "Taiwan" : countyNameFormatter(selectedCounty);
   return /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("a", {
-    "class": "dropdown-trigger btn",
+    "class": "dropdown-trigger",
     href: "#",
-    "data-target": "county-dropdown"
-  }, dropdownButtonLabel, /*#__PURE__*/react_default.a.createElement("i", {
-    "class": "material-icons right"
-  }, "keyboard_arrow_down")), /*#__PURE__*/react_default.a.createElement("ul", {
+    "data-target": "county-dropdown",
+    style: {
+      borderBottom: "3px solid ".concat(LM_PINK),
+      color: LM_PINK,
+      fontSize: 44,
+      fontWeight: 600,
+      letterSpacing: 1,
+      paddingBottom: 4
+    }
+  }, dropdownButtonLabel, /*#__PURE__*/react_default.a.createElement("div", {
+    style: {
+      backgroundImage: "url(images/triangle.svg)",
+      display: 'inline-block',
+      width: 42,
+      height: 42,
+      backgroundSize: "cover",
+      backgroundRepeat: 'no-repeat'
+    }
+  })), /*#__PURE__*/react_default.a.createElement("ul", {
     id: "county-dropdown",
     "class": "dropdown-content"
   }, /*#__PURE__*/react_default.a.createElement("li", null, /*#__PURE__*/react_default.a.createElement("a", {
