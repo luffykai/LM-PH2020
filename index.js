@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 const csvparse = require("csv-parse/lib/sync");
+const admin = require("firebase-admin");
 const sync_request = require("sync-request");
 
 const argv = require("./commandsUtil.js");
@@ -16,6 +17,14 @@ const {
 const put = require("./put.js");
 const getReleaseBuilder = require("./releaseBuilders.js");
 const { convertToOc4idsInput, searchWithUnit } = require("./searchWithUnit.js");
+const serviceAccount = require("./lm-ph2020-firebase-adminsdk.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://lm-ph2020.firebaseio.com"
+});
+const db = admin.firestore();
+db.settings({ ignoreUndefinedProperties: true });
 
 const LM_OCDS_PREFIX = "ocds-kj3ygj";
 
@@ -90,7 +99,7 @@ const convertToOC4IDS = function(input) {
   return oc4idsPackage;
 };
 
-main = function() {
+main = async function() {
   if (argv._.includes("search_with_unit")) {
     const data = convertToOC4IDS(
       convertToOc4idsInput(
@@ -112,17 +121,23 @@ main = function() {
       columns: true,
       skip_empty_lines: true
     });
+    const compiledData = {};
     for (let p of projects) {
       const regex = `${p.regex}.*((安置)|(社會)|(公共)|(住宅))`;
       const uids = p.uid.split(" ");
+      const pidBase64 = p.pid.hash();
       printProjectHeader(p, regex);
-      writeJsonFile(
-        `output/all/${p.pid}`,
-        convertToOC4IDS(
-          convertToOc4idsInput(p.pid, searchWithUnit(p.title, uids, regex))
-        )
+      const oc4ids = convertToOC4IDS(
+        convertToOc4idsInput(p.pid, searchWithUnit(p.title, uids, regex))
       );
+      compiledData[pidBase64] = oc4ids;
+      // await db.collection("counties")
+      //   .doc(p.county)
+      //   .collection("projects")
+      //   .doc(pidBase64)
+      //   .set(oc4ids);
     }
+    writeJsonFile(`output/all/full.json`, compiledData);
   } else {
     console.log("sup bro!");
   }
