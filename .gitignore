@@ -3,5 +3,6 @@
 
 .DS_Store
 app/.DS_Store
+lm-ph2020-firebase-adminsdk.json
 node_modules
 output/*
