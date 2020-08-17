@@ -153,7 +153,7 @@ npm run build
 More information can be found
 [here](https://reactjs.org/docs/add-react-to-a-website.html#quickly-try-jsx)
 
-### 6. Run all projects on spreadsheet
+### 6. Run projects on spreadsheet
 
 #### A. Get a Firebase Admin SDK key
 
@@ -164,8 +164,28 @@ with `index.js`.
 
 #### B. Run command
 
+- Search all projects in the CSV list
+
 ```shell
 node index.js search_list --input data/all_project_query_with_county.csv
+```
+
+- Search all projects in the CSV list and **Update Firebase**
+
+```shell
+node index.js search_list --update --input data/all_project_query_with_county.csv
+```
+
+- Search one project row in the CSV list
+
+```shell
+node index.js search_single -p "興隆D2區社會住宅,3.79 3.79.56,興隆,D,taipei"
+```
+
+- Search one project row in the CSV list and **Update Firebase**
+
+```shell
+node index.js search_single --update -p "興隆D2區社會住宅,3.79 3.79.56,興隆,D,taipei"
 ```
 
 ## Install
