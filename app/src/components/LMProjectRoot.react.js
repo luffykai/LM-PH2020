@@ -4,6 +4,7 @@ const firebase = require("firebase");
 // Required for side-effects
 require("firebase/firestore");
 
+import LMNavBar from "./LMNavBar.react";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
@@ -51,11 +52,14 @@ export default function LMProjectRoot() {
   }
 
   return (
-    <div id="root">
-      {JSON.stringify(projectData)}
-      <div id="left"></div>
-      <div id="right"></div>
-    </div>
+    <>
+      <LMNavBar />
+      <div id="root">
+        {JSON.stringify(projectData)}
+        <div id="left"></div>
+        <div id="right"></div>
+      </div>
+    </>
   );
 }
 

@@ -11,6 +11,7 @@ import GoogleMapReact from "google-map-react";
 import CountyMapDefaults from "../javascripts/utils/CountyMapDefaults";
 import LMProjectRow from "./LMProjectRow.react";
 import LMCountySelector from "./LMCountySelector.react";
+import LMNavBar from "./LMNavBar.react";
 
 import { useDebounce } from "use-debounce";
 
@@ -130,12 +131,15 @@ export default function LMCountyRoot() {
   }
 
   return (
-    <div id="root">
-      <div id="left">{leftContent}</div>
-      <div id="right">
-        <div class="marginTop-20 scroll">{rightContent}</div>
+    <>
+      <LMNavBar />
+      <div id="root">
+        <div id="left">{leftContent}</div>
+        <div id="right">
+          <div class="marginTop-20 scroll">{rightContent}</div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

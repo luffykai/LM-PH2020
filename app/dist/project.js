@@ -47693,7 +47693,33 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
 /* 31 */,
 /* 32 */,
 /* 33 */,
-/* 34 */,
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LMNavBar; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function LMNavBar() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "nav-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "../",
+    "class": "brand-logo lm-logo"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    id: "nav-mobile",
+    "class": "right hide-on-med-and-down"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#"
+  }, "About Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#"
+  }, "Data")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#"
+  }, "Official Center")))));
+}
+
+/***/ }),
 /* 35 */,
 /* 36 */,
 /* 37 */,
@@ -47705,6 +47731,9 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./src/components/LMNavBar.react.js
+var LMNavBar_react = __webpack_require__(34);
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(1);
@@ -47733,6 +47762,7 @@ var firebase = __webpack_require__(16); // Required for side-effects
 
 
 __webpack_require__(26);
+
 
 
  // Your web app's Firebase configuration
@@ -47777,13 +47807,13 @@ function LMProjectRoot() {
     throw "At least one of county:".concat(county, " or projectID: ").concat(projectID, " is null in LWIProjectRoot");
   }
 
-  return /*#__PURE__*/react_default.a.createElement("div", {
+  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMNavBar_react["a" /* default */], null), /*#__PURE__*/react_default.a.createElement("div", {
     id: "root"
   }, JSON.stringify(projectData), /*#__PURE__*/react_default.a.createElement("div", {
     id: "left"
   }), /*#__PURE__*/react_default.a.createElement("div", {
     id: "right"
-  }));
+  })));
 }
 var domContainer = document.querySelector("#lm_project_root");
 react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(LMProjectRoot, null), domContainer);
