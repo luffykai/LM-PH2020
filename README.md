@@ -155,6 +155,15 @@ More information can be found
 
 ### 6. Run all projects on spreadsheet
 
+#### A. Get a Firebase Admin SDK key
+
+Visit [this page](https://console.firebase.google.com/u/0/project/lm-ph2020/settings/serviceaccounts/adminsdk)  
+
+Name it `lm-ph2020-firebase-adminsdk.json` and store it in the directory
+with `index.js`.
+
+#### B. Run command
+
 ```shell
 node index.js search_list --input data/all_project_query_with_county.csv
 ```
