@@ -5120,13 +5120,13 @@ module.exports = g;
 
 function LMNavBar() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "nav-wrapper"
+    className: "nav-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "../",
-    "class": "brand-logo lm-logo"
+    className: "brand-logo lm-logo"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     id: "nav-mobile",
-    "class": "right hide-on-med-and-down"
+    className: "right hide-on-med-and-down"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#"
   }, "About Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -63587,17 +63587,19 @@ function LMCountyRoot() {
     // No county is specified, which means we're showing a Taiwan Map.
     rightContent = /*#__PURE__*/react_default.a.createElement("div", {
       className: "rightContent"
-    }, /*#__PURE__*/react_default.a.createElement("div", {
+    }, /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("div", {
       id: "largeMetricAndUnit"
     }, /*#__PURE__*/react_default.a.createElement("div", {
       id: "largeMetric"
     }, "6913"), /*#__PURE__*/react_default.a.createElement("span", {
       id: "unit"
-    }, "House ", /*#__PURE__*/react_default.a.createElement("br", null), "Number")), /*#__PURE__*/react_default.a.createElement("div", null, "with ", "613", " build cases in this area"), /*#__PURE__*/react_default.a.createElement("h5", null, "Choose the county:"), /*#__PURE__*/react_default.a.createElement("div", {
+    }, "House ", /*#__PURE__*/react_default.a.createElement("br", null), "Number")), /*#__PURE__*/react_default.a.createElement("div", {
+      id: "allCases"
+    }, "with ", "613", " build cases in this area"), /*#__PURE__*/react_default.a.createElement("h5", null, "Choose the county:"), /*#__PURE__*/react_default.a.createElement("div", {
       className: "marginTop-8"
     }), /*#__PURE__*/react_default.a.createElement(LMCountySelector, {
       selectedCounty: null
-    }));
+    })));
     leftContent = /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, null);
   } else {
     // When a county is selected, we show its map and projects

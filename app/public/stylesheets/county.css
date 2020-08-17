@@ -34,13 +34,23 @@
 }
 
 #largeMetric {
-    font-size: 72px;
+    font-size: 130px;
     font-weight: 600;
+    letter-spacing: 2px;
 }
 
 #unit {
     display: flexbox;
+    font-size: 31px;
+    font-weight: 600;
     margin-left: 4px;
+}
+
+#allCases {
+    font-size: 27px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: -40px;
 }
 
 .scroll {

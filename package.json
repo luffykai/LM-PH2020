@@ -2,6 +2,7 @@
   "name": "lm-social-housing-map",
   "dependencies": {
     "csv": "^5.3.2",
+    "firebase-admin": "^9.1.0",
     "jest": "^26.2.2",
     "jsesc": "^3.0.1",
     "sync-request": "^6.1.0",
