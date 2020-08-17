@@ -282,7 +282,8 @@ const initPackage = function(ocid) {
     "https://raw.githubusercontent.com/open-contracting-extensions/ocds_participationFee_extension/v1.1.4/extension.json",
     "https://raw.githubusercontent.com/open-contracting-extensions/ocds_location_extension/v1.1.4/extension.json",
     "https://raw.githubusercontent.com/open-contracting-extensions/ocds_legalBasis_extension/master/extension.json",
-    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_coveredBy_extension/master/extension.json"
+    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_coveredBy_extension/master/extension.json",
+    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_otherRequirements_extension/master/extension.json"
   ];
   releasePackage.releases = [];
   return releasePackage;

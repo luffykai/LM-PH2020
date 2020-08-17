@@ -196,6 +196,34 @@ const fieldHandlers = {
       put(ocdsRelease, "tender.coveredBy[]", "採購法第99條");
     }
     return null;
+  },
+  "其他:是否訂有與履約能力有關之基本資格": (
+    value,
+    ocdsRelease
+  ) => {
+    // do nothing, will do take care by the below ones
+    return null;
+  },
+  "其他:是否訂有與履約能力有關之基本資格:廠商應附具之基本資格證明文件或物品": (
+    value,
+    ocdsRelease
+  ) => {
+    put(ocdsRelease, "tender.otherRequirements.qualificationSystemConditions[]", value);
+    return null;
+  },
+  "其他:是否訂有與履約能力有關之特定資格": (
+    value,
+    ocdsRelease
+  ) => {
+    // do nothing, will do take care by the below ones
+    return null;
+  },
+  "其他:是否訂有與履約能力有關之特定資格:廠商應附具之特定資格證明文件": (
+    value,
+    ocdsRelease
+  ) => {
+    put(ocdsRelease, "tender.otherRequirements.qualificationSystemConditions[]", value);
+    return null;
   }
 };
 
