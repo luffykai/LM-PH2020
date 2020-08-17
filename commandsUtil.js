@@ -47,10 +47,34 @@ const argv = yargs
     input: {
       description: "The input file to read from",
       alias: "in"
+    },
+    update_db: {
+      description: "If true, write to Firebase Firestore.",
+      type: "boolean",
+      alias: "update"
     }
   })
-  .string(["pid", "title", "unit_ids", "regex", "org_id", "contract_id"])
+  .command("search_single", "Search a single project", {
+    project_row: {
+      description: "The project row represented in the CSV file",
+      alias: "p"
+    },
+    update_db: {
+      description: "If true, write to Firebase Firestore.",
+      type: "boolean",
+      alias: "update"
+    }
+  })
+  .string([
+    "pid",
+    "title",
+    "unit_ids",
+    "regex",
+    "org_id",
+    "contract_id",
+    "project_row"
+  ])
   .help()
   .alias("help", "h").argv;
 
-  module.exports = argv;
+module.exports = argv;

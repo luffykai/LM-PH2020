@@ -4,18 +4,17 @@ const csvparse = require("csv-parse/lib/sync");
 const admin = require("firebase-admin");
 
 const argv = require("./commandsUtil.js");
-const {
-  outputPackage,
-  printProjectHeader,
-  writeJsonFile
-} = require("./LMUtils");
+const { outputPackage, writeJsonFile } = require("./LMUtils");
 const {
   convertToOC4IDS,
   convertToOC4IDSInput,
   convertToOCDS
 } = require("./conversionUtil");
 
-const { searchWithUnit } = require("./searchWithUnit.js");
+const {
+  searchAndUpdateFirebase,
+  searchWithUnit
+} = require("./searchWithUnit.js");
 const serviceAccount = require("./lm-ph2020-firebase-adminsdk.json");
 
 admin.initializeApp({
@@ -48,22 +47,27 @@ main = async function() {
       skip_empty_lines: true
     });
     const compiledData = {};
-    for (let p of projects) {
-      const regex = `${p.regex}.*((安置)|(社會)|(公共)|(住宅))`;
-      const uids = p.uid.split(" ");
-      const pidHash = p.pid.hash();
-      printProjectHeader(p, regex);
-      const oc4ids = convertToOC4IDS(
-        convertToOC4IDSInput(p.pid, searchWithUnit(p.title, uids, regex))
+    for (let project of projects) {
+      compiledData[project.pid.hash()] = searchAndUpdateFirebase(
+        db,
+        project,
+        argv.update_db
       );
-      compiledData[pidHash] = oc4ids;
-      // await db.collection("counties")
-      //   .doc(p.county)
-      //   .collection("projects")
-      //   .doc(pidBase64)
-      //   .set(oc4ids);
     }
     writeJsonFile(`output/all/full.json`, compiledData);
+  } else if (argv._.includes("search_single")) {
+    const tokens = argv.project_row.split(",");
+    searchAndUpdateFirebase(
+      db,
+      {
+        pid: tokens[0],
+        uid: tokens[1],
+        title: tokens[2],
+        regex: tokens[3],
+        county: tokens[4]
+      },
+      argv.update_db
+    );
   } else {
     console.log("sup bro!");
   }

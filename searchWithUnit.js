@@ -1,6 +1,9 @@
 const jsesc = require("jsesc");
 const sync_request = require("sync-request");
 
+const { convertToOC4IDS, convertToOC4IDSInput } = require("./conversionUtil");
+const { printProjectHeader } = require("./LMUtils");
+
 const getFilteredRecord = function(records, unitIds) {
   return records.filter(function(record) {
     return unitIds.includes(record["unit_id"]);
@@ -52,7 +55,7 @@ const filterTitleWithRegex = function(records, regex) {
   return records;
 };
 
-function searchWithUnit(rawTitle, unitIds, rawRegex) {
+const searchWithUnit = function(rawTitle, unitIds, rawRegex) {
   const title = jsesc(rawTitle);
   let mergedRecords = mergeRecords(searchByTitleAndUnitIds(title, unitIds));
   if (rawRegex != null) {
@@ -65,6 +68,28 @@ function searchWithUnit(rawTitle, unitIds, rawRegex) {
     console.log("      " + mergedRecords[key]["tender_api_url"]);
   }
   return mergedRecords;
-}
+};
 
-module.exports = {searchWithUnit};
+const searchAndUpdateFirebase = async function(db, projectRow, updateDb) {
+  const regex = `${projectRow.regex}.*((安置)|(社會)|(公共)|(住宅))`;
+  const uids = projectRow.uid.split(" ");
+  printProjectHeader(projectRow, regex);
+  const oc4ids = convertToOC4IDS(
+    convertToOC4IDSInput(
+      projectRow.pid,
+      searchWithUnit(projectRow.title, uids, regex)
+    )
+  );
+  if (!updateDb) {
+    return oc4ids;
+  }
+  await db
+    .collection("counties")
+    .doc(projectRow.county)
+    .collection("projects")
+    .doc(projectRow.pid.hash())
+    .set(oc4ids);
+  return oc4ids;
+};
+
+module.exports = { searchAndUpdateFirebase, searchWithUnit };

@@ -299,7 +299,8 @@ const printProjectHeader = function(project, regex) {
   console.log(`  * title: ${project.title}`);
   console.log(`  * county: ${project.county}`);
   console.log(`  * uids: ${project.uid}`);
-  console.log(`  * regex: ${regex}\x1b[0m\n`);
+  console.log(`  * regex: ${regex}`);
+  console.log(`  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2F${project.county}~2Fprojects~2F${project.pid.hash()}\x1b[0m\n`);
 };
 
 
