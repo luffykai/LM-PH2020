@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 const csvparse = require("csv-parse/lib/sync");
+const admin = require("firebase-admin");
 const sync_request = require("sync-request");
 
 const argv = require("./commandsUtil.js");
@@ -11,17 +12,25 @@ const {
   outputPackage,
   postProcessing,
   printProjectHeader,
-  writeJsonFile,
+  writeJsonFile
 } = require("./LMUtils");
 const put = require("./put.js");
 const getReleaseBuilder = require("./releaseBuilders.js");
 const { convertToOc4idsInput, searchWithUnit } = require("./searchWithUnit.js");
+const serviceAccount = require("./lm-ph2020-firebase-adminsdk.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://lm-ph2020.firebaseio.com"
+});
+const db = admin.firestore();
+db.settings({ ignoreUndefinedProperties: true });
 
 const stringify = require("csv-stringify");
 
 const LM_OCDS_PREFIX = "ocds-kj3ygj";
 
-const getContract = function (orgID, contractID) {
+const getContract = function(orgID, contractID) {
   res = sync_request(
     "GET",
     `https://pcc.g0v.ronny.tw/api/tender?unit_id=${orgID}&job_number=${contractID}`
@@ -30,7 +39,7 @@ const getContract = function (orgID, contractID) {
 };
 
 // Example: 3.80.11, 1090212-B2
-const convertToOCDS = function (orgID, contractID) {
+const convertToOCDS = function(orgID, contractID) {
   const ocid = `${LM_OCDS_PREFIX}-${orgID}-${contractID}`;
   const contract = getContract(orgID, contractID);
   releasePackage = initPackage(ocid);
@@ -71,7 +80,7 @@ const convertToOCDS = function (orgID, contractID) {
 
   const stringifier = stringify({
     columns: [{ key: "key" }, { key: "value" }],
-    delimiter: ",",
+    delimiter: ","
   });
 
   stringify(
@@ -79,7 +88,7 @@ const convertToOCDS = function (orgID, contractID) {
     { header: true, columns: [{ key: "key" }, { key: "value" }] },
     (err, output) => {
       if (err) throw err;
-      fs.writeFile("./output/unmapped_fields.csv", output, (err) => {
+      fs.writeFile("./output/unmapped_fields.csv", output, err => {
         if (err) throw err;
         console.log("unmapped_fields.csv saved.");
       });
@@ -89,7 +98,7 @@ const convertToOCDS = function (orgID, contractID) {
   return releasePackage;
 };
 
-const convertToOC4IDS = function (input) {
+const convertToOC4IDS = function(input) {
   let oc4ids = {};
   oc4ids.id = input.project_id;
   oc4ids.title = input.project_name;
@@ -108,15 +117,15 @@ const convertToOC4IDS = function (input) {
     uri: `ocds://contract/${input.project_id}`,
     publishedDate: new Date().toISOString(),
     publisher: {
-      name: "Learning Man",
+      name: "Learning Man"
     },
     version: "0.9",
-    projects: [oc4ids],
+    projects: [oc4ids]
   };
   return oc4idsPackage;
 };
 
-main = function () {
+main = async function() {
   if (argv._.includes("search_with_unit")) {
     const data = convertToOC4IDS(
       convertToOc4idsInput(
@@ -136,19 +145,25 @@ main = function () {
     const project_csv = fs.readFileSync(argv.input);
     const projects = csvparse(project_csv, {
       columns: true,
-      skip_empty_lines: true,
+      skip_empty_lines: true
     });
+    const compiledData = {};
     for (let p of projects) {
       const regex = `${p.regex}.*((安置)|(社會)|(公共)|(住宅))`;
       const uids = p.uid.split(" ");
+      const pidHash = p.pid.hash();
       printProjectHeader(p, regex);
-      writeJsonFile(
-        `output/all/${p.pid}`,
-        convertToOC4IDS(
-          convertToOc4idsInput(p.pid, searchWithUnit(p.title, uids, regex))
-        )
+      const oc4ids = convertToOC4IDS(
+        convertToOc4idsInput(p.pid, searchWithUnit(p.title, uids, regex))
       );
+      compiledData[pidHash] = oc4ids;
+      // await db.collection("counties")
+      //   .doc(p.county)
+      //   .collection("projects")
+      //   .doc(pidBase64)
+      //   .set(oc4ids);
     }
+    writeJsonFile(`output/all/full.json`, compiledData);
   } else {
     console.log("sup bro!");
   }
@@ -158,4 +173,4 @@ main();
 
 module.exports = {
   convertToOCDS
-}
+};
