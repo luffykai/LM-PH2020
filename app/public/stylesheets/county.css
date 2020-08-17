@@ -1,6 +1,9 @@
 #root {
+    background-image: url('/images/county_bg.png');
     display: flex;
     height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #left {
@@ -20,6 +23,11 @@
 .rightContent {
     display: flex;
     flex-direction: column;
+    /* height: 100%; */
+    margin-top: 20%;
+    align-items: center;
+    justify-content: center;
+    /* vertical-align: middle; */
 }
 
 #largeMetricAndUnit{

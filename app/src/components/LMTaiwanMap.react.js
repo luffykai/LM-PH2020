@@ -6,8 +6,10 @@ const MAP_HEIGHT = 680;
 export default function LMTaiwanMap() {
   const dataDiv = document.getElementById("county-map-data");
   let taiwanData = JSON.parse(dataDiv.getAttribute("mapData"));
-  taiwanData = topojson.feature(taiwanData, taiwanData.objects.COUNTY_MOI_1090727)
-    .features;
+  taiwanData = topojson.feature(
+    taiwanData,
+    taiwanData.objects.COUNTY_MOI_1090727
+  ).features;
 
   const myProjection = () => {
     return d3
@@ -26,6 +28,16 @@ export default function LMTaiwanMap() {
         viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
       >
         <g className="countries">
+          {taiwanData.map((d, i) => (
+            <path
+              key={`path-${i}`}
+              d={d3.geoPath().projection(myProjection())(d)}
+              className="country"
+              fill={`white`}
+              stroke="#FFFFFF"
+              strokeWidth={0.5}
+            />
+          ))}
           {taiwanData.map((d, i) => (
             <path
               key={`path-${i}`}

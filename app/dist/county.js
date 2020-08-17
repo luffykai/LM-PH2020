@@ -61101,6 +61101,15 @@ function LMTaiwanMap() {
       key: "path-".concat(i),
       d: d3.geoPath().projection(myProjection())(d),
       className: "country",
+      fill: "white",
+      stroke: "#FFFFFF",
+      strokeWidth: 0.5
+    });
+  }), taiwanData.map(function (d, i) {
+    return /*#__PURE__*/react_default.a.createElement("path", {
+      key: "path-".concat(i),
+      d: d3.geoPath().projection(myProjection())(d),
+      className: "country",
       fill: "rgba(219, 163, 43,".concat(1 / taiwanData.length * i, ")"),
       stroke: "#FFFFFF",
       strokeWidth: 0.5
@@ -63549,7 +63558,7 @@ function LMCountyRoot() {
     // No county is specified, which means we're showing a Taiwan Map.
     rightContent = /*#__PURE__*/react_default.a.createElement("div", {
       className: "rightContent"
-    }, /*#__PURE__*/react_default.a.createElement("div", {
+    }, /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("div", {
       id: "largeMetricAndUnit"
     }, /*#__PURE__*/react_default.a.createElement("div", {
       id: "largeMetric"
@@ -63559,7 +63568,7 @@ function LMCountyRoot() {
       className: "marginTop-8"
     }), /*#__PURE__*/react_default.a.createElement(LMCountySelector, {
       selectedCounty: null
-    }));
+    })));
     leftContent = /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, null);
   } else {
     // When a county is selected, we show its map and projects
