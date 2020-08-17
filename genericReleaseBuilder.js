@@ -36,7 +36,19 @@ const genericReleaseBuilder = {
           put(ocdsRelease, path, ocdsValue);
         }
       } else {
+        // key not mapped so far
+        let unmapped = true;
+        let parts = key.split(":");
+        if (parts.length == 2) {
+          // try the second part only
+          path = FIELD_MAP.get(parts[1]);
+          if (path) {
+            put(ocdsRelease, path, releaseDetail[key]);
+            unmapped = false;
+          }
+        }
         if (
+          unmapped &&
           !NON_MAPPING_FIELDS.has(key) &&
           releaseDetail[key] !== "" &&
           !(key in ALREADY_IMPLIED_FIELDS)
