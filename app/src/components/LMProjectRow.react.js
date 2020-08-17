@@ -12,7 +12,7 @@ import React from "react";
 
 export default function LMProjectRow(props) {
   return (
-    <a className="collection-item hoverable">
+    <a className="collection-item hoverable" href={`/project?county=${props.county}&project_id=${props.id}`}>
       <div className="projectRowRoot">
         <div className="projectRowImageWrap">
           <img

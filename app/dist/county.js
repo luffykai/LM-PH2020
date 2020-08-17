@@ -63289,7 +63289,8 @@ is selected. This component would show
 
 function LMProjectRow(props) {
   return /*#__PURE__*/react_default.a.createElement("a", {
-    className: "collection-item hoverable"
+    className: "collection-item hoverable",
+    href: "/project?county=".concat(props.county, "&project_id=").concat(props.id)
   }, /*#__PURE__*/react_default.a.createElement("div", {
     className: "projectRowRoot"
   }, /*#__PURE__*/react_default.a.createElement("div", {
@@ -63503,7 +63504,14 @@ var db = firebase.firestore();
 function LMCountyRoot() {
   var dataDiv = document.getElementById("county-map-data");
   var data = JSON.parse(dataDiv.getAttribute("data"));
-  var county = dataDiv.getAttribute("county");
+  var county = dataDiv.getAttribute("county"); // documents is an array of name and id object.
+
+  /*
+  {
+    id: "cc4cfad203a7335c293b6e75f81e0bf0",
+    name: "大安青年社會住宅 (三重1館)",
+  }
+  */
 
   var _useState = Object(react["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -63521,13 +63529,17 @@ function LMCountyRoot() {
 
 
   Object(react["useEffect"])(function () {
-    db.collection("counties").doc(county).collection("projects").get().then(function (doc) {
-      if (doc.exists) {
-        console.log("Document data:", doc.data());
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
+    db.collection("counties").doc(county).collection("projects").get().then(function (querySnapshot) {
+      var _documemts = [];
+      querySnapshot.forEach(function (doc) {
+        var data = doc.data();
+
+        _documemts.push({
+          id: data.projects[0].id,
+          name: data.projects[0].title
+        });
+      });
+      setDocuments(_documemts);
     });
   }, [county]);
 
@@ -63578,13 +63590,17 @@ function LMCountyRoot() {
       }
     }), /*#__PURE__*/react_default.a.createElement("div", {
       className: "collection"
-    }, documents.map(function (name) {
+    }, documents.map(function (_ref) {
+      var id = _ref.id,
+          name = _ref.name;
+
       if (debounceSearchTerm !== "" && name.indexOf(debounceSearchTerm) < 0) {
         return null;
       }
 
       return /*#__PURE__*/react_default.a.createElement(LMProjectRow, {
-        id: name,
+        id: id,
+        county: county,
         name: name
       });
     })));

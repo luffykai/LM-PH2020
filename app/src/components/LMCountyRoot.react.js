@@ -34,6 +34,14 @@ export default function LMCountyRoot() {
   const dataDiv = document.getElementById("county-map-data");
   const data = JSON.parse(dataDiv.getAttribute("data"));
   const county = dataDiv.getAttribute("county");
+
+  // documents is an array of name and id object.
+  /*
+  {
+    id: "cc4cfad203a7335c293b6e75f81e0bf0",
+    name: "大安青年社會住宅 (三重1館)",
+  }
+  */
   const [documents, setDocuments] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -45,13 +53,16 @@ export default function LMCountyRoot() {
       .doc(county)
       .collection("projects")
       .get()
-      .then((doc) => {
-        if (doc.exists) {
-          console.log("Document data:", doc.data());
-        } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
-        }
+      .then((querySnapshot) => {
+        const _documemts = [];
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          _documemts.push({
+            id: data.projects[0].id,
+            name: data.projects[0].title,
+          });
+        });
+        setDocuments(_documemts);
       });
   }, [county]);
 
@@ -104,7 +115,7 @@ export default function LMCountyRoot() {
           onInput={(e) => setSearchTerm(e.target.value)}
         />
         <div className="collection">
-          {documents.map((name) => {
+          {documents.map(({id, name}) => {
             if (
               debounceSearchTerm !== "" &&
               name.indexOf(debounceSearchTerm) < 0
@@ -112,7 +123,7 @@ export default function LMCountyRoot() {
               return null;
             }
 
-            return <LMProjectRow id={name} name={name} />;
+            return <LMProjectRow id={id} county={county} name={name} />;
           })}
         </div>
       </>
