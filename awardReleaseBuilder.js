@@ -1,7 +1,10 @@
 const {
+  ALREADY_IMPLIED_FIELDS,
+  NON_MAPPING_FIELDS,
+  loadMap,
   parseAddressToOcdsAddress,
   parseTaiwaneseDateStringToDate,
-  parseAmountToInt
+  parseAmountToInt,
 } = require("./LMUtils");
 const put = require("./put.js");
 
@@ -21,7 +24,7 @@ function getUnitValueAmount(totalAmount, unit) {
 // Path in this mapping is relative to "awards".
 const initializingFields = {
   date: "決標資料:決標日期",
-  title: "已公告資料:標案名稱"
+  title: "已公告資料:標案名稱",
 };
 
 function initiateAwardForSupplier(supplierName, releaseDetail, ocdsRelease) {
@@ -90,8 +93,8 @@ function populateCommitteesInParties(releaseDetail, ocdsRelease) {
       roles: ["reviewBody"],
       details: {
         occupation: committeeMember["職業"],
-        hasAttendedMeeting: committeeMember["出席會議"] === "是" ? true : false
-      }
+        hasAttendedMeeting: committeeMember["出席會議"] === "是" ? true : false,
+      },
     });
   }
 }
@@ -102,9 +105,9 @@ function populateTendererOrgObj(prefix, releaseDetail, ocdsRelease) {
     id: releaseDetail[`${prefix}:廠商代碼`],
     address: parseAddressToOcdsAddress(releaseDetail[`${prefix}:廠商地址`]),
     contactPoint: {
-      telephone: releaseDetail[`${prefix}:廠商電話`]
+      telephone: releaseDetail[`${prefix}:廠商電話`],
     },
-    roles: ["tenderer"]
+    roles: ["tenderer"],
   };
   if (releaseDetail[`${prefix}:是否得標`] === "是") {
     supplierOrgInfo.roles.push("supplier");
@@ -137,13 +140,15 @@ function updateAwards(ocdsRelease) {
     }
     award.value = {
       amount: valueOfAward,
-      currency: "TWD"
+      currency: "TWD",
     };
   }
 }
 
+const FIELD_MAP = loadMap("award");
+
 const awardReleaseBuilder = {
-  build: (releaseDetail, ocdsRelease) => {
+  build: (releaseDetail, ocdsRelease, unmappedFields) => {
     const supplierToIdxMap = new Map();
     const supplierNameToIdMap = new Map();
     for (let key in releaseDetail) {
@@ -186,12 +191,33 @@ const awardReleaseBuilder = {
             `投標廠商:投標廠商${match[1]}(共同投標廠商)${match[2]}:廠商代碼`
           ]
         );
+      } else {
+        let path = FIELD_MAP.get(key);
+
+        // Replace All the backslash to a dot
+        path = path != null ? path.replace(/\//g, ".") : null;
+        if (path) {
+          const ocdsValue = releaseDetail[key];
+          if (ocdsValue != null && path != null) {
+            // ocds does not accept field with empty value (null and undefined)
+            put(ocdsRelease, path, ocdsValue);
+          }
+        } else {
+          if (
+            !NON_MAPPING_FIELDS.has(key) &&
+            releaseDetail[key] !== "" &&
+            !(key in ALREADY_IMPLIED_FIELDS)
+          ) {
+            unmappedFields[key] = String(releaseDetail[key]).replace(/\s/g, "");
+            console.log("no path for", key, " value = ", releaseDetail[key]);
+          }
+        }
       }
     }
     populateCommitteesInParties(releaseDetail, ocdsRelease);
     updateSupplierIdInAward(supplierNameToIdMap, ocdsRelease);
     updateAwards(ocdsRelease);
-  }
+  },
 };
 
 module.exports = awardReleaseBuilder;

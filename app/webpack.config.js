@@ -1,14 +1,16 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
   entry: {
     main: "./src/index.js",
     county: "./src/county.js",
+    project: "./src/project.js",
   },
   output: {
     filename: "[name].js",
     path: __dirname + "/dist",
-    publicPath: '/'
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -29,18 +31,32 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    minimize: false,
+  },
   plugins: [
     new HtmlWebPackPlugin({
-      chunks: ['main'],
+      chunks: ["main"],
       template: "./src/html/index.html",
       filename: "./index.html",
     }),
     new HtmlWebPackPlugin({
-      base: 'county',
-      chunks: ['county'],
+      base: "county",
+      chunks: ["county"],
       template: "./src/html/county.html",
       filename: "./county.html",
     }),
+    new HtmlWebPackPlugin({
+      base: "project",
+      chunks: ["project"],
+      template: "./src/html/project.html",
+      filename: "./project.html",
+    }),
   ],
-  watch: true
+  resolve: {
+    alias: {
+      react: path.resolve("./node_modules/react"),
+    },
+  },
+  watch: true,
 };

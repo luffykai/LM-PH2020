@@ -1,0 +1,1053 @@
+{
+    "uri": "ocds://contract/ocds-kj3ygj-3.79-1070807C0140",
+    "publisher": {
+        "name": "Learning Man"
+    },
+    "version": "1.1",
+    "extensions": [
+        "https://raw.githubusercontent.com/open-contracting-extensions/ocds_participationFee_extension/v1.1.4/extension.json",
+        "https://raw.githubusercontent.com/open-contracting-extensions/ocds_location_extension/v1.1.4/extension.json",
+        "https://raw.githubusercontent.com/open-contracting-extensions/ocds_legalBasis_extension/master/extension.json",
+        "https://raw.githubusercontent.com/open-contracting-extensions/ocds_coveredBy_extension/master/extension.json"
+    ],
+    "releases": [
+        {
+            "date": "2018-08-15T16:00:00.000Z",
+            "ocid": "ocds-kj3ygj-3.79-1070807C0140",
+            "id": "TIQ-1-52293880-1534348800000",
+            "tag": [
+                "tender"
+            ],
+            "language": "zh",
+            "initiationType": "tender",
+            "parties": [
+                {
+                    "id": "3.79",
+                    "roles": [
+                        "buyer"
+                    ],
+                    "name": "臺北市政府",
+                    "additionalIdentifiers": [
+                        {
+                            "legalName": "聯合採購發包中心"
+                        }
+                    ],
+                    "address": {
+                        "streetAddress": "110臺北市信義區市府路1號3樓西南區"
+                    },
+                    "contactPoint": {
+                        "name": "黨興莒",
+                        "telephone": "(02)27208889分機1137",
+                        "faxNumber": "(02)27253923",
+                        "email": "jackytang48@mail.taipei.gov.tw"
+                    }
+                }
+            ],
+            "buyer": {
+                "id": "3.79",
+                "name": "臺北市政府"
+            },
+            "tender": {
+                "id": "1070807C0140",
+                "title": "臺北市內湖區舊宗公共住宅新建工程",
+                "mainProcurementCategory": "works",
+                "legalBasis": {
+                    "id": "採購法第18條、第19條"
+                },
+                "coveredBy": [
+                    "GPA",
+                    "ASTEP"
+                ],
+                "minValue": {
+                    "currency": "TWD",
+                    "amount": 489674495
+                },
+                "procurementMethod": "open",
+                "awardCriteria": "最有利標",
+                "status": "active",
+                "tenderPeriod": {
+                    "startDate": "2018-08-15T16:00:00.000Z",
+                    "endDate": "2018-09-26T03:30:00.000Z"
+                },
+                "participationFees": [
+                    {
+                        "value": {
+                            "currency": "TWD",
+                            "amount": 20
+                        }
+                    }
+                ],
+                "submissionMethod": [
+                    "electronicSubmission",
+                    "written"
+                ],
+                "contractPeriod": {
+                    "startDate": "2018-09-27T06:00:00.000Z",
+                    "endDate": "2020-07-28T06:00:00.000Z"
+                },
+                "bidOpening": {
+                    "address": "110臺北市信義區市府路1號3樓南區S302開標室"
+                },
+                "submissionMethodDetails": "11099臺北市府郵局第128信箱(限時掛號寄送)或臺北市信義區巿府路1號3樓南區臺北市政府聯合採購發包中心收領標處(親送或郵政快捷寄送)",
+                "items": [
+                    {
+                        "id": "臺北市內湖區舊宗公共住宅新建工程",
+                        "deliveryAddress": {
+                            "streetAddress": "臺北市(非原住民地區)"
+                        }
+                    }
+                ],
+                "eligibilityCriteria": "1.甲等以上綜合營造業(E101011)、2.甲等以上自來水管承裝商(E501011)、3.甲級以上電器承裝業(E601010)、4.甲等以上冷凍空調工程業(E602011)5.其他業種(至少需符合一項):IG03010能源技術服務業、CC01電機及電子機械器材製造業、CE01光學及精密器械製造業、E605電腦工程業、E701電信工程業、I301資訊服務業等\n※允許異業共同投標(請詳閱投標須知第貳、肆節規定)，共同投標廠商家數以4家為上限，不論投標廠商組成為何，惟應以甲等綜合營造業廠商為代表廠商，且代表廠商所占契約金額比例不得少於60%。符合所有資格之廠商仍得單獨投標。\n※訂定財力資格如下：\n投標廠商屬營造業類者應檢附經會計師簽證或審計機關審定之上會計一年度或近一年度財務報告及其所附報表，其內容合於下列規定者：\n(1)權益不低於新臺幣4,080萬元。\n(2)流動資產不低於流動負債。\n(3)總負債金額不超過權益4倍。但配合民營化政策之公營事業參加投標者，不在此限。總負債金額應扣除依其他法律政府獎勵民間投資金額。"
+            }
+        },
+        {
+            "date": "2018-09-05T16:00:00.000Z",
+            "ocid": "ocds-kj3ygj-3.79-1070807C0140",
+            "id": "TIQ-2-52293880-1536163200000",
+            "tag": [
+                "tenderUpdate"
+            ],
+            "language": "zh",
+            "initiationType": "tender",
+            "parties": [
+                {
+                    "id": "3.79",
+                    "roles": [
+                        "buyer"
+                    ],
+                    "name": "臺北市政府",
+                    "additionalIdentifiers": [
+                        {
+                            "legalName": "聯合採購發包中心"
+                        }
+                    ],
+                    "address": {
+                        "streetAddress": "110臺北市信義區市府路1號3樓西南區"
+                    },
+                    "contactPoint": {
+                        "name": "黨興莒",
+                        "telephone": "(02)27208889分機1137",
+                        "faxNumber": "(02)27253923",
+                        "email": "jackytang48@mail.taipei.gov.tw"
+                    }
+                }
+            ],
+            "buyer": {
+                "id": "3.79",
+                "name": "臺北市政府"
+            },
+            "tender": {
+                "id": "1070807C0140",
+                "title": "臺北市內湖區舊宗公共住宅新建工程",
+                "mainProcurementCategory": "works",
+                "legalBasis": {
+                    "id": "採購法第18條、第19條"
+                },
+                "coveredBy": [
+                    "GPA",
+                    "ASTEP"
+                ],
+                "minValue": {
+                    "currency": "TWD",
+                    "amount": 489674495
+                },
+                "procurementMethod": "open",
+                "awardCriteria": "最有利標",
+                "status": "active",
+                "tenderPeriod": {
+                    "startDate": "2018-09-05T16:00:00.000Z",
+                    "endDate": "2018-09-26T03:30:00.000Z"
+                },
+                "participationFees": [
+                    {
+                        "value": {
+                            "currency": "TWD",
+                            "amount": 20
+                        }
+                    }
+                ],
+                "submissionMethod": [
+                    "electronicSubmission",
+                    "written"
+                ],
+                "contractPeriod": {
+                    "startDate": "2018-09-27T06:00:00.000Z",
+                    "endDate": "2020-07-28T06:00:00.000Z"
+                },
+                "bidOpening": {
+                    "address": "110臺北市信義區市府路1號3樓南區S302開標室"
+                },
+                "submissionMethodDetails": "11099臺北市府郵局第128信箱(限時掛號寄送)或臺北市信義區巿府路1號3樓南區臺北市政府聯合採購發包中心收領標處(親送或郵政快捷寄送)",
+                "items": [
+                    {
+                        "id": "臺北市內湖區舊宗公共住宅新建工程",
+                        "deliveryAddress": {
+                            "streetAddress": "臺北市(非原住民地區)"
+                        }
+                    }
+                ],
+                "eligibilityCriteria": "1.甲等以上綜合營造業(E101011)、2.甲等以上自來水管承裝商(E501011)、3.甲級以上電器承裝業(E601010)、4.乙等以上冷凍空調工程業(E602011)5.其他業種(至少需符合一項):IG03010能源技術服務業、CC01電機及電子機械器材製造業、CE01光學及精密器械製造業、E605電腦工程業、E701電信工程業、I301資訊服務業等\n※允許異業共同投標(請詳閱投標須知第貳、肆節規定)，共同投標廠商家數以4家為上限，不論投標廠商組成為何，惟應以甲等綜合營造業廠商為代表廠商，且代表廠商所占契約金額比例不得少於60%。符合所有資格之廠商仍得單獨投標。\n※訂定財力資格如下：\n投標廠商屬營造業類者應檢附經會計師簽證或審計機關審定之上會計一年度或近一年度財務報告及其所附報表，其內容合於下列規定者：\n(1)權益不低於新臺幣4,080萬元。\n(2)流動資產不低於流動負債。\n(3)總負債金額不超過權益4倍。但配合民營化政策之公營事業參加投標者，不在此限。總負債金額應扣除依其他法律政府獎勵民間投資金額。"
+            }
+        },
+        {
+            "date": "2018-09-20T16:00:00.000Z",
+            "ocid": "ocds-kj3ygj-3.79-1070807C0140",
+            "id": "TIQ-2-52293880-1537459200000",
+            "tag": [
+                "tenderUpdate"
+            ],
+            "language": "zh",
+            "initiationType": "tender",
+            "parties": [
+                {
+                    "id": "3.79",
+                    "roles": [
+                        "buyer"
+                    ],
+                    "name": "臺北市政府",
+                    "additionalIdentifiers": [
+                        {
+                            "legalName": "聯合採購發包中心"
+                        }
+                    ],
+                    "address": {
+                        "streetAddress": "110臺北市信義區市府路1號3樓西南區"
+                    },
+                    "contactPoint": {
+                        "name": "黨興莒",
+                        "telephone": "(02)27208889分機1137",
+                        "faxNumber": "(02)27253923",
+                        "email": "jackytang48@mail.taipei.gov.tw"
+                    }
+                }
+            ],
+            "buyer": {
+                "id": "3.79",
+                "name": "臺北市政府"
+            },
+            "tender": {
+                "id": "1070807C0140",
+                "title": "臺北市內湖區舊宗公共住宅新建工程",
+                "mainProcurementCategory": "works",
+                "legalBasis": {
+                    "id": "採購法第18條、第19條"
+                },
+                "coveredBy": [
+                    "GPA",
+                    "ASTEP"
+                ],
+                "minValue": {
+                    "currency": "TWD",
+                    "amount": 489674495
+                },
+                "procurementMethod": "open",
+                "awardCriteria": "最有利標",
+                "status": "active",
+                "tenderPeriod": {
+                    "startDate": "2018-09-20T16:00:00.000Z",
+                    "endDate": "2018-10-02T03:30:00.000Z"
+                },
+                "participationFees": [
+                    {
+                        "value": {
+                            "currency": "TWD",
+                            "amount": 20
+                        }
+                    }
+                ],
+                "submissionMethod": [
+                    "electronicSubmission",
+                    "written"
+                ],
+                "contractPeriod": {
+                    "startDate": "2018-10-03T06:00:00.000Z",
+                    "endDate": "2020-08-03T06:00:00.000Z"
+                },
+                "bidOpening": {
+                    "address": "110臺北市信義區市府路1號3樓南區S308開標室"
+                },
+                "submissionMethodDetails": "11099臺北市府郵局第128信箱(限時掛號寄送)或臺北市信義區巿府路1號3樓南區臺北市政府聯合採購發包中心收領標處(親送或郵政快捷寄送)",
+                "items": [
+                    {
+                        "id": "臺北市內湖區舊宗公共住宅新建工程",
+                        "deliveryAddress": {
+                            "streetAddress": "臺北市(非原住民地區)"
+                        }
+                    }
+                ],
+                "eligibilityCriteria": "1.甲等以上綜合營造業(E101011)、2.甲等以上自來水管承裝商(E501011)、3.甲級以上電器承裝業(E601010)、4.乙等以上冷凍空調工程業(E602011)5.其他業種(至少需符合一項):IG03010能源技術服務業、CC01電機及電子機械器材製造業、CE01光學及精密器械製造業、E605電腦工程業、E701電信工程業、I301資訊服務業等\n※允許異業共同投標(請詳閱投標須知第貳、肆節規定)，共同投標廠商家數以4家為上限，不論投標廠商組成為何，惟應以甲等綜合營造業廠商為代表廠商，且代表廠商所占契約金額比例不得少於60%。符合所有資格之廠商仍得單獨投標。\n※訂定財力資格如下：\n投標廠商屬營造業類者應檢附經會計師簽證或審計機關審定之上會計一年度或近一年度財務報告及其所附報表，其內容合於下列規定者：\n(1)權益不低於新臺幣4,080萬元。\n(2)流動資產不低於流動負債。\n(3)總負債金額不超過權益4倍。但配合民營化政策之公營事業參加投標者，不在此限。總負債金額應扣除依其他法律政府獎勵民間投資金額。"
+            }
+        },
+        {
+            "date": "2018-09-25T16:00:00.000Z",
+            "ocid": "ocds-kj3ygj-3.79-1070807C0140",
+            "id": "TIQ-2-52293880-1537891200000",
+            "tag": [
+                "tenderUpdate"
+            ],
+            "language": "zh",
+            "initiationType": "tender",
+            "parties": [
+                {
+                    "id": "3.79",
+                    "roles": [
+                        "buyer"
+                    ],
+                    "name": "臺北市政府",
+                    "additionalIdentifiers": [
+                        {
+                            "legalName": "聯合採購發包中心"
+                        }
+                    ],
+                    "address": {
+                        "streetAddress": "110臺北市信義區市府路1號3樓西南區"
+                    },
+                    "contactPoint": {
+                        "name": "黨興莒",
+                        "telephone": "(02)27208889分機1137",
+                        "faxNumber": "(02)27253923",
+                        "email": "jackytang48@mail.taipei.gov.tw"
+                    }
+                }
+            ],
+            "buyer": {
+                "id": "3.79",
+                "name": "臺北市政府"
+            },
+            "tender": {
+                "id": "1070807C0140",
+                "title": "臺北市內湖區舊宗公共住宅新建工程",
+                "mainProcurementCategory": "works",
+                "legalBasis": {
+                    "id": "採購法第18條、第19條"
+                },
+                "coveredBy": [
+                    "GPA",
+                    "ASTEP"
+                ],
+                "minValue": {
+                    "currency": "TWD",
+                    "amount": 489674495
+                },
+                "procurementMethod": "open",
+                "awardCriteria": "最有利標",
+                "status": "active",
+                "tenderPeriod": {
+                    "startDate": "2018-09-25T16:00:00.000Z",
+                    "endDate": "2018-10-11T03:30:00.000Z"
+                },
+                "participationFees": [
+                    {
+                        "value": {
+                            "currency": "TWD",
+                            "amount": 20
+                        }
+                    }
+                ],
+                "submissionMethod": [
+                    "electronicSubmission",
+                    "written"
+                ],
+                "contractPeriod": {
+                    "startDate": "2018-10-12T06:00:00.000Z",
+                    "endDate": "2020-08-12T06:00:00.000Z"
+                },
+                "bidOpening": {
+                    "address": "110臺北市信義區市府路1號3樓南區S308開標室"
+                },
+                "submissionMethodDetails": "11099臺北市府郵局第128信箱(限時掛號寄送)或臺北市信義區巿府路1號3樓南區臺北市政府聯合採購發包中心收領標處(親送或郵政快捷寄送)",
+                "items": [
+                    {
+                        "id": "臺北市內湖區舊宗公共住宅新建工程",
+                        "deliveryAddress": {
+                            "streetAddress": "臺北市(非原住民地區)"
+                        }
+                    }
+                ],
+                "eligibilityCriteria": "1.甲等以上綜合營造業(E101011)、2.甲等以上自來水管承裝商(E501011)、3.甲級以上電器承裝業(E601010)、4.乙等以上冷凍空調工程業(E602011)5.其他業種(至少需符合一項):IG03010能源技術服務業、CC01電機及電子機械器材製造業、CE01光學及精密器械製造業、E605電腦工程業、E701電信工程業、I301資訊服務業等\n※允許異業共同投標(請詳閱投標須知第貳、肆節規定)，共同投標廠商家數以4家為上限，不論投標廠商組成為何，惟應以甲等綜合營造業廠商為代表廠商，且代表廠商所占契約金額比例不得少於60%。符合所有資格之廠商仍得單獨投標。\n※訂定財力資格如下：\n投標廠商屬營造業類者應檢附經會計師簽證或審計機關審定之上會計一年度或近一年度財務報告及其所附報表，其內容合於下列規定者：\n(1)權益不低於新臺幣4,080萬元。\n(2)流動資產不低於流動負債。\n(3)總負債金額不超過權益4倍。但配合民營化政策之公營事業參加投標者，不在此限。總負債金額應扣除依其他法律政府獎勵民間投資金額。"
+            }
+        },
+        {
+            "date": "2018-11-01T16:00:00.000Z",
+            "ocid": "ocds-kj3ygj-3.79-1070807C0140",
+            "id": "NAI-1-52595425-1541088000000",
+            "tag": [
+                "tenderUpdate"
+            ],
+            "language": "zh",
+            "initiationType": "tender",
+            "tender": {
+                "id": "1070807C0140",
+                "title": "臺北市內湖區舊宗公共住宅新建工程",
+                "procurementMethod": "open",
+                "mainProcurementCategory": "works",
+                "status": "unsuccessful"
+            },
+            "parties": [
+                {
+                    "id": "3.79",
+                    "name": "臺北市政府",
+                    "additionalIdentifiers": [
+                        {
+                            "legalName": "聯合採購發包中心"
+                        }
+                    ],
+                    "address": {
+                        "streetAddress": "110臺北市信義區市府路1號3樓西南區"
+                    },
+                    "contactPoint": {
+                        "name": "黨興莒",
+                        "telephone": "(02)27208889\r\n                       \r\n                       \t分機 1137",
+                        "faxNumber": "(02)27253923"
+                    }
+                }
+            ],
+            "buyer": {
+                "id": "3.79",
+                "name": "臺北市政府"
+            },
+            "awards": [
+                {
+                    "id": "NAI-1-52595425-1541088000000-awards-0",
+                    "status": "unsuccessful"
+                }
+            ]
+        },
+        {
+            "date": "2019-06-20T16:00:00.000Z",
+            "ocid": "ocds-kj3ygj-3.79-1070807C0140",
+            "id": "TIQ-1-52540085-1561046400000",
+            "tag": [
+                "tender"
+            ],
+            "language": "zh",
+            "initiationType": "tender",
+            "parties": [
+                {
+                    "id": "3.79",
+                    "roles": [
+                        "buyer"
+                    ],
+                    "name": "臺北市政府",
+                    "additionalIdentifiers": [
+                        {
+                            "legalName": "聯合採購發包中心"
+                        }
+                    ],
+                    "address": {
+                        "streetAddress": "110臺北市信義區市府路1號3樓西南區"
+                    },
+                    "contactPoint": {
+                        "name": "黨興莒",
+                        "telephone": "(02)27208889分機1137",
+                        "faxNumber": "(02)27253923",
+                        "email": "jackytang48@mail.taipei.gov.tw"
+                    }
+                }
+            ],
+            "buyer": {
+                "id": "3.79",
+                "name": "臺北市政府"
+            },
+            "tender": {
+                "id": "1070807C0140",
+                "title": "臺北市內湖區舊宗公共住宅新建工程",
+                "mainProcurementCategory": "works",
+                "legalBasis": {
+                    "id": "採購法第18條、第19條"
+                },
+                "coveredBy": [
+                    "GPA",
+                    "ASTEP"
+                ],
+                "minValue": {
+                    "currency": "TWD",
+                    "amount": 528025643
+                },
+                "procurementMethod": "open",
+                "awardCriteria": "最有利標",
+                "status": "active",
+                "tenderPeriod": {
+                    "startDate": "2019-06-20T16:00:00.000Z",
+                    "endDate": "2019-07-26T03:30:00.000Z"
+                },
+                "participationFees": [
+                    {
+                        "value": {
+                            "currency": "TWD",
+                            "amount": 20
+                        }
+                    }
+                ],
+                "submissionMethod": [
+                    "electronicSubmission",
+                    "written"
+                ],
+                "contractPeriod": {
+                    "startDate": "2019-07-27T06:00:00.000Z",
+                    "endDate": "2021-10-24T06:00:00.000Z"
+                },
+                "bidOpening": {
+                    "address": "110臺北市信義區市府路1號3樓南區S302開標室"
+                },
+                "submissionMethodDetails": "11099臺北市府郵局第128信箱(限時掛號寄送)或臺北市信義區巿府路1號3樓南區臺北市政府聯合採購發包中心收領標處(親送或郵政快捷寄送)",
+                "items": [
+                    {
+                        "id": "臺北市內湖區舊宗公共住宅新建工程",
+                        "deliveryAddress": {
+                            "streetAddress": "臺北市(非原住民地區)"
+                        }
+                    }
+                ],
+                "eligibilityCriteria": "1.甲等以上綜合營造業(E101011)、2.甲等以上自來水管承裝商(E501011)、3.甲級以上電器承裝業(E601010)、4.乙等以上冷凍空調工程業(E602011)5.其他業種(至少需符合一項):IG03010能源技術服務業、CC01電機及電子機械器材製造業、CE01光學及精密器械製造業、E605電腦工程業、E701電信工程業、I301資訊服務業等。\n※允許異業共同投標(請詳閱投標須知第貳、肆節規定)，共同投標廠商家數以5家為上限，不論投標廠商組成為何，惟應以甲等綜合營造業廠商為代表廠商，且代表廠商所占契約金額比例不得少於60%。符合所有資格之廠商仍得單獨投標。\n※訂定財力資格如下：\n投標廠商屬營造業類者應檢附經會計師簽證或審計機關審定之上會計一年度或近一年度財務報告及其所附報表，其內容合於下列規定者：\n(1)權益不低於新臺幣4,400萬元。\n(2)流動資產不低於流動負債。\n(3)總負債金額不超過權益4倍。但配合民營化政策之公營事業參加投標者，不在此限。總負債金額應扣除依其他法律政府獎勵民間投資金額。"
+            }
+        },
+        {
+            "date": "2019-06-23T16:00:00.000Z",
+            "ocid": "ocds-kj3ygj-3.79-1070807C0140",
+            "id": "TIQ-2-52540085-1561305600000",
+            "tag": [
+                "tenderUpdate"
+            ],
+            "language": "zh",
+            "initiationType": "tender",
+            "parties": [
+                {
+                    "id": "3.79",
+                    "roles": [
+                        "buyer"
+                    ],
+                    "name": "臺北市政府",
+                    "additionalIdentifiers": [
+                        {
+                            "legalName": "聯合採購發包中心"
+                        }
+                    ],
+                    "address": {
+                        "streetAddress": "110臺北市信義區市府路1號3樓西南區"
+                    },
+                    "contactPoint": {
+                        "name": "黨興莒",
+                        "telephone": "(02)27208889分機1137",
+                        "faxNumber": "(02)27253923",
+                        "email": "jackytang48@mail.taipei.gov.tw"
+                    }
+                }
+            ],
+            "buyer": {
+                "id": "3.79",
+                "name": "臺北市政府"
+            },
+            "tender": {
+                "id": "1070807C0140",
+                "title": "臺北市內湖區舊宗公共住宅新建工程",
+                "mainProcurementCategory": "works",
+                "legalBasis": {
+                    "id": "採購法第18條、第19條"
+                },
+                "coveredBy": [
+                    "GPA",
+                    "ASTEP"
+                ],
+                "minValue": {
+                    "currency": "TWD",
+                    "amount": 528025643
+                },
+                "procurementMethod": "open",
+                "awardCriteria": "最有利標",
+                "status": "active",
+                "tenderPeriod": {
+                    "startDate": "2019-06-23T16:00:00.000Z",
+                    "endDate": "2019-07-26T03:30:00.000Z"
+                },
+                "participationFees": [
+                    {
+                        "value": {
+                            "currency": "TWD",
+                            "amount": 20
+                        }
+                    }
+                ],
+                "submissionMethod": [
+                    "electronicSubmission",
+                    "written"
+                ],
+                "contractPeriod": {
+                    "startDate": "2019-07-27T06:00:00.000Z",
+                    "endDate": "2021-10-24T06:00:00.000Z"
+                },
+                "bidOpening": {
+                    "address": "110臺北市信義區市府路1號3樓南區S302開標室"
+                },
+                "submissionMethodDetails": "11099臺北市府郵局第128信箱(限時掛號寄送)或臺北市信義區巿府路1號3樓南區臺北市政府聯合採購發包中心收領標處(親送或郵政快捷寄送)",
+                "items": [
+                    {
+                        "id": "臺北市內湖區舊宗公共住宅新建工程",
+                        "deliveryAddress": {
+                            "streetAddress": "臺北市(非原住民地區)"
+                        }
+                    }
+                ],
+                "eligibilityCriteria": "1.甲等以上綜合營造業(E101011)、2.甲等以上自來水管承裝商(E501011)、3.甲級以上電器承裝業(E601010)、4.乙等以上冷凍空調工程業(E602011)5.其他業種(至少需符合一項):IG03010能源技術服務業、CC01電機及電子機械器材製造業、CE01光學及精密器械製造業、E605電腦工程業、E701電信工程業、I301資訊服務業等。\n※允許異業共同投標(請詳閱投標須知第貳、肆節規定)，共同投標廠商家數以5家為上限，不論投標廠商組成為何，惟應以甲等綜合營造業廠商為代表廠商，且代表廠商所占契約金額比例不得少於60%。符合所有資格之廠商仍得單獨投標。\n※訂定財力資格如下：\n投標廠商屬營造業類者應檢附經會計師簽證或審計機關審定之上會計一年度或近一年度財務報告及其所附報表，其內容合於下列規定者：\n(1)權益不低於新臺幣4,400萬元。\n(2)流動資產不低於流動負債。\n(3)總負債金額不超過權益4倍。但配合民營化政策之公營事業參加投標者，不在此限。總負債金額應扣除依其他法律政府獎勵民間投資金額。"
+            }
+        },
+        {
+            "date": "2019-07-28T16:00:00.000Z",
+            "ocid": "ocds-kj3ygj-3.79-1070807C0140",
+            "id": "NAI-1-52834176-1564329600000",
+            "tag": [
+                "tenderUpdate"
+            ],
+            "language": "zh",
+            "initiationType": "tender",
+            "tender": {
+                "id": "1070807C0140",
+                "title": "臺北市內湖區舊宗公共住宅新建工程",
+                "procurementMethod": "open",
+                "mainProcurementCategory": "works",
+                "status": "unsuccessful"
+            },
+            "parties": [
+                {
+                    "id": "3.79",
+                    "name": "臺北市政府",
+                    "additionalIdentifiers": [
+                        {
+                            "legalName": "聯合採購發包中心"
+                        }
+                    ],
+                    "address": {
+                        "streetAddress": "110臺北市信義區市府路1號3樓西南區"
+                    },
+                    "contactPoint": {
+                        "name": "黨興莒",
+                        "telephone": "(02)27208889\r\n                       \r\n                       \t分機 1137",
+                        "faxNumber": "(02)27253923"
+                    }
+                }
+            ],
+            "buyer": {
+                "id": "3.79",
+                "name": "臺北市政府"
+            },
+            "awards": [
+                {
+                    "id": "NAI-1-52834176-1564329600000-awards-0",
+                    "status": "unsuccessful"
+                }
+            ]
+        },
+        {
+            "date": "2019-07-31T16:00:00.000Z",
+            "ocid": "ocds-kj3ygj-3.79-1070807C0140",
+            "id": "TIQ-1-52570284-1564588800000",
+            "tag": [
+                "tender"
+            ],
+            "language": "zh",
+            "initiationType": "tender",
+            "parties": [
+                {
+                    "id": "3.79",
+                    "roles": [
+                        "buyer"
+                    ],
+                    "name": "臺北市政府",
+                    "additionalIdentifiers": [
+                        {
+                            "legalName": "聯合採購發包中心"
+                        }
+                    ],
+                    "address": {
+                        "streetAddress": "110臺北市信義區市府路1號3樓西南區"
+                    },
+                    "contactPoint": {
+                        "name": "黨興莒",
+                        "telephone": "(02)27208889分機1137",
+                        "faxNumber": "(02)27253923",
+                        "email": "jackytang48@mail.taipei.gov.tw"
+                    }
+                }
+            ],
+            "buyer": {
+                "id": "3.79",
+                "name": "臺北市政府"
+            },
+            "tender": {
+                "id": "1070807C0140",
+                "title": "臺北市內湖區舊宗公共住宅新建工程",
+                "mainProcurementCategory": "works",
+                "legalBasis": {
+                    "id": "採購法第18條、第19條"
+                },
+                "coveredBy": [
+                    "GPA",
+                    "ASTEP"
+                ],
+                "minValue": {
+                    "currency": "TWD",
+                    "amount": 528025643
+                },
+                "procurementMethod": "open",
+                "awardCriteria": "最有利標",
+                "status": "active",
+                "tenderPeriod": {
+                    "startDate": "2019-07-31T16:00:00.000Z",
+                    "endDate": "2019-08-13T03:30:00.000Z"
+                },
+                "participationFees": [
+                    {
+                        "value": {
+                            "currency": "TWD",
+                            "amount": 20
+                        }
+                    }
+                ],
+                "submissionMethod": [
+                    "electronicSubmission",
+                    "written"
+                ],
+                "contractPeriod": {
+                    "startDate": "2019-08-14T06:00:00.000Z",
+                    "endDate": "2021-11-11T07:00:00.000Z"
+                },
+                "bidOpening": {
+                    "address": "110臺北市信義區市府路1號3樓南區S308開標室"
+                },
+                "submissionMethodDetails": "11099臺北市府郵局第128信箱(限時掛號寄送)或臺北市信義區巿府路1號3樓南區臺北市政府聯合採購發包中心收領標處(親送或郵政快捷寄送)",
+                "items": [
+                    {
+                        "id": "臺北市內湖區舊宗公共住宅新建工程",
+                        "deliveryAddress": {
+                            "streetAddress": "臺北市(非原住民地區)"
+                        }
+                    }
+                ],
+                "eligibilityCriteria": "1.甲等以上綜合營造業(E101011)、2.甲等以上自來水管承裝商(E501011)、3.甲級以上電器承裝業(E601010)、4.乙等以上冷凍空調工程業(E602011)5.其他業種(至少需符合一項):IG03010能源技術服務業、CC01電機及電子機械器材製造業、CE01光學及精密器械製造業、E605電腦工程業、E701電信工程業、I301資訊服務業等。\n※允許異業共同投標(請詳閱投標須知第貳、肆節規定)，共同投標廠商家數以5家為上限，不論投標廠商組成為何，惟應以甲等綜合營造業廠商為代表廠商，且代表廠商所占契約金額比例不得少於60%。符合所有資格之廠商仍得單獨投標。\n※訂定財力資格如下：\n投標廠商屬營造業類者應檢附經會計師簽證或審計機關審定之上會計一年度或近一年度財務報告及其所附報表，其內容合於下列規定者：\n(1)權益不低於新臺幣4,400萬元。\n(2)流動資產不低於流動負債。\n(3)總負債金額不超過權益4倍。但配合民營化政策之公營事業參加投標者，不在此限。總負債金額應扣除依其他法律政府獎勵民間投資金額。"
+            }
+        },
+        {
+            "date": "2019-09-09T16:00:00.000Z",
+            "ocid": "ocds-kj3ygj-3.79-1070807C0140",
+            "id": "BDM-1-52868713-1568044800000",
+            "tag": [
+                "award"
+            ],
+            "language": "zh",
+            "initiationType": "tender",
+            "buyer": {
+                "id": "3.79",
+                "name": "臺北市政府"
+            },
+            "parties": [
+                {
+                    "additionalIdentifiers": [
+                        {
+                            "legalName": "聯合採購發包中心"
+                        }
+                    ],
+                    "address": {
+                        "streetAddress": "110臺北市信義區市府路1號3樓西南區"
+                    },
+                    "contactPoint": {
+                        "name": "黨興莒",
+                        "telephone": "(02)27208889 分機 1137",
+                        "faxNumber": "(02)27253923"
+                    }
+                },
+                {
+                    "name": "文昌營造工程有限公司",
+                    "id": "23505621",
+                    "address": {
+                        "countryName": "臺灣",
+                        "streetAddress": "408臺中市南屯區五權西路2段236號14樓之3、之5",
+                        "locality": "臺中市",
+                        "region": "南屯區",
+                        "postalCode": "408"
+                    },
+                    "contactPoint": {
+                        "telephone": "(04)24759781"
+                    },
+                    "roles": [
+                        "tenderer",
+                        "supplier"
+                    ]
+                },
+                {
+                    "name": "極盛科技股份有限公司",
+                    "id": "28891480",
+                    "address": {
+                        "countryName": "臺灣",
+                        "streetAddress": "220新北市板橋區民生路3段238號(1樓)",
+                        "locality": "新北市",
+                        "region": "板橋區",
+                        "postalCode": "220"
+                    },
+                    "contactPoint": {
+                        "telephone": "(02)66371866"
+                    },
+                    "roles": [
+                        "tenderer",
+                        "supplier"
+                    ]
+                },
+                {
+                    "name": "超群空調工程有限公司",
+                    "id": "12501900",
+                    "address": {
+                        "countryName": "臺灣",
+                        "streetAddress": "241新北市三重區重新路4段41巷34號",
+                        "locality": "新北市",
+                        "region": "三重區",
+                        "postalCode": "241"
+                    },
+                    "contactPoint": {
+                        "telephone": "(02)29815878"
+                    },
+                    "roles": [
+                        "tenderer",
+                        "supplier"
+                    ]
+                },
+                {
+                    "id": "003a7d48933a2f5a7b68aacd76fe5996",
+                    "name": "廖晏瑋",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "廖晏瑋建築師事務所主持建築師",
+                        "hasAttendedMeeting": true
+                    }
+                },
+                {
+                    "id": "50f2110d6fcd9a2524b9f877bc587746",
+                    "name": "徐維志",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "徐維志建築師事務所建築師",
+                        "hasAttendedMeeting": true
+                    }
+                },
+                {
+                    "id": "1091e04012e817755382ce5a9a25fe63",
+                    "name": "李咸亨",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "國立台灣科技大學教授",
+                        "hasAttendedMeeting": true
+                    }
+                },
+                {
+                    "id": "fd354d745e85021e6067d26aa58d200b",
+                    "name": "江世雄",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "江世雄結構技師事務所結構技師兼負責人",
+                        "hasAttendedMeeting": true
+                    }
+                },
+                {
+                    "id": "3c2b0a9e52d2e2dc740dd5237efca484",
+                    "name": "蕭力仁",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "蕭力仁建築師事務所",
+                        "hasAttendedMeeting": true
+                    }
+                },
+                {
+                    "id": "a9321aadc8ccd4c5c2cac4362924f0c9",
+                    "name": "莊希聖",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "境向聯合建築師事務所建築師",
+                        "hasAttendedMeeting": true
+                    }
+                },
+                {
+                    "id": "6332a36fa8568844bddb1343247f7724",
+                    "name": "楊國隆",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "楊瑞禎聯合建築師事務所建築師",
+                        "hasAttendedMeeting": true
+                    }
+                },
+                {
+                    "id": "b64c5f2e4981d0e1d90f4e88967cfa2e",
+                    "name": "陳裕益",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "陳裕益建築師事務所建築師",
+                        "hasAttendedMeeting": true
+                    }
+                },
+                {
+                    "id": "30bf4600b9360030d169f3f9d9a30a01",
+                    "name": "陳章安",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "陳章安建築師事務所建築師",
+                        "hasAttendedMeeting": false
+                    }
+                },
+                {
+                    "id": "bdf09b9b5536b8f598c46e21b12fe454",
+                    "name": "王玉芬",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "臺北市政府都發局副局長",
+                        "hasAttendedMeeting": false
+                    }
+                },
+                {
+                    "id": "693a83683d6660e73c607f103c8394c7",
+                    "name": "劉美秀",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "臺北市政府都發局主任秘書",
+                        "hasAttendedMeeting": false
+                    }
+                },
+                {
+                    "id": "c008ad4b54506cc32c7ef50c4d63b960",
+                    "name": "王金棠",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "臺北市政府都發局專門委員",
+                        "hasAttendedMeeting": true
+                    }
+                },
+                {
+                    "id": "940d912117cddde1b73b9c13c015bb56",
+                    "name": "章毅",
+                    "roles": [
+                        "reviewBody"
+                    ],
+                    "details": {
+                        "occupation": "臺北市建築管理工程處副處長",
+                        "hasAttendedMeeting": true
+                    }
+                }
+            ],
+            "tender": {
+                "id": "1070807C0140",
+                "procurementMethod": "公開招標",
+                "awardCriteria": "最有利標",
+                "title": "臺北市內湖區舊宗公共住宅新建工程"
+            },
+            "awards": [
+                {
+                    "suppliers": [
+                        {
+                            "id": "23505621",
+                            "name": "文昌營造工程有限公司"
+                        }
+                    ],
+                    "status": "active",
+                    "date": "2019-09-04T16:00:00.000Z",
+                    "title": "臺北市內湖區舊宗公共住宅新建工程",
+                    "items": [
+                        {
+                            "id": "6bdcdb0138d6ce0a66ffd813d269f4ec",
+                            "description": "臺北市內湖區舊宗公共住宅新建工程",
+                            "quantity": 0.7762,
+                            "unit": {
+                                "value": {
+                                    "currency": "TWD",
+                                    "amount": 528000000
+                                }
+                            }
+                        }
+                    ],
+                    "id": "ocds-kj3ygj-3.79-1070807C0140-23505621",
+                    "value": {
+                        "amount": 409833600,
+                        "currency": "TWD"
+                    }
+                },
+                {
+                    "suppliers": [
+                        {
+                            "id": "28891480",
+                            "name": "極盛科技股份有限公司"
+                        }
+                    ],
+                    "status": "active",
+                    "date": "2019-09-04T16:00:00.000Z",
+                    "title": "臺北市內湖區舊宗公共住宅新建工程",
+                    "items": [
+                        {
+                            "id": "6bdcdb0138d6ce0a66ffd813d269f4ec",
+                            "description": "臺北市內湖區舊宗公共住宅新建工程",
+                            "quantity": 0.2153,
+                            "unit": {
+                                "value": {
+                                    "currency": "TWD",
+                                    "amount": 528000000
+                                }
+                            }
+                        }
+                    ],
+                    "id": "ocds-kj3ygj-3.79-1070807C0140-28891480",
+                    "value": {
+                        "amount": 113678400,
+                        "currency": "TWD"
+                    }
+                },
+                {
+                    "suppliers": [
+                        {
+                            "id": "12501900",
+                            "name": "超群空調工程有限公司"
+                        }
+                    ],
+                    "status": "active",
+                    "date": "2019-09-04T16:00:00.000Z",
+                    "title": "臺北市內湖區舊宗公共住宅新建工程",
+                    "items": [
+                        {
+                            "id": "6bdcdb0138d6ce0a66ffd813d269f4ec",
+                            "description": "臺北市內湖區舊宗公共住宅新建工程",
+                            "quantity": 0.0085,
+                            "unit": {
+                                "value": {
+                                    "currency": "TWD",
+                                    "amount": 528000000
+                                }
+                            }
+                        }
+                    ],
+                    "id": "ocds-kj3ygj-3.79-1070807C0140-12501900",
+                    "value": {
+                        "amount": 4488000,
+                        "currency": "TWD"
+                    }
+                }
+            ]
+        }
+    ]
+}

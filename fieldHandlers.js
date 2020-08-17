@@ -91,6 +91,12 @@ const fieldHandlers = {
     }
     return { currency: "TWD", amount: parseAmountToInt(value) };
   },
+  "已公告資料:預算金額": (value, _ocdsRelease) => {
+    if (value == null) {
+      return null;
+    }
+    return { currency: "TWD", amount: parseAmountToInt(value) };
+  },
   "領投開標:是否提供電子領標:總計": (value, _ocdsRelease) => {
     if (value == null) {
       return null;
@@ -162,6 +168,61 @@ const fieldHandlers = {
     if (value === "是") {
       put(ocdsRelease, "tender.coveredBy[]", "ASTEP");
     }
+    return null;
+  },
+  "招標資料:是否適用採購法第104條或105條或招標期限標準第10條或第4條之1": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "採購法第104條或105條或招標期限標準第10條或第4條之1");
+    }
+    return null;
+  },
+  "招標資料:是否依據採購法第106條第1項第1款辦理": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "採購法第106條第1項第1款");
+    }
+    return null;
+  },
+  "其他:是否依據採購法第99條": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.coveredBy[]", "採購法第99條");
+    }
+    return null;
+  },
+  "其他:是否訂有與履約能力有關之基本資格": (
+    value,
+    ocdsRelease
+  ) => {
+    // do nothing, will do take care by the below ones
+    return null;
+  },
+  "其他:是否訂有與履約能力有關之基本資格:廠商應附具之基本資格證明文件或物品": (
+    value,
+    ocdsRelease
+  ) => {
+    put(ocdsRelease, "tender.otherRequirements.qualificationSystemConditions[]", value);
+    return null;
+  },
+  "其他:是否訂有與履約能力有關之特定資格": (
+    value,
+    ocdsRelease
+  ) => {
+    // do nothing, will do take care by the below ones
+    return null;
+  },
+  "其他:是否訂有與履約能力有關之特定資格:廠商應附具之特定資格證明文件": (
+    value,
+    ocdsRelease
+  ) => {
+    put(ocdsRelease, "tender.otherRequirements.qualificationSystemConditions[]", value);
     return null;
   }
 };

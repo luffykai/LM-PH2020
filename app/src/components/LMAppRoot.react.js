@@ -1,7 +1,5 @@
 "use strict";
 
-import LMMap from './LMMap.react';
-
 function LMAppRoot() {
   return (
     <div className="root">
@@ -10,10 +8,9 @@ function LMAppRoot() {
         <h4 className="marginTop-20">An informative tool for both the public and <br />
             government officials</h4>
         <div className="marginTop-20">
-            <a className="btn-large lm-pink-1">I'm 監督者</a>
+            <a className="btn-large lm-pink-1" href="/county">I'm 監督者</a>
             <a className="btn-large lm-pink-1 marginLeft-8">I'm Officials</a>
         </div>
-        <LMMap />
       </div>
     </div>
   );

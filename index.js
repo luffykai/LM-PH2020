@@ -26,6 +26,8 @@ admin.initializeApp({
 const db = admin.firestore();
 db.settings({ ignoreUndefinedProperties: true });
 
+const stringify = require("csv-stringify");
+
 const LM_OCDS_PREFIX = "ocds-kj3ygj";
 
 const getContract = function(orgID, contractID) {
@@ -41,6 +43,8 @@ const convertToOCDS = function(orgID, contractID) {
   const ocid = `${LM_OCDS_PREFIX}-${orgID}-${contractID}`;
   const contract = getContract(orgID, contractID);
   releasePackage = initPackage(ocid);
+
+  const unmappedFields = {};
 
   for (let release of contract.records) {
     // console.log("BRIEF");
@@ -63,12 +67,34 @@ const convertToOCDS = function(orgID, contractID) {
     put(ocdsRelease, "language", "zh");
     put(ocdsRelease, "initiationType", "tender"); // Only tender is supported from this code list
 
-    getReleaseBuilder(releaseTag).build(release.detail, ocdsRelease);
+    getReleaseBuilder(releaseTag).build(
+      release.detail,
+      ocdsRelease,
+      unmappedFields
+    );
 
     // Post-processing for ocds release
     const processedOCDSRelease = postProcessing(ocdsRelease);
     releasePackage.releases.push(processedOCDSRelease);
   }
+
+  const stringifier = stringify({
+    columns: [{ key: "key" }, { key: "value" }],
+    delimiter: ","
+  });
+
+  stringify(
+    Object.entries(unmappedFields),
+    { header: true, columns: [{ key: "key" }, { key: "value" }] },
+    (err, output) => {
+      if (err) throw err;
+      fs.writeFile("./output/unmapped_fields.csv", output, err => {
+        if (err) throw err;
+        console.log("unmapped_fields.csv saved.");
+      });
+    }
+  );
+
   return releasePackage;
 };
 
@@ -125,12 +151,12 @@ main = async function() {
     for (let p of projects) {
       const regex = `${p.regex}.*((安置)|(社會)|(公共)|(住宅))`;
       const uids = p.uid.split(" ");
-      const pidBase64 = p.pid.hash();
+      const pidHash = p.pid.hash();
       printProjectHeader(p, regex);
       const oc4ids = convertToOC4IDS(
         convertToOc4idsInput(p.pid, searchWithUnit(p.title, uids, regex))
       );
-      compiledData[pidBase64] = oc4ids;
+      compiledData[pidHash] = oc4ids;
       // await db.collection("counties")
       //   .doc(p.county)
       //   .collection("projects")
@@ -144,3 +170,7 @@ main = async function() {
 };
 
 main();
+
+module.exports = {
+  convertToOCDS
+};

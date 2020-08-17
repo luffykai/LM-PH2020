@@ -4,30 +4,16 @@ const csvparse = require("csv-parse/lib/sync");
 
 const fieldHandlers = require("./fieldHandlers");
 const put = require("./put");
-const { ALREADY_IMPLIED_FIELDS, NON_MAPPING_FIELDS } = require("./LMUtils");
+const {
+  ALREADY_IMPLIED_FIELDS,
+  NON_MAPPING_FIELDS,
+  loadMap,
+} = require("./LMUtils");
 
-/*
- * Load the csv file and turn it into a Map Object
- * synchronously
- */
-const loadMap = function () {
-  const map = new Map();
-  data = fs.readFileSync("data/field_map.csv");
-  const records = csvparse(data, {
-    columns: true,
-    skip_empty_lines: true,
-  });
-
-  for (record of records) {
-    map.set(record.ronny_field, record.ocds_path);
-  }
-
-  return map;
-};
 const FIELD_MAP = loadMap();
 
 const genericReleaseBuilder = {
-  build: (releaseDetail, ocdsRelease) => {
+  build: (releaseDetail, ocdsRelease, unmappedFields) => {
     for (let key in releaseDetail) {
       // For each field in the Ronny API, we find our mapping to
       // the OCDS Fields path. If the path is found, we set it
@@ -50,12 +36,25 @@ const genericReleaseBuilder = {
           put(ocdsRelease, path, ocdsValue);
         }
       } else {
+        // key not mapped so far
+        let unmapped = true;
+        let parts = key.split(":");
+        if (parts.length == 2) {
+          // try the second part only
+          path = FIELD_MAP.get(parts[1]);
+          if (path) {
+            put(ocdsRelease, path, releaseDetail[key]);
+            unmapped = false;
+          }
+        }
         if (
+          unmapped &&
           !NON_MAPPING_FIELDS.has(key) &&
           releaseDetail[key] !== "" &&
           !(key in ALREADY_IMPLIED_FIELDS)
         ) {
-          console.error("no path for", key, " value = ", releaseDetail[key]);
+          unmappedFields[key] = String(releaseDetail[key]).replace(/\s/g, "");
+          console.log("no path for", key, " value = ", releaseDetail[key]);
         }
       }
     }

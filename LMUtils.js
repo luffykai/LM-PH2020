@@ -1,6 +1,7 @@
 const crypto = require("crypto");
 const fs = require("fs");
 const URL = require("url").URL;
+const csvparse = require("csv-parse/lib/sync");
 
 const TAIWANESE_YEAR_OFFSET = 1911;
 
@@ -281,7 +282,8 @@ const initPackage = function(ocid) {
     "https://raw.githubusercontent.com/open-contracting-extensions/ocds_participationFee_extension/v1.1.4/extension.json",
     "https://raw.githubusercontent.com/open-contracting-extensions/ocds_location_extension/v1.1.4/extension.json",
     "https://raw.githubusercontent.com/open-contracting-extensions/ocds_legalBasis_extension/master/extension.json",
-    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_coveredBy_extension/master/extension.json"
+    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_coveredBy_extension/master/extension.json",
+    "https://raw.githubusercontent.com/open-contracting-extensions/ocds_otherRequirements_extension/master/extension.json"
   ];
   releasePackage.releases = [];
   return releasePackage;
@@ -300,6 +302,32 @@ const printProjectHeader = function(project, regex) {
   console.log(`  * regex: ${regex}\x1b[0m\n`);
 };
 
+
+/*
+ * Load the csv file and turn it into a Map Object
+ * synchronously
+ */
+const loadMap = function (type) {
+  let filePath = "data/field_map.csv";
+  if(type === 'award') {
+    filePath = 'data/award_field_map.csv';
+  }
+  const map = new Map();
+  data = fs.readFileSync(filePath);
+  const records = csvparse(data, {
+    columns: true,
+    skip_empty_lines: true,
+  });
+
+  for (record of records) {
+    map.set(record.ronny_field, record.ocds_path);
+  }
+
+  return map;
+};
+
+
+
 module.exports = {
   ALREADY_IMPLIED_FIELDS,
   NON_MAPPING_FIELDS,
@@ -308,6 +336,7 @@ module.exports = {
   getProcurementCategory,
   getProcurementMethod,
   getReleaseTagFromZhString,
+  loadMap,
   parseTaiwaneseDateStringToDate,
   parseReleaesDateStringToIsoString,
   parseAddressToOcdsAddress,

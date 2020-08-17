@@ -1,0 +1,13 @@
+ronny_field,ocds_path
+"機關資料:機關代碼","buyer/id"
+"機關資料:聯絡電話","parties[0]/contactPoint/telephone"
+"機關資料:機關名稱","buyer/name"
+"機關資料:單位名稱","parties[0]/additionalIdentifiers[0]/legalName"
+"機關資料:機關地址","parties[0]/address/streetAddress"
+"機關資料:聯絡人","parties[0]/contactPoint/name"
+"機關資料:傳真號碼","parties[0]/contactPoint/faxNumber"
+
+"已公告資料:招標方式","tender/procurementMethod"
+"已公告資料:決標方式","tender/awardCriteria"
+"已公告資料:標案案號","tender/id"
+"已公告資料:標案名稱","tender/title"
