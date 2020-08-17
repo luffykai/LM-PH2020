@@ -13,13 +13,14 @@ function fetchData() {
 /* GET projects page. */
 router.get("/", async function (req, res, _next) {
   const results = await fetchData().then((data) => data.json());
-
-//   console.log("req.query.ocid", req.query.ocid);
+  const county = req.query.county;
+  const projectID = req.query.project_id;
 
   // render project.pug file
   res.render("project", {
     title: `Social Housing`,
-    ocid: req.query.ocid,
+    county,
+    projectID,
     data: results,
   });
 });

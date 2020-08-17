@@ -3,6 +3,6 @@ html
   head
     title= title
   body
-    div(id="project-data" data=`${JSON.stringify(data)}` ocid=`${ocid}`)
+    div(id="project-data" data=`${JSON.stringify(data)}` county=`${county}` projectID=`${projectID}`)
     include ../dist/project.html
     block content

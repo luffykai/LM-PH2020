@@ -45,12 +45,13 @@ export default function LMCountyRoot() {
       .doc(county)
       .collection("projects")
       .get()
-      .then((querySnapshot) => {
-        const _documemts = [];
-        querySnapshot.forEach((doc) => {
-          _documemts.push(doc.data().projects[0].title);
-        });
-        setDocuments(_documemts);
+      .then((doc) => {
+        if (doc.exists) {
+          console.log("Document data:", doc.data());
+        } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+        }
       });
   }, [county]);
 
