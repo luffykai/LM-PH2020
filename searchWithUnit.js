@@ -67,16 +67,4 @@ function searchWithUnit(rawTitle, unitIds, rawRegex) {
   return mergedRecords;
 }
 
-function convertToOc4idsInput(project_name, records) {
-  let input = {
-    project_id: project_name.hash(),
-    project_name: project_name,
-    contracts: []
-  };
-  for (let key in records) {
-    input.contracts.push({ contract_id: key, org_id: records[key]["unit_id"] });
-  }
-  return input;
-}
-
-module.exports = {convertToOc4idsInput, searchWithUnit};
+module.exports = {searchWithUnit};

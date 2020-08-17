@@ -9,9 +9,13 @@ const {
   printProjectHeader,
   writeJsonFile
 } = require("./LMUtils");
-const { convertToOC4IDS, convertToOCDS } = require("./conversionUtil");
+const {
+  convertToOC4IDS,
+  convertToOC4IDSInput,
+  convertToOCDS
+} = require("./conversionUtil");
 
-const { convertToOc4idsInput, searchWithUnit } = require("./searchWithUnit.js");
+const { searchWithUnit } = require("./searchWithUnit.js");
 const serviceAccount = require("./lm-ph2020-firebase-adminsdk.json");
 
 admin.initializeApp({
@@ -24,7 +28,7 @@ db.settings({ ignoreUndefinedProperties: true });
 main = async function() {
   if (argv._.includes("search_with_unit")) {
     const data = convertToOC4IDS(
-      convertToOc4idsInput(
+      convertToOC4IDSInput(
         argv.project_id,
         searchWithUnit(argv.title, argv.unit_ids, argv.regex)
       )
@@ -50,7 +54,7 @@ main = async function() {
       const pidHash = p.pid.hash();
       printProjectHeader(p, regex);
       const oc4ids = convertToOC4IDS(
-        convertToOc4idsInput(p.pid, searchWithUnit(p.title, uids, regex))
+        convertToOC4IDSInput(p.pid, searchWithUnit(p.title, uids, regex))
       );
       compiledData[pidHash] = oc4ids;
       // await db.collection("counties")

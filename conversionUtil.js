@@ -5,7 +5,7 @@ const {
   getReleaseTagFromZhString,
   parseReleaesDateStringToIsoString,
   initPackage,
-  postProcessing,
+  postProcessing
 } = require("./LMUtils");
 const put = require("./put.js");
 const getReleaseBuilder = require("./releaseBuilders.js");
@@ -107,7 +107,20 @@ const convertToOC4IDS = function(input) {
   return oc4idsPackage;
 };
 
+function convertToOC4IDSInput(project_name, records) {
+  let input = {
+    project_id: project_name.hash(),
+    project_name: project_name,
+    contracts: []
+  };
+  for (let key in records) {
+    input.contracts.push({ contract_id: key, org_id: records[key]["unit_id"] });
+  }
+  return input;
+}
+
 module.exports = {
   convertToOC4IDS,
+  convertToOC4IDSInput,
   convertToOCDS
 };
