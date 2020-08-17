@@ -63558,7 +63558,7 @@ function LMCountyRoot() {
     // No county is specified, which means we're showing a Taiwan Map.
     rightContent = /*#__PURE__*/react_default.a.createElement("div", {
       className: "rightContent"
-    }, /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("div", {
+    }, /*#__PURE__*/react_default.a.createElement("div", {
       id: "largeMetricAndUnit"
     }, /*#__PURE__*/react_default.a.createElement("div", {
       id: "largeMetric"
@@ -63568,7 +63568,7 @@ function LMCountyRoot() {
       className: "marginTop-8"
     }), /*#__PURE__*/react_default.a.createElement(LMCountySelector, {
       selectedCounty: null
-    })));
+    }));
     leftContent = /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, null);
   } else {
     // When a county is selected, we show its map and projects

@@ -72,19 +72,17 @@ export default function LMCountyRoot() {
     // No county is specified, which means we're showing a Taiwan Map.
     rightContent = (
       <div className="rightContent">
-        <div>
-          <div id="largeMetricAndUnit">
-            <div id="largeMetric">6913</div>
-            <span id="unit">
-              House <br />
-              Number
-            </span>
-          </div>
-          <div>with {`613`} build cases in this area</div>
-          <h5>Choose the county:</h5>
-          <div className="marginTop-8"></div>
-          <LMCountySelector selectedCounty={null} />
+        <div id="largeMetricAndUnit">
+          <div id="largeMetric">6913</div>
+          <span id="unit">
+            House <br />
+            Number
+          </span>
         </div>
+        <div>with {`613`} build cases in this area</div>
+        <h5>Choose the county:</h5>
+        <div className="marginTop-8"></div>
+        <LMCountySelector selectedCounty={null} />
       </div>
     );
 

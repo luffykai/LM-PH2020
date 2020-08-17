@@ -1795,6 +1795,14 @@
   color: #fb4a78 !important;
 }
 
+.lm-logo {
+  background-image: url('../images/icon_header.svg');
+    background-size: cover;
+    width: 324px;
+    height: 52px;
+    margin-top: 5px;
+}
+
 .deep-orange.lighten-3 {
   background-color: #ffab91 !important;
 }
