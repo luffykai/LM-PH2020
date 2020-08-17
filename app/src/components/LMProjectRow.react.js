@@ -21,7 +21,7 @@ export default function LMProjectRow(props) {
           />
         </div>
         <div className="projectRowInfo">
-          <div className="projectRowStatus statusBuilding">Building</div>
+          <div className="projectRowStatus statusPlanning">Planning</div>
           <div className="projectRowName">{props.name}</div>
           <div className="projectRowDate">預計完工：2024/07</div>
           <div className="projectRowDescription">

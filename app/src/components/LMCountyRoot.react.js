@@ -32,7 +32,6 @@ const db = firebase.firestore();
 
 export default function LMCountyRoot() {
   const dataDiv = document.getElementById("county-map-data");
-  const data = JSON.parse(dataDiv.getAttribute("data"));
   const county = dataDiv.getAttribute("county");
 
   // documents is an array of name and id object.
@@ -66,9 +65,6 @@ export default function LMCountyRoot() {
       });
   }, [county]);
 
-  if (data == null) {
-    throw "data is null in LWICountyRoot";
-  }
   let rightContent = null;
   let leftContent = null;
   /* undefined will be casted to a string during ssr */
@@ -108,14 +104,17 @@ export default function LMCountyRoot() {
     rightContent = (
       <>
         <LMCountySelector selectedCounty={county} />
-        <input
-          placeholder="Search for Social Housing Projects..."
-          type="text"
-          value={searchTerm}
-          onInput={(e) => setSearchTerm(e.target.value)}
-        />
+        {/* Only showing the search bar when there's more than three options */}
+        {documents.length > 3 && (
+          <input
+            placeholder="Search for Social Housing Projects..."
+            type="text"
+            value={searchTerm}
+            onInput={(e) => setSearchTerm(e.target.value)}
+          />
+        )}
         <div className="collection">
-          {documents.map(({id, name}) => {
+          {documents.map(({ id, name }) => {
             if (
               debounceSearchTerm !== "" &&
               name.indexOf(debounceSearchTerm) < 0

@@ -63301,8 +63301,8 @@ function LMProjectRow(props) {
   })), /*#__PURE__*/react_default.a.createElement("div", {
     className: "projectRowInfo"
   }, /*#__PURE__*/react_default.a.createElement("div", {
-    className: "projectRowStatus statusBuilding"
-  }, "Building"), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "projectRowStatus statusPlanning"
+  }, "Planning"), /*#__PURE__*/react_default.a.createElement("div", {
     className: "projectRowName"
   }, props.name), /*#__PURE__*/react_default.a.createElement("div", {
     className: "projectRowDate"
@@ -63503,7 +63503,6 @@ firebase.initializeApp(FIREBASE_CONFIG);
 var db = firebase.firestore();
 function LMCountyRoot() {
   var dataDiv = document.getElementById("county-map-data");
-  var data = JSON.parse(dataDiv.getAttribute("data"));
   var county = dataDiv.getAttribute("county"); // documents is an array of name and id object.
 
   /*
@@ -63542,11 +63541,6 @@ function LMCountyRoot() {
       setDocuments(_documemts);
     });
   }, [county]);
-
-  if (data == null) {
-    throw "data is null in LWICountyRoot";
-  }
-
   var rightContent = null;
   var leftContent = null;
   /* undefined will be casted to a string during ssr */
@@ -63581,7 +63575,7 @@ function LMCountyRoot() {
     }));
     rightContent = /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMCountySelector, {
       selectedCounty: county
-    }), /*#__PURE__*/react_default.a.createElement("input", {
+    }), documents.length > 3 && /*#__PURE__*/react_default.a.createElement("input", {
       placeholder: "Search for Social Housing Projects...",
       type: "text",
       value: searchTerm,

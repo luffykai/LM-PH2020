@@ -115,6 +115,16 @@
 }
 
 .statusBuilding {
-    color: #ffa726;
     background-color: #ffe0b2;
+    color: #ffa726;
+}
+
+.statusFinished {
+    background-color: #b9f6ca;
+    color: #00e676;
+}
+
+.statusPlanning {
+    background-color: #e0e0e0;
+    color: #9e9e9e;
 }
