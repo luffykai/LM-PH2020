@@ -2,21 +2,20 @@ const fs = require("fs");
 
 const csvparse = require("csv-parse/lib/sync");
 const admin = require("firebase-admin");
-const sync_request = require("sync-request");
 
 const argv = require("./commandsUtil.js");
+const { outputPackage, writeJsonFile } = require("./LMUtils");
 const {
-  getReleaseTagFromZhString,
-  parseReleaesDateStringToIsoString,
-  initPackage,
-  outputPackage,
-  postProcessing,
-  printProjectHeader,
-  writeJsonFile
-} = require("./LMUtils");
-const put = require("./put.js");
-const getReleaseBuilder = require("./releaseBuilders.js");
-const { convertToOc4idsInput, searchWithUnit } = require("./searchWithUnit.js");
+  convertToOC4IDS,
+  convertToOC4IDSInput,
+  convertToOCDS
+} = require("./conversionUtil");
+
+const {
+  searchAllAndUpdateFirebase,
+  searchAndUpdateFirebase,
+  searchWithUnit
+} = require("./searchWithUnit.js");
 const serviceAccount = require("./lm-ph2020-firebase-adminsdk.json");
 
 admin.initializeApp({
@@ -26,109 +25,10 @@ admin.initializeApp({
 const db = admin.firestore();
 db.settings({ ignoreUndefinedProperties: true });
 
-const stringify = require("csv-stringify");
-
-const LM_OCDS_PREFIX = "ocds-kj3ygj";
-
-const getContract = function(orgID, contractID) {
-  res = sync_request(
-    "GET",
-    `https://pcc.g0v.ronny.tw/api/tender?unit_id=${orgID}&job_number=${contractID}`
-  );
-  return JSON.parse(res.getBody());
-};
-
-// Example: 3.80.11, 1090212-B2
-const convertToOCDS = function(orgID, contractID) {
-  const ocid = `${LM_OCDS_PREFIX}-${orgID}-${contractID}`;
-  const contract = getContract(orgID, contractID);
-  releasePackage = initPackage(ocid);
-
-  const unmappedFields = {};
-
-  for (let release of contract.records) {
-    // console.log("BRIEF");
-    // console.log(release.brief);
-
-    const ocdsRelease = {};
-
-    const releaseDate = parseReleaesDateStringToIsoString(
-      release.date != null ? String(release.date) : null
-    );
-    const releaseTag = getReleaseTagFromZhString(release.brief.type);
-    // Set general information from brief
-    releaseDate && put(ocdsRelease, "date", releaseDate);
-
-    put(ocdsRelease, "ocid", ocid);
-    put(ocdsRelease, "id", `${release.filename}-${Date.parse(releaseDate)}`);
-    put(ocdsRelease, "tag[]", releaseTag);
-
-    // HardCode Data for each releases
-    put(ocdsRelease, "language", "zh");
-    put(ocdsRelease, "initiationType", "tender"); // Only tender is supported from this code list
-
-    getReleaseBuilder(releaseTag).build(
-      release.detail,
-      ocdsRelease,
-      unmappedFields
-    );
-
-    // Post-processing for ocds release
-    const processedOCDSRelease = postProcessing(ocdsRelease);
-    releasePackage.releases.push(processedOCDSRelease);
-  }
-
-  const stringifier = stringify({
-    columns: [{ key: "key" }, { key: "value" }],
-    delimiter: ","
-  });
-
-  stringify(
-    Object.entries(unmappedFields),
-    { header: true, columns: [{ key: "key" }, { key: "value" }] },
-    (err, output) => {
-      if (err) throw err;
-      fs.writeFile("./output/unmapped_fields.csv", output, err => {
-        if (err) throw err;
-        console.log("unmapped_fields.csv saved.");
-      });
-    }
-  );
-
-  return releasePackage;
-};
-
-const convertToOC4IDS = function(input) {
-  let oc4ids = {};
-  oc4ids.id = input.project_id;
-  oc4ids.title = input.project_name;
-  oc4ids.contractingProcesses = [];
-  for (let contract of input.contracts) {
-    releasePackage = convertToOCDS(contract.org_id, contract.contract_id);
-    contractProcess = {};
-    contractProcess.id = releasePackage.uri;
-    contractProcess.releases = [];
-    for (let release of releasePackage.releases) {
-      contractProcess.releases.push(release);
-    }
-    oc4ids.contractingProcesses.push(contractProcess);
-  }
-  let oc4idsPackage = {
-    uri: `ocds://contract/${input.project_id}`,
-    publishedDate: new Date().toISOString(),
-    publisher: {
-      name: "Learning Man"
-    },
-    version: "0.9",
-    projects: [oc4ids]
-  };
-  return oc4idsPackage;
-};
-
 main = async function() {
   if (argv._.includes("search_with_unit")) {
     const data = convertToOC4IDS(
-      convertToOc4idsInput(
+      convertToOC4IDSInput(
         argv.project_id,
         searchWithUnit(argv.title, argv.unit_ids, argv.regex)
       )
@@ -147,23 +47,20 @@ main = async function() {
       columns: true,
       skip_empty_lines: true
     });
-    const compiledData = {};
-    for (let p of projects) {
-      const regex = `${p.regex}.*((安置)|(社會)|(公共)|(住宅))`;
-      const uids = p.uid.split(" ");
-      const pidHash = p.pid.hash();
-      printProjectHeader(p, regex);
-      const oc4ids = convertToOC4IDS(
-        convertToOc4idsInput(p.pid, searchWithUnit(p.title, uids, regex))
-      );
-      compiledData[pidHash] = oc4ids;
-      // await db.collection("counties")
-      //   .doc(p.county)
-      //   .collection("projects")
-      //   .doc(pidBase64)
-      //   .set(oc4ids);
-    }
-    writeJsonFile(`output/all/full.json`, compiledData);
+    await searchAllAndUpdateFirebase(db, projects, argv.update_db);
+  } else if (argv._.includes("search_single")) {
+    const tokens = argv.project_row.split(",");
+    await searchAndUpdateFirebase(
+      db,
+      {
+        pid: tokens[0],
+        uid: tokens[1],
+        title: tokens[2],
+        regex: tokens[3],
+        county: tokens[4]
+      },
+      argv.update_db
+    );
   } else {
     console.log("sup bro!");
   }

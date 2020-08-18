@@ -1,6 +1,9 @@
 const jsesc = require("jsesc");
 const sync_request = require("sync-request");
 
+const { convertToOC4IDS, convertToOC4IDSInput } = require("./conversionUtil");
+const { printProjectHeader, writeJsonFile } = require("./LMUtils");
+
 const getFilteredRecord = function(records, unitIds) {
   return records.filter(function(record) {
     return unitIds.includes(record["unit_id"]);
@@ -52,7 +55,7 @@ const filterTitleWithRegex = function(records, regex) {
   return records;
 };
 
-function searchWithUnit(rawTitle, unitIds, rawRegex) {
+const searchWithUnit = function(rawTitle, unitIds, rawRegex) {
   const title = jsesc(rawTitle);
   let mergedRecords = mergeRecords(searchByTitleAndUnitIds(title, unitIds));
   if (rawRegex != null) {
@@ -65,18 +68,48 @@ function searchWithUnit(rawTitle, unitIds, rawRegex) {
     console.log("      " + mergedRecords[key]["tender_api_url"]);
   }
   return mergedRecords;
-}
+};
 
-function convertToOc4idsInput(project_name, records) {
-  let input = {
-    project_id: project_name.hash(),
-    project_name: project_name,
-    contracts: []
-  };
-  for (let key in records) {
-    input.contracts.push({ contract_id: key, org_id: records[key]["unit_id"] });
+const searchAndUpdateFirebase = async function(db, projectRow, updateDb) {
+  const regex = `${projectRow.regex}.*((安置)|(社會)|(公共)|(住宅))`;
+  const uids = projectRow.uid.split(" ");
+  printProjectHeader(projectRow, regex);
+  const oc4ids = convertToOC4IDS(
+    convertToOC4IDSInput(
+      projectRow.pid,
+      searchWithUnit(projectRow.title, uids, regex)
+    )
+  );
+  if (!updateDb) {
+    return oc4ids;
   }
-  return input;
-}
+  await db
+    .collection("counties")
+    .doc(projectRow.county)
+    .collection("projects")
+    .doc(projectRow.pid.hash())
+    .set(oc4ids);
+  return oc4ids;
+};
 
-module.exports = {convertToOc4idsInput, searchWithUnit};
+const searchAllAndUpdateFirebase = async function(db, projects, updateDb) {
+  let promises = [];
+  let pidHashes = [];
+  for (let project of projects) {
+    promises.push(searchAndUpdateFirebase(db, project, updateDb));
+    pidHashes.push(project.pid.hash());
+  }
+  Promise.all(promises).then(values => {
+    const compiledData = {};
+    for (let i = 0; i < values.length; i++) {
+      compiledData[pidHashes[i]] = values[i];
+    }
+    writeJsonFile(`output/all/full.json`, compiledData);
+  });
+};
+
+module.exports = {
+  searchAllAndUpdateFirebase,
+  searchAndUpdateFirebase,
+  searchWithUnit
+};
