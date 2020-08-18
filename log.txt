@@ -1,0 +1,3151 @@
+
+[32m[ 洲美社會住宅 ][36m
+  * title: 洲美
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fc34f30b6222154fba1410877ba1ff1b0[0m
+
+  * Total: 1 matches.
+    - 108年度臺北市健康公共住宅暨洲美、新興、大湖朕寶公共住宅戶委託管理維護案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080107MH
+
+[32m[ 興隆D2區社會住宅 ][36m
+  * title: 興隆
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: D.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F184282cb45bd9be38cfbf0d9741d4d16[0m
+
+  * Total: 4 matches.
+    - 109年度臺北市興隆D2區社會住宅委託管理維護案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1081112MH
+    - 109年度1月份臺北市興隆D2區社會住宅委託管理維護案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1081217MH
+    - 108年度臺北市興隆D1區公共住宅暨「文德、港墘站、龍山寺站、小碧潭站、臺北橋站」公共住宅戶委託管理維護案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080212MH
+    - 107年度臺北市興隆D2區公共住宅委託管理維護案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070726MH
+
+[32m[ 新興社會住宅(新興市場整建) ][36m
+  * title: 新興
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F45b20aa43d7aa19685b3deec7f744eae[0m
+
+  * Total: 8 matches.
+    - 「107年臺北市健康公共住宅暨北投士林科技園區、新興市場公共住宅戶委託管理維護案」暨後續擴充第一次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070112MH-01
+    - 108年度臺北市健康公共住宅暨洲美、新興、大湖朕寶公共住宅戶委託管理維護案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080107MH
+    - 新興市場資產活化作為公共住宅裝修工程第1次契約變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070507EM-01
+    - 臺北市中山區新興公共住宅天然氣管線汰換更新案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10720B09
+    - 新興市場資產活化作為公共住宅裝修工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070507EM
+    - 107年臺北市健康公共住宅暨北投士林科技園區、新興市場公共住宅戶委託管理維護案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070112MH
+    - 107年度健康、北投士林科技園區、新興市場、興隆2區等4處公共住宅申請案件暨帶看屋勞務委託服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070115PHA
+    - 新興市場資產活化作為公共住宅計畫委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060912EM
+
+[32m[ 健康社會住宅 ][36m
+  * title: 健康
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F867288680fc3b05db5e3b9b702f45bc8[0m
+
+  * Total: 11 matches.
+    - 「臺北市健康1、2區公共住宅新建工程-建物第1次總登記」委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10634016
+    - 臺北巿公共住宅五基地(青年公共住宅健康公共住宅興隆公共住宅1期1區興隆公共住宅1期2區及東明公共住宅)興建工程公共藝術設置案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10830225
+    - 「107年臺北市健康公共住宅暨北投士林科技園區、新興市場公共住宅戶委託管理維護案」暨後續擴充第一次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070112MH-01
+    - 108年度臺北市健康公共住宅暨洲美、新興、大湖朕寶公共住宅戶委託管理維護案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080107MH
+    - 臺北市松山區健康公營住宅新建工程後續新增工程第1次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070622PH-01
+    - 臺北市松山區健康公營住宅新建工程第4次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1030616PH-04
+    - 臺北市松山區健康公營住宅新建工程後續新增工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070622PH
+    - 臺北市松山區健康公營住宅新建工程第3次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1030616PH-03
+    - 「臺北市松山區健康公營住宅新建工程」第2次變更設計新增項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1030616PH-02
+    - 107年臺北市健康公共住宅暨北投士林科技園區、新興市場公共住宅戶委託管理維護案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070112MH
+    - 107年度健康、北投士林科技園區、新興市場、興隆2區等4處公共住宅申請案件暨帶看屋勞務委託服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070115PHA
+
+[32m[ 萬華青年社會住宅一期 ][36m
+  * title: 萬華
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F5226977fc4b8afa756e694cd62997066[0m
+
+  * Total: 0 matches.
+
+[32m[ 捷運新莊線大橋頭站分回 ][36m
+  * title: 大橋頭
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F4abaf9f733db9f658403f9538cb0a46b[0m
+
+  * Total: 2 matches.
+    - 109年度臺北市大橋頭社會住宅家具採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10921005
+    - 109年度臺北市大龍峒、行天宮站、敦煌、萬隆站、景文、萬喆及大橋頭社會住宅戶委託管理維護案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1081111MH
+
+[32m[ 東明社會住宅 ][36m
+  * title: 東明
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fe8b46898def7a5527fd37a06ade38107[0m
+
+  * Total: 11 matches.
+    - 臺北巿公共住宅五基地(青年公共住宅健康公共住宅興隆公共住宅1期1區興隆公共住宅1期2區及東明公共住宅)興建工程公共藝術設置案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10830225
+    - 「臺北市公宅招租網-東明公共住宅招租網頁製作」採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10830722
+    - 臺北市東明社會住宅加強駐點服務勞務採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1090131S
+    - 109年度臺北市東明社會住宅委託管理維護案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1081028MH
+    - 臺北市東明社會住宅硬體設施改善擴充設備財物採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10820C06
+    - 「臺北市南港區東明公共住宅統包工程」第4次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040831PH-04
+    - 「臺北市南港區東明公共住宅統包工程」第3次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040831PH-03
+    - 臺北市南港區東明公共住宅統包工程第2次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040831PH-02
+    - 臺北市南港區東明公共住宅統包工程第1次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040831PH-01
+    - 臺北市南港區東明公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040831PH
+    - 東明公共住宅基地現有天然氣管線切封作業採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040421U
+
+[32m[ 華榮市場都更案 ][36m
+  * title: 華榮
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fba7e98bfcd33264ed999ed24039cdc5f[0m
+
+  * Total: 0 matches.
+
+[32m[ 瑞光社會住宅 ][36m
+  * title: 瑞光
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F74cb17f57022215cdbe85bfa372b6910[0m
+
+  * Total: 3 matches.
+    - 「臺北市新奇岩、中南段、瑞光等3處社會住宅新建工程-建物第1次總登記」委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10934004
+    - 臺北市內湖區瑞光公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060120C0009
+    - 臺北市內湖區瑞光公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1051019PH
+
+[32m[ 舊宗社會住宅 ][36m
+  * title: 舊宗
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F88bc63d9de0736620faffca834515ed2[0m
+
+  * Total: 5 matches.
+    - 臺北市內湖區舊宗公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070807C0140
+    - 臺北市中山區錦州及內湖區舊宗公共住宅新建工程委託耐震特別監督技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080531SC012
+    - 臺北市內湖區舊宗公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070711PH
+    - 臺北市內湖區舊宗段公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060420SC003
+    - 106年公共住宅(培英、錦州街、舊宗段、河濱等四筆基地)交通影響分析專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10603241TIA
+
+[32m[ 行善社會住宅 ][36m
+  * title: 行善
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fe4a9b7bb1b49a9fb4b7faabfb3520ac3[0m
+
+  * Total: 0 matches.
+
+[32m[ 木柵社會住宅 ][36m
+  * title: 木柵
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fa73617cd529ef224cec66803f135eda2[0m
+
+  * Total: 8 matches.
+    - 臺北市社會住宅公共藝術設置計畫第一期行政代辦文山區興隆社宅(AEFHI基地)、木柵、和興水岸、樟新水岸、景豐一區、景豐二區專業服
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10833019
+    - 「臺北市木柵、明倫等2處社會住宅新建工程建物第1次總登記」委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10834013
+    - 「臺北市文山區木柵段公共住宅新建工程」第二次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060119C0006-02
+    - 「臺北市文山區木柵段公共住宅新建工程」第1次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060119C0006-01
+    - 臺北市文山區木柵段社會住宅天然氣裝置案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080917GAS
+    - 臺北市文山區木柵段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060119C0006
+    - 臺北市文山區木柵段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1051031PH
+    - 「臺北市文山區木柵段公共住宅新建工程」委託設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1041029SC003
+
+[32m[ 樟新水岸社會住宅 ][36m
+  * title: 漳新
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F3beee4f812c46cd86bce6b902f4996c6[0m
+
+  * Total: 0 matches.
+
+[32m[ 和興水岸社會住宅 (華興段基地) ][36m
+  * title: 和興
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F2d63c44c24b081cecc2c4e362dbf3ce1[0m
+
+  * Total: 1 matches.
+    - 臺北市社會住宅公共藝術設置計畫第一期行政代辦文山區興隆社宅(AEFHI基地)、木柵、和興水岸、樟新水岸、景豐一區、景豐二區專業服
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10833019
+
+[32m[ 興隆A區社會住宅 ][36m
+  * title: 興隆
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: A.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fe18d96e9ab1dfda4ab94acd2149de048[0m
+
+  * Total: 0 matches.
+
+[32m[ 興隆E區社會住宅 ][36m
+  * title: 興隆
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: E.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F80cd71220cd4ac89783c27030ac8cfdf[0m
+
+  * Total: 0 matches.
+
+[32m[ 興隆I區社會住宅 ][36m
+  * title: 興隆
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: I.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fb76108c3651a258b4a18b93852bd7568[0m
+
+  * Total: 0 matches.
+
+[32m[ 福國社會住宅 ][36m
+  * title: 福國
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F8199420adbc6be815f198130cd2a9ffd[0m
+
+  * Total: 0 matches.
+
+[32m[ 新奇岩社會住宅 ][36m
+  * title: 新奇岩
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fd7dbcde408d3ca621b94c6e81b68137e[0m
+
+  * Total: 1 matches.
+    - 「臺北市新奇岩、中南段、瑞光等3處社會住宅新建工程-建物第1次總登記」委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10934004
+
+[32m[ 培英社會住宅 ][36m
+  * title: 培英
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F418ae7fa6c2940727ad69d89a4893b61[0m
+
+  * Total: 4 matches.
+    - 臺北市中山區培英公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1071002C0143
+    - 臺北市中山區培英基地公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070709PH
+    - 臺北市中山區培英基地公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060420SC004
+    - 106年公共住宅(培英、錦州街、舊宗段、河濱等四筆基地)交通影響分析專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10603241TIA
+
+[32m[ 錦州社會住宅 ][36m
+  * title: 錦州
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fb75092f7c9b07188e95a64e41b0c26a9[0m
+
+  * Total: 5 matches.
+    - 臺北市中山區錦州及內湖區舊宗公共住宅新建工程委託耐震特別監督技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080531SC012
+    - 臺北市中山區錦州街基地公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070730C0135
+    - 臺北市中山區錦州街基地公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070704PH
+    - 臺北市中山區錦州街基地公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060501SC005
+    - 106年公共住宅(培英、錦州街、舊宗段、河濱等四筆基地)交通影響分析專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10603241TIA
+
+[32m[ 廣慈博愛園區(A、B、C基地) ][36m
+  * title: 廣慈
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: (A|B|C).*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F748cd170b300b1458469f0c5a91d7a79[0m
+
+  * Total: 2 matches.
+    - 臺北市信義區廣慈博愛園區暨六張犁A、B基地公共住宅智慧科技應用統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1061208C0134
+    - 廣慈博愛園區整體開發計畫行政大樓第A標、社福大樓第B標及公共住宅第C標統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1061228C0136
+
+[32m[ 廣慈博愛園區社會住宅(D基地) ][36m
+  * title: 廣慈
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: D.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fcf968f4fdbd535fb89fa276d249a74ce[0m
+
+  * Total: 0 matches.
+
+[32m[ 廣慈博愛園區社會住宅(E基地) ][36m
+  * title: 廣慈
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: E.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fa16f41ce55fdf0dafe122ec3df73cfed[0m
+
+  * Total: 0 matches.
+
+[32m[ 三興社會住宅 ][36m
+  * title: 三興
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F2c8fb5d271256c1bebcdb475a38f7158[0m
+
+  * Total: 6 matches.
+    - 「臺北市信義區三興段三小段422地號等4筆土地興辦社會住宅先期規劃」技術服務委託案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10333020
+    - 臺北市社會住宅公共藝術設置計畫第一期行政代辦信義區廣慈博愛園區社會住宅六張犁營區社會住宅及三興段社會住宅專業服務委託案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10833018
+    - 臺北市信義區三興段資源回收廠基地公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070727C0134
+    - 臺北市信義區三興段三小段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060405C0033
+    - 臺北市信義區三興段三小段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060123PH
+    - 臺北市信義區三興段三小段公共住宅新建工程委託設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1041111SC004
+
+[32m[ 犁和段都更案基地 ][36m
+  * title: 犁和
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F85f13d534ab6c18c86029b22d032682d[0m
+
+  * Total: 0 matches.
+
+[32m[ 六張犁A、B區社會住宅 ][36m
+  * title: 六張犁
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: (A|B).*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F8f151a130b682f34cd5e08988714fea0[0m
+
+  * Total: 5 matches.
+    - 「信義區六張犁營區A、B街廓基地新建公共住宅委託專案管理（含監造）技術服務案」第一次變更契約
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1041026SC002-01
+    - 臺北市信義區廣慈博愛園區暨六張犁A、B基地公共住宅智慧科技應用統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1061208C0134
+    - 臺北市信義區六張犁營區A、B街廓基地公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070102C0001
+    - 臺北市信義區六張犁營區A、B街廓基地公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1061003PH
+    - 信義區六張犁營區A、B街廓基地新建公共住宅委託專案管理(含監造)技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1041026SC002
+
+[32m[ 萬華青年社會住宅二期 ][36m
+  * title: 萬華
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: 二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fcd4edb617a69fd417911aaebf79ce48b[0m
+
+  * Total: 1 matches.
+    - 「臺北市社會住宅公共藝術設置計畫行政代辦萬華區青年社會住宅二期、莒光社會住宅、福星社會住宅」委託專業服務採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10833021
+
+[32m[ 莒光社會住宅 ][36m
+  * title: 莒光
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Febd2e65b5f132d5b49e9ec14b9e0d551[0m
+
+  * Total: 7 matches.
+    - 「臺北市萬華區莒光段三小段71地號等8筆土地興辦社會住宅先期規劃」技術服務委託案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10333019
+    - 「臺北市社會住宅公共藝術設置計畫行政代辦萬華區青年社會住宅二期、莒光社會住宅、福星社會住宅」委託專業服務採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10833021
+    - 「臺北市萬華區莒光段公共住宅新建工程委託規劃設計暨監造技術服務案」第1次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1050331SC004-01
+    - 臺北市萬華區莒光段公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1050331SC004
+    - 「臺北市萬華區莒光段公共住宅新建工程」第1次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060218C0011-01
+    - 臺北市萬華區莒光段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060218C0011
+    - 臺北市萬華區莒光段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1051229PH
+
+[32m[ 福星社會住宅 ][36m
+  * title: 福星
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: 福星[^段].*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F5e53c8b5a514bfb66dc22cfaafa23347[0m
+
+  * Total: 7 matches.
+    - 「臺北市社會住宅公共藝術設置計畫行政代辦萬華區青年社會住宅二期、莒光社會住宅、福星社會住宅」委託專業服務採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10833021
+    - 臺北市萬華區福星公共住宅統包工程委託耐震特別監督技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080604SC014
+    - 臺北市萬華區福星公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070418C0061
+    - 臺北市士林區福順段及萬華區福星公共住宅等兩處基地樹木移植養護工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1071019TP
+    - 臺北市萬華區福星公共住宅委託監造暨設計諮詢審查技術服務案」
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070326SC007
+    - 臺北市萬華區福星公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070130PH
+    - 臺北市萬華區福星公共住宅（原中興國小校地）新建工程委託專案管理技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1051129SC008
+county name is not found in address string 511彰化縣社頭鄉新厝村員集路4段271號1樓
+district name is not found in address string 511彰化縣社頭鄉新厝村員集路4段271號1樓
+
+[32m[ 明倫社會住宅 ][36m
+  * title: 明倫
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fb3b4cf251104c99376bbc37a933a83f7[0m
+
+  * Total: 3 matches.
+    - 「臺北市木柵、明倫等2處社會住宅新建工程建物第1次總登記」委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10834013
+    - 「臺北市大同區明倫公共住宅統包工程」第1次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1050830C0129-01
+    - 臺北市大同區明倫公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1050830C0129
+
+[32m[ 南港機廠社會住宅 ][36m
+  * title: 南港
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F3ef872b14fb954714eadc13f6dc55a81[0m
+
+  * Total: 41 matches.
+    - 臺北市南港區經貿段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1081206C0181
+    - 「臺北市南港區中南段公共住宅新建工程」第1次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060322C0029-01
+    - 109年度住宅服務科轄管南港出租國宅社區警衛保全勞務採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1090113N
+    - 臺北市南港區中南段公共住宅新建工程委託耐震特別監督技術服務案第1次變更契約
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070105SC001-01
+    - 臺北市南港區小彎社會住宅天然氣裝置案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1081001GAS
+    - 臺北市南港區小彎社會住宅天然氣裝置案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10081001GAS
+    - 臺北市南港區南港機廠基地公共住宅智慧科技應用統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080515C0111
+    - 臺北市南港區玉成公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080723C0144
+    - 「臺北市南港區東明公共住宅統包工程」第4次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040831PH-04
+    - 臺北市南港區中南段公共住宅天然氣裝置案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080625GAS
+    - 臺北市南港區經貿段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080709PH
+    - 「臺北市南港區小彎基地公共住宅新建工程委託規劃設計暨監造技術服務案」第一次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1050523SC006-01
+    - 臺北市南港區玉成公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080619PH
+    - 「臺北市南港區東明公共住宅統包工程」第3次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040831PH-03
+    - 臺北市南港區南港機廠基地公共住宅智慧科技應用統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080513ICT
+    - 「臺北市南港區經貿段公共住宅新建工程委託規劃設計暨監造技術服務案」第一次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070212SC004-01
+    - 108年度住宅服務科轄管南港出租國宅社區警衛保全勞務採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080123N
+    - 臺北市南港區南港機廠基地公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070918C0156
+    - 臺北市南港區經貿段公共住宅地下連續壁工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070903C0149
+    - 臺北市南港區南港機廠基地公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070903PH
+    - 臺北市南港區東明公共住宅統包工程第2次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040831PH-02
+    - 臺北市南港區南港機廠基地公共住宅新建工程委託專案管理（含監造）技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070214SC005
+    - 臺北市南港區台電中心倉庫基地公共住宅新建工程委託專案管理(含監造)技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070502SC012
+    - 「臺北市公共住宅工程導入循環經濟模式---並以南港機廠公共住宅為實踐基地」委託技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070409SC009
+    - 臺北市南港區經貿段公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070212SC004
+    - 臺北市南港區東明公共住宅統包工程第1次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040831PH-01
+    - 臺北市南港區中南段公共住宅新建工程委託耐震特別監督技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070105SC001
+    - 107年度住宅服務科轄管南港出租國宅社區警衛保全勞務採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070130N
+    - 臺北市南港區小彎基地公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060405C0032
+    - 臺北市南港區中南段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060322C0029
+    - 106年度住宅服務科轄管南港出租國宅社區警衛保全勞務採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060104N
+    - 臺北市南港區小彎基地公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060202N
+    - 臺北市南港區中南段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060124PH
+    - 臺北市南港區中南段公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1050621SC007
+    - 臺北市南港區小彎基地公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1050523SC006
+    - 臺北市南港區東明公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040831PH
+    - 105年度住宅服務科轄管南港出租國宅社區警衛保全勞務採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1050318N
+    - 105年度住宅服務科轄管南港出租國宅社區警衛保全勞務採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1041026N
+    - 臺北市南港區台肥新建公營住宅基地既有建築物拆除工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1040107DH
+    - 104年度住宅服務科轄管南港出租國宅社區警衛保全勞務採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1031028N
+    - 臺北市南港區台肥新建公營住宅委託專案管理(含監造)技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1030122PH
+
+[32m[ 中南社會住宅 ][36m
+  * title: 中南
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F4452f36e2240e8241f7ddcbd09f67196[0m
+
+  * Total: 8 matches.
+    - 「臺北市新奇岩、中南段、瑞光等3處社會住宅新建工程-建物第1次總登記」委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10934004
+    - 「臺北市南港區中南段公共住宅新建工程」第1次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060322C0029-01
+    - 臺北市南港區中南段公共住宅新建工程委託耐震特別監督技術服務案第1次變更契約
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070105SC001-01
+    - 臺北市南港區中南段公共住宅天然氣裝置案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080625GAS
+    - 臺北市南港區中南段公共住宅新建工程委託耐震特別監督技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070105SC001
+    - 臺北市南港區中南段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060322C0029
+    - 臺北市南港區中南段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060124PH
+    - 臺北市南港區中南段公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1050621SC007
+
+[32m[ 小彎社會住宅 ][36m
+  * title: 小彎
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fe10c260e619293b0383131fa8f10bc88[0m
+
+  * Total: 6 matches.
+    - 臺北市南港區小彎社會住宅天然氣裝置案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1081001GAS
+    - 臺北市南港區小彎社會住宅天然氣裝置案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=10081001GAS
+    - 「臺北市南港區小彎基地公共住宅新建工程委託規劃設計暨監造技術服務案」第一次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1050523SC006-01
+    - 臺北市南港區小彎基地公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1060405C0032
+    - 臺北市南港區小彎基地公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1060202N
+    - 臺北市南港區小彎基地公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1050523SC006
+
+[32m[ 百齡水岸社會住宅 ][36m
+  * title: 百齡
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fed10ceb638dcf09b350e7a943dce8c4f[0m
+
+  * Total: 3 matches.
+    - 臺北市士林區百齡水岸社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080912C0159
+    - 臺北市士林區百齡水岸公共住宅新建工程委託耐震特別監督技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080604SC013
+    - 臺北市士林區百齡水岸公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080620PH
+
+[32m[ 景豐一區社會住宅 ][36m
+  * title: 景豐
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F5e8929038a3a9e4db60997f2c157bd7f[0m
+
+  * Total: 3 matches.
+    - 臺北市文山區景豐一區社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080730C0146
+    - 臺北市文山區景豐一區公共住宅新建工程委託耐震特別監督技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080424SC006
+    - 臺北市文山區景豐一區公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080621PH
+
+[32m[ 玉成社會住宅 ][36m
+  * title: 玉成
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fcdbdc9761994e3fc25f2390b574a15b3[0m
+
+  * Total: 2 matches.
+    - 臺北市南港區玉成公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080723C0144
+    - 臺北市南港區玉成公共住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080619PH
+
+[32m[ 經貿社會住宅 ][36m
+  * title: 經貿
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fd765a18fef4132b902e614e8b3a785bf[0m
+
+  * Total: 5 matches.
+    - 臺北市南港區經貿段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1081206C0181
+    - 臺北市南港區經貿段公共住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080709PH
+    - 「臺北市南港區經貿段公共住宅新建工程委託規劃設計暨監造技術服務案」第一次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1070212SC004-01
+    - 臺北市南港區經貿段公共住宅地下連續壁工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070903C0149
+    - 臺北市南港區經貿段公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1070212SC004
+
+[32m[ 東湖段一小段(東湖A) ][36m
+  * title: 東湖
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: A.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fd02bd33738c0786c0dec3f3fc1aa8ad5[0m
+
+  * Total: 0 matches.
+
+[32m[ 東湖段一小段(東湖B) ][36m
+  * title: 東湖
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: B.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fcd26bd02ebc229bf97793115355baa49[0m
+
+  * Total: 0 matches.
+
+[32m[ 延吉段一小段 ][36m
+  * title: 延吉
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fc6f0234d0ce058f3a8431c3f1f44b44e[0m
+
+  * Total: 1 matches.
+    - 105年度臺北市政府社會局安康平宅、延吉平宅、福民平宅及大同之家房屋及公共設施修護預約發包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1050608C0089
+
+[32m[ 福民平宅改建 ][36m
+  * title: 福民
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fc17b2b442c64206588e134d342dff423[0m
+
+  * Total: 4 matches.
+    - 「臺北市萬華區福民社會住宅既有建築物拆除工程」第1次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080924DH-01
+    - 臺北市萬華區福民社會住宅既有建築物拆除工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080924DH
+    - 臺北市萬華區福民公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080503SC007
+    - 105年度臺北市政府社會局安康平宅、延吉平宅、福民平宅及大同之家房屋及公共設施修護預約發包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1050608C0089
+county name is not found in address string 265宜蘭縣羅東鎮國華里光武街129之3號
+district name is not found in address string 265宜蘭縣羅東鎮國華里光武街129之3號
+county name is not found in address string 265宜蘭縣羅東鎮國華里光武街129之3號
+district name is not found in address string 265宜蘭縣羅東鎮國華里光武街129之3號
+
+[32m[ 華江段二小段(華江A) ][36m
+  * title: 華江
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: A.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F418c7d3bc84c975245ac030dd82c52bb[0m
+
+  * Total: 0 matches.
+
+[32m[ 華江段二小段(華江B) ][36m
+  * title: 華江
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: B.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F19a627952f4a9d9d49064870c2c7c19e[0m
+
+  * Total: 0 matches.
+
+[32m[ 延平北路教育局宿舍 ][36m
+  * title: 延平
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fff1e8ef036cdf795ef587d5e956e62f0[0m
+
+  * Total: 1 matches.
+    - 臺北市大同區延平北路基地公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080517SC009
+
+[32m[ 金華社會住宅(特四、五) ][36m
+  * title: 金華
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F6ac65572f2c9f1f201efbc4e150ce413[0m
+
+  * Total: 2 matches.
+    - 「臺北市大安區金華公共住宅新建工程委託規劃設計暨監造技術服務」第一次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79.56&job_number=1080503SC008-01
+    - 臺北市大安區金華公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080503SC008
+
+[32m[ 景豐二區社會住宅 ][36m
+  * title: 景豐
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: 二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F44fe76c18e1d91ec3af7005dd1c16b0e[0m
+
+  * Total: 1 matches.
+    - 臺北市文山區景豐二區公共住宅新建工程委託規劃設計暨監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.79&job_number=1080517SC010
+
+[32m[ 興隆H區社會住宅 ][36m
+  * title: 興隆
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: H.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F8314d27dc1758d2b52fc07a862daa674[0m
+
+  * Total: 0 matches.
+
+[32m[ 六張犁D、E區社會住宅 ][36m
+  * title: 六張犁
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: (D|E).*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2Fbb5405c44365743c4b97c665e686b27e[0m
+
+  * Total: 0 matches.
+
+[32m[ 福星段都更案基地 ][36m
+  * title: 福星段
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F44292bdcffddc8f81792788064aa8687[0m
+
+  * Total: 0 matches.
+
+[32m[ 南海段都更案基地 ][36m
+  * title: 南海
+  * county: taipei
+  * uids: 3.79 3.79.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaipei~2Fprojects~2F0cee1f5f30fac773a7734782e349ae6f[0m
+
+  * Total: 0 matches.
+
+[32m[ 浮洲合宜住宅出租單元 ][36m
+  * title: 浮洲
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28 
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fa1fc196724288173d56ec0a71147c6e5[0m
+
+  * Total: 1 matches.
+    - 新北市浮洲地區合宜住宅都市設計準則擬定計畫案委託規劃
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=991110A
+
+[32m[ 板橋府中青年社會住宅 ][36m
+  * title: 府中
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F1387cc050832227067143ff9c821fddd[0m
+
+  * Total: 8 matches.
+    - 新北市板橋府中青年社會住宅新建工程(修正後)第1次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1041103-2
+    - 新北市新莊新豐與板橋府中青年社會住宅招租作業及物業維管之委託服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1070515-2
+    - 新北市板橋府中青年社會住宅新建工程(修正後)
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1041103-1
+    - 新北市板橋府中青年社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1040827-1
+    - 新北市板橋府中青年社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1040629A
+    - 新北市板橋府中青年社會住宅前置拆除工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1040203B
+    - 新北市秀朗、板橋府中及新莊立德青年社會住宅工程委託專案管理技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1030502B
+    - 新北市板橋府中及新莊立德青年住宅委託規劃設計及監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1030220-1
+
+[32m[ 新莊新豐青年社會住宅 ][36m
+  * title: 新豐
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fcea42b2a68f747b9f2ee855113a93d1f[0m
+
+  * Total: 4 matches.
+    - 新莊新豐青年社會住宅室內裝修工程第1次變更設計新增(需議價)項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1070601A-1
+    - 新北市新莊新豐與板橋府中青年社會住宅招租作業及物業維管之委託服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1070515-2
+    - 新莊新豐青年社會住宅室內裝修工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1070601A
+    - 新莊新豐青年社會住宅室內裝修工程委託技術服務(規劃設計監造)
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1070208B
+district name is not found in address string 260宜蘭縣宜蘭市新東里校舍二路7巷7號一樓
+district name is not found in address string 260宜蘭縣宜蘭市新東里校舍二路7巷7號一樓
+
+[32m[ 中和秀峰青年社會住宅 ][36m
+  * title: 秀峰
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F4017f733a11f2377b293ffb5f1cbedf9[0m
+
+  * Total: 3 matches.
+    - 新北市政府委託民間辦理中和秀峰公共托育中心
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1060105-1
+    - 新北市政府社會局委託辦理汐止區身心障礙者社區居住與生活服務「秀峰家園」
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1031212C
+    - 新北市政府社會局汐止區秀峰路138巷25、27、29、31號整建修繕工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1001220C
+
+[32m[ 大安青年社會住宅 (三重1館) ][36m
+  * title: 大安
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fcc4cfad203a7335c293b6e75f81e0bf0[0m
+
+  * Total: 9 matches.
+    - 新店民安段、土城永和段、土城大安段三處青年社會住宅新建工程委託監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090417-1
+    - 新店民安段、土城永和段、土城大安段三處青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1080702-1
+    - 新店民安段、土城永和段、土城大安段三處青年社會助住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1071219A
+    - 新莊安泰段、新店民安段、土城永和段、土城大安段四處青年社會住宅新建工程委託專案管理技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1060519-1
+    - 三峽北大安置住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1011113-1
+    - 三峽北大安置及青年住宅新建工程委託專案管理技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1010202-1
+    - 三峽北大安置住宅新建統包工程委託監造技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1020509-1
+    - 三峽北大安置住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1010817urd
+    - 三峽北大安置及青年住宅新建工程委託專案管理技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1001027urd
+
+[32m[ 大同南青年社會住宅 (三重2館-西側) ][36m
+  * title: 大同
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F0cfb9df929bc01f992750d94dcba041b[0m
+
+  * Total: 2 matches.
+    - 新北市政府委託民間辦理三重大同公共托育中心
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090408-2
+    - 新北市政府委託民間辦理中和大同社區長照機構（中和大同公共托老中心）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1071226-4
+
+[32m[ 大同南青年社會住宅 (三重3館-東側) ][36m
+  * title: 大同
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F15d2a895c291681b30d00251bb1ad59e[0m
+
+  * Total: 2 matches.
+    - 新北市政府委託民間辦理三重大同公共托育中心
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090408-2
+    - 新北市政府委託民間辦理中和大同社區長照機構（中和大同公共托老中心）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1071226-4
+
+[32m[ 新店央北青年社會住宅 ][36m
+  * title: 央北
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F699515678d5fde4226c81388a3ff02b0[0m
+
+  * Total: 4 matches.
+    - 新北市新店央北青年社會住宅管理維護委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090630-2
+    - 新北市政府委託民間辦理新店央北中山公共托育中心
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090414-3
+    - 新北市政府委託民間辦理新店央北二路公共托育中心
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090408-1
+    - 新北市三峽北大、永和國光青年社會住宅及新店央北跨世代社群共居計畫委託管理專業服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1080816B
+
+[32m[ 永和秀朗青年社會住宅 ][36m
+  * title: 秀朗
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fbf466db2ad1d1bc69ed8f9579e835d6d[0m
+
+  * Total: 8 matches.
+    - 新北市永和秀朗派出所青年社會住宅招租與租賃委託管理服務案-後續擴充
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1061017A
+    - 新北市秀朗派出所及青年社會住宅工程第2次變更設計新增(需議價)項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1031014-2-3
+    - 新北市秀朗派出所及青年社會住宅工程第1次變更設計新增(需議價)項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1031014-2-2
+    - 新北市秀朗派出所及青年社會住宅工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1031014-2-1
+    - 新北市秀朗派出所及青年社會住宅工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1031014-2
+    - 新北市秀朗派出所及青年社會住宅工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1030911A
+    - 新北市秀朗、板橋府中及新莊立德青年社會住宅工程委託專案管理技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1030502B
+    - 新北市秀朗派出所及青年社會住宅工程設計及監造委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1021121A
+county name is not found in address string 303新竹縣湖口鄉勝利村9鄰蘭州四街52號1樓
+district name is not found in address string 303新竹縣湖口鄉勝利村9鄰蘭州四街52號1樓
+
+[32m[ 三峽國光一期青年社會住宅 ][36m
+  * title: 國光
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F86b254b442bbb533d115073b86f60ac8[0m
+
+  * Total: 0 matches.
+
+[32m[ 三峽北大青年社會住宅 ][36m
+  * title: 北大
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F9e2b3e316dc810642d795806a135361b[0m
+
+  * Total: 10 matches.
+    - 新北市三峽北大、永和國光青年社會住宅及新店央北跨世代社群共居計畫委託管理專業服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1080816B
+    - 新北市三峽北大青年社會住宅招租申請、傢俱及物管委託專業服務-第3次後續擴充
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1070605A
+    - 永和國光青年社會住宅招租與物管委託管理服務(三峽北大社宅委託案─第2次後續擴充)
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1061103A
+    - 新北市三峽北大青年社會住宅招租申請、傢俱及物管委託專業服務-第1次後續擴充
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1061016A
+    - 三峽北大安置住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1011113-1
+    - 三峽北大安置及青年住宅新建工程委託專案管理技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1010202-1
+    - 三峽北大安置住宅新建統包工程委託監造技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1020509-1
+    - 新北市三峽北大青年社會住宅招租申請、傢俱及物管委託專業服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1060328C
+    - 三峽北大安置住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1010817urd
+    - 三峽北大安置及青年住宅新建工程委託專案管理技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1001027urd
+
+[32m[ 林口世大運選手村社會住宅 ][36m
+  * title: 世大運
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F4d38ef87155331523cf9a16fa4b8c195[0m
+
+  * Total: 3 matches.
+    - 新北市政府社會局委託辦理林口世大運選手村社會住宅身心障礙者社區式日間照顧服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1081127-3
+    - 社會局委辦林口世大運選手村身障者社區日間作業設施及居住與生活服務(案名詳說明欄)
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1081206-2
+    - 林口世大運選手村社會住宅資格審核暨資訊系統建置服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1070427B
+
+[32m[ 板橋永翠(39) ][36m
+  * title: 永翠
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F135440ddd4115b8e099233478535202a[0m
+
+  * Total: 0 matches.
+
+[32m[ 板橋江翠(31) ][36m
+  * title: 江翠
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fca1a5977ca2c6a61c6bef31fb698c854[0m
+
+  * Total: 3 matches.
+    - 板橋江翠段青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090730-1
+    - 板橋江翠段青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1090506A
+    - 板橋江翠段青年社會住宅新建工程委託專案管理及監造技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1080911-1
+
+[32m[ 三重五谷王(27)青年社會住宅 ][36m
+  * title: 五谷王
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fc1866a7f02cb845ae0ae86278cf19a27[0m
+
+  * Total: 0 matches.
+
+[32m[ 新店斯馨(2)青年社會住宅 ][36m
+  * title: 斯馨
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F391354b33d54e1055de2150cbae42ca9[0m
+
+  * Total: 0 matches.
+
+[32m[ 新店斯馨(13、15)青年社會住宅 ][36m
+  * title: 斯馨
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F1409d102624fe574c19d342eca6ebd83[0m
+
+  * Total: 0 matches.
+
+[32m[ 新店斯馨(100)青年社會住宅 ][36m
+  * title: 斯馨
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F19bbd7611ee4c8b64c8ea5c36f9c8938[0m
+
+  * Total: 0 matches.
+
+[32m[ 土城員和段青年社會住宅 ][36m
+  * title: 員和
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F1cd932222abbccd942b7f83b7ac04578[0m
+
+  * Total: 2 matches.
+    - 土城員和段青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1070227-1
+    - 土城區員和段青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1061031A
+
+[32m[ 土城明德(211、218) ][36m
+  * title: 明德
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F9364678e18207a82200b9ff7dcb52151[0m
+
+  * Total: 1 matches.
+    - 新北市中和莒光段、新店明德段及淡水望高樓段3處青年社會住宅評估及規劃委託技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1081015B
+
+[32m[ 土城明德(23) ][36m
+  * title: 明德
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F93d5e9b9543eb7d9e7a45c4dd6fc2b01[0m
+
+  * Total: 1 matches.
+    - 新北市中和莒光段、新店明德段及淡水望高樓段3處青年社會住宅評估及規劃委託技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1081015B
+
+[32m[ 永和中正橋青年社會住宅 ][36m
+  * title: 中正橋
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fd13f92272f5db6df12b6f1449069da63[0m
+
+  * Total: 7 matches.
+    - 新北市中正橋派出所及青年社會住宅接續工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090909-2
+    - 新北市中正橋派出所及青年社會住宅接續工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1090609A
+    - 新北市中正橋派出所及青年社會住宅工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1060912-1
+    - 新北市中正橋派出所及青年社會住宅工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1060626A
+    - 新北市中正橋派出所及青年社會住宅樹木遷移工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1060303A
+    - 新北市中正橋派出所及青年社會住宅工程委託設計及監造技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1041215-3
+    - 新北市中正橋派出所及青年社會住宅工程委託專案管理技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1040305B
+
+[32m[ 五股芳洲(203)青年社會住宅 ][36m
+  * title: 芳洲
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Ffe5f1e49ce2b6c0084546991da4b118c[0m
+
+  * Total: 0 matches.
+
+[32m[ 中和安邦段青年社會住宅 ][36m
+  * title: 安邦
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fca323abc08e211ccfbf6990f0fc55d3e[0m
+
+  * Total: 5 matches.
+    - 中和安邦段青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1080502-1
+    - 中和安邦段青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1071219B
+    - 新北市中和安邦段青年社會住宅工程委託專案管理及監造技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1061128-1
+    - 新北市中和安邦段青年社會住宅工程委託專案管理及監造技術扶務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1060711A
+    - 新北市中和安邦及泰山中山段青年社會住宅工程委託規劃技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1060510A
+
+[32m[ 中和保二基地警消專案社宅 ][36m
+  * title: 保二
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F84a32ec0537f394e6621f32a01c7d3ba[0m
+
+  * Total: 0 matches.
+
+[32m[ 新店民安段青年社會住宅 ][36m
+  * title: 民安
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F53c9ffe51757d5edf5d20208984b0695[0m
+
+  * Total: 4 matches.
+    - 新店民安段、土城永和段、土城大安段三處青年社會住宅新建工程委託監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090417-1
+    - 新店民安段、土城永和段、土城大安段三處青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1080702-1
+    - 新店民安段、土城永和段、土城大安段三處青年社會助住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1071219A
+    - 新莊安泰段、新店民安段、土城永和段、土城大安段四處青年社會住宅新建工程委託專案管理技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1060519-1
+
+[32m[ 土城永和段青年社會住宅 ][36m
+  * title: 永和段
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F3bd5661a3c54ab419c6e6e9637c9df57[0m
+
+  * Total: 4 matches.
+    - 新店民安段、土城永和段、土城大安段三處青年社會住宅新建工程委託監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090417-1
+    - 新店民安段、土城永和段、土城大安段三處青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1080702-1
+    - 新店民安段、土城永和段、土城大安段三處青年社會助住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1071219A
+    - 新莊安泰段、新店民安段、土城永和段、土城大安段四處青年社會住宅新建工程委託專案管理技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1060519-1
+
+[32m[ 土城大安段青年社會住宅 ][36m
+  * title: 大安段
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fdbd744e63ad3f46d18e1d626f1ba2a66[0m
+
+  * Total: 4 matches.
+    - 新店民安段、土城永和段、土城大安段三處青年社會住宅新建工程委託監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090417-1
+    - 新店民安段、土城永和段、土城大安段三處青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1080702-1
+    - 新店民安段、土城永和段、土城大安段三處青年社會助住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1071219A
+    - 新莊安泰段、新店民安段、土城永和段、土城大安段四處青年社會住宅新建工程委託專案管理技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1060519-1
+
+[32m[ 三峽國光二期青年社會住宅 ][36m
+  * title: 國光
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: 二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fac4f5d471791025f4d4be948cefe5397[0m
+
+  * Total: 4 matches.
+    - 三峽國光段(二期)青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1081217-2
+    - 「新北市三峽國光段（二期）青年社會住宅工程委託規劃、專案管理及監造技術服務案」後續擴充
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1080319-1-A
+    - 三峽國光段(二期)青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1080904A
+    - 新北市三峽國光段(二期)青年社會住宅工程委託規劃、專案管理及監造技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1080319-1
+
+[32m[ 泰山中山段青年社會住宅 ][36m
+  * title: 中山段
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fcccfe65fb4e8777f4559c37e44b80f7b[0m
+
+  * Total: 4 matches.
+    - 泰山中山段青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1090221-1
+    - 泰山中山段青年社會住宅新建統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.28&job_number=1081108A
+    - 泰山中山段青年社會住宅委託專案管理及監造技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1071211-1
+    - 新北市中和安邦及泰山中山段青年社會住宅工程委託規劃技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.82.11.1&job_number=1060510A
+
+[32m[ 板橋江翠(96)青年社會住宅 ][36m
+  * title: 江翠
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: 96.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Ff137e204ed081dd9b094a9ec525b4c21[0m
+
+  * Total: 0 matches.
+
+[32m[ 江翠段65地號 ][36m
+  * title: 江翠段
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: 65.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Fa9d0be1b5caafca76a38ce18ca07a703[0m
+
+  * Total: 0 matches.
+
+[32m[ 江翠段151地號 ][36m
+  * title: 江翠段
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: 151.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F4aa00ad2dbee542bc9ff57cfd1afb3b5[0m
+
+  * Total: 0 matches.
+
+[32m[ 新都段83地號 ][36m
+  * title: 新都段
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: 83.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F483d2c4d37f5f0ced1cc9eefa8627b4b[0m
+
+  * Total: 0 matches.
+
+[32m[ 環翠段108地號 ][36m
+  * title: 環翠段
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: 108.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F8ea2a6fa59a19220ae03c0471e7cfef6[0m
+
+  * Total: 0 matches.
+
+[32m[ 五谷王段297地號 ][36m
+  * title: 五谷王段
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: 297.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2Faaafd09393dcd0901804eefc5449c8c3[0m
+
+  * Total: 0 matches.
+
+[32m[ 富貴段324、331地號 ][36m
+  * title: 富貴段
+  * county: new_taipei
+  * uids: 3.82.11.1 3.82.28
+  * regex: 324.*331.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnew_taipei~2Fprojects~2F9db525c79ee60c87703acc122f3c7d3e[0m
+
+  * Total: 0 matches.
+
+[32m[ 中路二號社會住宅 ][36m
+  * title: 中路
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F0f4345323a601f88370fbba9198276ae[0m
+
+  * Total: 8 matches.
+    - 桃園中路二號社會住宅建物所有權暨房屋設籍登記委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=OHD1080726-1
+    - 「桃園市桃園區中路二號基地新建公營住宅統包工程」第1次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=1050408-A1-1
+    - 桃園市政府社會局委託經營管理「108-110年度中路二號社會住宅設置公設民營桃園托嬰中心」
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1080426-1
+    - 桃園市桃園區中路二號社會住宅服務性入住輔導及宣傳委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=OHD1080416-1
+    - 桃園市桃園區中路二號基地社會住宅108年~109年委託管理維護服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1071108-2
+    - 桃園市政府社會局委託經營管理「107-110年度中路二號社會住宅設置公設民營托嬰中心」
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1071004-3
+    - 桃園市桃園區中路二號社會住宅租金市價查估委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=OHD1070504-1
+    - 桃園市桃園區中路二號基地新建公營住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1050408-A1
+
+[32m[ 機場捷運A7合宜住宅出租單元 ][36m
+  * title: 機場
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: A7.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F5d146998e964e0fbfdd25612cdbfdb7c[0m
+
+  * Total: 1 matches.
+    - 「機場捷運A7站合宜住宅出租資訊系統建置暨協助受理申請」委託服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1040330-6
+
+[32m[ 中路一號社會住宅 ][36m
+  * title: 中路
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Fb2339eebbd80a29d70d8649256c513aa[0m
+
+  * Total: 5 matches.
+    - 桃園市桃園區中路一號基地新建社會住宅工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1070525-A5
+    - 「桃園市桃園區中路四號基地（中路一段10、11、12地號）新建公營住宅」委託規劃設計監造服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1050428-3
+    - 桃園市桃園區中路三號基地（中路一段9地號）新建公營住宅委託規劃設計監造服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1041012-1
+    - 桃園市桃園區中路一號基地(中路一段18地號)新建公營住宅委託規劃設計監造服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1040904-1
+    - 桃園市桃園區中路一號基地(中路一段18地號)新建公營住宅委託規劃設計監造服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1040506-2
+
+[32m[ 中路三號社會住宅 ][36m
+  * title: 中路
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 三.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Fa8bd1d052fb7baab897d539d0c8980f3[0m
+
+  * Total: 1 matches.
+    - 桃園市桃園區中路三號基地（中路一段9地號）新建公營住宅委託規劃設計監造服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1041012-1
+
+[32m[ 中路四號社會住宅 ][36m
+  * title: 中路
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 四.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F8ef18ee55225ec3b1b8cb70c81be36de[0m
+
+  * Total: 2 matches.
+    - 桃園市桃園區中路四號基地新建社會住宅工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1070806-A1
+    - 「桃園市桃園區中路四號基地（中路一段10、11、12地號）新建公營住宅」委託規劃設計監造服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1050428-3
+
+[32m[ 東門段208-1地號都市更新事業(東門停車場) ][36m
+  * title: 東門段
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Fdfd124e7941cab80ce00ee314fa50f92[0m
+
+  * Total: 0 matches.
+
+[32m[ 中壢一號社會住宅 ][36m
+  * title: 中壢
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F953d2adb4d56c5ffcafc2e0d7428e1c4[0m
+
+  * Total: 3 matches.
+    - 「桃園市中壢區一號基地（東寮段325-4地號）新建公營住宅委託專案管理（含監造）技術服務案」耐震標章
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=1050322-3-1
+    - 桃園市中壢區一號基地(東寮段325-4地號)新建公營住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1060524-A1
+    - 桃園市中壢區一號基地（東寮段325-4地號）新建公營住宅委託專案管理（含監造）技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1050322-3
+
+[32m[ 中壢老小段100地號都市更新事業(中興巷警察宿舍) ][36m
+  * title: 中壢
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 老.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Fa112e27b4fa6433bfb75d024b2f344b7[0m
+
+  * Total: 0 matches.
+
+[32m[ 平鎮一號社會住宅 ][36m
+  * title: 平鎮
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F7e6e6eadbb07d6d35387fa7ee08457f7[0m
+
+  * Total: 2 matches.
+    - 桃園市楊梅區一號基地及平鎮區一號基地新建社會住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1080528-A4
+    - 桃園市楊梅區一號基地及平鎮區一號基地新建社會住宅委託專案管理(含監造)技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1070910-1
+
+[32m[ 八德一號社會住宅 ][36m
+  * title: 八德
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F3a68887403a223ead3768f28dfa6d48d[0m
+
+  * Total: 6 matches.
+    - 八德一號社會住宅建物所有權暨房屋設籍登記委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=OHD1090703-1
+    - 109年度桃園市八德一號社會住宅委託管理維護服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1090305-1
+    - 桃園市八德一號、八德二號及蘆竹二號社會住宅智慧管理中心財物採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=OHD1090305-1
+    - 桃園市八德區一號基地(興仁段617地號)新建公營住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1051226-A1
+    - 桃園市八德區一號基地(興仁段617地號)新建公營住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1050705-A1
+    - 桃園市八德區一號基地（興仁段617地號）新建公營住宅委託專案管理（含監造）技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1041001-3
+district name is not found in address string 302新竹縣竹北市成功十二街20號9樓
+
+[32m[ 八德二號社會住宅 ][36m
+  * title: 八德
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Fc2a09781fc8f0ac015fed4d797389bba[0m
+
+  * Total: 3 matches.
+    - 109年度桃園市八德二號社會住宅委託管理維護服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=OHD1090414-1
+    - 桃園市八德一號、八德二號及蘆竹二號社會住宅智慧管理中心財物採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=OHD1090305-1
+    - 桃園市八德區二號基地（豐田段1428地號）新建公營住宅委託規劃設計監造服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1041008-2
+district name is not found in address string 302新竹縣竹北市成功十二街20號9樓
+
+[32m[ 八德三號社會住宅 ][36m
+  * title: 八德
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 三.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F2bcbb5c6c97484a818b41f3e2676fcb8[0m
+
+  * Total: 2 matches.
+    - 桃園市八德區三號基地(興仁段621、624地號)新建公營住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1060603-A1
+    - 桃園市八德區三號基地（興仁段621、624地號）新建公營住宅委託專案管理(含監造)技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1050629-4
+
+[32m[ 楊梅一號社會住宅- 第一期 ][36m
+  * title: 楊梅
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F7b1146a1a775dd6590f493348d0ce511[0m
+
+  * Total: 2 matches.
+    - 桃園市楊梅區一號基地及平鎮區一號基地新建社會住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1080528-A4
+    - 桃園市楊梅區一號基地及平鎮區一號基地新建社會住宅委託專案管理(含監造)技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1070910-1
+
+[32m[ 蘆竹一號社會住宅 ][36m
+  * title: 蘆竹
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F7d5145989c1a7fa173decd9604e0c445[0m
+
+  * Total: 5 matches.
+    - 桃園市蘆竹區蘆竹一號基地新建社會住宅工程委託耐震特別監督技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1090212-1
+    - 桃園市八德一號、八德二號及蘆竹二號社會住宅智慧管理中心財物採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=OHD1090305-1
+    - 桃園市蘆竹區蘆竹一號基地新建社會住宅工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1070529-A2
+    - 桃園市蘆竹區一號基地（大新段424、425地號）新建公營住宅工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1060803-A1
+    - 「桃園市蘆竹區一號基地（大新段424、425地號）新建公營住宅」委託規劃設計監造服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1041103-1
+district name is not found in address string 302新竹縣竹北市成功十二街20號9樓
+
+[32m[ 蘆竹二號社會住宅 ][36m
+  * title: 蘆竹
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Faff222bf27b665ccb12309c66376ded5[0m
+
+  * Total: 6 matches.
+    - 桃園市八德一號、八德二號及蘆竹二號社會住宅智慧管理中心財物採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=OHD1090305-1
+    - 桃園市政府社會局委託辦理蘆竹二號社會住宅設置蘆竹親子館
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1080611-3
+    - 桃園市蘆竹二號社會住宅展示館多媒體宣傳委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1070611-6
+    - 桃園市蘆竹區二號基地(竹中段259地號)新建公營住宅委託專案管理(含監造)技術服務案之耐震標章及特別監督人
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=1050310-2-1
+    - 桃園市蘆竹區二號基地(竹中段259地號)新建公營住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1051230-A1
+    - 桃園市蘆竹區二號基地(竹中段259地號)新建公營住宅委託專案管理（含監造）技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1050310-2
+district name is not found in address string 302新竹縣竹北市成功十二街20號9樓
+
+[32m[ 航空城安置住宅- A11 ][36m
+  * title: 航空城
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 11.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F61d7cabb92a576be47e252fa39c9a7cb[0m
+
+  * Total: 1 matches.
+    - 桃園航空城A11基地及A18基地新建安置住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=1081107-A4
+
+[32m[ 航空城安置住宅- A18 ][36m
+  * title: 航空城
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 18.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F2d65e263257bc18c142d4544b2a1a966[0m
+
+  * Total: 1 matches.
+    - 桃園航空城A11基地及A18基地新建安置住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.36.1&job_number=1081107-A4
+
+[32m[ 航空城安置住宅- G17 ][36m
+  * title: 航空城
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 17.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F37e7d3b156c0c23f2e3dd328be200de8[0m
+
+  * Total: 1 matches.
+    - 桃園航空城G17基地新建安置住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1081107-A5
+
+[32m[ 中壢區雙嶺段1283、1284地號 ][36m
+  * title: 雙嶺
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Fa51a00bbc0df35c9f4bd2c912528260c[0m
+
+  * Total: 0 matches.
+
+[32m[ 大溪區仁武段13、14地號 ][36m
+  * title: 仁武
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F03b8e6b81fccc872ee4f376493bb7dd7[0m
+
+  * Total: 0 matches.
+
+[32m[ 南富台新村 ][36m
+  * title: 南富台
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Fa853fcc2cb4776463bbb672d6f941003[0m
+
+  * Total: 1 matches.
+    - 桃園市中壢區富台段145、151、153地號（南富台新村）暨福德段103地號新建社會住宅」委託先期規劃服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1060830-1
+
+[32m[ 北富台新村 ][36m
+  * title: 北富台
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F65c7309466e07b57f1ee08be2fc13b53[0m
+
+  * Total: 1 matches.
+    - 桃園市中壢區北富台新村新建社會住宅委託專案管理（含監造）技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.80.11&job_number=1090707-3
+
+[32m[ 慈安社會住宅(平寮段) ][36m
+  * title: 慈安
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F2c8973942d77a455dc3902ad3fe7294a[0m
+
+  * Total: 0 matches.
+
+[32m[ 龍慈社會住宅(福德段) ][36m
+  * title: 龍慈
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F9034da1dffe96ad5b54d96fd57f830bb[0m
+
+  * Total: 0 matches.
+
+[32m[ 龍岡體育園區 ][36m
+  * title: 龍岡
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Ff6880a2a4d134c05c9159b566bbfaa05[0m
+
+  * Total: 0 matches.
+
+[32m[ 捷運A20站-第一期 ][36m
+  * title: 捷運
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 20.*一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Fa7618d34824f951c14d650c5002fd542[0m
+
+  * Total: 0 matches.
+
+[32m[ 捷運A20站-第二期 ][36m
+  * title: 捷運
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 20.*二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Fcdac2aad93477953c91a002a5e2d3689[0m
+
+  * Total: 0 matches.
+
+[32m[ 捷運A21站 ][36m
+  * title: 捷運
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 21.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F7427f066bbedc9b09b914517a204e922[0m
+
+  * Total: 0 matches.
+
+[32m[ 中壢區內壢段 ][36m
+  * title: 內壢
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Fc8733c05e54b43c38cd921f52ddfb936[0m
+
+  * Total: 0 matches.
+
+[32m[ 楊梅一號社會住宅- 第二期 ][36m
+  * title: 楊梅
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 一.*二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F8c2d231082ebd7141491517a62ef91f5[0m
+
+  * Total: 0 matches.
+
+[32m[ 捷運A10站-第一期 ][36m
+  * title: 捷運
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 10.*一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F87893aa9dc16cc6bad68d298e3fd2a3f[0m
+
+  * Total: 0 matches.
+
+[32m[ 捷運A10站-第二期 ][36m
+  * title: 捷運
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: 10.*二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F5d7120b8ede8847ffa6f22ec068e55a5[0m
+
+  * Total: 0 matches.
+
+[32m[ 蘆竹區大興段 ][36m
+  * title: 大興
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F5446d139517f75d411df92d1f32fee0c[0m
+
+  * Total: 0 matches.
+
+[32m[ 龜山區善捷段 ][36m
+  * title: 善捷
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2Fc1de86f84b2f8b935aaa483e753e5dbc[0m
+
+  * Total: 0 matches.
+
+[32m[ 龜山區樂捷段 ][36m
+  * title: 樂捷
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F646ca4a813a9d24a8cc3bfedc66a0971[0m
+
+  * Total: 0 matches.
+
+[32m[ 龜山中興段 ][36m
+  * title: 中興段
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F7ed20662c5c4747ac7953253f1be415f[0m
+
+  * Total: 0 matches.
+
+[32m[ 大溪區田心子段 ][36m
+  * title: 田心子
+  * county: taoyuan
+  * uids: 3.80.36.1 3.80.11
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaoyuan~2Fprojects~2F748771c85d7b68d4c057328d40964c0f[0m
+
+  * Total: 0 matches.
+
+[32m[ 光正段一期 ][36m
+  * title: 光正
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F5573f4c2cca06f308f05d6c68bcab961[0m
+
+  * Total: 0 matches.
+
+[32m[ 精密機械科技創新園區「勞工住宅」社區 ][36m
+  * title: 精密機械
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F168dce7b7c0fe7a66e9bd517feb2b238[0m
+
+  * Total: 1 matches.
+    - 臺中市精密機械科技創新園區社會住宅瓦斯外管線裝置採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10903250236
+
+[32m[ 安康段一期 ][36m
+  * title: 安康
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F927b47caa06ecbba496ba2530823bb91[0m
+
+  * Total: 0 matches.
+
+[32m[ 北屯段 ][36m
+  * title: 北屯
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2Fe8cfe951b669d38edf21331fdd3e8e82[0m
+
+  * Total: 10 matches.
+    - 臺中市東區練武段、北屯區溝背段興辦社會住宅先期規劃委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10901300222
+    - 「臺中市北屯區北屯段社會住宅新建工程」第一次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10810230190
+    - 「臺中市北屯區太原段社會住宅新建工程」委託專案管理（含監造）技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10801040137
+    - 臺中市北屯區同榮段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10706110081
+    - 臺中市北屯區同榮段社會住宅興辦計劃基地廢改溝委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10706120082
+    - 臺中市北屯區北屯段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10704020067
+    - 臺中市北屯區東山段社會住宅興辦計畫委託規劃設計及監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10607110001
+    - 臺中市北屯區同榮段社會住宅興辦計畫委託設計及監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10602230945
+    - 臺中市北屯區北屯段社會住宅興辦計畫委託規劃設計及監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10511110887
+    - 臺中市東區練武段、北屯區同榮段興辦社會住宅先期規劃委託技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10506290832
+
+[32m[ 同榮段 ][36m
+  * title: 同榮
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2Fe9c116a4f10972586ab04255ff4a1a27[0m
+
+  * Total: 4 matches.
+    - 臺中市北屯區同榮段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10706110081
+    - 臺中市北屯區同榮段社會住宅興辦計劃基地廢改溝委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10706120082
+    - 臺中市北屯區同榮段社會住宅興辦計畫委託設計及監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10602230945
+    - 臺中市東區練武段、北屯區同榮段興辦社會住宅先期規劃委託技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10506290832
+
+[32m[ 育賢段一期 ][36m
+  * title: 育賢
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2Fff7c030b9f019b40fe52edb5bba70e76[0m
+
+  * Total: 1 matches.
+    - 臺中市太平育賢段一期社會住宅共好商店委託經營管理案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10906190260
+
+[32m[ 育賢段二期 ][36m
+  * title: 育賢
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: 二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F8f0c5fcf67e80f4603d761f5fb7e1bbb[0m
+
+  * Total: 5 matches.
+    - 臺中市太平區育賢段二期社會住宅新建工程第一次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10902170227
+    - 臺中市太平區育賢段二期社會住宅興辦計劃基地地質鑽探委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10805070154
+    - 臺中市太平區育賢段二期社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10709210102
+    - 臺中市太平區育賢段二期社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10608100006
+    - 臺中市太平區永億段及育賢段二期社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10603060951
+
+[32m[ 南屯區建功段26地號 ][36m
+  * title: 建功
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: 26.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F55dfd80f5890cf293ba3464372c2764d[0m
+
+  * Total: 0 matches.
+
+[32m[ 南屯區建功段4-1地號 ][36m
+  * title: 建功
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: 4.*1.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2Fdb1594a0c746bc1db97399ad236a5b5b[0m
+
+  * Total: 0 matches.
+
+[32m[ 安康段二期 ][36m
+  * title: 安康
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: 二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F400e08d3153e5586c6c321832667a4f1[0m
+
+  * Total: 3 matches.
+    - 臺中市豐原區安康段二期社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10808080176
+    - 臺中市豐原區安康段二期社會住宅興辦計畫基地地質鑽探委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10711270120
+    - 臺中市豐原區安康段二期社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10701250049
+
+[32m[ 尚武段 ][36m
+  * title: 尚武
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2Fef51a3177ad430c33f7e688d84a2db81[0m
+
+  * Total: 3 matches.
+    - 臺中市東區尚武段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10711160116
+    - 臺中市東區尚武段及東勢子段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10706220088
+    - 臺中市東區尚武段及東勢子段社會住宅新建工程委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10605310976
+
+[32m[ 三民段一期 ][36m
+  * title: 三民
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F516b65bb7ca2f38e4a72872afed0cad9[0m
+
+  * Total: 0 matches.
+
+[32m[ 寶文段50-20地號 ][36m
+  * title: 寶文
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F6d0f703382cffd20758f2928c61a5022[0m
+
+  * Total: 0 matches.
+
+[32m[ 惠來厝段 ][36m
+  * title: 惠來
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F02a1cb319725de7c7ec07f9f1604c32f[0m
+
+  * Total: 5 matches.
+    - 臺中市西屯區惠來厝段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10904180240
+    - 臺中市西屯區惠來厝段社會住宅興辦計劃基地地質鑽探委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10804160151
+    - 臺中市西屯區惠來厝段社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10703020056
+    - 臺中市西屯區惠來厝段社會住宅BOT案規劃設計期間履約管理諮詢顧問服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10511160889
+    - 臺中市西屯區惠來厝段社會住宅BOT招商委託專業服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10411300714
+
+[32m[ 光正段二期 ][36m
+  * title: 光正
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: 二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F12e8826e1628a6ba60417102d9bf9460[0m
+
+  * Total: 4 matches.
+    - 臺中市大里區光正段二期社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10904180241
+    - 臺中市大里區光正段二期社會住宅興辦計畫基地地質鑽探委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10805130156
+    - 臺中市大里區光正段二期社會住宅圍籬新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10804010150
+    - 臺中市大里區光正段二期社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10707100094
+
+[32m[ 永億段 ][36m
+  * title: 永億
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F17bf2ee38c5e1aac4ba5bd0a95320379[0m
+
+  * Total: 6 matches.
+    - 臺中市太平區永億段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10810180189
+    - 臺中市太平區永億段社會住宅興辦計劃基地地質鑽探委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10710310113
+    - 臺中市太平區永億段段社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10703060058
+    - 臺中市太平區永億段及育賢段二期社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10603060951
+    - 臺中市太平區永億段社會住宅興辦先期規劃技術服務(第一次變更契約)
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10505170819
+    - 臺中市太平區永億段社會住宅興辦先期規劃技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10409240687
+
+[32m[ 太平區 ][36m
+  * title: 太平區
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F9ae60859fdd8d6b2c5f3a83860327c5b[0m
+
+  * Total: 15 matches.
+    - 臺中市太平區育賢段三期社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10812260212
+    - 臺中市太平區育賢段二期社會住宅新建工程第一次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10902170227
+    - 臺中市太平區永億段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10810180189
+    - 臺中市太平區育賢段二期社會住宅興辦計劃基地地質鑽探委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10805070154
+    - 臺中市太平區育賢段二期社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10709210102
+    - 臺中市太平區育賢段三期社會住宅興辦計劃基地地質鑽探委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10711120115
+    - 臺中市太平區永億段社會住宅興辦計劃基地地質鑽探委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10710310113
+    - 臺中市大雅區公館新村、潭子區公所原址及太平區學億段興辦社會住宅先期規劃委託技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10705100073
+    - 臺中市太平區育賢段三期社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10703080059
+    - 臺中市太平區永億段段社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10703060058
+    - 臺中市太平區育賢段二期社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10608100006
+    - 臺中市太平區永億段及育賢段二期社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10603060951
+    - 臺中市太平區永億段社會住宅興辦先期規劃技術服務(第一次變更契約)
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10505170819
+    - 臺中市太平區育賢段社會住宅興辦計畫委託規劃設計及監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10501290765
+    - 臺中市太平區永億段社會住宅興辦先期規劃技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10409240687
+
+[32m[ 東勢子段 ][36m
+  * title: 東勢子
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F728e021b3b8c9cbced501c9a8700a91c[0m
+
+  * Total: 8 matches.
+    - 臺中市東區東勢子段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10905070249
+    - 臺中市東區東勢子段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10809200183
+    - 臺中市東區東勢子段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10804010152
+    - 臺中市東區東勢子段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10709130101
+    - 臺中市東區尚武段及東勢子段社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10706220088
+    - 臺中市東區尚武段及東勢子段社會住宅新建工程委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10605310976
+    - 臺中市東區東勢子段社會住宅興辦先期規劃技術服務(第一次變更契約)
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10504260809
+    - 臺中市東區東勢子段社會住宅興辦先期規劃技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10409250688
+
+[32m[ 國安段一期 ][36m
+  * title: 國安
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F8ac7cdca084a91d71360238fc6f0b380[0m
+
+  * Total: 1 matches.
+    - 「臺中市西屯區國安段一期社會住宅新建工程」委託專案管理（含監造）技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10805230160
+
+[32m[ 豐原火車站後站都更案 ][36m
+  * title: 豐原
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F9fb7d884c4a3b9568f85f1e5db4f25ee[0m
+
+  * Total: 22 matches.
+    - 臺中市社會住宅豐原安康段新建工程第四次設計及契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=1070504
+    - 臺中市豐原區安康段社會住宅社會服務站委託經營管理案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10812110207
+    - 臺中市社會住宅豐原安康段新建工程委託設計監造技術服務第一次契約變更
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10812160209
+    - 臺中市豐原區安康段二期社會住宅新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10808080176
+    - 臺中市共好社宅報修服務委託案(臺中市社會住宅豐原安康段)後續擴充
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10712180130
+    - 臺中市豐原區安康段二期社會住宅興辦計畫基地地質鑽探委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10711270120
+    - 豐原安康段、大里光正段及太平育賢段新建工程公共藝術設置案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10704180071
+    - 臺中市社會住宅豐原安康段空調採購一樓設備後續擴充
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10704130070
+    - 臺中市豐原區安康段二期社會住宅興辦計畫委託設計監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10701250049
+    - 臺中市社會住宅豐原安康段新建工程(第三次變更設計)案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10703040057
+    - 臺中市社會住宅豐原安康段空調採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10611300030
+    - 臺中市社會住宅豐原安康段傢俱及設備採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10612210041
+    - 臺中市豐原區安康段社會住宅健康關懷服務站委託經營管理案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10611170027
+    - 臺中市社會住宅豐原安康段櫃類及床組採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10611010020
+    - 臺中市社會住宅豐原安康段新建工程(第二次變更設計)案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10611040023
+    - 臺中市社會住宅豐原安康段窗簾採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10609080010
+    - 臺中市社會住宅豐原安康段新建工程(第一次變更設計)案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10605250973
+    - 106年度臺中市社會住宅豐原區安康段案及國宅轉作社會住宅案租金市價查估委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10605260975
+    - 豐原安康段、大里光正段及太平育賢段社會住宅新建工程公共藝術設置專業服務委託代辦案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10508220858
+    - 臺中市社會住宅豐原安康段新建工程委託設計監造技術服務後續擴充(監造工作)
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10503240798
+    - 臺中市社會住宅豐原安康段新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10407230664
+    - 臺中市幸福好宅豐原豐南段青年住宅委託規劃技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10306200489
+county name is not found in address string 603嘉義縣梅山鄉梅南村中山路223號
+district name is not found in address string 603嘉義縣梅山鄉梅南村中山路223號
+county name is not found in address string 603嘉義縣梅山鄉梅南村中山路223號
+district name is not found in address string 603嘉義縣梅山鄉梅南村中山路223號
+county name is not found in address string 507彰化縣線西鄉德興村德興路74之1號
+district name is not found in address string 507彰化縣線西鄉德興村德興路74之1號
+
+[32m[ 練武段 ][36m
+  * title: 練武
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F4a77c378e985bdc54f2f45c349beb638[0m
+
+  * Total: 3 matches.
+    - 臺中市東區練武段、北屯區溝背段興辦社會住宅先期規劃委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10901300222
+    - 臺中市東區練武段社會住宅BOT促參可行性評估及先期規劃作業案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10610030015
+    - 臺中市東區練武段、北屯區同榮段興辦社會住宅先期規劃委託技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36&job_number=10506290832
+
+[32m[ 烏日區新榮和段 ][36m
+  * title: 新榮和
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2Fdf5b65207c4ce6adf729825b6031ca9b[0m
+
+  * Total: 1 matches.
+    - 臺中市烏日區新榮和段社會住宅新建工程委託專案管理(含監造)技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.87.36.1&job_number=10904220246
+
+[32m[ 小東路北側基地公營住宅 ][36m
+  * title: 小東路
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F45718b9da7b2d7a2b0d5d2261b43ab07[0m
+
+  * Total: 0 matches.
+
+[32m[ 精忠二村更新案 ][36m
+  * title: 精忠
+  * county: taichung
+  * uids: 3.87.36 3.87.36.1
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaichung~2Fprojects~2F4663c57bdaa98ba2419ec111fc0378c7[0m
+
+  * Total: 0 matches.
+
+[32m[ 平實營區更新案第一期 ][36m
+  * title: 平實
+  * county: tainan
+  * uids: 3.95.36
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftainan~2Fprojects~2F444a14af1d7ebf71fd96650bfede420f[0m
+
+  * Total: 0 matches.
+
+[32m[ 平實營區更新案第二期 ][36m
+  * title: 平實
+  * county: tainan
+  * uids: 3.95.36
+  * regex: 二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftainan~2Fprojects~2Fd3544eaeed51085dc717ada6300cc47c[0m
+
+  * Total: 1 matches.
+    - 臺南市公辦都更(平實、二空、精二)捐贈公營住宅委託設計審查及施工督導技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.95.36&job_number=109A710
+
+[32m[ 平實營區更新案第三期 ][36m
+  * title: 平實
+  * county: tainan
+  * uids: 3.95.36
+  * regex: 三.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftainan~2Fprojects~2F1f246b69a5a1baaa4fbfb1019f2469a0[0m
+
+  * Total: 0 matches.
+
+[32m[ 二空新村更新案(A 區)第一期 ][36m
+  * title: 二空
+  * county: tainan
+  * uids: 3.95.36
+  * regex: 一.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftainan~2Fprojects~2Ffc1d6929b9d84668aa65a4c0d6390f6d[0m
+
+  * Total: 0 matches.
+
+[32m[ 二空新村更新案(B 區)第二期 ][36m
+  * title: 二空
+  * county: tainan
+  * uids: 3.95.36
+  * regex: 二.*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftainan~2Fprojects~2F99ca840a4b225743c00244dedf3b41d1[0m
+
+  * Total: 1 matches.
+    - 臺南市公辦都更(平實、二空、精二)捐贈公營住宅委託設計審查及施工督導技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.95.36&job_number=109A710
+
+[32m[ 前金警察宿舍 ][36m
+  * title: 前金
+  * county: kaohsiung
+  * uids: 3.97.36 
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fkaohsiung~2Fprojects~2F6a404a7ce0602216479a1aa7c837c891[0m
+
+  * Total: 5 matches.
+    - 前金警察宿舍公營出租住宅家電設備採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S109030
+    - 前金警察宿舍公營出租住宅家電設備採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S109025
+    - 高雄市前金警察宿舍公營出租住宅家具設備採購
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108030
+    - 高雄市前金警察宿舍公營出租住宅天然瓦斯設備安裝
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108031
+    - 前金區警察宿舍修繕轉作公營出租住宅變更使照暨設計監造案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S107008
+county name is not found in address string 603嘉義縣梅山鄉梅南村中山路223號
+district name is not found in address string 603嘉義縣梅山鄉梅南村中山路223號
+county name is not found in address string 603嘉義縣梅山鄉梅南村中山路223號
+district name is not found in address string 603嘉義縣梅山鄉梅南村中山路223號
+
+[32m[ 鳳山共合宅 ][36m
+  * title: 鳳山
+  * county: kaohsiung
+  * uids: 3.97.36 
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fkaohsiung~2Fprojects~2Feb373bd1ef2667472f6525cdc5149f45[0m
+
+  * Total: 7 matches.
+    - 「高雄市鳳山區五甲國宅公營出租住宅修繕工程」第二次變更設計新增項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105028-2
+    - 「高雄市鳳山區五甲國宅公營出租住宅修繕工程」 第一次變更設計新增項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105028-1
+    - 高雄市鳳山區五甲國宅公營出租住宅天然瓦斯設備安裝案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105032
+    - 高雄市鳳山區五甲國宅公營出租住宅修繕工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105028
+    - 高雄市鳳山區五甲國宅公營出租住宅修繕工程委託監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105004-1
+    - 租賃鳳山區房舍供作公營出租住宅案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105013
+    - 高雄市鳳山區五甲國宅公營出租住宅先期規劃計畫
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105004
+county name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+district name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+county name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+district name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+county name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+district name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+
+[32m[ 五甲國宅公共出租住宅 ][36m
+  * title: 五甲
+  * county: kaohsiung
+  * uids: 3.97.36
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fkaohsiung~2Fprojects~2F1fc0b73a27ed74eabb674d5645c4b630[0m
+
+  * Total: 46 matches.
+    - 「五甲國宅社區公寓型住宅公共設施修繕工程(第二批)(單價發包)」第一次變更新增項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108034-1
+    - 五甲國宅社區公寓型住宅公共設施修繕工程（第三批）(單價發包）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S109026
+    - 五甲國宅社區公寓型住宅公共設施修繕工程（第四批）(單價發包）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S109027
+    - 「五甲國宅社區公寓型住宅公共設施修繕工程（第一批）(單價發包）」第一次變更新增項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108021-1
+    - 五甲國宅社區公寓型住宅公共設施修繕工程（第二批）(單價發包）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108034
+    - 「五甲國宅社區大樓型住宅公共設施修繕工程」 第一次變更設計新增項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108015-1
+    - 五甲國宅社區公寓型住宅公共設施修繕工程委託監造案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108032
+    - 五甲國宅社區公寓型住宅公共設施修繕工程（第一批）(單價發包）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108021
+    - 「108年度五甲國宅社區公共設施維護修繕工程（單價發包）」第一次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108006-1
+    - 五甲國宅社區大樓型住宅公共設施修繕工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108015
+    - 108年度五甲國宅社區公共設施維護修繕工程（單價發包）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108006
+    - 108年度五甲國宅社區公共設施清潔管理
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S108002
+    - 107年度五甲國宅社區公共設施維護修繕工程（單價發包）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S107012
+    - 107年度五甲國宅社區公共設施清潔管理
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S107007
+    - 106年度五甲國宅社區公共設施維護修繕工程單價發包後續擴充(第二次變更設計)250萬元及加帳原契約預算剩餘數3321元
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S106014-2
+    - 「106年度五甲國宅社區公共設施維護修繕工程（單價發包）」第一次變更設計
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S106014-1
+    - 106年度五甲國宅社區公共設施維護修繕工程（單價發包）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S106014
+    - 106年度五甲國宅社區公共設施清潔管理
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S106008
+    - 105年度五甲國宅社區公共設施維護修繕工程（單價發包）（第二批）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105052
+    - 「高雄市鳳山區五甲國宅公營出租住宅修繕工程」第二次變更設計新增項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105028-2
+    - 「105年度五甲國宅社區公共設施維護修繕工程（單價發包）(第一批)」第一次變更設計新增項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105029-1
+    - 「高雄市鳳山區五甲國宅公營出租住宅修繕工程」 第一次變更設計新增項目
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105028-1
+    - 105年度五甲國宅社區公共設施維護修繕工程（單價發包）（第一批）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105029
+    - 高雄市鳳山區五甲國宅公營出租住宅天然瓦斯設備安裝案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105032
+    - 高雄市鳳山區五甲國宅公營出租住宅修繕工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105028
+    - 高雄市鳳山區五甲國宅公營出租住宅修繕工程委託監造技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105004-1
+    - 高雄市鳳山區五甲國宅公營出租住宅先期規劃計畫
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105004
+    - 105年度五甲國宅社區公共設施清潔管理
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105016
+    - 105年度五甲國宅社區公共設施清潔管理
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S105007
+    - 104年度五甲國宅社區公共設施維護修繕工程（單價發包）（第二批）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S104041
+    - 104年度五甲國宅社區公共設施維護修繕工程（單價發包）（第一批）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S104019
+    - 104年度五甲國宅社區公共設施清潔管理
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S104008
+    - 103年度五甲國宅社區公共設施維護修繕工程（單價發包）（第二批）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S103065
+    - 103年度五甲國宅社區公共設施維護修繕工程（單價發包）（第一批）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S103021
+    - 103年度五甲國宅社區公共設施清潔管理
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S103001
+    - 102年度五甲國宅社區公共設施維護修繕工程（單價發包）（第二批）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S102058
+    - 102年度五甲國宅社區公共設施維護修繕工程（單價發包）（第一批）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S102021
+    - 102年度五甲國宅社區公共設施清潔管理
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S102003
+    - 101年度五甲國宅社區公共設施維護修繕工程（單價發包）（第二批）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S101076
+    - 101年度五甲國宅社區公共設施維護修繕工程（單價發包）（第一批）第一次變更設計（新增項目）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S101005-1
+    - 101年度五甲國宅社區公共設施維護修繕工程（單價發包）（第一批）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S101005
+    - 101年度五甲國宅社區公共設施清潔管理
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S100082
+    - 100年度五甲國宅社區地下停車場公共設施維護工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S100073
+    - 100年度五甲國宅社區公共設施維護修繕工程(單價發包)（增項）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S100034-1
+    - 100年度五甲國宅社區公共設施維護修繕工程（單價發包）
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S100034
+    - 100年度五甲國民住宅社區公共設施清潔管理後續擴充案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=F100001
+county name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+district name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+county name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+district name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+county name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+district name is not found in address string 911屏東縣竹田鄉竹南村竹南路116-10號
+county name is not found in address string 909屏東縣麟洛鄉麟頂村民族路181之1號
+district name is not found in address string 909屏東縣麟洛鄉麟頂村民族路181之1號
+
+[32m[ 凱旋青樹(苓雅區機關用地11第一期社會暨安置住宅) ][36m
+  * title: 凱旋
+  * county: kaohsiung
+  * uids: 3.97.36
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fkaohsiung~2Fprojects~2F4a3761e0a9684844cda5b30025a83eb9[0m
+
+  * Total: 0 matches.
+
+[32m[ 光華段一小段1664 地號 ][36m
+  * title: 光華
+  * county: kaohsiung
+  * uids: 3.97.36
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fkaohsiung~2Fprojects~2Fe852fbc3ee54b131aa2caacf46cc1f06[0m
+
+  * Total: 0 matches.
+
+[32m[ 新都段公營出租住宅 ][36m
+  * title: 新都
+  * county: kaohsiung
+  * uids: 3.97.36
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fkaohsiung~2Fprojects~2F84ac57cbd1924d33286be2db7e193663[0m
+
+  * Total: 2 matches.
+    - 三民區新都段公營出租住宅設計監造案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S107041
+    - 高雄市三民區新都段公營出租住宅興辦計畫評估案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.97.36&job_number=S106017
+
+[32m[ 高松一小段1232地號 ][36m
+  * title: 高松
+  * county: kaohsiung
+  * uids: 3.97.36
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fkaohsiung~2Fprojects~2Fb49fc2fe8060d39fca005610b9a989da[0m
+
+  * Total: 0 matches.
+
+[32m[ 大公段 ][36m
+  * title: 大公
+  * county: kaohsiung
+  * uids: 3.97.36
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fkaohsiung~2Fprojects~2Fa9402bc35a8181d703edad50d8d9745d[0m
+
+  * Total: 0 matches.
+
+[32m[ 藍田街宿舍(第一期及第二期) ][36m
+  * title: 藍田
+  * county: nantou
+  * uids: 3.76.48
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnantou~2Fprojects~2F8b5a794221c58577539c86db1be61cf2[0m
+
+  * Total: 2 matches.
+    - 南投市藍田街(第二期)興辦社會住宅先期規劃及本縣公有土地興辦社會住宅選址分析
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.48&job_number=106040508E
+    - 南投市藍田街興辦社會住宅先期規劃
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.48&job_number=105040508E
+district name is not found in address string 540南投縣南投市中興路660號
+district name is not found in address string 540南投縣南投市中興路660號
+
+[32m[ 南投市青年住宅(含社會住宅)興建計畫(二期) ][36m
+  * title: 南投市
+  * county: nantou
+  * uids: 3.76.48
+  * regex: 南投市[^藍田].*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fnantou~2Fprojects~2F9347e0dfa2b7f04fd3b5d08923b82d08[0m
+
+  * Total: 6 matches.
+    - 南投縣南投市漳和社區公共托育家園委辦營運計畫
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.48&job_number=1081005014E
+    - 南投市青年住宅(含社會住宅)規劃設計監造委託技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.48&job_number=107040508E
+    - 99年度信義鄉莫拉克颱風災後永久性安置住宅(南投市茄苳腳段)公共設施興建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.48&job_number=990406076A
+    - 99年度永久性安置住宅(南投市茄苳腳段)公共設施興建工程-水保、道路
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.48&job_number=990406079A
+    - 99年度信義鄉莫拉克颱風災後永久性安置住宅(南投市茄苳腳段)公共設施興建工程委託規劃設計監造服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.48&job_number=990406076B-063
+    - 委託辦理南投市茄苳腳段基地重建安置地使用分區(含使用地)變更所需之書圖文件及程序
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.48&job_number=99040502E-027
+district name is not found in address string 540南投縣南投市中興路660號
+district name is not found in address string 540南投縣南投市民族路617號
+district name is not found in address string 540南投縣南投市中興路660號
+district name is not found in address string 540南投縣南投市中興路660號
+district name is not found in address string 540南投縣南投市中興路660號
+county name is not found in address string 551南投縣名間鄉松山村松嶺街46巷31號2樓
+district name is not found in address string 551南投縣名間鄉松山村松嶺街46巷31號2樓
+
+[32m[ 安居家園 ][36m
+  * title: 安居家園
+  * county: taitung
+  * uids: 3.76.54
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Ftaitung~2Fprojects~2Fe5dccd825ce0ac139b97d67ef5c2f4b0[0m
+
+  * Total: 1 matches.
+    - 臺東縣社會住宅(安居家園)興辦計畫行銷宣導勞務採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.54&job_number=107180730500
+district name is not found in address string 950臺東縣臺東市中山路276號
+
+[32m[ 案山段197地號 ][36m
+  * title: 案山
+  * county: penghu
+  * uids: 3.76.56
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fpenghu~2Fprojects~2F69d71426a88033b81bc882e7992b166f[0m
+
+  * Total: 3 matches.
+    - 馬公市案山段社會住宅興建計畫委託設計技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.56&job_number=SH-1090528
+    - 馬公市案山段社會住宅興建計畫委託設計技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.56&job_number=SH-1090519
+    - 澎湖縣馬公市案山段暨中衛段社會住宅工程委託規畫技術服務
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.76.56&job_number=SR-1080430
+district name is not found in address string 880澎湖縣馬公市治平路32號
+district name is not found in address string 880澎湖縣馬公市治平路32號
+district name is not found in address string 880澎湖縣馬公市治平路32號
+
+[32m[ 東橋段601地號 ][36m
+  * title: 東橋
+  * county: hsinchu
+  * uids: 3.13.30.50
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fhsinchu~2Fprojects~2F8859941237aa4464ae24162fccb15e34[0m
+
+  * Total: 0 matches.
+
+[32m[ 尚義社會住宅興建案 ][36m
+  * title: 尚義
+  * county: kinmen
+  * uids: 3.71.2
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Fkinmen~2Fprojects~2F518ddd15a1833371b5e9524af71bd820[0m
+
+  * Total: 3 matches.
+    - 「金湖鎮尚義住宅區興建住宅工程」委託技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.2&job_number=1030910
+    - 金門特定區計畫（金湖鎮尚義住宅區）先期評估與規劃暨擬定細部計畫
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.2&job_number=1000073423
+    - 金湖鎮尚義區段徵收暨住宅區興建住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.2&job_number=PS1050324001
+county name is not found in address string 893金門縣金城鎮民生路60號
+district name is not found in address string 893金門縣金城鎮民生路60號
+county name is not found in address string 893金門縣金城鎮民生路60號
+district name is not found in address string 893金門縣金城鎮民生路60號
+county name is not found in address string 893金門縣金城鎮民生路60號
+district name is not found in address string 893金門縣金城鎮民生路60號
+county name is not found in address string 893金門縣金城鎮民生路60號
+district name is not found in address string 893金門縣金城鎮民生路60號
+county name is not found in address string 893金門縣金城鎮民生路60號
+district name is not found in address string 893金門縣金城鎮民生路60號
+county name is not found in address string 893金門縣金城鎮民生路60號
+district name is not found in address string 893金門縣金城鎮民生路60號
+county name is not found in address string 893金門縣金城鎮民生路60號
+district name is not found in address string 893金門縣金城鎮民生路60號
+county name is not found in address string 893金門縣金城鎮民生路60號
+district name is not found in address string 893金門縣金城鎮民生路60號
+county name is not found in address string 893金門縣金城鎮民生路60號
+district name is not found in address string 893金門縣金城鎮民生路60號
+
+[32m[ 南竿仁愛段社會住宅 ][36m
+  * title: 南竿
+  * county: lienchiang
+  * uids: 3.71.3
+  * regex: .*((安置)|(社會)|(公共)|(住宅))
+  * Firebase URL: https://console.firebase.google.com/u/0/project/lm-ph2020/database/firestore/data~2Fcounties~2Flienchiang~2Fprojects~2Fa11dc8ca25e1bc23bf27ad52aa07c049[0m
+
+  * Total: 13 matches.
+    - 「南竿鄉仁愛段147地號示範住宅選位簽約作業」委託專業服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=108Y01
+    - 105年南竿鄉仁愛地號147住宅區道路新建工程(延續性工程)
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=107C1009
+    - 105年南竿鄉仁愛村地號147住宅區道路新建工程(延續性工程)
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=107C0911
+    - 105年南竿鄉仁愛地號147住宅區道路新建工程(延續性工程)
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=107C0801
+    - 南竿鄉仁愛段147地號示範住宅、社會住宅統包工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=107A001
+    - 「連江縣南竿鄉仁愛段社會住宅」先期規劃
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=105b002
+    - 連江縣南竿鄉公共托育中心營運設備採購案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=Z20161110
+    - 105年南竿鄉仁愛地號147住宅區道路新建工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=105A034
+    - 「南竿鄉仁愛段147地號示範住宅、社會住宅新建工程委託專案管理（含監造）」技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=105C011
+    - 105年連江縣南竿鄉公共托育中心裝修工程
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=LL08070307
+    - 連江縣委託民間辦理南竿鄉公共托育中心
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=BH20941
+    - 「南竿鄉仁愛段147地號住宅先期規劃暨個案變更」委託技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=104b002
+    - 「南竿鄉仁愛段147地號住宅先期規劃暨個案變更」委託技術服務案
+      http://pcc.g0v.ronny.tw/api/tender?unit_id=3.71.3&job_number=104b001
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 210連江縣北竿鄉塘岐村225號
+district name is not found in address string 210連江縣北竿鄉塘岐村225號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 210連江縣北竿鄉塘岐村145號1樓
+district name is not found in address string 210連江縣北竿鄉塘岐村145號1樓
+county name is not found in address string 210連江縣北竿鄉塘岐村145號1樓
+district name is not found in address string 210連江縣北竿鄉塘岐村145號1樓
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村83號
+district name is not found in address string 209連江縣南竿鄉介壽村83號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村49–1號1樓
+district name is not found in address string 209連江縣南竿鄉介壽村49–1號1樓
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 648雲林縣西螺鎮中興里東南路237巷25號1樓
+district name is not found in address string 648雲林縣西螺鎮中興里東南路237巷25號1樓
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+county name is not found in address string 209連江縣南竿鄉介壽村76號
+district name is not found in address string 209連江縣南竿鄉介壽村76號
+JSON data is saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.
+unmapped_fields.csv saved.

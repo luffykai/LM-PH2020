@@ -46,18 +46,22 @@ main = async function() {
       columns: true,
       skip_empty_lines: true
     });
-    const compiledData = {};
+    let promises = [];
+    let pidHashes = [];
     for (let project of projects) {
-      compiledData[project.pid.hash()] = searchAndUpdateFirebase(
-        db,
-        project,
-        argv.update_db
-      );
+      promises.push(searchAndUpdateFirebase(db, project, argv.update_db));
+      pidHashes.push(project.pid.hash());
     }
-    writeJsonFile(`output/all/full.json`, compiledData);
+    Promise.all(promises).then(values => {
+      const compiledData = {};
+      for (let i = 0; i < values.length; i++) {
+        compiledData[pidHashes[i]] = values[i];
+      }
+      writeJsonFile(`output/all/full.json`, compiledData);
+    });
   } else if (argv._.includes("search_single")) {
     const tokens = argv.project_row.split(",");
-    searchAndUpdateFirebase(
+    await searchAndUpdateFirebase(
       db,
       {
         pid: tokens[0],
