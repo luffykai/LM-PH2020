@@ -12,6 +12,20 @@ const regexSupplierName = /^決標品項:第(\d)品項:得標廠商(\d):得標�
 const regexTendererName = /^投標廠商:投標廠商(\d):廠商名稱$/;
 const regexCoTendererName = /^投標廠商:投標廠商(\d)\(共同投標廠商\)(\d):廠商名稱$/;
 
+// super loose checking
+
+// covered by populateTendererOrgObj
+const alreadyCoveredSupplierRegex = /^決標品項:第(\d)品項:得標廠商(\d):.*/;
+// covered by populateTendererOrgObj
+const alreadyCoveredTendererRegex = /^投標廠商:投標廠商(\d):.*/;
+const alreadyCoveredCoTendererNameRegex = /^投標廠商:投標廠商(\d)\(共同投標廠商\)(\d):.*/;
+const alreadyCoveredItemNamesRegex = /^決標品項:第(\d)品項:.*/;
+
+const AWARD_SPECIFIC_IMPLIED_FIELDS = {
+  "最有利標:評選委員": "Already populated with populateCommitteesInParties",
+  "決標品項:決標品項數": "Could be known by length items",
+};
+
 function getNextUnusedIndex(array) {
   return array != null ? array.length : 0;
 }
@@ -206,7 +220,12 @@ const awardReleaseBuilder = {
           if (
             !NON_MAPPING_FIELDS.has(key) &&
             releaseDetail[key] !== "" &&
-            !(key in ALREADY_IMPLIED_FIELDS)
+            !(key in ALREADY_IMPLIED_FIELDS) &&
+            !(key in AWARD_SPECIFIC_IMPLIED_FIELDS) &&
+            key.match(alreadyCoveredSupplierRegex) == null &&
+            key.match(alreadyCoveredTendererRegex) == null &&
+            key.match(alreadyCoveredCoTendererNameRegex) == null &&
+            key.match(alreadyCoveredItemNamesRegex) == null
           ) {
             unmappedFields[key] = String(releaseDetail[key]).replace(/\s/g, "");
             console.log("no path for", key, " value = ", releaseDetail[key]);
