@@ -12,6 +12,7 @@ const {
 } = require("./conversionUtil");
 
 const {
+  searchAllAndUpdateFirebase,
   searchAndUpdateFirebase,
   searchWithUnit
 } = require("./searchWithUnit.js");
@@ -46,19 +47,7 @@ main = async function() {
       columns: true,
       skip_empty_lines: true
     });
-    let promises = [];
-    let pidHashes = [];
-    for (let project of projects) {
-      promises.push(searchAndUpdateFirebase(db, project, argv.update_db));
-      pidHashes.push(project.pid.hash());
-    }
-    Promise.all(promises).then(values => {
-      const compiledData = {};
-      for (let i = 0; i < values.length; i++) {
-        compiledData[pidHashes[i]] = values[i];
-      }
-      writeJsonFile(`output/all/full.json`, compiledData);
-    });
+    await searchAllAndUpdateFirebase(db, projects, argv.update_db);
   } else if (argv._.includes("search_single")) {
     const tokens = argv.project_row.split(",");
     await searchAndUpdateFirebase(

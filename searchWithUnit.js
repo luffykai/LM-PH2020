@@ -2,7 +2,7 @@ const jsesc = require("jsesc");
 const sync_request = require("sync-request");
 
 const { convertToOC4IDS, convertToOC4IDSInput } = require("./conversionUtil");
-const { printProjectHeader } = require("./LMUtils");
+const { printProjectHeader, writeJsonFile } = require("./LMUtils");
 
 const getFilteredRecord = function(records, unitIds) {
   return records.filter(function(record) {
@@ -92,4 +92,24 @@ const searchAndUpdateFirebase = async function(db, projectRow, updateDb) {
   return oc4ids;
 };
 
-module.exports = { searchAndUpdateFirebase, searchWithUnit };
+const searchAllAndUpdateFirebase = async function(db, projects, updateDb) {
+  let promises = [];
+  let pidHashes = [];
+  for (let project of projects) {
+    promises.push(searchAndUpdateFirebase(db, project, updateDb));
+    pidHashes.push(project.pid.hash());
+  }
+  Promise.all(promises).then(values => {
+    const compiledData = {};
+    for (let i = 0; i < values.length; i++) {
+      compiledData[pidHashes[i]] = values[i];
+    }
+    writeJsonFile(`output/all/full.json`, compiledData);
+  });
+};
+
+module.exports = {
+  searchAllAndUpdateFirebase,
+  searchAndUpdateFirebase,
+  searchWithUnit
+};
