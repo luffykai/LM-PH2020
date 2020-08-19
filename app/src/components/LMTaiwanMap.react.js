@@ -30,7 +30,7 @@ export default function LMTaiwanMap({
         className="map-svg"
         width={MAP_WIDTH}
         height={MAP_HEIGHT}
-        viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
+        viewBox={`0 60 ${MAP_WIDTH} ${MAP_HEIGHT}`}
       >
         <g
           className="countries"
@@ -45,7 +45,7 @@ export default function LMTaiwanMap({
               className="country"
               fill={`white`}
               stroke="#FFFFFF"
-              strokeWidth={0.5}
+              strokeWidth={0.8}
             />
           ))}
           {taiwanData.map((d, i) => (
@@ -53,9 +53,9 @@ export default function LMTaiwanMap({
               key={`path-${i}`}
               d={d3.geoPath().projection(myProjection())(d)}
               className="country"
-              fill={`rgba(219, 163, 43,${(1 / taiwanData.length) * i})`}
+              fill={`rgba(56, 190, 121,${(1 / taiwanData.length) * i})`}
               stroke="#FFFFFF"
-              strokeWidth={0.5}
+              strokeWidth={2}
               onMouseOver={() => {
                 const countyName = d.properties.COUNTYENG;
                 const countyType = getLMCountyTypes(countyName);

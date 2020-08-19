@@ -61137,7 +61137,7 @@ function LMTaiwanMap(_ref) {
     className: "map-svg",
     width: MAP_WIDTH,
     height: MAP_HEIGHT,
-    viewBox: "0 0 ".concat(MAP_WIDTH, " ").concat(MAP_HEIGHT)
+    viewBox: "0 60 ".concat(MAP_WIDTH, " ").concat(MAP_HEIGHT)
   }, /*#__PURE__*/react_default.a.createElement("g", {
     className: "countries",
     onMouseOut: function onMouseOut() {
@@ -61150,16 +61150,16 @@ function LMTaiwanMap(_ref) {
       className: "country",
       fill: "white",
       stroke: "#FFFFFF",
-      strokeWidth: 0.5
+      strokeWidth: 0.8
     });
   }), taiwanData.map(function (d, i) {
     return /*#__PURE__*/react_default.a.createElement("path", {
       key: "path-".concat(i),
       d: d3.geoPath().projection(myProjection())(d),
       className: "country",
-      fill: "rgba(219, 163, 43,".concat(1 / taiwanData.length * i, ")"),
+      fill: "rgba(56, 190, 121,".concat(1 / taiwanData.length * i, ")"),
       stroke: "#FFFFFF",
-      strokeWidth: 0.5,
+      strokeWidth: 2,
       onMouseOver: function onMouseOver() {
         var countyName = d.properties.COUNTYENG;
         var countyType = getLMCountyTypes(countyName);
