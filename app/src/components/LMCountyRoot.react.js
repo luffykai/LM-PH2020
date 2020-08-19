@@ -45,6 +45,9 @@ export default function LMCountyRoot() {
   const [documents, setDocuments] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // a field only to be set by when a user is hovering the map.
+  const [hoveredCounty, setHoveredCounty] = useState(null);
+
   const [debounceSearchTerm] = useDebounce(searchTerm, 800);
 
   // Fetch the data with an effect
@@ -82,14 +85,26 @@ export default function LMCountyRoot() {
             </span>
           </div>
           <div id="allCases">with {`613`} build cases in this area</div>
-          <h5>Choose the county:</h5>
-          <div className="marginTop-8"></div>
-          <LMCountySelector selectedCounty={null} />
+          {hoveredCounty == null ? (
+            <>
+              <h5>Choose the county:</h5>
+              <div className="marginTop-8"></div>
+              <LMCountySelector selectedCounty={null} />
+            </>
+          ) : (
+            hoveredCounty
+          )}
         </div>
       </div>
     );
 
-    leftContent = <LMTaiwanMap />;
+    leftContent = (
+      <LMTaiwanMap
+        onCountyHover={(countyType) => {
+          setHoveredCounty(countyType);
+        }}
+      />
+    );
   } else {
     // When a county is selected, we show its map and projects
     const countyMapDefaults = CountyMapDefaults[county];

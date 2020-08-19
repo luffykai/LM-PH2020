@@ -61101,11 +61101,30 @@ var react_default = /*#__PURE__*/__webpack_require__.n(react);
 var react_dom = __webpack_require__(8);
 var react_dom_default = /*#__PURE__*/__webpack_require__.n(react_dom);
 
-// CONCATENATED MODULE: ./src/components/LMTaiwanMap.react.js
+// EXTERNAL MODULE: ./src/javascripts/utils/CountyTypes.js
+var CountyTypes = __webpack_require__(31);
+var CountyTypes_default = /*#__PURE__*/__webpack_require__.n(CountyTypes);
 
+// CONCATENATED MODULE: ./src/components/LMTaiwanMap.react.js
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+
+var COUNTIES = new Set(_toConsumableArray(Object.values(CountyTypes_default.a)));
 var MAP_WIDTH = 800;
 var MAP_HEIGHT = 680;
-function LMTaiwanMap() {
+function LMTaiwanMap(_ref) {
+  var onCountyHover = _ref.onCountyHover;
   var dataDiv = document.getElementById("county-map-data");
   var taiwanData = JSON.parse(dataDiv.getAttribute("mapData"));
   taiwanData = topojson.feature(taiwanData, taiwanData.objects.COUNTY_MOI_1090727).features;
@@ -61120,7 +61139,10 @@ function LMTaiwanMap() {
     height: MAP_HEIGHT,
     viewBox: "0 0 ".concat(MAP_WIDTH, " ").concat(MAP_HEIGHT)
   }, /*#__PURE__*/react_default.a.createElement("g", {
-    className: "countries"
+    className: "countries",
+    onMouseOut: function onMouseOut() {
+      onCountyHover(null);
+    }
   }, taiwanData.map(function (d, i) {
     return /*#__PURE__*/react_default.a.createElement("path", {
       key: "path-".concat(i),
@@ -61137,9 +61159,28 @@ function LMTaiwanMap() {
       className: "country",
       fill: "rgba(219, 163, 43,".concat(1 / taiwanData.length * i, ")"),
       stroke: "#FFFFFF",
-      strokeWidth: 0.5
+      strokeWidth: 0.5,
+      onMouseOver: function onMouseOver() {
+        var countyName = d.properties.COUNTYENG;
+        var countyType = getLMCountyTypes(countyName);
+        onCountyHover && onCountyHover(countyType);
+      }
     });
   }))));
+} // The name we're using in the geo data has different name for counties compared to
+// our countyTypes. Casting them here.
+
+function getLMCountyTypes(rawCountyString) {
+  var noCityCountyName = rawCountyString.replace(/[Cc]ity/g, "").trim();
+  var noCountyCountyName = noCityCountyName.replace(/[Cc]ounty/g, "").trim();
+  var castedResult = noCountyCountyName.replace(" ", "_").toLowerCase();
+
+  if (!COUNTIES.has(castedResult)) {
+    console.error("".concat(castedResult, " is not in CountyTypes"));
+    return null;
+  }
+
+  return castedResult;
 }
 // EXTERNAL MODULE: ./node_modules/prop-types/index.js
 var prop_types = __webpack_require__(2);
@@ -63344,10 +63385,6 @@ function LMProjectRow(props) {
     className: "projectRowDescription"
   }, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean interdum enim quam, in interdum lectus vulputate vel. Duis volutpat augue ligula, sit amet sagittis odio ultricies rhoncus. Vivamus gravida pellentesque nibh, vel ornare nulla varius eu. Vestibulum ac ultrices justo. Suspendisse dolor ex, rhoncus in mi pretium, placerat lobortis nunc."))));
 }
-// EXTERNAL MODULE: ./src/javascripts/utils/CountyTypes.js
-var CountyTypes = __webpack_require__(31);
-var CountyTypes_default = /*#__PURE__*/__webpack_require__.n(CountyTypes);
-
 // CONCATENATED MODULE: ./src/components/LMCountySelector.react.js
 
 
@@ -63497,13 +63534,13 @@ function useDebounce(value, delay, options) {
 // CONCATENATED MODULE: ./src/components/LMCountyRoot.react.js
 
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || LMCountyRoot_react_unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function LMCountyRoot_react_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return LMCountyRoot_react_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return LMCountyRoot_react_arrayLikeToArray(o, minLen); }
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function LMCountyRoot_react_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
@@ -63558,7 +63595,13 @@ function LMCountyRoot() {
   var _useState3 = Object(react["useState"])(""),
       _useState4 = _slicedToArray(_useState3, 2),
       searchTerm = _useState4[0],
-      setSearchTerm = _useState4[1];
+      setSearchTerm = _useState4[1]; // a field only to be set by when a user is hovering the map.
+
+
+  var _useState5 = Object(react["useState"])(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      hoveredCounty = _useState6[0],
+      setHoveredCounty = _useState6[1];
 
   var _useDebounce = useDebounce(searchTerm, 800),
       _useDebounce2 = _slicedToArray(_useDebounce, 1),
@@ -63595,12 +63638,16 @@ function LMCountyRoot() {
       id: "unit"
     }, "House ", /*#__PURE__*/react_default.a.createElement("br", null), "Number")), /*#__PURE__*/react_default.a.createElement("div", {
       id: "allCases"
-    }, "with ", "613", " build cases in this area"), /*#__PURE__*/react_default.a.createElement("h5", null, "Choose the county:"), /*#__PURE__*/react_default.a.createElement("div", {
+    }, "with ", "613", " build cases in this area"), hoveredCounty == null ? /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement("h5", null, "Choose the county:"), /*#__PURE__*/react_default.a.createElement("div", {
       className: "marginTop-8"
     }), /*#__PURE__*/react_default.a.createElement(LMCountySelector, {
       selectedCounty: null
-    })));
-    leftContent = /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, null);
+    })) : hoveredCounty));
+    leftContent = /*#__PURE__*/react_default.a.createElement(LMTaiwanMap, {
+      onCountyHover: function onCountyHover(countyType) {
+        setHoveredCounty(countyType);
+      }
+    });
   } else {
     // When a county is selected, we show its map and projects
     var countyMapDefaults = CountyMapDefaults_default.a[county];

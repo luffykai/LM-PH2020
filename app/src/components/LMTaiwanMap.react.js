@@ -1,9 +1,14 @@
 import React from "react";
+import CountyTypes from "../javascripts/utils/CountyTypes";
+
+const COUNTIES = new Set([...Object.values(CountyTypes)]);
 
 const MAP_WIDTH = 800;
 const MAP_HEIGHT = 680;
 
-export default function LMTaiwanMap() {
+export default function LMTaiwanMap({
+  onCountyHover /* : (CountyTypes) => void */,
+}) {
   const dataDiv = document.getElementById("county-map-data");
   let taiwanData = JSON.parse(dataDiv.getAttribute("mapData"));
   taiwanData = topojson.feature(
@@ -27,7 +32,12 @@ export default function LMTaiwanMap() {
         height={MAP_HEIGHT}
         viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
       >
-        <g className="countries">
+        <g
+          className="countries"
+          onMouseOut={() => {
+            onCountyHover(null);
+          }}
+        >
           {taiwanData.map((d, i) => (
             <path
               key={`path-${i}`}
@@ -46,10 +56,30 @@ export default function LMTaiwanMap() {
               fill={`rgba(219, 163, 43,${(1 / taiwanData.length) * i})`}
               stroke="#FFFFFF"
               strokeWidth={0.5}
+              onMouseOver={() => {
+                const countyName = d.properties.COUNTYENG;
+                const countyType = getLMCountyTypes(countyName);
+                onCountyHover && onCountyHover(countyType);
+              }}
             />
           ))}
         </g>
       </svg>
     </div>
   );
+}
+
+// The name we're using in the geo data has different name for counties compared to
+// our countyTypes. Casting them here.
+function getLMCountyTypes(rawCountyString) {
+  const noCityCountyName = rawCountyString.replace(/[Cc]ity/g, "").trim();
+  const noCountyCountyName = noCityCountyName.replace(/[Cc]ounty/g, "").trim();
+  const castedResult = noCountyCountyName.replace(" ", "_").toLowerCase();
+
+  if (!COUNTIES.has(castedResult)) {
+    console.error(`${castedResult} is not in CountyTypes`);
+    return null;
+  }
+
+  return castedResult;
 }
