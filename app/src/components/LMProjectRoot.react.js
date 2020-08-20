@@ -51,27 +51,56 @@ export default function LMProjectRoot() {
     throw `At least one of county:${county} or projectID: ${projectID} is null in LWIProjectRoot`;
   }
 
+  if (projectData == null) {
+    return (
+      <>
+        <LMNavBar />
+        Loading Data...
+      </>
+    );
+  }
+
+  const projectTitle = projectData.projects[0].title;
+  const firstParty =
+    projectData.projects[0].contractingProcesses[0].releases[0].parties[0];
+  const buyerName = firstParty.name;
+  const buyerContact = firstParty.contactPoint.name;
+
   return (
     <>
       <LMNavBar />
       <div id="root">
-        <div id="left"></div>
-        <div id="right">
-          <button
-            onClick={() => {
-              document.getElementById("download-form").submit();
-            }}
-          >
-            Download oc4ids data for this project
-          </button>
-          <form action="../download" id="download-form" method="post">
-            <input
-              name="data"
-              type="hidden"
-              value={JSON.stringify(projectData)}
-            />
-            <input name="filename" type="hidden" value={projectID} />
-          </form>
+        <div className="container">
+          <h2>{projectTitle}</h2>
+
+          <h3 className="lm-h2">POC Information</h3>
+
+          <div id="pocBox">
+            <div className="pocRow">
+              <div>Buyer: {buyerName}</div>
+              <div>{buyerContact}</div>
+            </div>
+          </div>
+
+          {JSON.stringify(projectData)}
+
+          <div>
+            <button
+              onClick={() => {
+                document.getElementById("download-form").submit();
+              }}
+            >
+              Download oc4ids data for this project
+            </button>
+            <form action="../download" id="download-form" method="post">
+              <input
+                name="data"
+                type="hidden"
+                value={JSON.stringify(projectData)}
+              />
+              <input name="filename" type="hidden" value={projectID} />
+            </form>
+          </div>
         </div>
       </div>
     </>

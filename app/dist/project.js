@@ -47807,13 +47807,25 @@ function LMProjectRoot() {
     throw "At least one of county:".concat(county, " or projectID: ").concat(projectID, " is null in LWIProjectRoot");
   }
 
+  if (projectData == null) {
+    return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMNavBar_react["a" /* default */], null), "Loading Data...");
+  }
+
+  var projectTitle = projectData.projects[0].title;
+  var firstParty = projectData.projects[0].contractingProcesses[0].releases[0].parties[0];
+  var buyerName = firstParty.name;
+  var buyerContact = firstParty.contactPoint.name;
   return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMNavBar_react["a" /* default */], null), /*#__PURE__*/react_default.a.createElement("div", {
     id: "root"
   }, /*#__PURE__*/react_default.a.createElement("div", {
-    id: "left"
-  }), /*#__PURE__*/react_default.a.createElement("div", {
-    id: "right"
-  }, /*#__PURE__*/react_default.a.createElement("button", {
+    className: "container"
+  }, /*#__PURE__*/react_default.a.createElement("h2", null, projectTitle), /*#__PURE__*/react_default.a.createElement("h3", {
+    className: "lm-h2"
+  }, "POC Information"), /*#__PURE__*/react_default.a.createElement("div", {
+    id: "pocBox"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    className: "pocRow"
+  }, /*#__PURE__*/react_default.a.createElement("div", null, "Buyer: ", buyerName), /*#__PURE__*/react_default.a.createElement("div", null, buyerContact))), JSON.stringify(projectData), /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement("button", {
     onClick: function onClick() {
       document.getElementById("download-form").submit();
     }
@@ -47829,7 +47841,7 @@ function LMProjectRoot() {
     name: "filename",
     type: "hidden",
     value: projectID
-  })))));
+  }))))));
 }
 var domContainer = document.querySelector("#lm_project_root");
 react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(LMProjectRoot, null), domContainer);

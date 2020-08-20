@@ -1,3 +1,18 @@
 .root {
     width: 90%;
 }
+
+.lm-h2 {
+    color: #fb4a78;
+    font-size: 40px;
+}
+
+#pocBox {
+    background-color: rgba(211,211,211, 0.8);
+    padding: 12px 12px;
+}
+
+.pocRow {
+    display: flex;
+    justify-content: space-between;
+}
