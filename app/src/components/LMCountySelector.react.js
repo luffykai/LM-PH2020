@@ -1,11 +1,22 @@
 import React from "react";
 import CountyTypes from "../javascripts/utils/CountyTypes";
 
+import M from "materialize-css/dist/js/materialize.js";
+
+import { useEffect, useRef } from "react";
+
 const LM_PINK = "#ff4081";
 
 export default function LMCountySelector({ selectedCounty }) {
   const dropdownButtonLabel =
     selectedCounty == null ? "Taiwan" : countyNameFormatter(selectedCounty);
+
+  const dropdownTriggerRef = useRef();
+
+  useEffect(() => {
+    console.log("running effect...");
+    M.Dropdown.init(dropdownTriggerRef.current);
+  }, [dropdownTriggerRef]);
 
   return (
     <div>
@@ -21,6 +32,7 @@ export default function LMCountySelector({ selectedCounty }) {
           letterSpacing: 1,
           paddingBottom: 4,
         }}
+        ref={dropdownTriggerRef}
       >
         {dropdownButtonLabel}
         <div

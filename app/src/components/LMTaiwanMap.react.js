@@ -77,7 +77,7 @@ function getLMCountyTypes(rawCountyString) {
   const castedResult = noCountyCountyName.replace(" ", "_").toLowerCase();
 
   if (!COUNTIES.has(castedResult)) {
-    console.error(`${castedResult} is not in CountyTypes`);
+    // console.error(`${castedResult} is not in CountyTypes`);
     return null;
   }
 
