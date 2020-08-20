@@ -55,9 +55,24 @@ export default function LMProjectRoot() {
     <>
       <LMNavBar />
       <div id="root">
-        {JSON.stringify(projectData)}
         <div id="left"></div>
-        <div id="right"></div>
+        <div id="right">
+          <button
+            onClick={() => {
+              document.getElementById("download-form").submit();
+            }}
+          >
+            Download oc4ids data for this project
+          </button>
+          <form action="../download" id="download-form" method="post">
+            <input
+              name="data"
+              type="hidden"
+              value={JSON.stringify(projectData)}
+            />
+            <input name="filename" type="hidden" value={projectID} />
+          </form>
+        </div>
       </div>
     </>
   );

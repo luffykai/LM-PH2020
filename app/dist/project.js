@@ -47809,11 +47809,27 @@ function LMProjectRoot() {
 
   return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMNavBar_react["a" /* default */], null), /*#__PURE__*/react_default.a.createElement("div", {
     id: "root"
-  }, JSON.stringify(projectData), /*#__PURE__*/react_default.a.createElement("div", {
+  }, /*#__PURE__*/react_default.a.createElement("div", {
     id: "left"
   }), /*#__PURE__*/react_default.a.createElement("div", {
     id: "right"
-  })));
+  }, /*#__PURE__*/react_default.a.createElement("button", {
+    onClick: function onClick() {
+      document.getElementById("download-form").submit();
+    }
+  }, "Download oc4ids data for this project"), /*#__PURE__*/react_default.a.createElement("form", {
+    action: "../download",
+    id: "download-form",
+    method: "post"
+  }, /*#__PURE__*/react_default.a.createElement("input", {
+    name: "data",
+    type: "hidden",
+    value: JSON.stringify(projectData)
+  }), /*#__PURE__*/react_default.a.createElement("input", {
+    name: "filename",
+    type: "hidden",
+    value: projectID
+  })))));
 }
 var domContainer = document.querySelector("#lm_project_root");
 react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(LMProjectRoot, null), domContainer);
