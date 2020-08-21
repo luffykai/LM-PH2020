@@ -2061,7 +2061,7 @@ exports.validateIndexedDBOpenable = validateIndexedDBOpenable;
 exports.validateNamespace = validateNamespace;
 //# sourceMappingURL=index.cjs.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 4 */
@@ -5068,32 +5068,6 @@ registerInstallations(_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 /***/ }),
 /* 10 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5118,6 +5092,32 @@ function LMNavBar() {
     href: "#"
   }, "Official Center")))));
 }
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
 
 /***/ }),
 /* 12 */,
@@ -21468,7 +21468,7 @@ instanceFactory:function(b){b=b.getProvider("auth").getImmediate();return{getUid
 
 //# sourceMappingURL=auth.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 21 */
@@ -38277,7 +38277,7 @@ var esm_5 = esm.XhrIo;
 
 //# sourceMappingURL=index.esm.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 23 */
@@ -47733,7 +47733,7 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./src/components/LMNavBar.react.js
-var LMNavBar_react = __webpack_require__(11);
+var LMNavBar_react = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(1);
