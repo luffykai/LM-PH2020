@@ -78,8 +78,8 @@ function getTenderDurationAndCompletedTenderCountFromOC4IDs(oc4idsData) {
   // sanity check
   if (oc4idsData == null || oc4idsData.contractingProcesses == null) {
     return {
+      completedTenderCount,
       durationCount,
-      tenderCount,
     };
   }
 
@@ -90,7 +90,6 @@ function getTenderDurationAndCompletedTenderCountFromOC4IDs(oc4idsData) {
   // 1st process: Design,
   // 2nd process: Construction
   contractingProcesses.forEach((contractingProcess) => {
-    //   console.log('contractingProcess', contractingProcess);
     if (contractingProcess.releases == null) {
       return;
     }
@@ -99,7 +98,6 @@ function getTenderDurationAndCompletedTenderCountFromOC4IDs(oc4idsData) {
     // Value: null or Date Object
     const tenderStartDate = contractingProcess.releases.reduce(
       (currentMinTenderDate, release) => {
-        // console.log('release', release);
         if (
           release.tender == null ||
           release.tender.tenderPeriod == null ||
@@ -108,7 +106,6 @@ function getTenderDurationAndCompletedTenderCountFromOC4IDs(oc4idsData) {
           return currentMinTenderDate;
         }
 
-        // console.log('release.tender.startDate', release.tender.tenderPeriod.startDate);
         const foundStartDate = new Date(release.tender.tenderPeriod.startDate);
         if (currentMinTenderDate == null) {
           return foundStartDate;
@@ -148,7 +145,7 @@ function getTenderDurationAndCompletedTenderCountFromOC4IDs(oc4idsData) {
     const endMoment = moment(awardDate);
     const diffDays = endMoment.diff(startMoment, "days");
 
-    // console.log("====== one process ======");
+    // console.log("====== one completed tender found ======");
     // console.log("tender", 1);
     // console.log('startMoment', startMoment);
     // console.log('endMoment', endMoment);
