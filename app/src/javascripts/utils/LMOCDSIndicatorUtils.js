@@ -164,7 +164,70 @@ function getTenderDurationAndCompletedTenderCountFromOC4IDs(oc4idsData) {
   };
 }
 
+function getNumberOfShortTitleTenderAndTotalTenderCount(
+  oc4idsData,
+  threshold = 10
+) {
+  let shortTitleTenderCount = 0;
+  let tenderCount = 0;
+  // sanity check
+  if (oc4idsData == null || oc4idsData.contractingProcesses == null) {
+    return {
+      shortTitleTenderCount,
+      tenderCount,
+    };
+  }
+
+  const { contractingProcesses } = oc4idsData;
+  // contracting process here maps to the multiple columns in one row
+  // of our spreadsheet here.
+  // E.G.
+  // 1st process: Design,
+  // 2nd process: Construction
+  contractingProcesses.forEach((contractingProcess) => {
+    if (contractingProcess.releases == null) {
+      return;
+    }
+
+    // Find first tender start Date
+    // Value: null or string
+    const minLengthTitle = contractingProcess.releases.reduce(
+      (currentMinLengthTitle, release) => {
+        if (release.tender == null || release.tender.title == null) {
+          return currentMinLengthTitle;
+        }
+
+        const foundTenderTitle = release.tender.title;
+        if (currentMinLengthTitle == null) {
+          return foundTenderTitle;
+        }
+
+        return foundTenderTitle.length < currentMinLengthTitle.length
+          ? foundTenderTitle
+          : currentMinLengthTitle;
+      },
+      null
+    );
+
+    if (minLengthTitle == null) {
+      console.log("minLengthTitle is null");
+      return;
+    }
+
+    if (minLengthTitle.length < threshold) {
+      shortTitleTenderCount += 1;
+    }
+    tenderCount += 1;
+  });
+
+  return {
+    shortTitleTenderCount,
+    tenderCount,
+  };
+}
+
 module.exports = {
   getNumberOfBiddersAndTendersFromOC4IDs,
+  getNumberOfShortTitleTenderAndTotalTenderCount,
   getTenderDurationAndCompletedTenderCountFromOC4IDs,
 };
