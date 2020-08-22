@@ -7,7 +7,6 @@ ronny_field,ocds_path
 "機關資料:聯絡人","parties[0]/contactPoint/name"
 "機關資料:傳真號碼","parties[0]/contactPoint/faxNumber"
 
-"已公告資料:招標方式","tender/procurementMethod"
 "已公告資料:決標方式","tender/awardCriteria"
 "已公告資料:標案案號","tender/id"
 "已公告資料:標案名稱","tender/title"
