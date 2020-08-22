@@ -7,6 +7,7 @@ const put = require("./put");
 const {
   ALREADY_IMPLIED_FIELDS,
   NON_MAPPING_FIELDS,
+  getStringAfterColon,
   loadMap,
 } = require("./LMUtils");
 
@@ -19,7 +20,11 @@ const genericReleaseBuilder = {
       // the OCDS Fields path. If the path is found, we set it
       // into an object.
       let path = FIELD_MAP.get(key);
-      const fieldHandler = fieldHandlers[key];
+      let fieldHandler = fieldHandlers[key];
+      if (fieldHandler == null) {
+        // try using the part after colon
+        fieldHandler = fieldHandlers[getStringAfterColon(key)];
+      }
 
       // Replace All the backslash to a dot
       path = path != null ? path.replace(/\//g, ".") : null;
@@ -38,14 +43,11 @@ const genericReleaseBuilder = {
       } else {
         // key not mapped so far
         let unmapped = true;
-        let parts = key.split(":");
-        if (parts.length == 2) {
-          // try the second part only
-          path = FIELD_MAP.get(parts[1]);
-          if (path) {
-            put(ocdsRelease, path, releaseDetail[key]);
-            unmapped = false;
-          }
+        // try the second part only
+        path = FIELD_MAP.get(getStringAfterColon(key));
+        if (path) {
+          put(ocdsRelease, path, releaseDetail[key]);
+          unmapped = false;
         }
         if (
           unmapped &&

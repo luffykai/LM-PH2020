@@ -1,12 +1,14 @@
 const {
   ALREADY_IMPLIED_FIELDS,
   NON_MAPPING_FIELDS,
+  getStringAfterColon,
   loadMap,
   parseAddressToOcdsAddress,
   parseTaiwaneseDateStringToDate,
   parseAmountToInt,
 } = require("./LMUtils");
 const put = require("./put.js");
+const fieldHandlers = require("./fieldHandlers");
 
 const regexSupplierName = /^決標品項:第(\d)品項:得標廠商(\d):得標廠商$/;
 const regexTendererName = /^投標廠商:投標廠商(\d):廠商名稱$/;
@@ -183,6 +185,7 @@ const awardReleaseBuilder = {
           releaseDetail,
           ocdsRelease.awards[supplierIdx]
         );
+        continue;
       } else if ((match = key.match(regexTendererName))) {
         populateTendererOrgObj(
           `投標廠商:投標廠商${match[1]}`,
@@ -193,6 +196,7 @@ const awardReleaseBuilder = {
           releaseDetail[key],
           releaseDetail[`投標廠商:投標廠商${match[1]}:廠商代碼`]
         );
+        continue;
       } else if ((match = key.match(regexCoTendererName))) {
         populateTendererOrgObj(
           `投標廠商:投標廠商${match[1]}(共同投標廠商)${match[2]}`,
@@ -205,32 +209,45 @@ const awardReleaseBuilder = {
             `投標廠商:投標廠商${match[1]}(共同投標廠商)${match[2]}:廠商代碼`
           ]
         );
-      } else {
-        let path = FIELD_MAP.get(key);
+        continue;
+      }
+      // no award field regex matched
+      let path = FIELD_MAP.get(key);
 
-        // Replace All the backslash to a dot
-        path = path != null ? path.replace(/\//g, ".") : null;
-        if (path) {
-          const ocdsValue = releaseDetail[key];
-          if (ocdsValue != null && path != null) {
-            // ocds does not accept field with empty value (null and undefined)
-            put(ocdsRelease, path, ocdsValue);
-          }
-        } else {
-          if (
-            !NON_MAPPING_FIELDS.has(key) &&
-            releaseDetail[key] !== "" &&
-            !(key in ALREADY_IMPLIED_FIELDS) &&
-            !(key in AWARD_SPECIFIC_IMPLIED_FIELDS) &&
-            key.match(alreadyCoveredSupplierRegex) == null &&
-            key.match(alreadyCoveredTendererRegex) == null &&
-            key.match(alreadyCoveredCoTendererNameRegex) == null &&
-            key.match(alreadyCoveredItemNamesRegex) == null
-          ) {
-            unmappedFields[key] = String(releaseDetail[key]).replace(/\s/g, "");
-            console.log("no path for", key, " value = ", releaseDetail[key]);
-          }
+      // Replace All the backslash to a dot
+      path = path != null ? path.replace(/\//g, ".") : null;
+      if (path) {
+        const ocdsValue = releaseDetail[key];
+        if (ocdsValue != null && path != null) {
+          // ocds does not accept field with empty value (null and undefined)
+          put(ocdsRelease, path, ocdsValue);
         }
+        continue;
+      }
+      // Try the generic fieldHandler
+      let fieldHandler = fieldHandlers[key];
+      if (fieldHandler == null) {
+        // try using the part after colon
+        fieldHandler = fieldHandlers[getStringAfterColon(key)];
+      }
+      if (fieldHandler != null) {
+        console.log("rescued: " + key);
+        fieldHandler(releaseDetail[key], ocdsRelease, releaseDetail);
+        continue;
+      }
+      // no mapped
+      if (
+        !NON_MAPPING_FIELDS.has(key) &&
+        releaseDetail[key] !== "" &&
+        !(key in ALREADY_IMPLIED_FIELDS) &&
+        !(key in AWARD_SPECIFIC_IMPLIED_FIELDS) &&
+        key.match(alreadyCoveredSupplierRegex) == null &&
+        key.match(alreadyCoveredTendererRegex) == null &&
+        key.match(alreadyCoveredCoTendererNameRegex) == null &&
+        key.match(alreadyCoveredItemNamesRegex) == null
+      ) {
+        unmappedFields[key] = String(releaseDetail[key]).replace(/\s/g, "");
+        console.log("no path for", key, " value = ", releaseDetail[key]);
       }
     }
     populateCommitteesInParties(releaseDetail, ocdsRelease);

@@ -143,7 +143,7 @@ const fieldHandlers = {
     date.setDate(date.getDate() + parseInt(parsedNumOfDays[0]));
     return date.toISOString();
   },
-  "採購資料:是否適用條約或協定之採購:是否適用WTO政府採購協定(GPA)": (
+  "是否適用條約或協定之採購:是否適用WTO政府採購協定(GPA)": (
     value,
     ocdsRelease
   ) => {
@@ -152,7 +152,7 @@ const fieldHandlers = {
     }
     return null;
   },
-  "採購資料:是否適用條約或協定之採購:是否適用臺紐經濟合作協定(ANZTEC)": (
+  "是否適用條約或協定之採購:是否適用臺紐經濟合作協定(ANZTEC)": (
     value,
     ocdsRelease
   ) => {
@@ -161,7 +161,7 @@ const fieldHandlers = {
     }
     return null;
   },
-  "採購資料:是否適用條約或協定之採購:是否適用臺星經濟夥伴協定(ASTEP)": (
+  "是否適用條約或協定之採購:是否適用臺星經濟夥伴協定(ASTEP)": (
     value,
     ocdsRelease
   ) => {

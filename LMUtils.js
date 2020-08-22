@@ -327,7 +327,15 @@ const loadMap = function (type) {
   return map;
 };
 
-
+const getStringAfterColon = function(s) {
+  // Remove the first part before colon
+  // A:B:C  --> B:C
+  let i = s.indexOf(":");
+  if (i < 0) {
+    return s;
+  }
+  return s.substring(i+1);
+}
 
 module.exports = {
   ALREADY_IMPLIED_FIELDS,
@@ -346,5 +354,6 @@ module.exports = {
   printProjectHeader,
   initPackage,
   outputPackage,
+  getStringAfterColon,
   writeJsonFile
 };
