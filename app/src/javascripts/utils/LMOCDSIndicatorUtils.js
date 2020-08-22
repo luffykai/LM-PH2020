@@ -166,6 +166,8 @@ function getTenderDurationAndCompletedTenderCountFromOC4IDs(oc4idsData) {
 
 function getNumberOfShortTitleTenderAndTotalTenderCount(
   oc4idsData,
+  // threshold 10 is the recommended value, but I think Taiwan/ Mandarin
+  // might be able to use another value.
   threshold = 10
 ) {
   let shortTitleTenderCount = 0;

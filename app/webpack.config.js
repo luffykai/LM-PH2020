@@ -6,6 +6,7 @@ module.exports = {
     main: "./src/index.js",
     county: "./src/county.js",
     project: "./src/project.js",
+    indicator: "./src/indicator.js",
   },
   output: {
     filename: "[name].js",
@@ -51,6 +52,12 @@ module.exports = {
       chunks: ["project"],
       template: "./src/html/project.html",
       filename: "./project.html",
+    }),
+    new HtmlWebPackPlugin({
+      base: "indicator",
+      chunks: ["indicator"],
+      template: "./src/html/indicator.html",
+      filename: "./indicator.html",
     }),
   ],
   resolve: {
