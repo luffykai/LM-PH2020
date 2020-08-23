@@ -137,6 +137,9 @@ function updateSupplierIdInAward(supplierNameToIdMap, ocdsRelease) {
   }
   for (let award of ocdsRelease.awards) {
     let awardId = `${ocdsRelease["ocid"]}`;
+    if (award.suppliers == null) {
+      award.suppliers = [];
+    }
     for (let supplier of award.suppliers) {
       supplier.id = supplierNameToIdMap.get(supplier.name);
       awardId = `${awardId}-${supplier.id}`;
@@ -151,6 +154,9 @@ function updateAwards(ocdsRelease) {
   }
   for (let award of ocdsRelease.awards) {
     let valueOfAward = 0;
+    if (award.items == null) {
+      award.items = [];
+    }
     for (let item of award.items) {
       valueOfAward += item.unit.value.amount * item.quantity;
     }
@@ -161,7 +167,7 @@ function updateAwards(ocdsRelease) {
   }
 }
 
-const FIELD_MAP = loadMap("award");
+const FIELD_MAP = loadMap();
 
 const awardReleaseBuilder = {
   build: (releaseDetail, ocdsRelease, unmappedFields) => {

@@ -99,9 +99,37 @@ const fieldHandlers = {
     if (value == null) {
       return null;
     }
-    return {
+    put(_ocdsRelease, "tender/participationFees[]", {
+      description: "total",
       value: { currency: "TWD", amount: parseAmountToInt(value) }
-    };
+    })
+  },
+  "領投開標:是否提供電子領標:機關文件費(機關實收)": (value, _ocdsRelease) => {
+    if (value == null) {
+      return null;
+    }
+    put(_ocdsRelease, "tender/participationFees[]", {
+      description: "document fee for organization",
+      value: { currency: "TWD", amount: parseAmountToInt(value) }
+    })
+  },
+  "領投開標:是否提供電子領標:系統使用費": (value, _ocdsRelease) => {
+    if (value == null) {
+      return null;
+    }
+    put(_ocdsRelease, "tender/participationFees[]", {
+      description: "system usage",
+      value: { currency: "TWD", amount: parseAmountToInt(value) }
+    })
+  },
+  "領投開標:是否提供電子領標:文件代收費": (value, _ocdsRelease) => {
+    if (value == null) {
+      return null;
+    }
+    put(_ocdsRelease, "tender/participationFees[]", {
+      description: "document",
+      value: { currency: "TWD", amount: parseAmountToInt(value) }
+    })
   },
   "其他:履約地點": (value, ocdsRelease) => {
     return {
