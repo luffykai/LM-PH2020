@@ -220,6 +220,10 @@ const awardReleaseBuilder = {
       }
       // no award field regex matched
       let path = FIELD_MAP.get(key);
+      if (path == null) {
+        // try without first section
+        path = FIELD_MAP.get(getStringAfterColon(key));
+      }
 
       // Replace All the backslash to a dot
       path = path != null ? path.replace(/\//g, ".") : null;
