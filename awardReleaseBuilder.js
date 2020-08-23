@@ -26,6 +26,7 @@ const alreadyCoveredItemNamesRegex = /^決標品項:第(\d)品項:.*/;
 const AWARD_SPECIFIC_IMPLIED_FIELDS = {
   "最有利標:評選委員": "Already populated with populateCommitteesInParties",
   "決標品項:決標品項數": "Could be known by length items",
+  //"決標資料:決標日期": "Already took care in init",
 };
 
 function getNextUnusedIndex(array) {

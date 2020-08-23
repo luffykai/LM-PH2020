@@ -253,6 +253,17 @@ const fieldHandlers = {
     // do nothing, will do take care by the below ones
     return null;
   },
+  "是否含特別預算": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.withSpecialBudget", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.withSpecialBudget", false);
+    }
+    return null;
+  },
   "其他:是否訂有與履約能力有關之特定資格:廠商應附具之特定資格證明文件": (
     value,
     ocdsRelease
