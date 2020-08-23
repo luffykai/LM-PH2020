@@ -7,6 +7,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "chartist": "^0.11.4",
     "constantinople": "^4.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -35,8 +36,10 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.1.0",
     "braces": "^3.0.0",
+    "css-loader": "^4.2.1",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",

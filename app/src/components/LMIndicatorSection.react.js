@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import Chartist from "chartist";
 
 // Base Component For each of the metrics
 export default function LMIndicatorSection({
@@ -11,7 +12,17 @@ export default function LMIndicatorSection({
   exampleSection, // React.Node
   // key, // string for uz
 }) {
+  const data = {
+    // A labels array that can contain any sort of values
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    // Our series array that contains series objects or in this case series data arrays
+    series: [[5, 2, 4, 2, 0]],
+  };
+
   const chartRef = useRef(null);
+  useEffect(() => {
+    new Chartist.Line(chartRef.current, data);
+  }, []);
 
   return (
     <div
@@ -77,10 +88,9 @@ export default function LMIndicatorSection({
         }}
       >
         <div style={{ backgroundColor: "white", height: "100%", width: 260 }} />
-        <div style={{ backgroundColor: "gray", height: "100%", width: 570 }}>
+        <div style={{ backgroundColor: "transparent", height: "100%", width: 570 }}>
           <div ref={chartRef} />
         </div>
-        >
       </div>
       {/* title + examples */}
       <div>

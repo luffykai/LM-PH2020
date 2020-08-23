@@ -22,7 +22,6 @@ function LMIndicatorRoot() {
       <div id="root">
         <div id="root-bg">
           <div className="container">
-            {/* {JSON.stringify(fullData)} */}
             {/* Placeholder diff to make space for h2 title */}
             <div style={{ height: "40px", width: "100%" }} />
             <h2>Social Housing Procurement Environment Indicators</h2>
