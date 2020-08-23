@@ -26,6 +26,7 @@ const alreadyCoveredItemNamesRegex = /^決標品項:第(\d)品項:.*/;
 const AWARD_SPECIFIC_IMPLIED_FIELDS = {
   "最有利標:評選委員": "Already populated with populateCommitteesInParties",
   "決標品項:決標品項數": "Could be known by length items",
+  //"決標資料:決標日期": "Already took care in init",
 };
 
 function getNextUnusedIndex(array) {
@@ -137,6 +138,9 @@ function updateSupplierIdInAward(supplierNameToIdMap, ocdsRelease) {
   }
   for (let award of ocdsRelease.awards) {
     let awardId = `${ocdsRelease["ocid"]}`;
+    if (award.suppliers == null) {
+      award.suppliers = [];
+    }
     for (let supplier of award.suppliers) {
       supplier.id = supplierNameToIdMap.get(supplier.name);
       awardId = `${awardId}-${supplier.id}`;
@@ -151,6 +155,9 @@ function updateAwards(ocdsRelease) {
   }
   for (let award of ocdsRelease.awards) {
     let valueOfAward = 0;
+    if (award.items == null) {
+      award.items = [];
+    }
     for (let item of award.items) {
       valueOfAward += item.unit.value.amount * item.quantity;
     }

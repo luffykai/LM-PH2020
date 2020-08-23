@@ -15,14 +15,12 @@ const {
 } = require("./LMUtils");
 
 const fieldHandlers = {
-  "招標資料:招標方式": (value, _ocdsRelease) => {
-    return getProcurementMethod(value);
+  "招標方式": (value, _ocdsRelease) => {
+    put(_ocdsRelease, "tender.procurementMethod", getProcurementMethod(value));
+    return null;
   },
   "招標資料:招標狀態": (value, _ocdsRelease) => {
     return getTenderStatusFromOngoingTenderStatus(value);
-  },
-  "無法決標公告:招標方式": (value, _ocdsRelease) => {
-    return getProcurementMethod(value);
   },
   "無法決標公告:無法決標的理由": (value, ocdsRelease) => {
     const awardStatus = getAwardStatusFromFailedTenderStatus(value);
@@ -89,21 +87,58 @@ const fieldHandlers = {
     if (value == null) {
       return null;
     }
-    return { currency: "TWD", amount: parseAmountToInt(value) };
+    put(_ocdsRelease, "tender.value", {
+      currency: "TWD", amount: parseAmountToInt(value)
+    });
   },
   "已公告資料:預算金額": (value, _ocdsRelease) => {
     if (value == null) {
       return null;
     }
-    return { currency: "TWD", amount: parseAmountToInt(value) };
+    put(_ocdsRelease, "tender.value", {
+      currency: "TWD", amount: parseAmountToInt(value)
+    });
   },
   "領投開標:是否提供電子領標:總計": (value, _ocdsRelease) => {
     if (value == null) {
       return null;
     }
-    return {
+    put(_ocdsRelease, "tender.participationFees[]", {
+      description: "total",
       value: { currency: "TWD", amount: parseAmountToInt(value) }
-    };
+    })
+  },
+  "領投開標:是否提供電子領標:機關文件費(機關實收)": (value, _ocdsRelease) => {
+    if (value == null) {
+      return null;
+    }
+    put(_ocdsRelease, "tender.participationFees[]", {
+      description: "document fee for organization",
+      value: { currency: "TWD", amount: parseAmountToInt(value) }
+    })
+  },
+  "領投開標:是否提供電子領標:系統使用費": (value, _ocdsRelease) => {
+    if (value == null) {
+      return null;
+    }
+    put(_ocdsRelease, "tender.participationFees[]", {
+      description: "system usage",
+      value: { currency: "TWD", amount: parseAmountToInt(value) }
+    })
+  },
+  "領投開標:是否提供電子領標:文件代收費": (value, _ocdsRelease) => {
+    if (value == null) {
+      return null;
+    }
+    put(_ocdsRelease, "tender.participationFees[]", {
+      description: "document",
+      value: { currency: "TWD", amount: parseAmountToInt(value) }
+    })
+  },
+  "決標資料:總決標金額":(value, _ocdsRelease) => {
+    put(_ocdsRelease, "award", {
+      value: { currency: "TWD", amount: parseAmountToInt(value) }
+    })
   },
   "其他:履約地點": (value, ocdsRelease) => {
     return {
@@ -216,6 +251,17 @@ const fieldHandlers = {
     ocdsRelease
   ) => {
     // do nothing, will do take care by the below ones
+    return null;
+  },
+  "是否含特別預算": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.withSpecialBudget", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.withSpecialBudget", false);
+    }
     return null;
   },
   "其他:是否訂有與履約能力有關之特定資格:廠商應附具之特定資格證明文件": (
