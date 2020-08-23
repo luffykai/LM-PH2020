@@ -10,3 +10,6 @@ ronny_field,ocds_path
 "已公告資料:決標方式","tender/awardCriteria"
 "已公告資料:標案案號","tender/id"
 "已公告資料:標案名稱","tender/title"
+"採購級距","tender.additionalProperties.priceRange"
+"採購金額級距","tender.additionalProperties.priceRange"
+"歸屬計畫類別","tender.additionalProperties.belongToProjects[]"

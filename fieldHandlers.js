@@ -214,7 +214,7 @@ const fieldHandlers = {
     }
     return null;
   },
-  "招標資料:是否依據採購法第106條第1項第1款辦理": (
+  "是否依據採購法第106條第1項第1款辦理": (
     value,
     ocdsRelease
   ) => {
@@ -261,6 +261,83 @@ const fieldHandlers = {
       put(ocdsRelease, "tender.additionalProperties.withSpecialBudget", true);
     } else {
       put(ocdsRelease, "tender.additionalProperties.withSpecialBudget", false);
+    }
+    return null;
+  },
+  "本採購是否屬「涉及國家安全」採購": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.involveNationalSecurity", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.involveNationalSecurity", false);
+    }
+    return null;
+  },
+  "本採購是否屬「具敏感性或國安(含資安)疑慮之業務範疇」採購": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.involveInfoSecurityOrNationalSecurity", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.involveInfoSecurityOrNationalSecurity", false);
+    }
+    return null;
+  },
+  "是否刊登公報": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.publishedOnWebsite", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.publishedOnWebsite", false);
+    }
+    return null;
+  },
+  "是否屬統包": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.isTurnkeyProcurement", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.isTurnkeyProcurement", false);
+    }
+    return null;
+  },
+  "是否屬災區重建工程": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.isReconstructionArea", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.isReconstructionArea", false);
+    }
+    return null;
+  },
+  "是否屬二以上機關之聯合採購(不適用共同供應契約規定)": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.involvesMultipleBuyingOrganization", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.involvesMultipleBuyingOrganization", false);
+    }
+    return null;
+  },
+  "是否屬特殊採購": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.isSpecialProcurement", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.isSpecialProcurement", false);
     }
     return null;
   },

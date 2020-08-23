@@ -64,3 +64,6 @@ ronny_field,ocds_path
 "無法決標公告:無法決標的理由","awards[0]/status"
 ,
 "採購資料:依據法條","tender.legalBasis.id"
+"採購級距","tender.additionalProperties.priceRange"
+"採購金額級距","tender.additionalProperties.priceRange"
+"歸屬計畫類別","tender.additionalProperties.belongToProjects[]"
