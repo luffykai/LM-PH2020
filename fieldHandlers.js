@@ -99,7 +99,7 @@ const fieldHandlers = {
     if (value == null) {
       return null;
     }
-    put(_ocdsRelease, "tender/participationFees[]", {
+    put(_ocdsRelease, "tender.participationFees[]", {
       description: "total",
       value: { currency: "TWD", amount: parseAmountToInt(value) }
     })
@@ -108,7 +108,7 @@ const fieldHandlers = {
     if (value == null) {
       return null;
     }
-    put(_ocdsRelease, "tender/participationFees[]", {
+    put(_ocdsRelease, "tender.participationFees[]", {
       description: "document fee for organization",
       value: { currency: "TWD", amount: parseAmountToInt(value) }
     })
@@ -117,7 +117,7 @@ const fieldHandlers = {
     if (value == null) {
       return null;
     }
-    put(_ocdsRelease, "tender/participationFees[]", {
+    put(_ocdsRelease, "tender.participationFees[]", {
       description: "system usage",
       value: { currency: "TWD", amount: parseAmountToInt(value) }
     })
@@ -126,8 +126,13 @@ const fieldHandlers = {
     if (value == null) {
       return null;
     }
-    put(_ocdsRelease, "tender/participationFees[]", {
+    put(_ocdsRelease, "tender.participationFees[]", {
       description: "document",
+      value: { currency: "TWD", amount: parseAmountToInt(value) }
+    })
+  },
+  "決標資料:總決標金額":(value, _ocdsRelease) => {
+    put(_ocdsRelease, "award.value", {
       value: { currency: "TWD", amount: parseAmountToInt(value) }
     })
   },
