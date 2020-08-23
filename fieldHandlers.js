@@ -87,13 +87,17 @@ const fieldHandlers = {
     if (value == null) {
       return null;
     }
-    return { currency: "TWD", amount: parseAmountToInt(value) };
+    put(_ocdsRelease, "tender.value", {
+      currency: "TWD", amount: parseAmountToInt(value)
+    });
   },
   "已公告資料:預算金額": (value, _ocdsRelease) => {
     if (value == null) {
       return null;
     }
-    return { currency: "TWD", amount: parseAmountToInt(value) };
+    put(_ocdsRelease, "tender.value", {
+      currency: "TWD", amount: parseAmountToInt(value)
+    });
   },
   "領投開標:是否提供電子領標:總計": (value, _ocdsRelease) => {
     if (value == null) {
@@ -132,7 +136,7 @@ const fieldHandlers = {
     })
   },
   "決標資料:總決標金額":(value, _ocdsRelease) => {
-    put(_ocdsRelease, "award.value", {
+    put(_ocdsRelease, "award", {
       value: { currency: "TWD", amount: parseAmountToInt(value) }
     })
   },

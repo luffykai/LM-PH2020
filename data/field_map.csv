@@ -10,7 +10,6 @@ ronny_field,ocds_path
 "標的分類","tender/mainProcurementCategory"
 "標案案號","tender/id"
 "標案名稱","tender/title"
-"預算金額","tender/value"
 "機關資料:機關代碼","buyer/id"
 "無法決標公告:機關代碼","buyer/id"
 "機關資料:機關名稱","buyer/name"
@@ -36,8 +35,6 @@ ronny_field,ocds_path
 "無法決標公告:標的分類","tender/mainProcurementCategory"
 "採購資料:標案案號","tender/id"
 "採購資料:標案名稱","tender/title"
-"採購資料:預算金額","tender/value"
-"已公告資料:預算金額","tender/value"
 ,
 "招標資料:招標狀態","tender/status"
 ,

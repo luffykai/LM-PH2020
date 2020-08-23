@@ -167,7 +167,7 @@ function updateAwards(ocdsRelease) {
   }
 }
 
-const FIELD_MAP = loadMap();
+const FIELD_MAP = loadMap("award");
 
 const awardReleaseBuilder = {
   build: (releaseDetail, ocdsRelease, unmappedFields) => {
