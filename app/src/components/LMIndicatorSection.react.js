@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
 // Base Component For each of the metrics
 export default function LMIndicatorSection({
@@ -9,7 +9,10 @@ export default function LMIndicatorSection({
   dataPointArray, // [{year: number, value: number}, ...]
   exampleTitle, // string
   exampleSection, // React.Node
+  // key, // string for uz
 }) {
+  const chartRef = useRef(null);
+
   return (
     <div
       style={{
@@ -26,13 +29,44 @@ export default function LMIndicatorSection({
           display: "flex",
           justifyContent: "space-between",
           marginBottom: 8,
-          height: 70,
+          height: 86,
           width: "100%",
         }}
       >
-        <div style={{ backgroundColor: "white", height: "100%", width: 260 }} />
-        <div style={{ backgroundColor: "gray", height: "100%", width: 570 }} />
+        <div
+          style={{
+            backgroundColor: "white",
+            display: "flex",
+            // flexDirection: "column",
+            fontSize: 50,
+            fontWeight: 600,
+            height: "100%",
+            width: 260,
+          }}
+        >
+          <div>{indicator}</div>
+          <div style={{ fontSize: 32, position: "relative" }}>
+            <div style={{ position: "absolute", bottom: 0 }}>
+              {indicatorSuffix}
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            backgroundColor: "gray",
+            borderRadius: 4,
+            border: "1px solid",
+            borderColor: "pink",
+            height: "100%",
+            padding: 12,
+            width: 570,
+          }}
+        >
+          {description}
+        </div>
       </div>
+
       {/* definition + chart */}
       <div
         style={{
@@ -43,7 +77,10 @@ export default function LMIndicatorSection({
         }}
       >
         <div style={{ backgroundColor: "white", height: "100%", width: 260 }} />
-        <div style={{ backgroundColor: "gray", height: "100%", width: 570 }} />
+        <div style={{ backgroundColor: "gray", height: "100%", width: 570 }}>
+          <div ref={chartRef} />
+        </div>
+        >
       </div>
       {/* title + examples */}
       <div>

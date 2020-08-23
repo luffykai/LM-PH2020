@@ -2,10 +2,9 @@
 
 import ReactDOM from "react-dom";
 import LMNavBar from "./LMNavBar.react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import fullData from "../../public/data/full.json";
-import LMOCDSIndicatorUtils from "../javascripts/utils/LMOCDSIndicatorUtils";
-import LMIndicatorSection from './LMIndicatorSection.react';
+import LMIndicatorTenderNameLength from "./LMIndicatorTenderNameLength.react";
 
 function SolidDivider() {
   return <div className="solid-divider"></div>;
@@ -16,22 +15,6 @@ function DottedDivider() {
 }
 
 function LMIndicatorRoot() {
-  const shortTitleObj = { shortTitleTenderCount: 0, tenderCount: 0 };
-  for (let countyKey in fullData) {
-    const countyData = fullData[countyKey];
-    for (let oc4idsDataOfAProject of countyData.projects) {
-      const countObj = LMOCDSIndicatorUtils.getNumberOfShortTitleTenderAndTotalTenderCount(
-        oc4idsDataOfAProject,
-        18
-      );
-      shortTitleObj.shortTitleTenderCount += countObj.shortTitleTenderCount;
-      shortTitleObj.tenderCount += countObj.tenderCount;
-    }
-  }
-  const shortTenderTitlePercentage =
-    shortTitleObj.shortTitleTenderCount / shortTitleObj.tenderCount;
-  console.log("shortTenderTitlePercentage", shortTenderTitlePercentage);
-
   return (
     <>
       <LMNavBar />
@@ -91,8 +74,9 @@ function LMIndicatorRoot() {
             {/* Data Section starts here */}
             <div id="data-section-1"></div>
             <SolidDivider />
-            <LMIndicatorSection />
+
             <DottedDivider />
+            <LMIndicatorTenderNameLength fullData={fullData} />
           </div>
         </div>
       </div>
