@@ -13,7 +13,7 @@
     "express": "~4.16.1",
     "express-async-await": "^1.1.0",
     "firebase": "^7.17.2",
-    "firebase-admin": "^9.0.0",
+    "firebase-admin": "^9.1.1",
     "google-map-react": "^2.0.8",
     "http-errors": "~1.6.3",
     "materialize-css": "^1.0.0-rc.2",

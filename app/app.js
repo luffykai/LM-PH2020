@@ -4,11 +4,22 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
+const admin = require("firebase-admin");
+
+const serviceAccount = require("../lm-ph2020-firebase-adminsdk.json");
+admin.initializeApp(
+  {
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://lm-ph2020.firebaseio.com",
+  },
+  "lm-ph2020"
+);
+
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const countyRouter = require("./routes/counties");
 const projectRouter = require("./routes/projects");
-const indicatorRouter = require('./routes/indicator');
+const indicatorRouter = require("./routes/indicator");
 
 const fs = require("fs");
 
@@ -29,7 +40,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/county", countyRouter);
 app.use("/project", projectRouter);
-app.use("/indicator", indicatorRouter)
+app.use("/indicator", indicatorRouter);
 
 function deleteFile(file) {
   fs.unlink(file, function (err) {
