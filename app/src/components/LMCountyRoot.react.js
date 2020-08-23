@@ -1,9 +1,5 @@
 "use strict";
 
-const firebase = require("firebase");
-// Required for side-effects
-require("firebase/firestore");
-
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import LMTaiwanMap from "./LMTaiwanMap.react";
@@ -12,23 +8,10 @@ import CountyMapDefaults from "../javascripts/utils/CountyMapDefaults";
 import LMProjectRow from "./LMProjectRow.react";
 import LMCountySelector from "./LMCountySelector.react";
 import LMNavBar from "./LMNavBar.react";
+import firebase from "./LMFirebase.react";
 
 import { useDebounce } from "use-debounce";
 
-// Your web app's Firebase configuration
-const FIREBASE_CONFIG = {
-  apiKey: "" /* Please Fill in apiKey */,
-  authDomain: "lm-ph2020.firebaseapp.com",
-  databaseURL: "https://lm-ph2020.firebaseio.com",
-  projectId: "lm-ph2020",
-  storageBucket: "lm-ph2020.appspot.com",
-  messagingSenderId: "1083392040408",
-  appId: "1:1083392040408:web:38449f3320b530d891e6ad",
-  measurementId: "G-JES8JBQ70D",
-};
-
-// // Initialize Cloud Firestore through Firebase
-firebase.initializeApp(FIREBASE_CONFIG);
 const db = firebase.firestore();
 
 export default function LMCountyRoot() {
