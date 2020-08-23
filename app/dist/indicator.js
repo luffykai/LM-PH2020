@@ -597,10 +597,69 @@ var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
 
 
+function SolidDivider() {
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    className: "solid-divider"
+  });
+}
+
+function DottedDivider() {
+  return /*#__PURE__*/react_default.a.createElement("div", {
+    className: "dotted-divider"
+  });
+}
+
 function LMIndicatorRoot() {
   return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMNavBar_react["a" /* default */], null), /*#__PURE__*/react_default.a.createElement("div", {
-    className: "root"
-  }));
+    id: "root"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    id: "root-bg"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    style: {
+      height: "40px",
+      width: "100%"
+    }
+  }), /*#__PURE__*/react_default.a.createElement("h2", null, "Social Housing Procurement Environment Indicators"), /*#__PURE__*/react_default.a.createElement("h3", null, "Social Housing Cases"), /*#__PURE__*/react_default.a.createElement("div", {
+    id: "social-housing-number-chart"
+  }), /*#__PURE__*/react_default.a.createElement("div", {
+    id: "social-housing-indicator-context"
+  }), /*#__PURE__*/react_default.a.createElement("h4", null, "There following are 8 indicators to measure the quality of bidding:"), /*#__PURE__*/react_default.a.createElement("div", {
+    id: "indicator-axis"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-column"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-name"
+  }, "Market Opportunity"), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-anchor"
+  }, "Median Number of Bidders")), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-column"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-name"
+  }, "Internal Efficiency"), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-anchor"
+  }, "Length of Tender Period"), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-anchor"
+  }, "Days from tender close to award decision"), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-anchor"
+  }, "Days between award date and tender start date")), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-column"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-name"
+  }, "Value for Money"), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-anchor"
+  }, "Percent of contracts that exceed budget")), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-column"
+  }, /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-name"
+  }, "Public Integrity"), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-anchor"
+  }, "Percent of tenders that do not specify date of delivery"), /*#__PURE__*/react_default.a.createElement("div", {
+    className: "indicator-axis-anchor"
+  }, "Percent of tenders with fewer than 10 characters in the title"))), /*#__PURE__*/react_default.a.createElement("div", {
+    id: "data-section-1"
+  }), /*#__PURE__*/react_default.a.createElement(SolidDivider, null)))));
 }
 
 var domContainer = document.querySelector("#lm_indicator_root");
