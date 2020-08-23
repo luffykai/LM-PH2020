@@ -27,7 +27,6 @@ export default function LMIndicatorSection({
   return (
     <div
       style={{
-        backgroundColor: "red",
         display: "flex",
         flexDirection: "column",
         height: 430,
@@ -40,16 +39,14 @@ export default function LMIndicatorSection({
           display: "flex",
           justifyContent: "space-between",
           marginBottom: 8,
-          height: 86,
+          height: 140,
           width: "100%",
         }}
       >
         <div
           style={{
-            backgroundColor: "white",
             display: "flex",
-            // flexDirection: "column",
-            fontSize: 50,
+            fontSize: 115,
             fontWeight: 600,
             height: "100%",
             width: 260,
@@ -62,16 +59,17 @@ export default function LMIndicatorSection({
             </div>
           </div>
         </div>
-
         <div
           style={{
-            backgroundColor: "gray",
-            borderRadius: 4,
-            border: "1px solid",
-            borderColor: "pink",
+            backgroundColor: "#fce8f4",
+            borderRadius: 10,
+            border: "1px solid #f8bbd0",
+            color: "#ff80ab",
             height: "100%",
-            padding: 12,
-            width: 570,
+            fontSize: 15,
+            fontWeight: 500,
+            padding: "17px 22px",
+            width: 640,
           }}
         >
           {description}
@@ -83,20 +81,46 @@ export default function LMIndicatorSection({
         style={{
           display: "flex",
           justifyContent: "space-between",
-          height: 120,
+          height: 142,
           width: "100%",
         }}
       >
-        <div style={{ backgroundColor: "white", height: "100%", width: 260 }} />
-        <div style={{ backgroundColor: "transparent", height: "100%", width: 570 }}>
+        <div
+          style={{
+            backgroundColor: "white",
+            border: "1px solid #f8bbd0",
+            borderRadius: 10,
+            height: "100%",
+            width: 355,
+          }}
+        />
+        <div
+          style={{
+            backgroundColor: "white",
+            border: "1px solid #f8bbd0",
+            borderRadius: 10,
+            height: "100%",
+            width: 640,
+          }}
+        >
           <div ref={chartRef} />
         </div>
       </div>
+
       {/* title + examples */}
       <div>
-        <h4>{exampleTitle}</h4>
+        <h5>
+          {exampleTitle != null
+            ? exampleTitle
+            : "Tender/ item types with lowest number of bidders: "}
+        </h5>
         <div
-          style={{ backgroundColor: "green", borderRadius: 4, height: 125 }}
+          style={{
+            backgroundColor: "rgba(255, 128, 171, 0.4)",
+            border: "1px solid #ff4081",
+            borderRadius: 10,
+            height: 180,
+          }}
         ></div>
       </div>
     </div>

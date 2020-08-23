@@ -74,7 +74,7 @@ function LMIndicatorRoot() {
             <div id="data-section-1"></div>
             <SolidDivider />
 
-            <DottedDivider />
+            {/* <DottedDivider /> */}
             <LMIndicatorTenderNameLength fullData={fullData} />
           </div>
         </div>
