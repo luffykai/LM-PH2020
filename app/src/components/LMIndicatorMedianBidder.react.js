@@ -6,20 +6,15 @@ const METRIC_DESCRIPTION = `A higher median number of bidders per tender
 may indicate limited sole-sourcing and that tenders fairer competition.
 It may indicate increased competition and trust in the contracting system.`;
 
-
 const startYear = 2013;
 
 export default function LMIndicatorMedianBidder({ fullData }) {
-
-
-
-//   const shortTitleObj = { shortTitleTenderCount: 0, tenderCount: 0 };
   let bidderCountArray = [];
   for (let countyKey in fullData) {
     const countyData = fullData[countyKey];
     for (let oc4idsDataOfAProject of countyData.projects) {
       const _bidderCountArray = LMOCDSIndicatorUtils.getBidderCountArrayFromOC4IDs(
-        oc4idsDataOfAProject,
+        oc4idsDataOfAProject
       );
 
       bidderCountArray = bidderCountArray.concat(_bidderCountArray);
@@ -27,10 +22,10 @@ export default function LMIndicatorMedianBidder({ fullData }) {
   }
 
   // sort it
-  bidderCountArray = bidderCountArray.sort((a,b)=> a-b);
-  console.log('bidderCountArray', bidderCountArray);
-  const lowerMedian = bidderCountArray[Math.floor(bidderCountArray.length)/2];
-  const upperMedian = bidderCountArray[Math.ceil(bidderCountArray.length/2)];
+  bidderCountArray = bidderCountArray.sort((a, b) => a - b);
+  console.log("bidderCountArray", bidderCountArray);
+  const lowerMedian = bidderCountArray[Math.floor(bidderCountArray.length) / 2];
+  const upperMedian = bidderCountArray[Math.ceil(bidderCountArray.length / 2)];
 
   const median = parseFloat((lowerMedian + upperMedian) / 2).toFixed(2);
 

@@ -63773,4 +63773,4 @@ function setUserLogHandler(logCallback, options) {
 
 /***/ })
 
-/******/ }););
+/******/ });
