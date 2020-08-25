@@ -17,6 +17,14 @@
     padding: 12px;
 }
 
+#indicator-title {
+    color: #ff4081;
+    font-size: 70px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+
 .indicator-axis-column {
     padding-left: 4px;
     padding-right: 4px;

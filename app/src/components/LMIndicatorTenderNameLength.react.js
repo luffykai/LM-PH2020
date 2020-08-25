@@ -11,6 +11,7 @@ const startYear = 2013;
 
 export default function LMIndicatorTenderNameLength({ fullData }) {
   const shortTitleObj = { shortTitleTenderCount: 0, tenderCount: 0 };
+
   for (let countyKey in fullData) {
     const countyData = fullData[countyKey];
     for (let oc4idsDataOfAProject of countyData.projects) {
@@ -26,7 +27,6 @@ export default function LMIndicatorTenderNameLength({ fullData }) {
     shortTitleObj.shortTitleTenderCount / shortTitleObj.tenderCount;
   const indicator = parseFloat(shortTenderTitlePercentage * 100).toFixed(2);
 
-  // Calculate break down by year
 
 
 

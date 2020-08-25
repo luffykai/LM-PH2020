@@ -24,7 +24,7 @@ function LMIndicatorRoot() {
           <div className="container">
             {/* Placeholder diff to make space for h2 title */}
             <div style={{ height: "40px", width: "100%" }} />
-            <h2>Social Housing Procurement Environment Indicators</h2>
+            <div id="indicator-title">- Social Housing Indicators -</div>
 
             <h3>Social Housing Cases</h3>
             <div id="social-housing-number-chart"></div>
