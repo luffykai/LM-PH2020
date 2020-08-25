@@ -228,7 +228,57 @@ function getNumberOfShortTitleTenderAndTotalTenderCount(
   };
 }
 
+/*
+ Return: array of number
+*/
+function getBidderCountArrayFromOC4IDs(oc4idsData) {
+  const bidderCount = [];
+
+  // sanity check
+  if (oc4idsData == null || oc4idsData.contractingProcesses == null) {
+    return [];
+  }
+
+  const { contractingProcesses } = oc4idsData;
+  // contracting process here maps to the multiple columns in one row
+  // of our spreadsheet here.
+  // E.G.
+  // 1st process: Design,
+  // 2nd process: Construction
+  contractingProcesses.forEach((contractingProcess) => {
+    // releases here maps to the multiple tabs in Ronny's data.
+    const releases = contractingProcess.releases;
+    if (releases == null) {
+      return;
+    }
+
+    const bidderMap = new Map();
+
+    releases.forEach((release) => {
+      if (release.tag != null && release.tag.indexOf("award") === -1) {
+        return;
+      }
+
+      const parties = release.parties;
+      if (parties == null) {
+        throw "no parties in award release";
+      }
+
+      parties.forEach((party) => {
+        if (party.roles != null && party.roles.indexOf("tenderer") >= 0) {
+          bidderMap.set(party.name, true);
+        }
+      });
+    });
+
+    bidderCount.push(bidderMap.size);
+  });
+
+  return bidderCount;
+}
+
 module.exports = {
+  getBidderCountArrayFromOC4IDs,
   getNumberOfBiddersAndTendersFromOC4IDs,
   getNumberOfShortTitleTenderAndTotalTenderCount,
   getTenderDurationAndCompletedTenderCountFromOC4IDs,

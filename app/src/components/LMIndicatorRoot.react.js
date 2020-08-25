@@ -5,6 +5,7 @@ import LMNavBar from "./LMNavBar.react";
 import React from "react";
 import fullData from "../../public/data/full.json";
 import LMIndicatorTenderNameLength from "./LMIndicatorTenderNameLength.react";
+import LMIndicatorMedianBidder from "./LMIndicatorMedianBidder.react";
 
 function SolidDivider() {
   return <div className="solid-divider"></div>;
@@ -71,7 +72,7 @@ function LMIndicatorRoot() {
             </div>
 
             {/* Data Section starts here */}
-            <div id="data-section-1"></div>
+            <LMIndicatorMedianBidder fullData={fullData} />
             <SolidDivider />
 
             {/* <DottedDivider /> */}

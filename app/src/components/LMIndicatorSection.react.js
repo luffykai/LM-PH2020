@@ -29,7 +29,6 @@ export default function LMIndicatorSection({
       style={{
         display: "flex",
         flexDirection: "column",
-        height: 430,
         width: "100%",
       }}
     >
@@ -54,7 +53,7 @@ export default function LMIndicatorSection({
         >
           <div>{indicator}</div>
           <div style={{ fontSize: 32, position: "relative" }}>
-            <div style={{ position: "absolute", bottom: 0 }}>
+            <div style={{ position: "absolute", bottom: 0, lineHeight: '28px' }}>
               {indicatorSuffix}
             </div>
           </div>
