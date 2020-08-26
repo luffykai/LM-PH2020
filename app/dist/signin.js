@@ -69104,25 +69104,6 @@ function LMSignInRoot() {
       }
     }
   };
-
-  if (!isSignedIn) {
-    return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMNavBar_react["a" /* default */], null), /*#__PURE__*/react_default.a.createElement("div", {
-      id: "root"
-    }, /*#__PURE__*/react_default.a.createElement("div", {
-      id: "root-bg"
-    }, /*#__PURE__*/react_default.a.createElement("div", {
-      className: "container"
-    }, /*#__PURE__*/react_default.a.createElement("div", {
-      style: {
-        height: "40px",
-        width: "100%"
-      }
-    }), /*#__PURE__*/react_default.a.createElement("p", null, "Please sign-in:"), /*#__PURE__*/react_default.a.createElement(StyledFirebaseAuth_default.a, {
-      uiConfig: uiConfig,
-      firebaseAuth: LMFirebase_react["a" /* default */].auth()
-    })))));
-  }
-
   return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMNavBar_react["a" /* default */], null), /*#__PURE__*/react_default.a.createElement("div", {
     id: "root"
   }, /*#__PURE__*/react_default.a.createElement("div", {
@@ -69134,11 +69115,14 @@ function LMSignInRoot() {
       height: "40px",
       width: "100%"
     }
-  }), /*#__PURE__*/react_default.a.createElement("p", null, "Welcome ", LMFirebase_react["a" /* default */].auth().currentUser.displayName, "! You are now signed-in!"), /*#__PURE__*/react_default.a.createElement("a", {
+  }), !isSignedIn && /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement("p", null, "Please sign-in:"), /*#__PURE__*/react_default.a.createElement(StyledFirebaseAuth_default.a, {
+    uiConfig: uiConfig,
+    firebaseAuth: LMFirebase_react["a" /* default */].auth()
+  })), isSignedIn && /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement("p", null, "Welcome ", LMFirebase_react["a" /* default */].auth().currentUser.displayName, "! You are now signed-in!"), /*#__PURE__*/react_default.a.createElement("a", {
     onClick: function onClick() {
       return LMFirebase_react["a" /* default */].auth().signOut();
     }
-  }, "Sign-out")))));
+  }, "Sign-out"))))));
 }
 var domContainer = document.querySelector("#lm_signin_root");
 react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(LMSignInRoot, null), domContainer);

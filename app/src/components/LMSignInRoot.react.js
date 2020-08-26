@@ -21,7 +21,7 @@ export default function LMSignInRoot() {
     signInFlow: "popup",
     // We will display Google and Facebook as auth providers.
     signInOptions: [
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
       // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       // firebase.auth.FacebookAuthProvider.PROVIDER_ID
     ],
@@ -31,25 +31,6 @@ export default function LMSignInRoot() {
     }
   };
 
-  if (!isSignedIn) {
-    return (
-      <>
-        <LMNavBar />
-        <div id="root">
-          <div id="root-bg">
-            <div className="container">
-              <div style={{ height: "40px", width: "100%" }} />
-              <p>Please sign-in:</p>
-              <StyledFirebaseAuth
-                uiConfig={uiConfig}
-                firebaseAuth={firebase.auth()}
-              />
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  }
   return (
     <>
       <LMNavBar />
@@ -57,11 +38,24 @@ export default function LMSignInRoot() {
         <div id="root-bg">
           <div className="container">
             <div style={{ height: "40px", width: "100%" }} />
-            <p>
-              Welcome {firebase.auth().currentUser.displayName}! You are now
-              signed-in!
-            </p>
-            <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
+            {!isSignedIn && (
+              <>
+                <p>Please sign-in:</p>
+                <StyledFirebaseAuth
+                  uiConfig={uiConfig}
+                  firebaseAuth={firebase.auth()}
+                />
+              </>
+            )}
+            {isSignedIn && (
+              <>
+                <p>
+                  Welcome {firebase.auth().currentUser.displayName}! You are now
+                  signed-in!
+                </p>
+                <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
+              </>
+            )}
           </div>
         </div>
       </div>
