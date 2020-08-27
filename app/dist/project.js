@@ -2383,11 +2383,11 @@ function LMProjectRoot() {
     return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMNavBar_react["a" /* default */], null), "Loading Data...");
   }
 
-  var projectTitle = projectData.projects[0].title; // const firstParty =
-  //   projectData.projects[0].contractingProcesses[0].releases[0].parties[0];
-  // const buyerName = firstParty.name;
-  // const buyerContact = firstParty.contactPoint.name;
-
+  var projectTitle = projectData.projects[0].title;
+  var releases = projectData.projects[0].contractingProcesses[0].releases;
+  var firstParty = releases[0].parties[0];
+  var buyerName = firstParty.name;
+  var buyerContact = firstParty.contactPoint.name;
   return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null, /*#__PURE__*/react_default.a.createElement(LMNavBar_react["a" /* default */], null), /*#__PURE__*/react_default.a.createElement("div", {
     id: "root"
   }, /*#__PURE__*/react_default.a.createElement("div", {
@@ -2414,8 +2414,10 @@ function LMProjectRoot() {
     name: "filename",
     type: "hidden",
     value: projectID
-  }))), /*#__PURE__*/react_default.a.createElement(LMFileUpload, {
-    filepath: projectID
+  }))), LMFirebase_react["a" /* default */].auth().currentUser && /*#__PURE__*/react_default.a.createElement(LMFileUpload, {
+    filepath: projectID // ocid={"ocid"}
+    // awardId={"awardId"}
+
   }))));
 }
 var domContainer = document.querySelector("#lm_project_root");

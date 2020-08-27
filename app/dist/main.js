@@ -290,7 +290,8 @@ function LMAppRoot() {
     className: "btn-large lm-pink-1",
     href: "/county"
   }, "I'm \u76E3\u7763\u8005"), /*#__PURE__*/React.createElement("a", {
-    className: "btn-large lm-pink-1 marginLeft-8"
+    className: "btn-large lm-pink-1 marginLeft-8",
+    href: "/signin"
   }, "I'm Officials")))));
 }
 

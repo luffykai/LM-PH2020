@@ -20,6 +20,7 @@ const usersRouter = require("./routes/users");
 const countyRouter = require("./routes/counties");
 const projectRouter = require("./routes/projects");
 const indicatorRouter = require("./routes/indicator");
+const signinRouter = require("./routes/signin");
 
 const fs = require("fs");
 
@@ -41,6 +42,7 @@ app.use("/users", usersRouter);
 app.use("/county", countyRouter);
 app.use("/project", projectRouter);
 app.use("/indicator", indicatorRouter);
+app.use("/signin", signinRouter);
 
 function deleteFile(file) {
   fs.unlink(file, function (err) {

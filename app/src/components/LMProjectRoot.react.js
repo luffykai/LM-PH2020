@@ -21,7 +21,7 @@ export default function LMProjectRoot() {
       .collection("projects")
       .doc(projectID)
       .get()
-      .then((doc) => {
+      .then(doc => {
         if (doc.exists) {
           console.log("Document data:", doc.data());
           setProjectData(doc.data());
@@ -45,10 +45,10 @@ export default function LMProjectRoot() {
   }
 
   const projectTitle = projectData.projects[0].title;
-  // const firstParty =
-  //   projectData.projects[0].contractingProcesses[0].releases[0].parties[0];
-  // const buyerName = firstParty.name;
-  // const buyerContact = firstParty.contactPoint.name;
+  const releases = projectData.projects[0].contractingProcesses[0].releases;
+  const firstParty = releases[0].parties[0];
+  const buyerName = firstParty.name;
+  const buyerContact = firstParty.contactPoint.name;
 
   return (
     <>
@@ -85,7 +85,14 @@ export default function LMProjectRoot() {
               <input name="filename" type="hidden" value={projectID} />
             </form>
           </div>
-          <LMFileUpload filepath={projectID} />
+
+          {firebase.auth().currentUser && (
+            <LMFileUpload
+              filepath={projectID}
+              // ocid={"ocid"}
+              // awardId={"awardId"}
+            />
+          )}
         </div>
       </div>
     </>
