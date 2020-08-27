@@ -6,6 +6,7 @@ import React from "react";
 import fullData from "../../public/data/full.json";
 import LMIndicatorTenderNameLength from "./LMIndicatorTenderNameLength.react";
 import LMIndicatorMedianBidder from "./LMIndicatorMedianBidder.react";
+import LMIndicatorTenderStartToAward from "./LMIndicatorTenderStartToAward.react";
 
 function SolidDivider() {
   return <div className="solid-divider"></div>;
@@ -74,7 +75,8 @@ function LMIndicatorRoot() {
             {/* Data Section starts here */}
             <LMIndicatorMedianBidder fullData={fullData} />
             <SolidDivider />
-
+            <LMIndicatorTenderStartToAward fullData={fullData} />
+            <SolidDivider />
             {/* <DottedDivider /> */}
             <LMIndicatorTenderNameLength fullData={fullData} />
           </div>

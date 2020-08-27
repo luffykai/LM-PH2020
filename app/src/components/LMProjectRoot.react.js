@@ -45,10 +45,10 @@ export default function LMProjectRoot() {
   }
 
   const projectTitle = projectData.projects[0].title;
-  const firstParty =
-    projectData.projects[0].contractingProcesses[0].releases[0].parties[0];
-  const buyerName = firstParty.name;
-  const buyerContact = firstParty.contactPoint.name;
+  // const firstParty =
+  //   projectData.projects[0].contractingProcesses[0].releases[0].parties[0];
+  // const buyerName = firstParty.name;
+  // const buyerContact = firstParty.contactPoint.name;
 
   return (
     <>
