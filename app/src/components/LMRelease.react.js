@@ -1,5 +1,7 @@
 "use strict";
 
+import React from "react";
+
 export default function LMProcurementRelease(props) {
   const release = props.release;
   if (release == null) {

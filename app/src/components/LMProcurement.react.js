@@ -1,5 +1,6 @@
 "use strict";
 
+import React from "react";
 import firebase from "./LMFirebase.react";
 import LMFileUpload from "./LMFileUpload.react";
 import LMRelease from "./LMRelease.react";
