@@ -2,9 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 
+import buildOCDSImplUpdateRelease from "../javascripts/utils/BuildOCDSUtils";
 import firebase from "./LMFirebase.react";
 
 const storageRef = firebase.storage().ref();
+const db = firebase.firestore();
 
 export default function LMFileUpload(props) {
   const [file, setFile] = useState(null);
@@ -29,7 +31,7 @@ export default function LMFileUpload(props) {
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          setStatusText(`Upload is ${progress}% done`);
+        setStatusText(`Upload is ${progress}% done`);
         switch (snapshot.state) {
           case firebase.storage.TaskState.PAUSED: // or 'paused'
             break;
@@ -46,6 +48,19 @@ export default function LMFileUpload(props) {
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
           setStatusText(`File available at ${downloadURL}`);
+          const implUpdateRelease = buildOCDSImplUpdateRelease(
+            props.ocid,
+            props.awardId,
+            [{ fileName: file.name, url: downloadURL, type: file.type }]
+          );
+          props.projectData.projects[0].contractingProcesses[
+            props.contractIndex
+          ].releases.push(implUpdateRelease);
+          db.collection("counties")
+            .doc(props.county)
+            .collection("projects")
+            .doc(props.projectID)
+            .update(props.projectData);
         });
       }
     );
@@ -53,7 +68,6 @@ export default function LMFileUpload(props) {
 
   return (
     <>
-      <h3>File Upload</h3>
       <input
         type="file"
         id="upload"
@@ -67,7 +81,7 @@ export default function LMFileUpload(props) {
       />
       <button
         onClick={() => {
-          uploadFile(props.filepath, file);
+          uploadFile(props.projectID, file);
         }}
       >
         Upload

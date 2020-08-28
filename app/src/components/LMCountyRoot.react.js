@@ -12,7 +12,18 @@ import firebase from "./LMFirebase.react";
 
 import { useDebounce } from "use-debounce";
 
+const KML_LAYER_URL = "https://firebasestorage.googleapis.com/v0/b/lm-ph2020.appspot.com/o/lm-ph2020.kml?alt=media&token=f2736a44-04ca-4f2e-948a-62a4ca3b4f91";
 const db = firebase.firestore();
+
+
+const apiIsLoaded = (map, maps) => {
+  const kmlLayer = new maps.KmlLayer(KML_LAYER_URL, {
+    suppressInfoWindows: true,
+    preserveViewport: true,
+    map: map
+  });
+  kmlLayer.addListener('click', function(event) {});
+};
 
 export default function LMCountyRoot() {
   const dataDiv = document.getElementById("county-map-data");
@@ -98,6 +109,8 @@ export default function LMCountyRoot() {
           bootstrapURLKeys={{ key: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw" }}
           defaultCenter={countyMapDefaults.center}
           defaultZoom={countyMapDefaults.zoom}
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => apiIsLoaded(map, maps)}
         ></GoogleMapReact>
       </div>
     );

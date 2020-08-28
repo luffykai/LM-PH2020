@@ -1,7 +1,7 @@
 "use strict";
 
 import firebase from "./LMFirebase.react";
-import LMFileUpload from "./LMFileUpload.react";
+import LMProcurement from "./LMProcurement.react";
 import LMNavBar from "./LMNavBar.react";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
@@ -44,8 +44,10 @@ export default function LMProjectRoot() {
     );
   }
 
-  const projectTitle = projectData.projects[0].title;
-  const releases = projectData.projects[0].contractingProcesses[0].releases;
+  // Currently, there is always only one project.
+  const project = projectData.projects[0];
+  const projectTitle = project.title;
+  const releases = project.contractingProcesses[0].releases;
   const firstParty = releases[0].parties[0];
   const buyerName = firstParty.name;
   const buyerContact = firstParty.contactPoint.name;
@@ -66,7 +68,18 @@ export default function LMProjectRoot() {
             </div>
           </div>
 
-          {JSON.stringify(projectData)}
+          {/* {JSON.stringify(projectData)} */}
+          {project.contractingProcesses.map((progress, index) => {
+            return (
+              <LMProcurement
+                projectData={projectData}
+                contractingProgress={progress}
+                contractIndex={index}
+                projectID={projectID}
+                county={county}
+              />
+            );
+          })}
 
           <div>
             <button
@@ -85,14 +98,6 @@ export default function LMProjectRoot() {
               <input name="filename" type="hidden" value={projectID} />
             </form>
           </div>
-
-          {firebase.auth().currentUser && (
-            <LMFileUpload
-              filepath={projectID}
-              // ocid={"ocid"}
-              // awardId={"awardId"}
-            />
-          )}
         </div>
       </div>
     </>
