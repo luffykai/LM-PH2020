@@ -15,6 +15,14 @@ import { useDebounce } from "use-debounce";
 
 const db = firebase.firestore();
 
+const getCenterOfGeometry = function (maps, geometry) {
+  let bounds = new maps.LatLngBounds();
+  geometry.forEachLatLng((latlng) => {
+    bounds.extend(latlng);
+  });
+  return bounds.getCenter();
+}
+
 export default function LMCountyRoot() {
   const dataDiv = document.getElementById("county-map-data");
   const county = dataDiv.getAttribute("county");
@@ -53,9 +61,9 @@ export default function LMCountyRoot() {
       });
   }, [county]);
 
-  const apiIsLoaded = (map, _maps) => {
+  const apiIsLoaded = (map, maps) => {
     map.data.addGeoJson(geoJson);
-    map.data.setStyle((feature) => {
+    map.data.setStyle(feature => {
       if (feature.getProperty("階段") === "既有") {
         return {
           visible: false
@@ -67,18 +75,25 @@ export default function LMCountyRoot() {
         strokeWeight: 1
       };
     });
-    map.data.addListener("click", (event) => {
+    map.data.addListener("click", event => {
       setSearchTerm(event.feature.getProperty("案名"));
     });
-    map.data.addListener("mouseover", (event) => {
+    let infowindow;
+    map.data.addListener("mouseover", event => {
       map.data.revertStyle();
       map.data.overrideStyle(event.feature, {
         fillColor: "#f84081",
         strokeWeight: 2
       });
+      infowindow = new maps.InfoWindow({
+        content: `<b>${event.feature.getProperty("案名")}</b>`,
+        position: getCenterOfGeometry(maps, event.feature.getGeometry())
+      });
+      infowindow.open(map);
     });
-    map.data.addListener("mouseout", (_event) => {
+    map.data.addListener("mouseout", _event => {
       map.data.revertStyle();
+      infowindow.close();
     });
   };
 
