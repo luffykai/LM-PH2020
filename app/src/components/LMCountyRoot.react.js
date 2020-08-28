@@ -15,15 +15,6 @@ import { useDebounce } from "use-debounce";
 
 const db = firebase.firestore();
 
-const apiIsLoaded = (map, maps) => {
-  map.data.addGeoJson(geoJson);
-  map.data.setStyle({
-    fillColor: "#fb4a78",
-    strokeColor: "#f84081",
-    strokeWeight: 1
-  });
-};
-
 export default function LMCountyRoot() {
   const dataDiv = document.getElementById("county-map-data");
   const county = dataDiv.getAttribute("county");
@@ -61,6 +52,35 @@ export default function LMCountyRoot() {
         setDocuments(_documemts);
       });
   }, [county]);
+
+  const apiIsLoaded = (map, _maps) => {
+    map.data.addGeoJson(geoJson);
+    map.data.setStyle((feature) => {
+      if (feature.getProperty("階段") === "既有") {
+        return {
+          visible: false
+        };
+      }
+      return {
+        fillColor: "#fb4a78",
+        strokeColor: "#f84081",
+        strokeWeight: 1
+      };
+    });
+    map.data.addListener("click", (event) => {
+      setSearchTerm(event.feature.getProperty("案名"));
+    });
+    map.data.addListener("mouseover", (event) => {
+      map.data.revertStyle();
+      map.data.overrideStyle(event.feature, {
+        fillColor: "#f84081",
+        strokeWeight: 2
+      });
+    });
+    map.data.addListener("mouseout", (_event) => {
+      map.data.revertStyle();
+    });
+  };
 
   let rightContent = null;
   let leftContent = null;

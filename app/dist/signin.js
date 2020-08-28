@@ -1210,7 +1210,7 @@ __webpack_require__(72); // Your web app's Firebase configuration
 
 
 var FIREBASE_CONFIG = {
-  apiKey: ""
+  apiKey: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw"
   /* Please Fill in apiKey */
   ,
   authDomain: "lm-ph2020.firebaseapp.com",
@@ -33317,7 +33317,7 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _firebase_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(46);
+/* harmony import */ var _firebase_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(45);
 /* harmony import */ var _firebase_auth__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firebase_auth__WEBPACK_IMPORTED_MODULE_0__);
 
 //# sourceMappingURL=index.esm.js.map
@@ -34648,7 +34648,7 @@ react_dom_default.a.render( /*#__PURE__*/react_default.a.createElement(LMSignInR
 
 /***/ }),
 
-/***/ 46:
+/***/ 45:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {(function() {var firebase = __webpack_require__(5).default;/*
@@ -35780,7 +35780,7 @@ exports.firebase = firebase$1;
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var firebase = _interopDefault(__webpack_require__(5));
-__webpack_require__(46);
+__webpack_require__(45);
 __webpack_require__(57);
 __webpack_require__(30);
 __webpack_require__(61);
