@@ -35,6 +35,12 @@ module.exports = {
         test: /\.css$/i,
         use: ['css-loader'],
       },
+      {
+        test: /\.geojson$/,
+        use: {
+          loader: 'json-loader'
+        },
+      }
     ],
   },
   optimization: {

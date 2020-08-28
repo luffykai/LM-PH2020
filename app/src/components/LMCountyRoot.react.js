@@ -9,20 +9,19 @@ import LMProjectRow from "./LMProjectRow.react";
 import LMCountySelector from "./LMCountySelector.react";
 import LMNavBar from "./LMNavBar.react";
 import firebase from "./LMFirebase.react";
+import geoJson from "../../public/data/lm-ph2020-wgs84.geojson";
 
 import { useDebounce } from "use-debounce";
 
-const KML_LAYER_URL = "https://firebasestorage.googleapis.com/v0/b/lm-ph2020.appspot.com/o/lm-ph2020.kml?alt=media&token=f2736a44-04ca-4f2e-948a-62a4ca3b4f91";
 const db = firebase.firestore();
 
-
 const apiIsLoaded = (map, maps) => {
-  const kmlLayer = new maps.KmlLayer(KML_LAYER_URL, {
-    suppressInfoWindows: true,
-    preserveViewport: true,
-    map: map
+  map.data.addGeoJson(geoJson);
+  map.data.setStyle({
+    fillColor: "#fb4a78",
+    strokeColor: "#f84081",
+    strokeWeight: 1
   });
-  kmlLayer.addListener('click', function(event) {});
 };
 
 export default function LMCountyRoot() {
@@ -50,13 +49,13 @@ export default function LMCountyRoot() {
       .doc(county)
       .collection("projects")
       .get()
-      .then((querySnapshot) => {
+      .then(querySnapshot => {
         const _documemts = [];
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach(doc => {
           const data = doc.data();
           _documemts.push({
             id: data.projects[0].id,
-            name: data.projects[0].title,
+            name: data.projects[0].title
           });
         });
         setDocuments(_documemts);
@@ -94,7 +93,7 @@ export default function LMCountyRoot() {
 
     leftContent = (
       <LMTaiwanMap
-        onCountyHover={(countyType) => {
+        onCountyHover={countyType => {
           setHoveredCounty(countyType);
         }}
       />
@@ -124,7 +123,7 @@ export default function LMCountyRoot() {
             placeholder="Search for Social Housing Projects..."
             type="text"
             value={searchTerm}
-            onInput={(e) => setSearchTerm(e.target.value)}
+            onInput={e => setSearchTerm(e.target.value)}
           />
         )}
         <div className="collection">
