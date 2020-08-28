@@ -96,26 +96,8 @@ function getTenderDurationAndCompletedTenderCountFromOC4IDs(oc4idsData) {
 
     // Find first tender start Date
     // Value: null or Date Object
-    const tenderStartDate = contractingProcess.releases.reduce(
-      (currentMinTenderDate, release) => {
-        if (
-          release.tender == null ||
-          release.tender.tenderPeriod == null ||
-          release.tender.tenderPeriod.startDate == null
-        ) {
-          return currentMinTenderDate;
-        }
-
-        const foundStartDate = new Date(release.tender.tenderPeriod.startDate);
-        if (currentMinTenderDate == null) {
-          return foundStartDate;
-        }
-
-        return foundStartDate < currentMinTenderDate
-          ? foundStartDate
-          : currentMinTenderDate;
-      },
-      null
+    const tenderStartDate = getContractingProcessEarliestTenderStartDate(
+      contractingProcess
     );
 
     // Find first award and its date
@@ -132,11 +114,11 @@ function getTenderDurationAndCompletedTenderCountFromOC4IDs(oc4idsData) {
         : null;
 
     if (tenderStartDate == null || awardDate == null) {
-      console.log(
-        `At least one of tenderDate: ${
-          tenderStartDate || "null"
-        } or awardDate: ${awardDate || "null"} is null.`
-      );
+      // console.log(
+      //   `At least one of tenderDate: ${
+      //     tenderStartDate || "null"
+      //   } or awardDate: ${awardDate || "null"} is null.`
+      // );
       return;
     }
 
@@ -212,7 +194,7 @@ function getNumberOfShortTitleTenderAndTotalTenderCount(
     );
 
     if (minLengthTitle == null) {
-      console.log("minLengthTitle is null");
+      // console.log("minLengthTitle is null");
       return;
     }
 
@@ -277,8 +259,153 @@ function getBidderCountArrayFromOC4IDs(oc4idsData) {
   return bidderCount;
 }
 
+/*
+{
+  2012: [1,4,5,6,7],
+  2013: [5,6,7,7],
+}
+*/
+
+function getBidderCountArrayInMapFromOC4IDs(oc4idsData) {
+  const bidderCount = [];
+
+  // sanity check
+  if (oc4idsData == null || oc4idsData.contractingProcesses == null) {
+    return [];
+  }
+
+  const { contractingProcesses } = oc4idsData;
+  // contracting process here maps to the multiple columns in one row
+  // of our spreadsheet here.
+  // E.G.
+  // 1st process: Design,
+  // 2nd process: Construction
+
+  /* {
+    2007: [4,5,6],
+  } */
+  const yearToBidderCountArrayMap = Object.create(null);
+  contractingProcesses.forEach((contractingProcess) => {
+    // releases here maps to the multiple tabs in Ronny's data.
+    const releases = contractingProcess.releases;
+    if (releases == null) {
+      return;
+    }
+
+    const bidderSet = new Set();
+
+    releases.forEach((release) => {
+      if (release.tag != null && release.tag.indexOf("award") === -1) {
+        return;
+      }
+
+      const parties = release.parties;
+      if (parties == null) {
+        throw "no parties in award release";
+      }
+
+      parties.forEach((party) => {
+        if (party.roles != null && party.roles.indexOf("tenderer") >= 0) {
+          bidderSet.add(party.name);
+        }
+      });
+    });
+
+    const tenderStartDateFromTenderData = getContractingProcessEarliestTenderStartDate(
+      contractingProcess
+    );
+
+    // Some of the data does not have tender data, but has award data, I guess
+    // for the ones that tenderStartDateFromTenderData is null, we'll just fallback
+    // to awards date to count as the year
+    const _tenderDate =
+      tenderStartDateFromTenderData != null
+        ? tenderStartDateFromTenderData
+        : getContractingProcessAwardDate(contractingProcess);
+    const startMoment = moment(_tenderDate);
+    const startYear = startMoment.year();
+
+    if (startYear in yearToBidderCountArrayMap) {
+      yearToBidderCountArrayMap[startYear].push(bidderSet.size);
+    } else {
+      yearToBidderCountArrayMap[startYear] = [bidderSet.size];
+    }
+  });
+
+  return yearToBidderCountArrayMap;
+}
+
+function getContractingProcessEarliestTenderStartDate(contractingProcess) {
+  if (contractingProcess == null || contractingProcess.releases == null) {
+    console.error("contractingProcess or contractingProcess.releases is null");
+    return null;
+  }
+
+  return contractingProcess.releases.reduce((currentMinTenderDate, release) => {
+    if (
+      release.tender == null ||
+      release.tender.tenderPeriod == null ||
+      release.tender.tenderPeriod.startDate == null
+    ) {
+      return currentMinTenderDate;
+    }
+
+    const foundStartDate = new Date(release.tender.tenderPeriod.startDate);
+    if (currentMinTenderDate == null) {
+      return foundStartDate;
+    }
+
+    return foundStartDate < currentMinTenderDate
+      ? foundStartDate
+      : currentMinTenderDate;
+  }, null);
+}
+
+function getContractingProcessAwardDate(contractingProcess) {
+  if (contractingProcess == null || contractingProcess.releases == null) {
+    console.error("contractingProcess or contractingProcess.releases is null");
+    return null;
+  }
+
+  return contractingProcess.releases.reduce((currentMinAwardDate, release) => {
+    if (
+      release.awards == null ||
+      release.awards[0] == null ||
+      release.awards[0].date == null
+    ) {
+      return currentMinAwardDate;
+    }
+
+    const foundAwardDate = new Date(release.awards[0].date);
+    if (currentMinAwardDate == null) {
+      return foundAwardDate;
+    }
+
+    return foundAwardDate < currentMinAwardDate
+      ? foundAwardDate
+      : currentMinAwardDate;
+  }, null);
+}
+
+function getMedianFromArray(numbers) {
+  const sortedNumbers = [...numbers].sort((a, b) => a - b);
+  const lowerMedian = sortedNumbers[Math.floor(sortedNumbers.length / 2)];
+  const upperMedian = sortedNumbers[Math.ceil(sortedNumbers.length / 2)];
+
+  if (isNaN(lowerMedian) || isNaN(upperMedian)) {
+    console.error(
+      `lowerMedian: ${lowerMedian} or upperMedian: ${upperMedian} is NaN`
+    );
+    return 0;
+  }
+
+  return parseFloat((lowerMedian + upperMedian) / 2).toFixed(2);
+}
+
 module.exports = {
   getBidderCountArrayFromOC4IDs,
+  getBidderCountArrayInMapFromOC4IDs,
+  getMedianFromArray,
   getNumberOfBiddersAndTendersFromOC4IDs,
   getNumberOfShortTitleTenderAndTotalTenderCount,
   getTenderDurationAndCompletedTenderCountFromOC4IDs,

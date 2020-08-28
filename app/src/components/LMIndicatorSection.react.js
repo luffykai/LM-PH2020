@@ -1,27 +1,30 @@
 import React, { useEffect, useRef } from "react";
 import Chartist from "chartist";
 
+const PLACEHOLDER_CHART_DATA = {
+  // A labels array that can contain any sort of values
+  labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+  // Our series array that contains series objects or in this case series data arrays
+  series: [[5, 2, 4, 2, 0]],
+};
+
 // Base Component For each of the metrics
 export default function LMIndicatorSection({
   indicator, // e.g. 6.4%, 3.6, 64
   indicatorSuffix, // string
   description, // string, reasoning of why importance of the metrics
   definition, // React.Node Left Middle Rect. in the mock
-  dataPointArray, // [{year: number, value: number}, ...]
+  chartData, // {labels: [], series: [[12,2,4]]}
   exampleTitle, // string
   exampleSection, // React.Node
   // key, // string for uz
 }) {
-  const data = {
-    // A labels array that can contain any sort of values
-    labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
-    // Our series array that contains series objects or in this case series data arrays
-    series: [[5, 2, 4, 2, 0]],
-  };
-
   const chartRef = useRef(null);
   useEffect(() => {
-    new Chartist.Line(chartRef.current, data);
+    new Chartist.Line(
+      chartRef.current,
+      chartData != null ? chartData : PLACEHOLDER_CHART_DATA
+    );
   }, []);
 
   return (
@@ -53,7 +56,9 @@ export default function LMIndicatorSection({
         >
           <div>{indicator}</div>
           <div style={{ fontSize: 32, position: "relative" }}>
-            <div style={{ position: "absolute", bottom: 0, lineHeight: '28px' }}>
+            <div
+              style={{ position: "absolute", bottom: 0, lineHeight: "28px" }}
+            >
               {indicatorSuffix}
             </div>
           </div>
