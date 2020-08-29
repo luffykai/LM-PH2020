@@ -1,6 +1,7 @@
 "use strict";
 
 import React from "react";
+import LMTenderInfo from "./LMTenderInfo.react";
 
 export default function LMProcurementRelease(props) {
   const release = props.release;
@@ -10,11 +11,8 @@ export default function LMProcurementRelease(props) {
 
   return (
     <>
-      <div id="pocBox">
-        <div className="pocRow">
-          <div>OCID: {release.ocid}</div>
-        </div>
-      </div>
+      {release.tag[0] === "tender" && <LMTenderInfo release={props.release} />}
+      {/* {release.tag[0] === "award" && <LMTenderInfo release={props.release} />} */}
     </>
   );
 }

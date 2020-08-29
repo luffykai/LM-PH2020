@@ -57,54 +57,56 @@ export default function LMProjectRoot() {
     );
   }
   const firstParty = releases[0].parties[0];
-  const buyerName = firstParty.name;
-  const buyerContact = firstParty.contactPoint.name;
+  const contactPoint = firstParty.contactPoint;
 
   return (
     <>
       <LMNavBar />
       <div id="root">
-        <div className="container">
-          <h2>{projectTitle}</h2>
-
-          <h3 className="lm-h2">POC Information</h3>
-
-          <div id="pocBox">
-            <div className="pocRow">
-              <div>Buyer: {buyerName}</div>
-              <div>{buyerContact}</div>
+        <div id="root-bg">
+          <div className="container">
+            {/* Placeholder diff to make space for h2 title */}
+            <div style={{ height: "40px", width: "100%" }} />
+            <h2>{projectTitle}</h2>
+            <div class="row">
+              <div class="col s12 lm-note">
+                <div class="col s3">Buyer: {firstParty.name}</div>
+                <div class="col s3">Contact: {contactPoint.name}</div>
+                <div class="col s3">Tel: {contactPoint.telephone}</div>
+                <div class="col s3">Email: {contactPoint.email}</div>
+              </div>
             </div>
-          </div>
+            <div class="divider"></div>
+            {/* {JSON.stringify(projectData)} */}
+            {project.contractingProcesses.map((progress, index) => {
+              return (
+                <LMProcurement
+                  projectData={projectData}
+                  contractingProgress={progress}
+                  contractIndex={index}
+                  projectID={projectID}
+                  county={county}
+                />
+              );
+            })}
 
-          {/* {JSON.stringify(projectData)} */}
-          {project.contractingProcesses.map((progress, index) => {
-            return (
-              <LMProcurement
-                projectData={projectData}
-                contractingProgress={progress}
-                contractIndex={index}
-                projectID={projectID}
-                county={county}
-              />
-            );
-          })}
-
-          <div>
-            <button
-              onClick={() => {
-                document.getElementById("download-form").submit();
-              }}
-            >
-              Download oc4ids data for this project
-            </button>
-            <form action="../download" id="download-form" method="post">
-              <input
-                name="data"
-                type="hidden"
-                value={JSON.stringify(projectData)}
-              />
-              <input name="filename" type="hidden" value={projectID} />
-            </form>
+            <div>
+              <button
+                onClick={() => {
+                  document.getElementById("download-form").submit();
+                }}
+              >
+                Download oc4ids data for this project
+              </button>
+              <form action="../download" id="download-form" method="post">
+                <input
+                  name="data"
+                  type="hidden"
+                  value={JSON.stringify(projectData)}
+                />
+                <input name="filename" type="hidden" value={projectID} />
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -1,18 +1,56 @@
 .root {
-    width: 90%;
+  width: 90%;
+}
+
+#root-bg {
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/grid.png");
+  background-repeat: true;
 }
 
 .lm-h2 {
-    color: #fb4a78;
-    font-size: 40px;
+  color: #fb4a78;
+  font-size: 40px;
 }
 
+.amount {
+  color: black;
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+.currency {
+    color: black;
+    font-size: 30px;
+    font-weight: bolder;
+  }
+
 #pocBox {
-    background-color: rgba(211,211,211, 0.8);
-    padding: 12px 12px;
+  background-color: rgba(211, 211, 211, 0.8);
+  padding: 12px 12px;
 }
 
 .pocRow {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
+
+.lm-note {
+  color: grey;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.info-bubble {
+  background-color: rgba(255, 128, 171, 0.25);
+  border: 1px solid rgb(255, 64, 129);
+  border-radius: 6px;
+}
+
+/* .tabs .active {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid rgb(255, 64, 129);
+  background-color: rgba(255, 128, 171, 0.4);
+} */

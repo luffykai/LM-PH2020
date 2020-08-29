@@ -14,7 +14,7 @@ export default function LMFileUpload(props) {
 
   const uploadFile = function(filePath, file) {
     if (file == null) {
-      M.toast({html: "No file selected"});
+      M.toast({ html: "No file selected" });
       return;
     }
     var uploadTask = storageRef.child(`${filePath}/${file.name}`).put(file, {
@@ -46,7 +46,7 @@ export default function LMFileUpload(props) {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-          M.toast({html: "File Uploaded"});
+          M.toast({ html: "File Uploaded" });
           const implUpdateRelease = buildOCDSImplUpdateRelease(
             props.ocid,
             props.awardId,
@@ -86,14 +86,14 @@ export default function LMFileUpload(props) {
           <input class="file-path validate" type="text" />
         </div>
         <div class="col s2">
-        <a
-          class="waves-effect waves-light btn"
-          onClick={() => {
-            uploadFile(props.projectID, file);
-          }}
-        >
-          Upload
-        </a>
+          <a
+            class="waves-effect waves-light btn"
+            onClick={() => {
+              uploadFile(props.projectID, file);
+            }}
+          >
+            Upload
+          </a>
         </div>
       </div>
     </form>

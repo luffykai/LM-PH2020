@@ -18,7 +18,8 @@ export default function LMProcurement(props) {
   if (contractingProgress == null || contractingProgress.releases.length == 0) {
     return null;
   }
-  const ocid = contractingProgress.releases[0].ocid;
+  const releases = contractingProgress.releases;
+  const ocid = releases[0].ocid;
   const lastAwardRelease = contractingProgress.releases
     .slice()
     .reverse()
@@ -31,6 +32,19 @@ export default function LMProcurement(props) {
   return (
     <>
       <div class="row">
+        {releases[0].tender && (
+          <div class="row">
+            <div class="col s12 valign-wrapper">
+              <h4 style={{fontWeight: "bolder"}}>{releases[0].tender.title}</h4>
+            </div>
+            <div class="col s12 valign-wrapper">
+              <div class="col s1 currency">NT$ </div>
+              <div class="col s11 amount">
+                {releases[0].tender.value.amount}
+              </div>
+            </div>
+          </div>
+        )}
         <div class="col s12">
           <ul class="tabs">
             {contractingProgress.releases.map((release, index) => {
@@ -44,13 +58,15 @@ export default function LMProcurement(props) {
         </div>
         {contractingProgress.releases.map((release, index) => {
           return (
-            <>
-              <div id={`${release.id}-${index}`} class="col s12">
+            <div id={`${release.id}-${index}`} class="col s12 row info-bubble">
+              <div class="col s12 row">
                 <LMRelease release={release} />
-                {firebase.auth().currentUser &&
-                  lastAwardRelease &&
-                  lastAwardRelease.awards.map(award => {
-                    return (
+              </div>
+              {firebase.auth().currentUser &&
+                lastAwardRelease &&
+                lastAwardRelease.awards.map(award => {
+                  return (
+                    <div class="col s12 row">
                       <LMFileUpload
                         projectData={props.projectData}
                         projectID={props.projectID}
@@ -59,14 +75,14 @@ export default function LMProcurement(props) {
                         awardId={award.id}
                         contractIndex={props.contractIndex}
                       />
-                    );
-                  })}
-              </div>
-            </>
+                    </div>
+                  );
+                })}
+            </div>
           );
         })}
       </div>
-      <div class="divider"></div>
+      <div class="divider row"></div>
     </>
   );
 }
