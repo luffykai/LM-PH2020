@@ -68,7 +68,7 @@ export default function LMFileUpload(props) {
   return (
     <form action="#">
       <div class="file-field input-field">
-        <div class="btn col s2">
+        <div class="btn lm-pink-1 col s2">
           <span>File</span>
           <input
             type="file"
@@ -87,7 +87,7 @@ export default function LMFileUpload(props) {
         </div>
         <div class="col s2">
           <a
-            class="waves-effect waves-light btn"
+            className="btn lm-pink-1"
             onClick={() => {
               uploadFile(props.projectID, file);
             }}

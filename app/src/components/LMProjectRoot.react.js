@@ -91,13 +91,13 @@ export default function LMProjectRoot() {
             })}
 
             <div>
-              <button
+              <a className="btn lm-pink-1"
                 onClick={() => {
                   document.getElementById("download-form").submit();
                 }}
               >
-                Download oc4ids data for this project
-              </button>
+              <i class="material-icons left">file_download</i> OC4IDS Data
+              </a>
               <form action="../download" id="download-form" method="post">
                 <input
                   name="data"
