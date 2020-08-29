@@ -140,7 +140,7 @@ const fieldHandlers = {
       value: { currency: "TWD", amount: parseAmountToInt(value) }
     })
   },
-  "其他:履約地點": (value, ocdsRelease) => {
+  "履約地點": (value, ocdsRelease) => {
     return {
       id: ocdsRelease.tender.title,
       deliveryAddress: { streetAddress: value }
@@ -338,6 +338,72 @@ const fieldHandlers = {
       put(ocdsRelease, "tender.additionalProperties.isSpecialProcurement", true);
     } else {
       put(ocdsRelease, "tender.additionalProperties.isSpecialProcurement", false);
+    }
+    return null;
+  },
+  "是否受機關補助": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.isSponsoredByOrganization", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.isSponsoredByOrganization", false);
+    }
+    return null;
+  },
+  "是否複數決標": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.multipleAward", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.multipleAward", false);
+    }
+    return null;
+  },
+  "是否屬共同供應契約採購": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.procureForMultipleOrganization", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.procureForMultipleOrganization", false);
+    }
+    return null;
+  },
+  "是否提供電子領標": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.allowOnlineTender", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.allowOnlineTender", false);
+    }
+    return null;
+  },
+  "是否提供電子領標:是否提供現場領標": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.allowInPersonTender", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.allowInPersonTender", false);
+    }
+    return null;
+  },
+  "預算金額是否公開": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.isBudgetDisclosed", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.isBudgetDisclosed", false);
     }
     return null;
   },
