@@ -44,13 +44,10 @@ export default function LMProjectRoot() {
     );
   }
 
-  // Currently, there is always only one project.
-  const project = projectData.projects[0];
-  const projectTitle = project.title;
-
   if (
-    project.contractingProcesses == null ||
-    project.contractingProcesses.length === 0
+    projectData.projects == null ||
+    projectData.projects.length === 0 ||
+    projectData.projects[0].contractingProcesses == null
   ) {
     return (
       <>
@@ -59,6 +56,10 @@ export default function LMProjectRoot() {
       </>
     );
   }
+
+  // Currently, there is always only one project.
+  const project = projectData.projects[0];
+  const projectTitle = project.title;
 
   const releases = project.contractingProcesses[0].releases;
   if (!Array.isArray(releases) || releases.length == 0) {
