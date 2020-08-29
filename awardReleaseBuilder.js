@@ -5,7 +5,7 @@ const {
   loadMap,
   parseAddressToOcdsAddress,
   parseTaiwaneseDateStringToDate,
-  parseAmountToInt,
+  parseAmountToInt
 } = require("./LMUtils");
 const put = require("./put.js");
 const fieldHandlers = require("./fieldHandlers");
@@ -25,7 +25,7 @@ const alreadyCoveredItemNamesRegex = /^決標品項:第(\d)品項:.*/;
 
 const AWARD_SPECIFIC_IMPLIED_FIELDS = {
   "最有利標:評選委員": "Already populated with populateCommitteesInParties",
-  "決標品項:決標品項數": "Could be known by length items",
+  "決標品項:決標品項數": "Could be known by length items"
   //"決標資料:決標日期": "Already took care in init",
 };
 
@@ -41,7 +41,7 @@ function getUnitValueAmount(totalAmount, unit) {
 // Path in this mapping is relative to "awards".
 const initializingFields = {
   date: "決標資料:決標日期",
-  title: "已公告資料:標案名稱",
+  title: "已公告資料:標案名稱"
 };
 
 function initiateAwardForSupplier(supplierName, releaseDetail, ocdsRelease) {
@@ -59,7 +59,11 @@ function initiateAwardForSupplier(supplierName, releaseDetail, ocdsRelease) {
       releaseDetail["決標資料:決標日期"]
     ).toISOString()
   );
-  put(award, "title", releaseDetail["已公告資料:標案名稱"]);
+  if (releaseDetail["已公告資料:標案名稱"]) {
+    put(award, "title", releaseDetail["已公告資料:標案名稱"]);
+  } else if (releaseDetail["採購資料:標案名稱"]) {
+    put(award, "title", releaseDetail["採購資料:標案名稱"]);
+  }
   return supplierIdx;
 }
 
@@ -110,8 +114,8 @@ function populateCommitteesInParties(releaseDetail, ocdsRelease) {
       roles: ["reviewBody"],
       details: {
         occupation: committeeMember["職業"],
-        hasAttendedMeeting: committeeMember["出席會議"] === "是" ? true : false,
-      },
+        hasAttendedMeeting: committeeMember["出席會議"] === "是" ? true : false
+      }
     });
   }
 }
@@ -122,9 +126,9 @@ function populateTendererOrgObj(prefix, releaseDetail, ocdsRelease) {
     id: releaseDetail[`${prefix}:廠商代碼`],
     address: parseAddressToOcdsAddress(releaseDetail[`${prefix}:廠商地址`]),
     contactPoint: {
-      telephone: releaseDetail[`${prefix}:廠商電話`],
+      telephone: releaseDetail[`${prefix}:廠商電話`]
     },
-    roles: ["tenderer"],
+    roles: ["tenderer"]
   };
   if (releaseDetail[`${prefix}:是否得標`] === "是") {
     supplierOrgInfo.roles.push("supplier");
@@ -163,7 +167,7 @@ function updateAwards(ocdsRelease) {
     }
     award.value = {
       amount: valueOfAward,
-      currency: "TWD",
+      currency: "TWD"
     };
   }
 }
@@ -264,7 +268,7 @@ const awardReleaseBuilder = {
     populateCommitteesInParties(releaseDetail, ocdsRelease);
     updateSupplierIdInAward(supplierNameToIdMap, ocdsRelease);
     updateAwards(ocdsRelease);
-  },
+  }
 };
 
 module.exports = awardReleaseBuilder;

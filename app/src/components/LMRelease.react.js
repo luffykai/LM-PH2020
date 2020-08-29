@@ -1,6 +1,7 @@
 "use strict";
 
 import React from "react";
+import LMAwardInfo from "./LMAwardInfo.react";
 import LMTenderInfo from "./LMTenderInfo.react";
 
 export default function LMProcurementRelease(props) {
@@ -12,7 +13,12 @@ export default function LMProcurementRelease(props) {
   return (
     <>
       {release.tag[0] === "tender" && <LMTenderInfo release={props.release} />}
-      {/* {release.tag[0] === "award" && <LMTenderInfo release={props.release} />} */}
+      {release.tag[0] === "award" && (
+        <LMAwardInfo
+          release={props.release}
+          uploadContext={props.uploadContext}
+        />
+      )}
     </>
   );
 }

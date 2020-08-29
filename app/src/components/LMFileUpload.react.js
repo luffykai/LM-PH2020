@@ -1,6 +1,6 @@
 "use strict";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import M from "materialize-css/dist/js/materialize.js";
 
 import buildOCDSImplUpdateRelease from "../javascripts/utils/BuildOCDSUtils";
@@ -12,14 +12,16 @@ const db = firebase.firestore();
 export default function LMFileUpload(props) {
   const [file, setFile] = useState(null);
 
-  const uploadFile = function(filePath, file) {
+  const uploadFile = function(file) {
     if (file == null) {
       M.toast({ html: "No file selected" });
       return;
     }
-    var uploadTask = storageRef.child(`${filePath}/${file.name}`).put(file, {
-      contentType: file.type
-    });
+    var uploadTask = storageRef
+      .child(`${props.uploadContext.projectID}/${file.name}`)
+      .put(file, {
+        contentType: file.type
+      });
     // Register three observers:
     // 1. 'state_changed' observer, called any time the state changes
     // 2. Error observer, called on failure
@@ -29,10 +31,11 @@ export default function LMFileUpload(props) {
       function(snapshot) {
         // Observe state change events such as progress, pause, and resume
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        // const progress =
+        //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         switch (snapshot.state) {
           case firebase.storage.TaskState.PAUSED: // or 'paused'
+            M.toast({ html: "Upload paused" });
             break;
           case firebase.storage.TaskState.RUNNING: // or 'running'
             break;
@@ -41,25 +44,26 @@ export default function LMFileUpload(props) {
       function(error) {
         // Handle unsuccessful uploads
         console.log(error);
+        M.toast({ html: "Upload failed" });
       },
       function() {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-          M.toast({ html: "File Uploaded" });
+          M.toast({ html: "File uploaded" });
           const implUpdateRelease = buildOCDSImplUpdateRelease(
-            props.ocid,
+            props.uploadContext.ocid,
             props.awardId,
             [{ fileName: file.name, url: downloadURL, type: file.type }]
           );
-          props.projectData.projects[0].contractingProcesses[
-            props.contractIndex
+          props.uploadContext.projectData.projects[0].contractingProcesses[
+            props.uploadContext.contractIndex
           ].releases.push(implUpdateRelease);
           db.collection("counties")
-            .doc(props.county)
+            .doc(props.uploadContext.county)
             .collection("projects")
-            .doc(props.projectID)
-            .update(props.projectData);
+            .doc(props.uploadContext.projectID)
+            .update(props.uploadContext.projectData);
         });
       }
     );
@@ -89,7 +93,7 @@ export default function LMFileUpload(props) {
           <a
             className="btn lm-pink-1"
             onClick={() => {
-              uploadFile(props.projectID, file);
+              uploadFile(file);
             }}
           >
             Upload

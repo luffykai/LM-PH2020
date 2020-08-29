@@ -2,9 +2,32 @@
 
 import React, { useEffect } from "react";
 import M from "materialize-css/dist/js/materialize.js";
-import firebase from "./LMFirebase.react";
 import LMFileUpload from "./LMFileUpload.react";
 import LMRelease from "./LMRelease.react";
+
+const getProcurementTitle = function(release) {
+  if (release.tender.title != null) {
+    return release.tender.title;
+  }
+  if (!Array.isArray(release.awards) || release.awards.length == 0) {
+    return "unknown";
+  }
+  return release.awards[0].title;
+};
+
+const getTotalAmount = function(release) {
+  if (release.tender.value != null) {
+    return release.tender.value.amount;
+  }
+  if (!Array.isArray(release.awards) || release.awards.length == 0) {
+    return "unknown";
+  }
+  let totalAmount = 0.0;
+  for (const award of release.awards) {
+    totalAmount += award.value.amount;
+  }
+  return totalAmount;
+};
 
 export default function LMProcurement(props) {
   useEffect(() => {
@@ -32,19 +55,17 @@ export default function LMProcurement(props) {
   return (
     <>
       <div class="row">
-        {releases[0].tender && (
-          <div class="row">
-            <div class="col s12 valign-wrapper">
-              <h4 style={{fontWeight: "bolder"}}>{releases[0].tender.title}</h4>
-            </div>
-            <div class="col s12 valign-wrapper">
-              <div class="col s1 currency">NT$ </div>
-              <div class="col s11 amount">
-                {releases[0].tender.value.amount}
-              </div>
-            </div>
+        <div class="row">
+          <div class="col s12 valign-wrapper">
+            <h4 style={{ fontWeight: "bolder" }}>
+              {getProcurementTitle(releases[0])}
+            </h4>
           </div>
-        )}
+          <div class="col s12 valign-wrapper">
+            <div class="col s1 currency">NT$ </div>
+            <div class="col s11 amount">{getTotalAmount(releases[0])}</div>
+          </div>
+        </div>
         <div class="col s12">
           <ul class="tabs">
             {contractingProgress.releases.map((release, index) => {
@@ -60,24 +81,17 @@ export default function LMProcurement(props) {
           return (
             <div id={`${release.id}-${index}`} class="col s12 row info-bubble">
               <div class="col s12 row">
-                <LMRelease release={release} />
+                <LMRelease
+                  release={release}
+                  uploadContext={{
+                    projectData: props.projectData,
+                    projectID: props.projectID,
+                    county: props.county,
+                    contractIndex: props.contractIndex,
+                    ocid: ocid
+                  }}
+                />
               </div>
-              {firebase.auth().currentUser &&
-                lastAwardRelease &&
-                lastAwardRelease.awards.map(award => {
-                  return (
-                    <div class="col s12 row">
-                      <LMFileUpload
-                        projectData={props.projectData}
-                        projectID={props.projectID}
-                        county={props.county}
-                        ocid={ocid}
-                        awardId={award.id}
-                        contractIndex={props.contractIndex}
-                      />
-                    </div>
-                  );
-                })}
             </div>
           );
         })}

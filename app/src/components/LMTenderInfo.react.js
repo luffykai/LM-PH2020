@@ -4,7 +4,7 @@ import React from "react";
 
 export default function LMTenderInfo(props) {
   const release = props.release;
-  if (release == null) {
+  if (release == null || release.tender == null) {
     return null;
   }
 
