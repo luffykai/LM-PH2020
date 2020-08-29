@@ -48,6 +48,14 @@ export default function LMProjectRoot() {
   const project = projectData.projects[0];
   const projectTitle = project.title;
   const releases = project.contractingProcesses[0].releases;
+  if (!Array.isArray(releases) || releases.length == 0) {
+    return (
+      <>
+        <LMNavBar />
+        No releases found.
+      </>
+    );
+  }
   const firstParty = releases[0].parties[0];
   const buyerName = firstParty.name;
   const buyerContact = firstParty.contactPoint.name;

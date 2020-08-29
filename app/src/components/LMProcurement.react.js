@@ -1,11 +1,19 @@
 "use strict";
 
-import React from "react";
+import React, { useEffect } from "react";
+import M from "materialize-css/dist/js/materialize.js";
 import firebase from "./LMFirebase.react";
 import LMFileUpload from "./LMFileUpload.react";
 import LMRelease from "./LMRelease.react";
 
 export default function LMProcurement(props) {
+  useEffect(() => {
+    const tabsDivs = document.getElementsByClassName("tabs");
+    for (const tabsDiv of tabsDivs) {
+      M.Tabs.init(tabsDiv);
+    }
+  });
+
   const contractingProgress = props.contractingProgress;
   if (contractingProgress == null || contractingProgress.releases.length == 0) {
     return null;
@@ -22,27 +30,43 @@ export default function LMProcurement(props) {
 
   return (
     <>
-      <div id="pocBox">
-        <div className="pocRow">
-          <div>ID: {contractingProgress.id}</div>
-          {contractingProgress.releases.map(release => {
-            return <LMRelease release={release} />;
-          })}
-          {firebase.auth().currentUser &&
-            lastAwardRelease.awards.map(award => {
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            {contractingProgress.releases.map((release, index) => {
               return (
-                <LMFileUpload
-                  projectData={props.projectData}
-                  projectID={props.projectID}
-                  county={props.county}
-                  ocid={ocid}
-                  awardId={award.id}
-                  contractIndex={props.contractIndex}
-                />
+                <li class="tab col s3">
+                  <a href={`#${release.id}-${index}`}>{release.tag[0]}</a>
+                </li>
               );
             })}
+          </ul>
         </div>
+        {contractingProgress.releases.map((release, index) => {
+          return (
+            <>
+              <div id={`${release.id}-${index}`} class="col s12">
+                <LMRelease release={release} />
+                {firebase.auth().currentUser &&
+                  lastAwardRelease &&
+                  lastAwardRelease.awards.map(award => {
+                    return (
+                      <LMFileUpload
+                        projectData={props.projectData}
+                        projectID={props.projectID}
+                        county={props.county}
+                        ocid={ocid}
+                        awardId={award.id}
+                        contractIndex={props.contractIndex}
+                      />
+                    );
+                  })}
+              </div>
+            </>
+          );
+        })}
       </div>
+      <div class="divider"></div>
     </>
   );
 }
