@@ -21,7 +21,7 @@ export default function LMProjectRoot() {
       .collection("projects")
       .doc(projectID)
       .get()
-      .then(doc => {
+      .then((doc) => {
         if (doc.exists) {
           console.log("Document data:", doc.data());
           setProjectData(doc.data());
@@ -47,6 +47,19 @@ export default function LMProjectRoot() {
   // Currently, there is always only one project.
   const project = projectData.projects[0];
   const projectTitle = project.title;
+
+  if (
+    project.contractingProcesses == null ||
+    project.contractingProcesses.length === 0
+  ) {
+    return (
+      <>
+        <LMNavBar />
+        No contracting processes found.
+      </>
+    );
+  }
+
   const releases = project.contractingProcesses[0].releases;
   if (!Array.isArray(releases) || releases.length == 0) {
     return (
@@ -91,12 +104,13 @@ export default function LMProjectRoot() {
             })}
 
             <div>
-              <a className="btn lm-pink-1"
+              <a
+                className="btn lm-pink-1"
                 onClick={() => {
                   document.getElementById("download-form").submit();
                 }}
               >
-              <i class="material-icons left">file_download</i> OC4IDS Data
+                <i class="material-icons left">file_download</i> OC4IDS Data
               </a>
               <form action="../download" id="download-form" method="post">
                 <input
