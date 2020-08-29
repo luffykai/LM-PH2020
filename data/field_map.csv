@@ -67,3 +67,4 @@ ronny_field,ocds_path
 "採購級距","tender.additionalProperties.priceRange"
 "採購金額級距","tender.additionalProperties.priceRange"
 "歸屬計畫類別","tender.additionalProperties.belongToProjects[]"
+"辦理方式","tender.additionalProperties.operationMethod"
