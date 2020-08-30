@@ -207,6 +207,7 @@ function getProcurementMethod(methodString) {
     case "選擇性招標(建立合格廠商名單)":
       return "selective";
     case "限制性招標(經公開評選或公開徵求)":
+    case "限制性招標(經公開評選或公開徵求者)":
     case "限制性招標(未經公開評選或公開徵求)":
       return "limited";
     // TODO: Fill in these data

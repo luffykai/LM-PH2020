@@ -57,7 +57,8 @@ main = async function() {
         uid: tokens[1],
         title: tokens[2],
         regex: tokens[3],
-        county: tokens[4]
+        county: tokens[4],
+        latlngs: tokens[5]
       },
       argv.update_db
     );
