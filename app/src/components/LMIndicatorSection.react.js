@@ -97,9 +97,13 @@ export default function LMIndicatorSection({
             border: "1px solid #f8bbd0",
             borderRadius: 10,
             height: "100%",
-            width: 355,
+            // width: 355,
+            minWidth: 400,
+            padding: 4,
           }}
-        />
+        >
+          {definition}
+        </div>
         <div
           style={{
             backgroundColor: "white",
