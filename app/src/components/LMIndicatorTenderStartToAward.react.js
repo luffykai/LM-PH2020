@@ -5,7 +5,7 @@ import LMOCDSIndicatorUtils from "../javascripts/utils/LMOCDSIndicatorUtils";
 const METRIC_DESCRIPTION = `Longer time delays between phases of the contracting process can
  signal inefficiency in the contracting process.`;
 
-export default function LMIndicatorTenderStartToAward({ fullData }) {
+export default function LMIndicatorTenderStartToAward({ fullData, id }) {
   let completedTenderCount = 0;
   let durationCount = 0;
 
@@ -23,14 +23,15 @@ export default function LMIndicatorTenderStartToAward({ fullData }) {
     }
   }
 
-  console.log("completedTenderCount", completedTenderCount);
-  console.log("durationCount", durationCount);
+//   console.log("completedTenderCount", completedTenderCount);
+//   console.log("durationCount", durationCount);
 
   const indicator = parseFloat(durationCount / completedTenderCount).toFixed(2);
 
   return (
     <LMIndicatorSection
       description={METRIC_DESCRIPTION}
+      id={id}
       indicator={indicator}
       indicatorSuffix="days from tender start to award decision"
     />

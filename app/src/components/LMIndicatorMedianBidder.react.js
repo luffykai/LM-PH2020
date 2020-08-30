@@ -11,7 +11,7 @@ const YEARS = Array.from(Array(10), (_, i) => i + 2010);
 
 const startYear = 2013;
 
-export default function LMIndicatorMedianBidder({ fullData }) {
+export default function LMIndicatorMedianBidder({ fullData, id }) {
   let bidderCountArray = [];
   for (let countyKey in fullData) {
     const countyData = fullData[countyKey];
@@ -60,6 +60,7 @@ export default function LMIndicatorMedianBidder({ fullData }) {
     <LMIndicatorSection
       chartData={chartData}
       description={METRIC_DESCRIPTION}
+      id={id}
       indicator={median}
       indicatorSuffix="median # of bidders"
     />

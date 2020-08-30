@@ -40,7 +40,7 @@ function LMIndicatorRoot() {
               <div className="indicator-axis-column">
                 <div className="indicator-axis-name">Market Opportunity</div>
                 <div className="indicator-axis-anchor">
-                  Median Number of Bidders
+                  <a href="#median-bidder">Median Number of Bidders</a>
                 </div>
               </div>
               <div className="indicator-axis-column">
@@ -52,7 +52,9 @@ function LMIndicatorRoot() {
                   Days from tender close to award decision
                 </div>
                 <div className="indicator-axis-anchor">
-                  Days between award date and tender start date
+                  <a href="#tender-start-to-award">
+                    Days between award date and tender start date
+                  </a>
                 </div>
               </div>
               <div className="indicator-axis-column">
@@ -67,18 +69,24 @@ function LMIndicatorRoot() {
                   Percent of tenders that do not specify date of delivery
                 </div>
                 <div className="indicator-axis-anchor">
-                  Percent of tenders with fewer than 10 characters in the title
+                  <a href="#tender-name">
+                    Percent of tenders with fewer than 10 characters in the
+                    title
+                  </a>
                 </div>
               </div>
             </div>
 
             {/* Data Section starts here */}
-            <LMIndicatorMedianBidder fullData={fullData} />
+            <LMIndicatorMedianBidder fullData={fullData} id="median-bidder" />
             <SolidDivider />
-            <LMIndicatorTenderStartToAward fullData={fullData} />
+            <LMIndicatorTenderStartToAward
+              fullData={fullData}
+              id="tender-start-to-award"
+            />
             <SolidDivider />
             {/* <DottedDivider /> */}
-            <LMIndicatorTenderNameLength fullData={fullData} />
+            <LMIndicatorTenderNameLength fullData={fullData} id="tender-name" />
           </div>
         </div>
       </div>

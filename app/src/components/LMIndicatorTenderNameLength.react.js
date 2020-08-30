@@ -9,7 +9,7 @@ const METRIC_DESCRIPTION = `A higher rate of tenders without robust titles may s
 
 const startYear = 2013;
 
-export default function LMIndicatorTenderNameLength({ fullData }) {
+export default function LMIndicatorTenderNameLength({ fullData, id }) {
   const shortTitleObj = { shortTitleTenderCount: 0, tenderCount: 0 };
 
   for (let countyKey in fullData) {
@@ -30,6 +30,7 @@ export default function LMIndicatorTenderNameLength({ fullData }) {
   return (
     <LMIndicatorSection
       description={METRIC_DESCRIPTION}
+      id={id}
       indicator={indicator}
       indicatorSuffix="%"
     />

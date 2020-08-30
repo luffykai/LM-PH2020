@@ -10,6 +10,7 @@ const PLACEHOLDER_CHART_DATA = {
 
 // Base Component For each of the metrics
 export default function LMIndicatorSection({
+  id, // id for href to scroll to
   indicator, // e.g. 6.4%, 3.6, 64
   indicatorSuffix, // string
   description, // string, reasoning of why importance of the metrics
@@ -29,6 +30,7 @@ export default function LMIndicatorSection({
 
   return (
     <div
+      id={id}
       style={{
         display: "flex",
         flexDirection: "column",
