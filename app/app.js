@@ -59,18 +59,19 @@ function deleteFile(file) {
 // TODO: Maybe consider take an ocdsid and fetch from firebase from the backend
 app.post("/download", function (req, res) {
   const fileName = `${req.body.filename}.json`;
-  fs.writeFileSync(fileName, req.body.data);
+  const filePath = `/tmp/${fileName}`;
+  fs.writeFileSync(filePath, req.body.data);
 
   // Let frontend browser know that this is a download file
   res.setHeader("Content-Disposition", `attachment; filename=${fileName}`);
-  const stream = fs.createReadStream(fileName);
+  const stream = fs.createReadStream(filePath);
   stream.pipe(res).once("close", function () {
     stream.destroy(); // makesure stream closed, not close if download aborted.
-    fs.unlink(fileName, function (err) {
+    fs.unlink(filePath, function (err) {
       if (err) {
         console.error(err.toString());
       } else {
-        console.warn(fileName + " deleted");
+        console.warn(filePath + " deleted");
       }
     });
   });
