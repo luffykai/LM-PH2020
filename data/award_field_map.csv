@@ -16,3 +16,4 @@ ronny_field,ocds_path
 "辦理方式","tender.additionalProperties.operationMethod"
 "新增公告傳輸次數","tender.additionalProperties.newAnnouncementIndex"
 "招標文件是否包括使用建築資訊建模BIM(BuildingInformationModeling)之技術","tender.additionalProperties.useBuildingInformationModeling"
+"標的分類","tender.additionalProperties.category"

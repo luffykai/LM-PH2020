@@ -407,6 +407,72 @@ const fieldHandlers = {
     }
     return null;
   },
+  "是否共同投標": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.allowCoBid", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.allowCoBid", false);
+    }
+    return null;
+  },
+  "是否須繳納押標金": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.requireBidDeposit", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.requireBidDeposit", false);
+    }
+    return null;
+  },
+  "是否訂有底價": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.minimumValueExists", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.minimumValueExists", false);
+    }
+    return null;
+  },
+  "是否為商業財物或服務": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.isBusinessProductOrService", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.isBusinessProductOrService", false);
+    }
+    return null;
+  },
+  "是否採用電子競價": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.useEBidding", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.useEBidding", false);
+    }
+    return null;
+  },
+  "價格是否納入評選": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.evaluateOnValue", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.evaluateOnValue", false);
+    }
+    return null;
+  },
   "投標廠商家數": (
     value,
     ocdsRelease

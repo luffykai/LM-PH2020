@@ -69,3 +69,6 @@ ronny_field,ocds_path
 "歸屬計畫類別","tender.additionalProperties.belongToProjects[]"
 "辦理方式","tender.additionalProperties.operationMethod"
 "新增公告傳輸次數","tender.additionalProperties.newAnnouncementIndex"
+"標的分類","tender.additionalProperties.category"
+"是否須繳納押標金:押標金額度","tender.additionalProperties.bidDeposit"
+"是否須繳納押標金:電子押標金有效期","tender.additionalProperties.bidDepositDate"
