@@ -119,12 +119,8 @@ export default function LMProjectRoot() {
                 <i class="material-icons left">file_download</i> OC4IDS Data
               </a>
               <form action="../download" id="download-form" method="post">
-                <input
-                  name="data"
-                  type="hidden"
-                  value={JSON.stringify(projectData)}
-                />
-                <input name="filename" type="hidden" value={projectID} />
+                <input name="county" type="hidden" value={county} />
+                <input name="projectID" type="hidden" value={projectID} />
               </form>
             </div>
           </div>
