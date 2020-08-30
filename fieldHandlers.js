@@ -473,6 +473,50 @@ const fieldHandlers = {
     }
     return null;
   },
+  "是否採行協商措施": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.requireNegotiation", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.requireNegotiation", false);
+    }
+    return null;
+  },
+  "本案採購契約是否採用主管機關訂定之範本": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.useProvidedContractTemplate", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.useProvidedContractTemplate", false);
+    }
+    return null;
+  },
+  "後續擴充": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.hasFollowupProcurement", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.hasFollowupProcurement", false);
+    }
+    return null;
+  },
+  "是否刊登英文公告": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.hasEnglishVersion", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.hasEnglishVersion", false);
+    }
+    return null;
+  },
   "投標廠商家數": (
     value,
     ocdsRelease

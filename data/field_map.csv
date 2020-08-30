@@ -72,3 +72,8 @@ ronny_field,ocds_path
 "標的分類","tender.additionalProperties.category"
 "是否須繳納押標金:押標金額度","tender.additionalProperties.bidDeposit"
 "是否須繳納押標金:電子押標金有效期","tender.additionalProperties.bidDepositDate"
+"疑義、異議、申訴及檢舉受理單位:申訴受理單位","tender.additionalProperties.appealingUnit"
+"疑義、異議、申訴及檢舉受理單位:疑義、異議受理單位","tender.additionalProperties.inquiryUnit"
+"疑義、異議、申訴及檢舉受理單位:檢舉受理單位","tender.additionalProperties.reportingUnit"
+"是否已辦理公開閱覽","tender.additionalProperties.hadPublicReviewed"
+"附加說明","tender.additionalProperties.otherInformation[]"
