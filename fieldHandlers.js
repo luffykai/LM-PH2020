@@ -407,6 +407,12 @@ const fieldHandlers = {
     }
     return null;
   },
+  "投標廠商家數": (
+    value,
+    ocdsRelease
+  ) => {
+    put(ocdsRelease, "tender.numberOfTenderers", parseInt(value))
+  },
   "其他:是否訂有與履約能力有關之特定資格:廠商應附具之特定資格證明文件": (
     value,
     ocdsRelease

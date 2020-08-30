@@ -17,7 +17,8 @@ const ALREADY_IMPLIED_FIELDS = {
   // '採購資料:預算金額是否公開': "",
   "採購資料:本採購案是否屬於建築工程":
     "already covered in getProcurementCategory",
-  是否為商業財物或服務: "already covered in getProcurementCategory"
+  "決標資料:決標日期": "already processed when initializing",
+  "是否為商業財物或服務": "already covered in getProcurementCategory"
 };
 
 Object.defineProperty(String.prototype, "hash", {
