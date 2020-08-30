@@ -1,0 +1,15 @@
+.root {
+  background-image: url('../images/landing_page_bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+#root-bg {
+  height: 100%;
+  width: 100%;
+  background-image: url('../images/grid.png');
+  background-repeat: true;
+}

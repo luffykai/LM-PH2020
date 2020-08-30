@@ -21,7 +21,7 @@ export default function LMProjectRoot() {
       .collection("projects")
       .doc(projectID)
       .get()
-      .then((doc) => {
+      .then(doc => {
         if (doc.exists) {
           console.log("Document data:", doc.data());
           setProjectData(doc.data());
@@ -45,14 +45,17 @@ export default function LMProjectRoot() {
   }
 
   if (
-    projectData.projects == null ||
+    !Array.isArray(projectData.projects) ||
     projectData.projects.length === 0 ||
-    projectData.projects[0].contractingProcesses == null
+    !Array.isArray(projectData.projects[0].contractingProcesses) ||
+    projectData.projects[0].contractingProcesses.length === 0
   ) {
     return (
       <>
         <LMNavBar />
-        No contracting processes found.
+        <div id="root">
+          <div id="root-bg">No contracting processes found.</div>
+        </div>
       </>
     );
   }
@@ -66,7 +69,9 @@ export default function LMProjectRoot() {
     return (
       <>
         <LMNavBar />
-        No releases found.
+        <div id="root">
+          <div id="root-bg">No releases found.</div>
+        </div>
       </>
     );
   }
