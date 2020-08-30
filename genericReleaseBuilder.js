@@ -8,7 +8,7 @@ const {
   ALREADY_IMPLIED_FIELDS,
   NON_MAPPING_FIELDS,
   getStringAfterColon,
-  loadMap,
+  loadMap
 } = require("./LMUtils");
 
 const FIELD_MAP = loadMap();
@@ -45,6 +45,7 @@ const genericReleaseBuilder = {
         let unmapped = true;
         // try the second part only
         path = FIELD_MAP.get(getStringAfterColon(key));
+        path = path != null ? path.replace(/\//g, ".") : null;
         if (path) {
           put(ocdsRelease, path, releaseDetail[key]);
           unmapped = false;
@@ -60,7 +61,7 @@ const genericReleaseBuilder = {
         }
       }
     }
-  },
+  }
 };
 
 module.exports = genericReleaseBuilder;

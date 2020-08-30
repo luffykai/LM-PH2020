@@ -99,6 +99,14 @@ const fieldHandlers = {
       currency: "TWD", amount: parseAmountToInt(value)
     });
   },
+  "標案內容:預算金額": (value, _ocdsRelease) => {
+    if (value == null) {
+      return null;
+    }
+    put(_ocdsRelease, "tender.value", {
+      currency: "TWD", amount: parseAmountToInt(value)
+    });
+  },
   "領投開標:是否提供電子領標:總計": (value, _ocdsRelease) => {
     if (value == null) {
       return null;
