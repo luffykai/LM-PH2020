@@ -485,6 +485,17 @@ const fieldHandlers = {
     }
     return null;
   },
+  "所占配分或權重是否為20%以上": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.evaluateOnValueWithPercentageMoreThan20", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.evaluateOnValueWithPercentageMoreThan20", false);
+    }
+    return null;
+  },
   "是否採行協商措施": (
     value,
     ocdsRelease
@@ -526,6 +537,17 @@ const fieldHandlers = {
       put(ocdsRelease, "tender.additionalProperties.hasEnglishVersion", true);
     } else {
       put(ocdsRelease, "tender.additionalProperties.hasEnglishVersion", false);
+    }
+    return null;
+  },
+  "契約是否訂有依物價指數調整價金規定": (
+    value,
+    ocdsRelease
+  ) => {
+    if (value === "是") {
+      put(ocdsRelease, "tender.additionalProperties.valueAdjustedByPriceIndex", true);
+    } else {
+      put(ocdsRelease, "tender.additionalProperties.valueAdjustedByPriceIndex", false);
     }
     return null;
   },
