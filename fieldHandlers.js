@@ -168,6 +168,10 @@ const fieldHandlers = {
     return date ? date.toISOString() : null;
   },
   "其他:履約期限": (value, _ocdsRelease, releaseDetail) => {
+    if (value == null) return null;
+    // Stores raw contracting due date as string because it's hard to parse.
+    put(_ocdsRelease, "tender.additionalProperties.rawContractDueDate", value); 
+    // Start parsing.   
     const startDate = fieldHandlers["領投開標:開標時間"](
       releaseDetail["領投開標:開標時間"],
       _ocdsRelease
