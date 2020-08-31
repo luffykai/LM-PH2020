@@ -2,10 +2,28 @@
 
 import React, { useEffect } from "react";
 import M from "materialize-css/dist/js/materialize.js";
-import LMFileUpload from "./LMFileUpload.react";
 import LMRelease from "./LMRelease.react";
 
-const getProcurementTitle = function (release) {
+const getReleaseType = function(tag) {
+  switch (tag) {
+    case "award":
+      return "決標公告";
+    case "awardUpdate":
+      return "更正決標公告";
+    case "planning":
+      return "閱覽公告";
+    case "tender":
+      return "招標公告";
+    case "tenderUpdate":
+      return "更正招標公告";
+    case "implementationUpdate":
+      return "執行進度公告";
+    default:
+      return "公告";
+  }
+};
+
+const getProcurementTitle = function(release) {
   if (
     release != null &&
     release.tender != null &&
@@ -19,13 +37,18 @@ const getProcurementTitle = function (release) {
   return release.awards[0].title;
 };
 
-const getTotalAmount = function (release) {
-  if (
-    release != null &&
-    release.tender != null &&
-    release.tender.value != null
-  ) {
-    return release.tender.value.amount;
+const getTotalAmount = function(release) {
+  if (release != null && release.tender != null) {
+    if (release.tender.value != null) {
+      return release.tender.value.amount;
+    }
+    if (
+      release.tender.additionalProperties != null &&
+      release.tender.additionalProperties.isBudgetDisclosed != null &&
+      !release.tender.additionalProperties.isBudgetDisclosed
+    ) {
+      return "預算不公開";
+    }
   }
   if (!Array.isArray(release.awards) || release.awards.length == 0) {
     return "unknown";
@@ -54,7 +77,7 @@ export default function LMProcurement(props) {
   const lastAwardRelease = contractingProgress.releases
     .slice()
     .reverse()
-    .find((release) => {
+    .find(release => {
       return (
         release.tag.includes("award") || release.tag.includes("awardUpdate")
       );
@@ -79,7 +102,9 @@ export default function LMProcurement(props) {
             {contractingProgress.releases.map((release, index) => {
               return (
                 <li class="tab col s3">
-                  <a href={`#${release.id}-${index}`}>{release.tag[0]}</a>
+                  <a href={`#${release.id}-${index}`}>
+                    {getReleaseType(release.tag[0])}
+                  </a>
                 </li>
               );
             })}
@@ -96,7 +121,7 @@ export default function LMProcurement(props) {
                     projectID: props.projectID,
                     county: props.county,
                     contractIndex: props.contractIndex,
-                    ocid: ocid,
+                    ocid: ocid
                   }}
                 />
               </div>

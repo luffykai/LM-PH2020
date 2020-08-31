@@ -53,7 +53,7 @@ export default function LMTaiwanMap({
               key={`path-${i}`}
               d={d3.geoPath().projection(myProjection())(d)}
               className="country"
-              fill={`rgba(56, 190, 121,${(1 / taiwanData.length) * i})`}
+              fill={`rgba(56, 190, 121, ${0.2 + (0.8 / taiwanData.length) * i})`}
               stroke="#FFFFFF"
               strokeWidth={2}
               onMouseOver={() => {

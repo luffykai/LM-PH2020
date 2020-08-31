@@ -88,7 +88,7 @@ export default function LMProjectRoot() {
             <div style={{ height: "40px", width: "100%" }} />
             <h2>{projectTitle}</h2>
             <div class="row">
-              <div class="col s12 lm-note">
+              <div class="col s12 lm-note-s">
                 <div class="col s3">Buyer: {firstParty.name}</div>
                 <div class="col s3">Contact: {contactPoint.name}</div>
                 <div class="col s3">Tel: {contactPoint.telephone}</div>

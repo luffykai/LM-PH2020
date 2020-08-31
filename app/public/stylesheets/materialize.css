@@ -1795,6 +1795,14 @@
   color: #fb4a78 !important;
 }
 
+.lm-pink-2 {
+  background-color: #fd7d9f !important;
+}
+
+.lm-pink-text-2 {
+  color: #fd7d9f !important;
+}
+
 .lm-logo {
   background-image: url('../images/icon_header.svg');
     background-size: cover;

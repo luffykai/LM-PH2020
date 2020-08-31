@@ -12,8 +12,10 @@ export default function LMProcurementRelease(props) {
 
   return (
     <>
-      {release.tag[0] === "tender" && <LMTenderInfo release={props.release} />}
-      {release.tag[0] === "award" && (
+      {(release.tag[0] === "tender") && (
+        <LMTenderInfo release={props.release} />
+      )}
+      {(release.tag[0] === "award") && (
         <LMAwardInfo
           release={props.release}
           uploadContext={props.uploadContext}

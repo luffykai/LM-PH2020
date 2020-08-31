@@ -42,11 +42,17 @@
   justify-content: space-between;
 }
 
-.lm-note {
+.lm-note-s {
   color: grey;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 12pm
 }
+
+.lm-note-m {
+    color: grey;
+    font-weight: bold;
+    font-size: 15px;
+  }
 
 .info-bubble {
   background-color: rgba(255, 128, 171, 0.25);
