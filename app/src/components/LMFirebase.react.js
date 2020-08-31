@@ -6,7 +6,7 @@ require("firebase/firestore");
 
 // Your web app's Firebase configuration
 const FIREBASE_CONFIG = {
-  apiKey: "" /* Please Fill in apiKey */,
+  apiKey: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw" /* Please Fill in apiKey */,
   authDomain: "lm-ph2020.firebaseapp.com",
   databaseURL: "https://lm-ph2020.firebaseio.com",
   projectId: "lm-ph2020",

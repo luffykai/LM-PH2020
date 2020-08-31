@@ -10,7 +10,7 @@ export default function LMNavBar() {
             <a href="#">About Us</a>
           </li>
           <li>
-            <a href="/indicator">Data</a>
+            <a href="/indicator">Indicators</a>
           </li>
           <li>
             <a href="/signin">Official Center</a>

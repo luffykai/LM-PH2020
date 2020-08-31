@@ -1210,7 +1210,7 @@ __webpack_require__(73); // Your web app's Firebase configuration
 
 
 var FIREBASE_CONFIG = {
-  apiKey: ""
+  apiKey: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw"
   /* Please Fill in apiKey */
   ,
   authDomain: "lm-ph2020.firebaseapp.com",
@@ -1248,7 +1248,7 @@ function LMNavBar() {
     href: "#"
   }, "About Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "/indicator"
-  }, "Data")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, "Indicators")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "/signin"
   }, "Official Center")))));
 }
