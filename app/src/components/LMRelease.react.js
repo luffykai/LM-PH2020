@@ -2,6 +2,7 @@
 
 import React from "react";
 import LMAwardInfo from "./LMAwardInfo.react";
+import LMImplUpdateInfo from "./LMImplUpdateInfo.react";
 import LMTenderInfo from "./LMTenderInfo.react";
 
 export default function LMProcurementRelease(props) {
@@ -19,6 +20,11 @@ export default function LMProcurementRelease(props) {
         <LMAwardInfo
           release={props.release}
           uploadContext={props.uploadContext}
+        />
+      )}
+      {(release.tag[0] === "implementationUpdate") && (
+        <LMImplUpdateInfo
+          release={props.release}
         />
       )}
     </>
