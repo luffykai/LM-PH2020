@@ -1210,7 +1210,7 @@ __webpack_require__(73); // Your web app's Firebase configuration
 
 
 var FIREBASE_CONFIG = {
-  apiKey: "AIzaSyBBNbSvm6YtuprugNWiUGxFuEYYAJK36cw"
+  apiKey: ""
   /* Please Fill in apiKey */
   ,
   authDomain: "lm-ph2020.firebaseapp.com",
