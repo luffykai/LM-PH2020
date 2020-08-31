@@ -121,7 +121,7 @@ function LMNavBar() {
   }, "About Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "/indicator"
   }, "Data")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#"
+    href: "/signin"
   }, "Official Center")))));
 }
 
@@ -289,10 +289,7 @@ function LMAppRoot() {
   }, /*#__PURE__*/React.createElement("a", {
     className: "btn-large lm-pink-1",
     href: "/county"
-  }, "I'm \u76E3\u7763\u8005"), /*#__PURE__*/React.createElement("a", {
-    className: "btn-large lm-pink-1 marginLeft-8",
-    href: "/signin"
-  }, "I'm Officials")))));
+  }, "Check Out Social Housing Procurement Data")))));
 }
 
 var domContainer = document.querySelector("#lm_app_root");

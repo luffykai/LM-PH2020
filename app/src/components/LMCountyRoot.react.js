@@ -9,9 +9,62 @@ import LMProjectRow from "./LMProjectRow.react";
 import LMCountySelector from "./LMCountySelector.react";
 import LMNavBar from "./LMNavBar.react";
 import firebase from "./LMFirebase.react";
+import LMCountyTypes from "../javascripts/utils/CountyTypes";
 import geoJson from "../../public/data/lm-ph2020-wgs84.geojson";
+import { countyNameFormatter } from "../javascripts/utils/CountyNameUtils";
 
 import { useDebounce } from "use-debounce";
+
+const HOUSEHOLD_COUNT_MAP = {
+  [LMCountyTypes.HSINCHU]: {
+    household: 233,
+    project: 1,
+  },
+  [LMCountyTypes.KAOHSIUNG]: {
+    household: 1117,
+    project: 8,
+  },
+  [LMCountyTypes.KINMEN]: {
+    household: 72,
+    project: 1,
+  },
+  [LMCountyTypes.LIENCHIANG]: {
+    household: 20,
+    project: 1,
+  },
+  [LMCountyTypes.NANTOU]: {
+    household: 55,
+    project: 2,
+  },
+  [LMCountyTypes.NEW_TAIPEI]: {
+    household: 10134,
+    project: 37,
+  },
+  [LMCountyTypes.PENGHU]: {
+    household: 50,
+    project: 1,
+  },
+  [LMCountyTypes.TAICHUNG]: {
+    household: 6260,
+    project: 22,
+  },
+  [LMCountyTypes.TAINAN]: {
+    household: 800,
+    project: 7,
+  },
+  [LMCountyTypes.TAIPEI]: {
+    household: 16833,
+    project: 51,
+  },
+  [LMCountyTypes.TAITUNG]: {
+    household: 43,
+    project: 1,
+  },
+  [LMCountyTypes.TAOYUAN]: {
+    household: 9667,
+    project: 37,
+  },
+};
 
 const db = firebase.firestore();
 
@@ -21,7 +74,7 @@ const getCenterOfGeometry = function (maps, geometry) {
     bounds.extend(latlng);
   });
   return bounds.getCenter();
-}
+};
 
 export default function LMCountyRoot() {
   const dataDiv = document.getElementById("county-map-data");
@@ -48,13 +101,13 @@ export default function LMCountyRoot() {
       .doc(county)
       .collection("projects")
       .get()
-      .then(querySnapshot => {
+      .then((querySnapshot) => {
         const _documemts = [];
-        querySnapshot.forEach(doc => {
+        querySnapshot.forEach((doc) => {
           const data = doc.data();
           _documemts.push({
             id: data.projects[0].id,
-            name: data.projects[0].title
+            name: data.projects[0].title,
           });
         });
         setDocuments(_documemts);
@@ -63,35 +116,35 @@ export default function LMCountyRoot() {
 
   const apiIsLoaded = (map, maps) => {
     map.data.addGeoJson(geoJson);
-    map.data.setStyle(feature => {
+    map.data.setStyle((feature) => {
       if (feature.getProperty("階段") === "既有") {
         return {
-          visible: false
+          visible: false,
         };
       }
       return {
         fillColor: "#fb4a78",
         strokeColor: "#f84081",
-        strokeWeight: 1
+        strokeWeight: 1,
       };
     });
-    map.data.addListener("click", event => {
+    map.data.addListener("click", (event) => {
       setSearchTerm(event.feature.getProperty("案名"));
     });
     let infowindow;
-    map.data.addListener("mouseover", event => {
+    map.data.addListener("mouseover", (event) => {
       map.data.revertStyle();
       map.data.overrideStyle(event.feature, {
         fillColor: "#f84081",
-        strokeWeight: 2
+        strokeWeight: 2,
       });
       infowindow = new maps.InfoWindow({
         content: `<b>${event.feature.getProperty("案名")}</b>`,
-        position: getCenterOfGeometry(maps, event.feature.getGeometry())
+        position: getCenterOfGeometry(maps, event.feature.getGeometry()),
       });
       infowindow.open(map);
     });
-    map.data.addListener("mouseout", _event => {
+    map.data.addListener("mouseout", (_event) => {
       map.data.revertStyle();
       infowindow.close();
     });
@@ -101,26 +154,38 @@ export default function LMCountyRoot() {
   let leftContent = null;
   /* undefined will be casted to a string during ssr */
   if (county === "undefined") {
+    const currentHouseHold =
+      hoveredCounty == null
+        ? 45284
+        : HOUSEHOLD_COUNT_MAP[hoveredCounty].household;
+    const currentProjectCount =
+      hoveredCounty == null ? 169 : HOUSEHOLD_COUNT_MAP[hoveredCounty].project;
+
     // No county is specified, which means we're showing a Taiwan Map.
     rightContent = (
       <div className="rightContent">
         <div>
+          {hoveredCounty != null && (
+            <div style={{ fontSize: 80 }}>
+              {countyNameFormatter(hoveredCounty)}
+            </div>
+          )}
           <div id="largeMetricAndUnit">
-            <div id="largeMetric">6913</div>
+            <div id="largeMetric">{currentHouseHold}</div>
             <span id="unit">
               House <br />
               Number
             </span>
           </div>
-          <div id="allCases">with {`613`} build cases in this area</div>
-          {hoveredCounty == null ? (
+          <div id="allCases">
+            with {currentProjectCount} housing projects in this area
+          </div>
+          {hoveredCounty == null && (
             <>
               <h5>Choose the county:</h5>
               <div className="marginTop-8"></div>
               <LMCountySelector selectedCounty={null} />
             </>
-          ) : (
-            hoveredCounty
           )}
         </div>
       </div>
@@ -128,7 +193,7 @@ export default function LMCountyRoot() {
 
     leftContent = (
       <LMTaiwanMap
-        onCountyHover={countyType => {
+        onCountyHover={(countyType) => {
           setHoveredCounty(countyType);
         }}
       />
@@ -158,7 +223,7 @@ export default function LMCountyRoot() {
             placeholder="Search for Social Housing Projects..."
             type="text"
             value={searchTerm}
-            onInput={e => setSearchTerm(e.target.value)}
+            onInput={(e) => setSearchTerm(e.target.value)}
           />
         )}
         <div className="collection">
