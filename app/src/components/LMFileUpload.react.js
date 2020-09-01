@@ -70,36 +70,40 @@ export default function LMFileUpload(props) {
   };
 
   return (
-    <form action="#">
-      <div class="file-field input-field">
-        <div class="btn lm-pink-1 col s2">
-          <span>File</span>
-          <input
-            type="file"
-            id="upload"
-            onChange={event => {
-              const fileList = event.target.files;
-              if (fileList.length == 0) {
-                return;
-              }
-              setFile(fileList[0]);
-            }}
-          />
-        </div>
-        <div class="file-path-wrapper col s8">
-          <input class="file-path validate" type="text" />
-        </div>
-        <div class="col s2">
-          <a
-            className="btn lm-pink-1"
-            onClick={() => {
-              uploadFile(file);
-            }}
-          >
-            Upload
-          </a>
-        </div>
+    <div class="row">
+      <div class="col s10">
+        <form action="#">
+          <div class="file-field input-field">
+            <div class="btn lm-pink-1">
+              <span>File</span>
+              <input
+                type="file"
+                id="upload"
+                onChange={event => {
+                  const fileList = event.target.files;
+                  if (fileList.length == 0) {
+                    return;
+                  }
+                  setFile(fileList[0]);
+                }}
+              />
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" />
+            </div>
+          </div>
+        </form>
       </div>
-    </form>
+      <div class="col s2">
+        <a
+          className="btn-large lm-pink-1"
+          onClick={() => {
+            uploadFile(file);
+          }}
+        >
+          Upload
+        </a>
+      </div>
+    </div>
   );
 }
