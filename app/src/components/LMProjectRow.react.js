@@ -49,26 +49,28 @@ export default function LMProjectRow(props) {
             {(new Date(eta) < Date.now() ? "已完工：" : "預計完工：") + eta}
           </div>
           <div className="projectRowDescription">
-            <p>
-              {geoData.county != null && geoData.district != null && (
-                <>
-                  {geoData.county} {geoData.district}
-                  <br></br>
-                </>
-              )}
-              {/* {geoData.address != null && (
+            {geoData != null && (
+              <p>
+                {geoData.county != null && geoData.district != null && (
+                  <>
+                    {geoData.county} {geoData.district}
+                    <br></br>
+                  </>
+                )}
+                {/* {geoData.address != null && (
                 <>
                   {geoData.address}
                   <br></br>
                 </>
               )} */}
-              {geoData.landlord != null && (
-                <>
-                  土地權: {geoData.landlord}
-                  <br></br>
-                </>
-              )}
-            </p>
+                {geoData.landlord != null && (
+                  <>
+                    土地權: {geoData.landlord}
+                    <br></br>
+                  </>
+                )}
+              </p>
+            )}
           </div>
         </div>
       </div>
