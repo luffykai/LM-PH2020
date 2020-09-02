@@ -13,19 +13,20 @@ export default function LMProcurementRelease(props) {
 
   return (
     <>
-      {(release.tag[0] === "tender") && (
-        <LMTenderInfo release={props.release} />
-      )}
-      {(release.tag[0] === "award") && (
+      {release.tag[0] === "tender" && <LMTenderInfo release={props.release} />}
+      {release.tag[0] === "award" && (
         <LMAwardInfo
           release={props.release}
           uploadContext={props.uploadContext}
         />
       )}
-      {(release.tag[0] === "implementationUpdate") && (
-        <LMImplUpdateInfo
-          release={props.release}
-        />
+      {release.tag[0] === "implementationUpdate" && (
+        <LMImplUpdateInfo release={props.release} />
+      )}
+      {(release.tag[0] === "tenderUpdate" ||
+        release.tag[0] === "awardUpdate" ||
+        release.tag[0] === "planning") && (
+        <p className="lm-note-m">under construction</p>
       )}
     </>
   );
