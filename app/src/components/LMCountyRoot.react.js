@@ -12,68 +12,96 @@ import firebase from "./LMFirebase.react";
 import LMCountyTypes from "../javascripts/utils/CountyTypes";
 import geoJson from "../../public/data/lm-ph2020-wgs84.geojson";
 import { countyNameFormatter } from "../javascripts/utils/CountyNameUtils";
-
 import { useDebounce } from "use-debounce";
+
+const taiwaneseYearOffset = 1911;
+const etaRegex = /^(\d{2,3})(?:\.(\d{1,2}))?$/;
 
 const HOUSEHOLD_COUNT_MAP = {
   [LMCountyTypes.HSINCHU]: {
     household: 233,
-    project: 1,
+    project: 1
   },
   [LMCountyTypes.KAOHSIUNG]: {
     household: 1117,
-    project: 8,
+    project: 8
   },
   [LMCountyTypes.KINMEN]: {
     household: 72,
-    project: 1,
+    project: 1
   },
   [LMCountyTypes.LIENCHIANG]: {
     household: 20,
-    project: 1,
+    project: 1
   },
   [LMCountyTypes.NANTOU]: {
     household: 55,
-    project: 2,
+    project: 2
   },
   [LMCountyTypes.NEW_TAIPEI]: {
     household: 10134,
-    project: 37,
+    project: 37
   },
   [LMCountyTypes.PENGHU]: {
     household: 50,
-    project: 1,
+    project: 1
   },
   [LMCountyTypes.TAICHUNG]: {
     household: 6260,
-    project: 22,
+    project: 22
   },
   [LMCountyTypes.TAINAN]: {
     household: 800,
-    project: 7,
+    project: 7
   },
   [LMCountyTypes.TAIPEI]: {
     household: 16833,
-    project: 51,
+    project: 51
   },
   [LMCountyTypes.TAITUNG]: {
     household: 43,
-    project: 1,
+    project: 1
   },
   [LMCountyTypes.TAOYUAN]: {
     household: 9667,
-    project: 37,
-  },
+    project: 37
+  }
 };
 
 const db = firebase.firestore();
+const etaLookupMap = (function() {
+  const map = new Map();
+  for (const feature of geoJson.features) {
+    const properties = feature.properties;
+    if (properties["案名"] == null || properties["預定完"] == null) {
+      continue;
+    }
+    map.set(properties["案名"], properties["預定完"]);
+  }
+  return map;
+})();
 
-const getCenterOfGeometry = function (maps, geometry) {
+const getCenterOfGeometry = function(maps, geometry) {
   let bounds = new maps.LatLngBounds();
-  geometry.forEachLatLng((latlng) => {
+  geometry.forEachLatLng(latlng => {
     bounds.extend(latlng);
   });
   return bounds.getCenter();
+};
+
+const getProjectEta = function(name) {
+  const rawEta = etaLookupMap.get(name);
+  if (rawEta == null) {
+    return "不明";
+  }
+  const match = rawEta.match(etaRegex);
+  if (match == null || match[1] == null) {
+    return "不明";
+  }
+  return (
+    `${parseInt(match[1]) + taiwaneseYearOffset}` +
+    (match[2] != null ? `/${match[2]}` : "")
+  );
 };
 
 export default function LMCountyRoot() {
@@ -101,13 +129,13 @@ export default function LMCountyRoot() {
       .doc(county)
       .collection("projects")
       .get()
-      .then((querySnapshot) => {
+      .then(querySnapshot => {
         const _documemts = [];
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach(doc => {
           const data = doc.data();
           _documemts.push({
             id: data.projects[0].id,
-            name: data.projects[0].title,
+            name: data.projects[0].title
           });
         });
         setDocuments(_documemts);
@@ -116,35 +144,35 @@ export default function LMCountyRoot() {
 
   const apiIsLoaded = (map, maps) => {
     map.data.addGeoJson(geoJson);
-    map.data.setStyle((feature) => {
+    map.data.setStyle(feature => {
       if (feature.getProperty("階段") === "既有") {
         return {
-          visible: false,
+          visible: false
         };
       }
       return {
         fillColor: "#fb4a78",
         strokeColor: "#f84081",
-        strokeWeight: 1,
+        strokeWeight: 1
       };
     });
-    map.data.addListener("click", (event) => {
+    map.data.addListener("click", event => {
       setSearchTerm(event.feature.getProperty("案名"));
     });
     let infowindow;
-    map.data.addListener("mouseover", (event) => {
+    map.data.addListener("mouseover", event => {
       map.data.revertStyle();
       map.data.overrideStyle(event.feature, {
         fillColor: "#f84081",
-        strokeWeight: 2,
+        strokeWeight: 2
       });
       infowindow = new maps.InfoWindow({
         content: `<b>${event.feature.getProperty("案名")}</b>`,
-        position: getCenterOfGeometry(maps, event.feature.getGeometry()),
+        position: getCenterOfGeometry(maps, event.feature.getGeometry())
       });
       infowindow.open(map);
     });
-    map.data.addListener("mouseout", (_event) => {
+    map.data.addListener("mouseout", _event => {
       map.data.revertStyle();
       infowindow.close();
     });
@@ -193,7 +221,7 @@ export default function LMCountyRoot() {
 
     leftContent = (
       <LMTaiwanMap
-        onCountyHover={(countyType) => {
+        onCountyHover={countyType => {
           setHoveredCounty(countyType);
         }}
       />
@@ -223,7 +251,7 @@ export default function LMCountyRoot() {
             placeholder="Search for Social Housing Projects..."
             type="text"
             value={searchTerm}
-            onInput={(e) => setSearchTerm(e.target.value)}
+            onInput={e => setSearchTerm(e.target.value)}
           />
         )}
         <div className="collection">
@@ -235,7 +263,14 @@ export default function LMCountyRoot() {
               return null;
             }
 
-            return <LMProjectRow id={id} county={county} name={name} />;
+            return (
+              <LMProjectRow
+                id={id}
+                county={county}
+                name={name}
+                eta={getProjectEta(name)}
+              />
+            );
           })}
         </div>
       </>
