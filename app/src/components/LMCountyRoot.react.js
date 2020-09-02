@@ -14,9 +14,6 @@ import geoJson from "../../public/data/lm-ph2020-wgs84.geojson";
 import { countyNameFormatter } from "../javascripts/utils/CountyNameUtils";
 import { useDebounce } from "use-debounce";
 
-const taiwaneseYearOffset = 1911;
-const etaRegex = /^(\d{2,3})(?:\.(\d{1,2}))?$/;
-
 const HOUSEHOLD_COUNT_MAP = {
   [LMCountyTypes.HSINCHU]: {
     household: 233,
@@ -69,14 +66,30 @@ const HOUSEHOLD_COUNT_MAP = {
 };
 
 const db = firebase.firestore();
-const etaLookupMap = (function() {
+const geoLookupMap = (function() {
   const map = new Map();
   for (const feature of geoJson.features) {
     const properties = feature.properties;
-    if (properties["案名"] == null || properties["預定完"] == null) {
+    if (properties["案名"] == null) {
       continue;
     }
-    map.set(properties["案名"], properties["預定完"]);
+    let geoData = {};
+    if (properties["預定完"] != null) {
+      geoData.eta = properties["預定完"];
+    }
+    if (properties["縣市"] != null) {
+      geoData.county = properties["縣市"];
+    }
+    if (properties["行政區"] != null) {
+      geoData.district = properties["行政區"];
+    }
+    if (properties["地段號"] != null) {
+      geoData.address = properties["地段號"];
+    }
+    if (properties["土地權"] != null) {
+      geoData.landlord = properties["土地權"];
+    }
+    map.set(properties["案名"], geoData);
   }
   return map;
 })();
@@ -87,21 +100,6 @@ const getCenterOfGeometry = function(maps, geometry) {
     bounds.extend(latlng);
   });
   return bounds.getCenter();
-};
-
-const getProjectEta = function(name) {
-  const rawEta = etaLookupMap.get(name);
-  if (rawEta == null) {
-    return "不明";
-  }
-  const match = rawEta.match(etaRegex);
-  if (match == null || match[1] == null) {
-    return "不明";
-  }
-  return (
-    `${parseInt(match[1]) + taiwaneseYearOffset}` +
-    (match[2] != null ? `/${match[2]}` : "")
-  );
 };
 
 export default function LMCountyRoot() {
@@ -268,7 +266,7 @@ export default function LMCountyRoot() {
                 id={id}
                 county={county}
                 name={name}
-                eta={getProjectEta(name)}
+                geoData={geoLookupMap.get(name)}
               />
             );
           })}

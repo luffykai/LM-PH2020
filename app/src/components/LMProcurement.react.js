@@ -101,7 +101,7 @@ export default function LMProcurement(props) {
           <ul class="tabs">
             {contractingProgress.releases.map((release, index) => {
               return (
-                <li class="tab col s3">
+                <li class="tab">
                   <a href={`#${release.id}-${index}`}>
                     {getReleaseType(release.tag[0])}
                   </a>

@@ -10,7 +10,26 @@ is selected. This component would show
 
 import React from "react";
 
+const taiwaneseYearOffset = 1911;
+const etaRegex = /^(\d{2,3})(?:\.(\d{1,2}))?$/;
+
+const getProjectEta = function(geoData) {
+  if (geoData == null || geoData.eta == null) {
+    return "不明";
+  }
+  const match = geoData.eta.match(etaRegex);
+  if (match == null || match[1] == null) {
+    return "不明";
+  }
+  return (
+    `${parseInt(match[1]) + taiwaneseYearOffset}` +
+    (match[2] != null ? `/${match[2]}` : "")
+  );
+};
+
 export default function LMProjectRow(props) {
+  const geoData = props.geoData;
+  const eta = getProjectEta(geoData);
   return (
     <a
       className="collection-item hoverable"
@@ -27,16 +46,29 @@ export default function LMProjectRow(props) {
           <div className="projectRowStatus statusPlanning">Planning</div>
           <div className="projectRowName">{props.name}</div>
           <div className="projectRowDate">
-            {(new Date(props.eta) < Date.now() ? "已完工：" : "預計完工：") +
-              props.eta}
+            {(new Date(eta) < Date.now() ? "已完工：" : "預計完工：") + eta}
           </div>
           <div className="projectRowDescription">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-            interdum enim quam, in interdum lectus vulputate vel. Duis volutpat
-            augue ligula, sit amet sagittis odio ultricies rhoncus. Vivamus
-            gravida pellentesque nibh, vel ornare nulla varius eu. Vestibulum ac
-            ultrices justo. Suspendisse dolor ex, rhoncus in mi pretium,
-            placerat lobortis nunc.
+            <p>
+              {geoData.county != null && geoData.district != null && (
+                <>
+                  {geoData.county} {geoData.district}
+                  <br></br>
+                </>
+              )}
+              {/* {geoData.address != null && (
+                <>
+                  {geoData.address}
+                  <br></br>
+                </>
+              )} */}
+              {geoData.landlord != null && (
+                <>
+                  土地權: {geoData.landlord}
+                  <br></br>
+                </>
+              )}
+            </p>
           </div>
         </div>
       </div>
