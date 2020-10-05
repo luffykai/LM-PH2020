@@ -5,9 +5,24 @@ from datetime import timedelta
 from datetime import timezone
 
 
+_TW_ADDRESS_REGEX = r'^([0-9]{3,5})?(\w{2}[市縣]{1})(\w{1,2}[區市]{1})(.+)$'
 _TW_DATE_STRING_REGEX = r'^([0-9]{1,3})/([0-9]{1,2})/([0-9]{1,2})$'
 _TW_TIMEZONE = 8
 _TW_YEAR_OFFSET = 1911
+
+def parse_tw_address(raw_address: str) -> dict:
+  p = re.compile(_TW_ADDRESS_REGEX)
+  matches = p.findall(raw_address)
+  assert matches, "Couldn't parse address string with regex."
+  assert len(matches[0]) == 4, "Doesn't match to 4 groups."
+  postal, locality, region, street = matches[0]
+  return {
+    'countryName': '臺灣',
+    'postalCode': postal,
+    'locality': locality,
+    'region': region,
+    'streetAddress': street,
+  }
 
 def parse_tw_amount(raw_amount: str) -> int:
   """Converts TW amount for price to integer by removing spaces, ',' and

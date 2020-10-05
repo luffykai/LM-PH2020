@@ -1,8 +1,35 @@
 import unittest
 
+from tw_ocds_converter.utils.parsing import parse_tw_address
 from tw_ocds_converter.utils.parsing import parse_tw_amount
 from tw_ocds_converter.utils.parsing import parse_tw_datetime
 
+
+class TestParseTwAddress(unittest.TestCase):
+
+  def test_parse_success(self):
+    self.assertEqual(parse_tw_address('106台北市大安區仁愛路四段100號3-2'), {
+        'countryName': '臺灣',
+        'locality': '台北市',
+        'postalCode': '106',
+        'region': '大安區',
+        'streetAddress': '仁愛路四段100號3-2'})
+
+  def test_parse_without_postal_code(self):
+    self.assertEqual(parse_tw_address('台北市大安區仁愛路四段100號3-2'), {
+        'countryName': '臺灣',
+        'locality': '台北市',
+        'postalCode': '',
+        'region': '大安區',
+        'streetAddress': '仁愛路四段100號3-2'})
+
+  def test_failed_missing_locality(self):
+    with self.assertRaises(AssertionError):
+      parse_tw_address('106大安區仁愛路4段100號3-2')
+
+  def test_failed_missing_region(self):
+    with self.assertRaises(AssertionError):
+      parse_tw_address('106台北市仁愛路4段100號3-2')
 
 class TestParseTwAmount(unittest.TestCase):
 
