@@ -7,8 +7,8 @@ from datetime import timezone
 
 _TW_ADDRESS_REGEX = r'^([0-9]{3,5})?(\w{2}[市縣]{1})(\w{1,2}[區市]{1})(.+)$'
 _TW_AMOUNT_REMOVED_CHAR_REGEX = r'[,元\s]'
-_TW_DATE_STRING_REGEX = r'^([0-9]{1,3})/([0-9]{1,2})/([0-9]{1,2})$'
 _TW_COUNTRY_NAME = '臺灣'
+_TW_DATE_STRING_REGEX = r'^([0-9]{1,3})/([0-9]{1,2})/([0-9]{1,2})$'
 _TW_TIMEZONE = 8
 _TW_YEAR_OFFSET = 1911
 
