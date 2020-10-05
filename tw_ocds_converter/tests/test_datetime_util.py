@@ -1,6 +1,6 @@
 import unittest
 
-from tw_ocds_converter.utils.datetime import convert_raw_to_datetime
+from tw_ocds_converter.utils.parsing import convert_raw_to_datetime
 
 
 class TestConvertIsoDateTime(unittest.TestCase):
