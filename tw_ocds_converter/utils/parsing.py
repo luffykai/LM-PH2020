@@ -9,8 +9,17 @@ _TW_DATE_STRING_REGEX = r'^([0-9]{1,3})/([0-9]{1,2})/([0-9]{1,2})$'
 _TW_TIMEZONE = 8
 _TW_YEAR_OFFSET = 1911
 
-def parse_tw_amount(raw_amount: str) -> str:
-  pass
+def parse_tw_amount(raw_amount: str) -> int:
+  """Converts TW amount for price to integer by removing spaces, ',' and
+     '\u5143'('元').
+
+  Args:
+      raw_amount (str): A raw amount with ',' and '元', e.g. '3,000,000元'
+
+  Returns:
+      int: The amount in integer
+  """  
+  return int(re.sub(r'[,\u5143\s]', '', raw_amount))
 
 def parse_tw_datetime(raw_date: str) -> datetime:
   """Converts Taiwanese datetime string into datetime object

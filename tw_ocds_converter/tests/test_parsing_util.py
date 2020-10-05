@@ -1,7 +1,23 @@
 import unittest
 
+from tw_ocds_converter.utils.parsing import parse_tw_amount
 from tw_ocds_converter.utils.parsing import parse_tw_datetime
 
+
+class TestParseTwAmount(unittest.TestCase):
+
+  def test_parse_success(self):
+    self.assertEqual(parse_tw_amount('1,000,000'), 1000000)
+
+  def test_parse_amount_variant(self):
+    self.assertEqual(parse_tw_amount('1,000,000元'), 1000000)
+
+  def test_parse_amount_with_spaces(self):
+    self.assertEqual(parse_tw_amount('1,000,000 元'), 1000000)
+
+  def test_failed_with_unrecognize_char(self):
+    with self.assertRaises(ValueError):
+      parse_tw_amount('1,000,000圓')
 
 class TestParseTwDateTime(unittest.TestCase):
 
