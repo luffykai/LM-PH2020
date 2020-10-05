@@ -11,6 +11,15 @@ _TW_TIMEZONE = 8
 _TW_YEAR_OFFSET = 1911
 
 def parse_tw_address(raw_address: str) -> dict:
+  """Converts TW address into OCDS address JSON structure
+
+  Args:
+      raw_address (str): A raw address string, e.g. '106台北市大安區仁愛路'
+
+  Returns:
+      dict: A dict representing OCDS address JSON structure: countryName,
+            postalCode, locality, region, streetAddress
+  """  
   p = re.compile(_TW_ADDRESS_REGEX)
   matches = p.findall(raw_address)
   assert matches, "Couldn't parse address string with regex."
