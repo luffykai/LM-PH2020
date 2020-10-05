@@ -9,6 +9,9 @@ _TW_DATE_STRING_REGEX = r'^([0-9]{1,3})/([0-9]{1,2})/([0-9]{1,2})$'
 _TW_TIMEZONE = 8
 _TW_YEAR_OFFSET = 1911
 
+def parse_tw_amount(raw_amount: str) -> str:
+  pass
+
 def parse_tw_datetime(raw_date: str) -> datetime:
   """Converts Taiwanese datetime string into datetime object
 
