@@ -6,7 +6,9 @@ from datetime import timezone
 
 
 _TW_ADDRESS_REGEX = r'^([0-9]{3,5})?(\w{2}[市縣]{1})(\w{1,2}[區市]{1})(.+)$'
+_TW_AMOUNT_REMOVED_CHAR_REGEX = r'[,元\s]'
 _TW_DATE_STRING_REGEX = r'^([0-9]{1,3})/([0-9]{1,2})/([0-9]{1,2})$'
+_TW_COUNTRY_NAME = '臺灣'
 _TW_TIMEZONE = 8
 _TW_YEAR_OFFSET = 1911
 
@@ -26,7 +28,7 @@ def parse_tw_address(raw_address: str) -> dict:
   assert len(matches[0]) == 4, "Doesn't match to 4 groups."
   postal, locality, region, street = matches[0]
   return {
-    'countryName': '臺灣',
+    'countryName': _TW_COUNTRY_NAME,
     'postalCode': postal,
     'locality': locality,
     'region': region,
@@ -34,8 +36,7 @@ def parse_tw_address(raw_address: str) -> dict:
   }
 
 def parse_tw_amount(raw_amount: str) -> int:
-  """Converts TW amount for price to integer by removing spaces, ',' and
-     '\u5143'('元').
+  """Converts TW amount for price to integer by removing spaces, ',' and '元'.
 
   Args:
       raw_amount (str): A raw amount with ',' and '元', e.g. '3,000,000元'
@@ -43,7 +44,7 @@ def parse_tw_amount(raw_amount: str) -> int:
   Returns:
       int: The amount in integer
   """  
-  return int(re.sub(r'[,\u5143\s]', '', raw_amount))
+  return int(re.sub(_TW_AMOUNT_REMOVED_CHAR_REGEX, '', raw_amount))
 
 def parse_tw_datetime(raw_date: str) -> datetime:
   """Converts Taiwanese datetime string into datetime object
