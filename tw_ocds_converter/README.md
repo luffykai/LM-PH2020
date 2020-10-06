@@ -1,3 +1,6 @@
+# Style Guide
+Google Python Style Guide: https://google.github.io/styleguide/pyguide.html
+
 # Install
 
 ## Update `PYTHONPATH` to our package can be found
