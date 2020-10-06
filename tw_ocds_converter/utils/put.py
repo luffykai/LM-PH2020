@@ -14,16 +14,16 @@ def _has_array_matches(part: str) -> re.match:
 def _handle_array(matches: re.match, value: Any, last: bool, obj: dict) -> dict:
   name, index_str = matches[0]
   index = int(index_str) if index_str != '' else None
-  assert index == None or index >= 0, 'Index to a list should be non-negative.'
+  assert index is None or index >= 0, 'Index to a list should be non-negative.'
   if name not in obj or not isinstance(obj[name], MutableSequence):
     # List hasn't been initialized yet.
-    if index == None:
+    if index is None:
       index = 0
     obj[name] = [None] * (index + 1)
     obj[name][index] = value
     return obj[name][index]
   # List already exists.
-  if index == None:
+  if index is None:
     index = len(obj[name])
   if index >= len(obj[name]):
     # Array is not large enough.
@@ -64,18 +64,18 @@ def put(path: str, value: Any, release: dict) -> None:
                   }
       value (Any): The value to be set.
       release (dict): The mutable data container
-  """  
+  """
   *parts, last_part = path.split('.')
   obj = release
   for part in parts:
     matches = _has_array_matches(part)
     if matches is not None:
       obj = _handle_array(matches, {}, False, obj)
-      continue      
+      continue
     if part not in obj or not isinstance(obj[part], MutableMapping):
       obj[part] = {}
     obj = obj[part]
-  
+
   matches = _has_array_matches(last_part)
   if matches is not None:
     _ = _handle_array(matches, value, True, obj)

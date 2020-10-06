@@ -21,18 +21,18 @@ def parse_tw_address(raw_address: str) -> dict:
   Returns:
       dict: A dict representing OCDS address JSON structure: countryName,
             postalCode, locality, region, streetAddress
-  """  
+  """
   p = re.compile(_TW_ADDRESS_REGEX)
   matches = p.findall(raw_address)
   assert matches, "Couldn't parse address string with regex."
   assert len(matches[0]) == 4, "Doesn't match to 4 groups."
   postal, locality, region, street = matches[0]
   return {
-    'countryName': _TW_COUNTRY_NAME,
-    'postalCode': postal,
-    'locality': locality,
-    'region': region,
-    'streetAddress': street,
+      'countryName': _TW_COUNTRY_NAME,
+      'postalCode': postal,
+      'locality': locality,
+      'region': region,
+      'streetAddress': street,
   }
 
 def parse_tw_amount(raw_amount: str) -> int:
@@ -43,7 +43,7 @@ def parse_tw_amount(raw_amount: str) -> int:
 
   Returns:
       int: The amount in integer
-  """  
+  """
   return int(re.sub(_TW_AMOUNT_REMOVED_CHAR_REGEX, '', raw_amount))
 
 def parse_tw_datetime(raw_date: str) -> datetime:

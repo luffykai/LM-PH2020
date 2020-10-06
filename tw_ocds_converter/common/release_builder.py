@@ -4,7 +4,7 @@ from tw_ocds_converter.utils.put import put
 
 class ReleaseBuilder:
   """A container for building and accessing OCDS release data.
-  """  
+  """
   def __init__(self):
     self._release = {}
 
@@ -18,6 +18,5 @@ class ReleaseBuilder:
     Args:
         path (str): The path to put the value.
         value (Any): The value to be put.
-    """    
+    """
     put(path, value, self._release)
-
