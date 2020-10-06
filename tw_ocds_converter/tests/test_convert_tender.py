@@ -13,8 +13,7 @@ class TestTenderConversion(unittest.TestCase):
       self._json = json.load(input_json)
 
   def test_parse(self):
-    print(self._json)
-    # self.assertEqual('foo'.upper(), 'FOO')
+    pass
 
 if __name__ == '__main__':
   unittest.main()
