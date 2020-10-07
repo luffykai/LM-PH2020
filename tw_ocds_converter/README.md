@@ -1,9 +1,12 @@
-# Style Guide
+# OCDS Converter for Taiwan Procurement Data
+
+## Style Guide
+
 Google Python Style Guide: https://google.github.io/styleguide/pyguide.html
 
-# Install
+## Install
 
-## Update `PYTHONPATH` to our package can be found
+### Update `PYTHONPATH` to our package can be found
 
 ```shell
 cd LM-PH2020
