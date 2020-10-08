@@ -4,7 +4,7 @@ from typing import Any
 from tw_ocds_converter.utils.put import put
 
 
-class TestReleaseBuilder(unittest.TestCase):
+class TestPutUtil(unittest.TestCase):
 
   def setUp(self):
     self._r = {}

@@ -1,8 +1,9 @@
 from tw_ocds_converter.common.release_builder import ReleaseBuilder
 from tw_ocds_converter.utils.mutation import address_value
+from tw_ocds_converter.utils.mutation import datetime_value
 from tw_ocds_converter.utils.mutation import raw_value
 
-_FIELD_HANDLERS = {
+FIELD_UPDATES = {
     '採購資料:標案案號': {'tender.id': raw_value},
     '採購資料:標案名稱': {'tender.title': raw_value},
     '機關資料:機關地址': {'parties[].address': address_value}
@@ -31,6 +32,8 @@ class ReleaseUpdate:
       mutable_release.put(path, mutation_fn(value))
 
 class FieldHandler:
+  field_updates = FIELD_UPDATES
+
   @classmethod
   def get(cls, key: str) -> ReleaseUpdate:
     """Builds the ReleaseUpdate for processing key from dict in the mutation
@@ -42,7 +45,7 @@ class FieldHandler:
     Returns:
         ReleaseUpdate: Built with dict from mutation mapping.
     """
-    updates = _FIELD_HANDLERS.get(key)
+    updates = cls.field_updates.get(key)
     if not updates:
       return None
     return ReleaseUpdate(updates)

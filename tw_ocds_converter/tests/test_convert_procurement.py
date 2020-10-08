@@ -2,7 +2,7 @@ import json
 import os
 import unittest
 
-from tw_ocds_converter.common.release_builder import ReleaseBuilder
+from tw_ocds_converter.common.generic_release_builder import GenericReleaseBuilder
 from tw_ocds_converter.utils.mapping import field_mapping
 
 _TEST_SRC = os.path.dirname(os.path.realpath(__file__))
@@ -17,10 +17,9 @@ class TestProcurementConversion(unittest.TestCase):
 
   def test_parse(self):
     for record in self._json['records']:
-      r = ReleaseBuilder()
-      for key, value in record['detail'].items():
-        field_mapping(key, value, r)
-      print(r.release)
+      r = GenericReleaseBuilder(record['detail'])
+      r.build()
+      print(r.oc_release)
 
 if __name__ == '__main__':
   unittest.main()
