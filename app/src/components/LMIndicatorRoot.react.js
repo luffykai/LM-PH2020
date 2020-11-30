@@ -8,6 +8,7 @@ import LMIndicatorExceedBudget from "./LMIndicatorExceedBudget.react";
 import LMIndicatorTenderNameLength from "./LMIndicatorTenderNameLength.react";
 import LMIndicatorMedianBidder from "./LMIndicatorMedianBidder.react";
 import LMIndicatorTenderStartToAward from "./LMIndicatorTenderStartToAward.react";
+import LMIndicatorNoDeliveryDate from "./LMIndicatorNoDeliveryDate";
 
 function SolidDivider() {
   return <div className="solid-divider"></div>;
@@ -67,7 +68,9 @@ function LMIndicatorRoot() {
               <div className="indicator-axis-column">
                 <div className="indicator-axis-name">Public Integrity</div>
                 <div className="indicator-axis-anchor">
-                  Percent of tenders that do not specify date of delivery
+                  <a href="#no-delivery">
+                    Percent of tenders that do not specify date of delivery
+                  </a>
                 </div>
                 <div className="indicator-axis-anchor">
                   <a href="#tender-name">
@@ -90,6 +93,10 @@ function LMIndicatorRoot() {
             <LMIndicatorTenderNameLength fullData={fullData} id="tender-name" />
             <SolidDivider />
             <LMIndicatorExceedBudget fullData={fullData} id="exceed-budget" />
+            <SolidDivider />
+            asdf
+            asdf
+            <LMIndicatorNoDeliveryDate fullData={fullData} id="no-delivery" />
           </div>
         </div>
       </div>
