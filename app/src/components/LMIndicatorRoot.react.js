@@ -8,6 +8,7 @@ import LMIndicatorExceedBudget from "./LMIndicatorExceedBudget.react";
 import LMIndicatorTenderNameLength from "./LMIndicatorTenderNameLength.react";
 import LMIndicatorMedianBidder from "./LMIndicatorMedianBidder.react";
 import LMIndicatorTenderStartToAward from "./LMIndicatorTenderStartToAward.react";
+import LMIndicatorTenderCloseToAward from "./LMIndicatorTenderCloseToAward.react";
 
 function SolidDivider() {
   return <div className="solid-divider"></div>;
@@ -84,6 +85,11 @@ function LMIndicatorRoot() {
             <LMIndicatorTenderStartToAward
               fullData={fullData}
               id="tender-start-to-award"
+            />
+            <SolidDivider />
+            <LMIndicatorTenderCloseToAward
+              fullData={fullData}
+              id="tender-close-to-award"
             />
             <SolidDivider />
             {/* <DottedDivider /> */}
