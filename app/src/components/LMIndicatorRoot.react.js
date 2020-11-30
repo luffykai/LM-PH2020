@@ -100,8 +100,6 @@ function LMIndicatorRoot() {
             <SolidDivider />
             <LMIndicatorExceedBudget fullData={fullData} id="exceed-budget" />
             <SolidDivider />
-            asdf
-            asdf
             <LMIndicatorNoDeliveryDate fullData={fullData} id="no-delivery" />
           </div>
         </div>
