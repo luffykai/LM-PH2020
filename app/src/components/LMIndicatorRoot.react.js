@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import LMNavBar from "./LMNavBar.react";
 import React from "react";
 import fullData from "../../public/data/full.json";
+import LMIndicatorExceedBudget from "./LMIndicatorExceedBudget.react";
 import LMIndicatorTenderNameLength from "./LMIndicatorTenderNameLength.react";
 import LMIndicatorMedianBidder from "./LMIndicatorMedianBidder.react";
 import LMIndicatorTenderStartToAward from "./LMIndicatorTenderStartToAward.react";
@@ -87,6 +88,8 @@ function LMIndicatorRoot() {
             <SolidDivider />
             {/* <DottedDivider /> */}
             <LMIndicatorTenderNameLength fullData={fullData} id="tender-name" />
+            <SolidDivider />
+            <LMIndicatorExceedBudget fullData={fullData} id="exceed-budget" />
           </div>
         </div>
       </div>

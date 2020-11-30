@@ -445,9 +445,22 @@ function getMedianFromArray(numbers) {
     return parseFloat((lowerMedian + upperMedian) / 2).toFixed(2);
 }
 
+const getContractEarliestTenderOrAwardStartYear = function(contractingProcess) {
+    const tenderStartDateFromTenderData =
+        getContractingProcessEarliestTenderStartDate(contractingProcess);
+    if (tenderStartDateFromTenderData != null) {
+        return moment(tenderStartDateFromTenderData).year();
+    }
+    // Some of the data does not have tender data, but has award data, I guess
+    // for the ones that tenderStartDateFromTenderData is null, we'll just fallback
+    // to awards date to count as the year
+    return moment(getContractingProcessAwardDate(contractingProcess)).year();
+}
+
 module.exports = {
     getBidderCountArrayFromOC4IDs,
     getBidderCountArrayInMapFromOC4IDs,
+    getContractEarliestTenderOrAwardStartYear,
     getContractingProcessEarliestTenderStartDate,
     getMedianFromArray,
     getNumberOfBiddersAndTendersFromOC4IDs,
