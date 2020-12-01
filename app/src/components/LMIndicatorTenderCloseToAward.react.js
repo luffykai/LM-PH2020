@@ -54,6 +54,7 @@ export default function LMIndicatorTenderCloseToAward({ fullData, id }) {
       }
     }
   }
+  
   const chartData = {};
   chartData.labels = Object.keys(yearDataMap);
   chartData.series = [[]];
