@@ -52,7 +52,9 @@ function LMIndicatorRoot() {
                   Length of Tender Period
                 </div>
                 <div className="indicator-axis-anchor">
-                  Days from tender close to award decision
+                  <a href="#tender-close-to-award">
+                    Days from tender close to award decision
+                  </a>
                 </div>
                 <div className="indicator-axis-anchor">
                   <a href="#tender-start-to-award">
@@ -63,7 +65,9 @@ function LMIndicatorRoot() {
               <div className="indicator-axis-column">
                 <div className="indicator-axis-name">Value for Money</div>
                 <div className="indicator-axis-anchor">
-                  Percent of contracts that exceed budget
+                  <a href="#exceed-budget">
+                    Percent of contracts that exceed budget
+                  </a>
                 </div>
               </div>
               <div className="indicator-axis-column">
