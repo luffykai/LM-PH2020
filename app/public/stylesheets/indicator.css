@@ -9,6 +9,7 @@
     width: 100%;
     background-image: url('../images/grid.png');
     background-repeat: true;
+    padding-bottom: 40px;
 }
 
 #indicator-axis {
@@ -31,7 +32,7 @@
     padding-right: 4px;
 }
 
-.indicator-axis-row{
+.indicator-axis-row {
     display: flex;
     flex-direction: row;
 }
@@ -50,7 +51,7 @@
 }
 
 .dotted-divider {
-    border:none;
-    border-top:1px dashed #ff4081;
-    height:1px;
+    border: none;
+    border-top: 1px dashed #ff4081;
+    height: 1px;
 }

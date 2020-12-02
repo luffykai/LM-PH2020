@@ -10,6 +10,7 @@ import LMIndicatorMedianBidder from "./LMIndicatorMedianBidder.react";
 import LMIndicatorTenderStartToAward from "./LMIndicatorTenderStartToAward.react";
 import LMIndicatorNoDeliveryDate from "./LMIndicatorNoDeliveryDate";
 import LMIndicatorTenderCloseToAward from "./LMIndicatorTenderCloseToAward.react";
+import LMIndicatorLengthOfTenderPeriod from "./LMIndicatorLengthOfTenderPeriod.react";
 
 function SolidDivider() {
   return <div className="solid-divider"></div>;
@@ -49,7 +50,7 @@ function LMIndicatorRoot() {
               <div className="indicator-axis-column">
                 <div className="indicator-axis-name">Internal Efficiency</div>
                 <div className="indicator-axis-anchor">
-                  Length of Tender Period
+                  <a href="#length-of-tender-period">Length of Tender Period</a>
                 </div>
                 <div className="indicator-axis-anchor">
                   <a href="#tender-close-to-award">
@@ -89,6 +90,11 @@ function LMIndicatorRoot() {
             {/* Data Section starts here */}
             <LMIndicatorMedianBidder fullData={fullData} id="median-bidder" />
             <SolidDivider />
+            <LMIndicatorLengthOfTenderPeriod
+              fullData={fullData}
+              id="length-of-tender-period"
+            />
+            <DottedDivider />
             <LMIndicatorTenderStartToAward
               fullData={fullData}
               id="tender-start-to-award"

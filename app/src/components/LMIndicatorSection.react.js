@@ -59,7 +59,12 @@ export default function LMIndicatorSection({
           <div>{indicator}</div>
           <div style={{ fontSize: 32, position: "relative" }}>
             <div
-              style={{ position: "absolute", bottom: 0, lineHeight: "28px" }}
+              style={{
+                position: "absolute",
+                bottom: 0,
+                lineHeight: "20px",
+                fontSize: 20,
+              }}
             >
               {indicatorSuffix}
             </div>
@@ -91,19 +96,21 @@ export default function LMIndicatorSection({
           width: "100%",
         }}
       >
-        <div
-          style={{
-            backgroundColor: "white",
-            border: "1px solid #f8bbd0",
-            borderRadius: 10,
-            height: "100%",
-            // width: 355,
-            minWidth: 400,
-            padding: 4,
-          }}
-        >
-          {definition}
-        </div>
+        {
+          <div
+            style={{
+              backgroundColor: definition != null ? "white" : "transparent",
+              border: definition != null ? "1px solid #f8bbd0" : "",
+              borderRadius: 10,
+              height: "100%",
+              // width: 355,
+              minWidth: 400,
+              padding: 4,
+            }}
+          >
+            {definition}
+          </div>
+        }
         <div
           style={{
             backgroundColor: "white",
@@ -118,7 +125,7 @@ export default function LMIndicatorSection({
       </div>
 
       {/* title + examples */}
-      <div>
+      {/* <div>
         <h5>
           {exampleTitle != null
             ? exampleTitle
@@ -132,7 +139,7 @@ export default function LMIndicatorSection({
             height: 180,
           }}
         ></div>
-      </div>
+      </div> */}
     </div>
   );
 }

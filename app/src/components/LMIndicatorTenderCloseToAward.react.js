@@ -9,25 +9,15 @@ signal inefficiency in the contracting process.`;
 // Create an Array of int from 2010 to 2019.
 const YEARS = Array.from(Array(10), (_, i) => i + 2010);
 
-const getLatestTenderEndDate = function(contract) {
-  for (let i = contract?.releases?.length - 1 ?? -1; i >= 0; --i) {
-    const endDate = contract.releases[i]?.tender?.tenderPeriod?.endDate;
-    if (endDate !== undefined) { 
-      return endDate;
-    }
-  }
-  return null;
-}
-
-const getLatestAwardDecisionDate = function(contract) {
+const getLatestAwardDecisionDate = function (contract) {
   for (let i = contract?.releases?.length - 1 ?? -1; i >= 0; --i) {
     const startDate = contract.releases[i]?.tender?.contractPeriod?.startDate;
-    if (startDate !== undefined) { 
+    if (startDate !== undefined) {
       return startDate;
     }
   }
   return null;
-}
+};
 
 export default function LMIndicatorTenderCloseToAward({ fullData, id }) {
   // Initialize this map
@@ -39,34 +29,41 @@ export default function LMIndicatorTenderCloseToAward({ fullData, id }) {
     const countyData = fullData[countyKey];
     for (let project of countyData.projects) {
       for (let contract of project.contractingProcesses) {
-        const latestTenderEndDate = getLatestTenderEndDate(contract);
+        const latestTenderEndDate = LMOCDSIndicatorUtils.getLatestTenderEndDate(
+          contract
+        );
         const latestAwardDecisionDate = getLatestAwardDecisionDate(contract);
         if (latestTenderEndDate == null || latestAwardDecisionDate == null) {
           continue;
         }
-        const year = LMOCDSIndicatorUtils.getContractEarliestTenderOrAwardStartYear(contract);
+        const year = LMOCDSIndicatorUtils.getContractEarliestTenderOrAwardStartYear(
+          contract
+        );
         if (year in yearDataMap) {
           yearDataMap[year].push(
             moment(new Date(latestAwardDecisionDate)).diff(
-                moment(new Date(latestTenderEndDate)), 'days')
+              moment(new Date(latestTenderEndDate)),
+              "days"
+            )
           );
         }
       }
     }
   }
-  
+
   const chartData = {};
   chartData.labels = Object.keys(yearDataMap);
   chartData.series = [[]];
   for (let year in yearDataMap) {
     chartData.series[0].push(
-      yearDataMap[year].reduce(
-          (acc, curr) => (acc + curr)
-      , 0) / yearDataMap[year].length
+      yearDataMap[year].reduce((acc, curr) => acc + curr, 0) /
+        yearDataMap[year].length
     );
   }
-  const indicator = parseFloat(chartData.series[0].reduce(
-      (acc, curr) => (acc + curr), 0) / chartData.series[0].length).toFixed(2);
+  const indicator = parseFloat(
+    chartData.series[0].reduce((acc, curr) => acc + curr, 0) /
+      chartData.series[0].length
+  ).toFixed(2);
 
   return (
     <LMIndicatorSection
