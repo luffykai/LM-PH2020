@@ -2,13 +2,15 @@ import React from "react";
 import LMIndicatorSection from "./LMIndicatorSection.react";
 import LMOCDSIndicatorUtils from "../javascripts/utils/LMOCDSIndicatorUtils";
 
-const METRIC_DESCRIPTION = `Tenders without specific delivery date 
-may indicate ...`;
+const METRIC_DESCRIPTION = `A higher rate of tenders without date information may signal lack 
+of integrity. If a buyer does not specify the specifics of the milestones needed and their 
+needed dates of delivery, it is difficult for potential bidders to evaluate their capabilities 
+to deliver, potentially leading to them choosing not to bid.`;
 
 // Create an Array of int from 2010 to 2019.
 const YEARS = Array.from(Array(10), (_, i) => i + 2010);
 
-const hasDeliveryDate = function(contract) {
+const hasDeliveryDate = function (contract) {
   for (let release of contract.releases) {
     let endDate = release.tender?.contractPeriod?.endDate;
     if (endDate != null) {
@@ -16,7 +18,7 @@ const hasDeliveryDate = function(contract) {
     }
   }
   return 0;
-}
+};
 
 export default function LMIndicatorNoDeliveryDate({ fullData, id }) {
   // Initialize this map
@@ -29,7 +31,9 @@ export default function LMIndicatorNoDeliveryDate({ fullData, id }) {
     for (let project of countyData.projects) {
       for (let contract of project.contractingProcesses) {
         let ok = hasDeliveryDate(contract);
-        const year = LMOCDSIndicatorUtils.getContractEarliestTenderOrAwardStartYear(contract);
+        const year = LMOCDSIndicatorUtils.getContractEarliestTenderOrAwardStartYear(
+          contract
+        );
         if (year in yearDataMap) {
           yearDataMap[year].push(ok);
         }
@@ -42,17 +46,21 @@ export default function LMIndicatorNoDeliveryDate({ fullData, id }) {
   for (let year in yearDataMap) {
     chartData.series[0].push(
       // sum / length
-      1 - yearDataMap[year].reduce((a, b) => a + b, 0) / yearDataMap[year].length
+      1 -
+        yearDataMap[year].reduce((a, b) => a + b, 0) / yearDataMap[year].length
     );
   }
-  let allAvg = chartData.series[0].reduce((a, b) => a + b, 0) / chartData.series[0].length * 100;
+  let allAvg =
+    (chartData.series[0].reduce((a, b) => a + b, 0) /
+      chartData.series[0].length) *
+    100;
   return (
     <LMIndicatorSection
       chartData={chartData}
       description={METRIC_DESCRIPTION}
       id={id}
       indicator={allAvg.toFixed(2)}
-      indicatorSuffix="%"
+      indicatorSuffix="% of tenders that do not specify date of delivery"
     />
   );
 }

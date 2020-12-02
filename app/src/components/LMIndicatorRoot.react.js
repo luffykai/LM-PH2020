@@ -8,16 +8,12 @@ import LMIndicatorExceedBudget from "./LMIndicatorExceedBudget.react";
 import LMIndicatorTenderNameLength from "./LMIndicatorTenderNameLength.react";
 import LMIndicatorMedianBidder from "./LMIndicatorMedianBidder.react";
 import LMIndicatorTenderStartToAward from "./LMIndicatorTenderStartToAward.react";
-import LMIndicatorNoDeliveryDate from "./LMIndicatorNoDeliveryDate";
+import LMIndicatorNoDeliveryDate from "./LMIndicatorNoDeliveryDate.react";
 import LMIndicatorTenderCloseToAward from "./LMIndicatorTenderCloseToAward.react";
 import LMIndicatorLengthOfTenderPeriod from "./LMIndicatorLengthOfTenderPeriod.react";
 
 function SolidDivider() {
   return <div className="solid-divider"></div>;
-}
-
-function DottedDivider() {
-  return <div className="dotted-divider"></div>;
 }
 
 function LMIndicatorRoot() {
@@ -37,7 +33,7 @@ function LMIndicatorRoot() {
             <div id="social-housing-indicator-context"></div>
 
             <h4>
-              There following are 8 indicators to measure the quality of
+              There following are 7 indicators to measure the quality of
               bidding:
             </h4>
             <div id="indicator-axis">
@@ -80,7 +76,7 @@ function LMIndicatorRoot() {
                 </div>
                 <div className="indicator-axis-anchor">
                   <a href="#tender-name">
-                    Percent of tenders with fewer than 10 characters in the
+                    Percent of tenders with fewer than 18 characters in the
                     title
                   </a>
                 </div>
@@ -94,7 +90,7 @@ function LMIndicatorRoot() {
               fullData={fullData}
               id="length-of-tender-period"
             />
-            <DottedDivider />
+            <SolidDivider />
             <LMIndicatorTenderStartToAward
               fullData={fullData}
               id="tender-start-to-award"

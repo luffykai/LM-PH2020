@@ -3,9 +3,9 @@ import LMIndicatorSection from "./LMIndicatorSection.react";
 import LMOCDSIndicatorUtils from "../javascripts/utils/LMOCDSIndicatorUtils";
 import moment from "moment";
 
-const METRIC_DESCRIPTION = `A higher median number of bidders per tender
-may indicate limited sole-sourcing and that tenders fairer competition.
-It may indicate increased competition and trust in the contracting system.`;
+const METRIC_DESCRIPTION = `Longer tender periods and longer time delays between 
+phases of the contracting process can signal inefficiency in the contracting 
+process.`;
 
 // Create an Array of int from 2010 to 2019.
 const YEARS = Array.from(Array(10), (_, i) => i + 2010);
