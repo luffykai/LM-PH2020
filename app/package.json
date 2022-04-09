@@ -19,7 +19,7 @@
     "google-map-react": "^2.0.8",
     "http-errors": "~1.6.3",
     "materialize-css": "^1.0.0-rc.2",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "morgan": "~1.9.1",
     "node-fetch": "^2.6.1",
     "pug": "^3.0.0",
